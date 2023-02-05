@@ -192,3 +192,22 @@ report_data TEXT NOT NULL,
 FOREIGN KEY (ID_USUARIO) REFERENCES USUARIO (ID_USUARIO),
 FOREIGN KEY (ID_REPORTE) REFERENCES TIPO_REPORTE (TIPO_REPORTE_ID)
 );
+
+-- tables updated 
+
+
+-- 1: Una residencia debe pertenecer a un usuario.
+-- Resolucion : Se une la tabla residencia con usuario
+ALTER TABLE RESIDENCIA
+ADD ID_USUARIO INT;
+
+ALTER TABLE RESIDENCIA
+ADD FOREIGN KEY (ID_USUARIO) REFERENCES USUARIO(ID_USUARIO);
+
+
+-- 2: Los planes de cobro no se asignan en ninguna tabla o relación.
+-- Resolucion : De esta manera, cada residencia tendrá un plan de cobro asociado y puede acceder a la información sobre el plan a través de la clave externa.
+
+ALTER TABLE RESIDENCIA
+ADD ID_PLAN_COBRO INT NOT NULL,
+    FOREIGN KEY (ID_PLAN_COBRO) REFERENCES PLAN_COBRO(ID_PLAN_COBRO);
