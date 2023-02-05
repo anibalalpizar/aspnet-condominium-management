@@ -47,5 +47,11 @@
     <Folder Include="DTOS\" />
     <Folder Include="Services\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Infraestructure\Infraestructure.csproj">
+      <Project>{008a84a9-333d-423b-8eed-09c1b94028ae}</Project>
+      <Name>Infraestructure</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
