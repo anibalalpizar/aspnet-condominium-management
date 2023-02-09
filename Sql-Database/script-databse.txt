@@ -211,3 +211,10 @@ ADD FOREIGN KEY (ID_USUARIO) REFERENCES USUARIO(ID_USUARIO);
 ALTER TABLE RESIDENCIA
 ADD ID_PLAN_COBRO INT NOT NULL,
     FOREIGN KEY (ID_PLAN_COBRO) REFERENCES PLAN_COBRO(ID_PLAN_COBRO);
+
+
+-- 6: No queda claro como se estable la gestión de las áreas comunes, un horario para las áreas comunes o rangos para la asignación? Cómo se gestiona este aspecto?
+-- Resolucion: la tabla 'AREA COMUN' específica por medio de un ID el area y en el otro campo espifica una descripcion del area, en su tabla padre 'RESERVA AREA COMUN', donde se pueda registrar información como Horario de disponibilidad, y la posibilidad de reservar un tiempo específico.
+-- Además, se puede tener una tabla adicional para las reservas, donde se registre la fecha y hora de la reserva, el nombre del usuario que realiza la reserva y el nombre de la área común que se está reservando.
+-- Para gestionar los horarios de disponibilidad y los rangos de asignación, es necesario tener una lógica en el código que permita a los usuarios verificar si una área común está disponible en un horario específico y, en caso afirmativo, realizar una reserva. Esto puede lograrse mediante una combinación de consultas SQL y programación.
+-- En resumen, la gestión de las áreas comunes y su asignación requiere de una combinación de estructuras de datos y lógica de programación para asegurar una asignación efectiva y una gestión eficiente.
