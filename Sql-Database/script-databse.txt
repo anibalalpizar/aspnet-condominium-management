@@ -218,3 +218,79 @@ ADD ID_PLAN_COBRO INT NOT NULL,
 -- Además, se puede tener una tabla adicional para las reservas, donde se registre la fecha y hora de la reserva, el nombre del usuario que realiza la reserva y el nombre de la área común que se está reservando.
 -- Para gestionar los horarios de disponibilidad y los rangos de asignación, es necesario tener una lógica en el código que permita a los usuarios verificar si una área común está disponible en un horario específico y, en caso afirmativo, realizar una reserva. Esto puede lograrse mediante una combinación de consultas SQL y programación.
 -- En resumen, la gestión de las áreas comunes y su asignación requiere de una combinación de estructuras de datos y lógica de programación para asegurar una asignación efectiva y una gestión eficiente.
+
+
+
+
+
+
+-- INSERTS
+
+
+
+INSERT INTO TIPO_USUARIO (TIPO_USUARIO) VALUES ('Administrador');
+INSERT INTO TIPO_USUARIO (TIPO_USUARIO) VALUES ('Residente');
+
+INSERT INTO ESTADO_USUARIO (ESTADO) VALUES ('Activo');
+INSERT INTO ESTADO_USUARIO (ESTADO) VALUES ('Inactivo')
+
+INSERT INTO USUARIO (ID_TIPO_USUARIO, ID_ESTADO, NOMBRE, APELLIDO, CORREO, CONTRASENA)
+VALUES (1, 1, 'John', 'Doe', 'johndoe@example.com', 'password');
+
+INSERT INTO USUARIO (ID_TIPO_USUARIO, ID_ESTADO, NOMBRE, APELLIDO, CORREO, CONTRASENA)
+VALUES (1, 1, 'Pedro', 'Pérez', 'pedroperez@email.com', 'password123'),
+(2, 2, 'María', 'Rodríguez', 'mariarodriguez@email.com', 'password456');
+
+INSERT INTO ESTADO_INCIDENCIA (ESTADO_INCIDENCIA) VALUES ('Abierta');
+INSERT INTO ESTADO_INCIDENCIA (ESTADO_INCIDENCIA) VALUES ('Cerrada');
+
+INSERT INTO INCIDENCIA (ID_USUARIO, ID_ESTADO_INCIDENCIA, DESCRIPCION)
+VALUES (1, 1, 'Problema con la iluminación en el garaje.');
+
+INSERT INTO TIPO_NOTICIA (TIPO_NOTICIA) VALUES ('Anuncio');
+INSERT INTO TIPO_NOTICIA (TIPO_NOTICIA) VALUES ('Noticia');
+
+INSERT INTO NOTICIA (ID_TIPO_NOTICIA, TITULO, CONTENIDO)
+VALUES (1, 'Evento comunitario', 'Habrá barbacoa el próximo fin de semana');
+
+INSERT INTO ESTADO_RESERVACION (ESTADO_RESERVACION) VALUES ('Confirmada');
+INSERT INTO ESTADO_RESERVACION (ESTADO_RESERVACION) VALUES ('Cancelada');
+
+INSERT INTO AREA_COMUN (AREA_COMUN) VALUES ('Piscina');
+INSERT INTO AREA_COMUN (AREA_COMUN) VALUES ('Gimnasio');
+
+INSERT INTO RESERVACION (ID_USUARIO, ID_AREA_COMUN, ID_ESTADO_RESERVACION, FECHA_RESERVACION)
+VALUES (1, 1, 1, '2022-01-01 10:00:00');
+
+INSERT INTO ESTADO_RESIDENCIA (ESTADO_RESIDENCIA) VALUES ('Disponible');
+INSERT INTO ESTADO_RESIDENCIA (ESTADO_RESIDENCIA) VALUES ('Ocupada');
+
+INSERT INTO PLAN_COBRO (NOMBRE_PLAN, DESCRIPCION) 
+VALUES ('Plan Básico', 'Incluye servicios básicos de agua, luz y gas');
+
+INSERT INTO PLAN_COBRO (NOMBRE_PLAN, DESCRIPCION) 
+VALUES ('Premium', 'Este plan ofrece todas las características premium');
+
+INSERT INTO RESIDENCIA (ID_ESTADO_RESIDENCIA, NUMERO_RESIDENCIA, NOMBRE_DUEÑO, CANTIDAD_PERSONAS, ANIO_INICIO, CANTIDAD_CARROS, ID_PLAN_COBRO)
+VALUES (1, 123, 'Juan Perez', 4, 2022, 2, 3);
+
+INSERT INTO ESTADO_DEUDA (NOMBRE_ESTADO_DEUDA)
+VALUES ('PENDIENTE');
+
+INSERT INTO ESTADO_DEUDA (NOMBRE_ESTADO_DEUDA)
+VALUES ('PAGADO');
+
+INSERT INTO GESTION_DEUDA (ID_RESIDENCIA, MES, ANIO, MONTO, FECHA_VENCIMIENTO, ID_ESTADO_DEUDA, DETALLES_RUBROS, FECHA_PAGO)
+VALUES (5, 2, 2022, 100.00, '2022-03-01', 1, 'Cuota condominio', '2022-03-15');
+
+INSERT INTO GESTION_DEUDA (ID_RESIDENCIA, MES, ANIO, MONTO, FECHA_VENCIMIENTO, ID_ESTADO_DEUDA, DETALLES_RUBROS, FECHA_PAGO)
+VALUES (5, 2, 2022, 500.00, '2022-03-01', 1, 'Mantenimiento de áreas comunes', '2022-03-10');
+
+INSERT INTO GESTION_PLANES_COBRO (ID_PLAN_COBRO, ID_RESIDENTE, FECHA_INICIO, FECHA_FIN, MONTO, FRECUENCIA_COBRO, ESTADO_COBRO)
+VALUES (1, 1, '2023-01-01', '2023-12-31', 100.00, 'Mensual', 'Pendiente');
+
+INSERT INTO GESTION_PLANES_COBRO (ID_PLAN_COBRO, ID_RESIDENTE, FECHA_INICIO, FECHA_FIN, MONTO, FRECUENCIA_COBRO, ESTADO_COBRO)
+VALUES (2, 2, '2022-05-01', '2022-12-31', 200.00, 'Mensual', 'Activo');
+
+INSERT INTO GESTION_PLANES_COBRO (ID_PLAN_COBRO, ID_RESIDENTE, FECHA_INICIO, FECHA_FIN, MONTO, FRECUENCIA_COBRO, ESTADO_COBRO)
+VALUES (3, 3, '2023-03-01', '2023-06-30', 300.00, 'Quincenal', 'Activo');
