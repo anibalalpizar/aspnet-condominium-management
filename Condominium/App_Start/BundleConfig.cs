@@ -11,6 +11,9 @@ namespace Condominium
             bundles.Add(new Bundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 
+            bundles.Add(new Bundle("~/bundles/complement").Include(
+                        "~/Scripts/scripts.js"));
+
             //bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
             //            "~/Scripts/jquery.validate*"));
 
@@ -23,7 +26,7 @@ namespace Condominium
                       "~/Scripts/bootstrap.bundle.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/site.css"));
+                      "~/Content/Site.css"));
         }
     }
 }
