@@ -294,3 +294,30 @@ VALUES (2, 2, '2022-05-01', '2022-12-31', 200.00, 'Mensual', 'Activo');
 
 INSERT INTO GESTION_PLANES_COBRO (ID_PLAN_COBRO, ID_RESIDENTE, FECHA_INICIO, FECHA_FIN, MONTO, FRECUENCIA_COBRO, ESTADO_COBRO)
 VALUES (3, 3, '2023-03-01', '2023-06-30', 300.00, 'Quincenal', 'Activo');
+
+INSERT INTO RUBRO_COBRO (NOMBRE_RUBRO, MONTO)
+VALUES
+('Agua', 250.00),
+('Luz', 300.00),
+('Gas', 200.00),
+('Internet', 150.00);
+
+
+--La tabla PLAN_COBRO_RUBRO_COBRO es una tabla de asociación o de intermediario que permite establecer la relación entre los planes de cobro y los rubros de cobro. 
+--La función de esta tabla es registrar y mantener información sobre qué rubros de cobro están asociados a qué planes de cobro.
+
+--Al tener esta información, se puede llevar un seguimiento más detallado y preciso de los montos que se deben cobrar por cada plan de cobro, 
+--así como de los rubros de cobro que se incluyen en cada plan. Esto puede ser útil, por ejemplo, para generar reportes detallados sobre el presupuesto y las finanzas del condominio
+
+INSERT INTO TIPO_REPORTE (TIPO_REPORTE_ID, NOMBRE_REPORTE, DESCRIPCIÓN_REPORTE)
+VALUES (1, 'Reporte mensual de gastos', 'Este reporte muestra un resumen mensual de todos los gastos del condominio'),
+(2, 'Reporte anual de ingresos', 'Este reporte muestra un resumen anual de todos los ingresos del condominio'),
+(3, 'Reporte de cobros pendientes', 'Este reporte muestra una lista de todas las cuentas pendientes de cobro en el condominio');
+
+
+INSERT INTO REPORTES (ID_REPORTE, ID_USUARIO, report_type_id, report_date, report_data)
+VALUES (1, 1, 1, '2023-02-09', 'Reporte de gastos del mes de enero');
+
+
+INSERT INTO RESERVA_AREA_COMUN (ID_USUARIO, ID_AREA_COMUN, FECHA_RESERVA, HORA_INICIO, HORA_FIN, ID_ESTADO_RESERVACION, COMENTARIOS, CREADO_POR, ACTUALIZADO_POR)
+VALUES (1, 1, '2023-03-01', '10:00', '12:00', 1, 'Reservación para reunión de vecinos', 1, 1);
