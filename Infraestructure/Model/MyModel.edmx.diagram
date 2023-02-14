@@ -4,28 +4,28 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="2eb3bd1d856c424186a4fb7ab6eb1977" Name="Diagram1" ZoomLevel="51">
+      <Diagram DiagramId="538625b3f1754c788917b8538b16862f" Name="Diagram1" ZoomLevel="115">
         <EntityTypeShape EntityType="CONDOMINIOSModel.AREA_COMUN" Width="1.5" PointX="6" PointY="4.375" IsExpanded="true" />
         <EntityTypeShape EntityType="CONDOMINIOSModel.ESTADO_DEUDA" Width="1.5" PointX="8.25" PointY="19.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CONDOMINIOSModel.ESTADO_INCIDENCIA" Width="1.5" PointX="6" PointY="19.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CONDOMINIOSModel.ESTADO_RESERVACION" Width="1.5" PointX="6" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="CONDOMINIOSModel.ESTADO_RESERVACION" Width="1.5" PointX="6" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="CONDOMINIOSModel.ESTADO_RESIDENCIA" Width="1.5" PointX="6" PointY="22.375" IsExpanded="true" />
         <EntityTypeShape EntityType="CONDOMINIOSModel.ESTADO_USUARIO" Width="1.5" PointX="0.75" PointY="11.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CONDOMINIOSModel.GESTION_DEUDA" Width="1.5" PointX="10.5" PointY="14.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="CONDOMINIOSModel.GESTION_PLANES_COBRO" Width="1.5" PointX="5.25" PointY="11.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="CONDOMINIOSModel.INCIDENCIA" Width="1.5" PointX="8.25" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CONDOMINIOSModel.GESTION_PLANES_COBRO" Width="1.5" PointX="5.25" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CONDOMINIOSModel.INCIDENCIA" Width="1.5" PointX="8.25" PointY="11.25" IsExpanded="true" />
         <EntityTypeShape EntityType="CONDOMINIOSModel.NOTICIA" Width="1.5" PointX="11" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="CONDOMINIOSModel.PLAN_COBRO" Width="1.5" PointX="6" PointY="24.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CONDOMINIOSModel.REPORTE" Width="1.5" PointX="5.25" PointY="7.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="CONDOMINIOSModel.RESERVA_AREA_COMUN" Width="1.5" PointX="5.25" PointY="14.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="CONDOMINIOSModel.RESERVACION" Width="1.5" PointX="8.25" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CONDOMINIOSModel.PLAN_COBRO" Width="1.5" PointX="6" PointY="24.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CONDOMINIOSModel.REPORTE" Width="1.5" PointX="5.25" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CONDOMINIOSModel.RESERVA_AREA_COMUN" Width="1.5" PointX="5.25" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CONDOMINIOSModel.RESERVACION" Width="1.5" PointX="8.25" PointY="7" IsExpanded="true" />
         <EntityTypeShape EntityType="CONDOMINIOSModel.RESIDENCIA" Width="1.5" PointX="8.25" PointY="14.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="CONDOMINIOSModel.RUBRO_COBRO" Width="1.5" PointX="8.25" PointY="24.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CONDOMINIOSModel.RUBRO_COBRO" Width="1.5" PointX="8.25" PointY="24.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CONDOMINIOSModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CONDOMINIOSModel.TIPO_NOTICIA" Width="1.5" PointX="8.75" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="CONDOMINIOSModel.TIPO_REPORTE" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CONDOMINIOSModel.TIPO_REPORTE" Width="1.5" PointX="3" PointY="7.625" IsExpanded="true" />
         <EntityTypeShape EntityType="CONDOMINIOSModel.TIPO_USUARIO" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CONDOMINIOSModel.USUARIO" Width="1.5" PointX="3" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CONDOMINIOSModel.USUARIO" Width="1.5" PointX="3" PointY="10.5" IsExpanded="true" />
         <AssociationConnector Association="CONDOMINIOSModel.FK__RESERVA_A__ID_AR__6383C8BA" ManuallyRouted="false" />
         <AssociationConnector Association="CONDOMINIOSModel.FK__RESERVACI__ID_AR__5165187F" ManuallyRouted="false" />
         <AssociationConnector Association="CONDOMINIOSModel.FK__GESTION_D__ID_ES__6B24EA82" ManuallyRouted="false" />

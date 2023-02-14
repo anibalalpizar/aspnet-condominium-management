@@ -17,13 +17,13 @@ namespace Infraestructure.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public TIPO_NOTICIA()
         {
-            this.NOTICIAs = new HashSet<NOTICIA>();
+            this.NOTICIA = new HashSet<NOTICIA>();
         }
     
         public int ID_TIPO_NOTICIA { get; set; }
         public string TIPO_NOTICIA1 { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<NOTICIA> NOTICIAs { get; set; }
+        public virtual ICollection<NOTICIA> NOTICIA { get; set; }
     }
 }

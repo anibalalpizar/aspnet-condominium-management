@@ -158,7 +158,6 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
           <Property Name="ID_RESIDENCIA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_ESTADO_RESIDENCIA" Type="int" Nullable="false" />
           <Property Name="NUMERO_RESIDENCIA" Type="int" Nullable="false" />
-          <Property Name="NOMBRE_DUEÑO" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="CANTIDAD_PERSONAS" Type="int" Nullable="false" />
           <Property Name="ANIO_INICIO" Type="int" Nullable="false" />
           <Property Name="CANTIDAD_CARROS" Type="int" Nullable="false" />
@@ -754,7 +753,6 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
           <Property Name="ID_RESIDENCIA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_ESTADO_RESIDENCIA" Type="Int32" Nullable="false" />
           <Property Name="NUMERO_RESIDENCIA" Type="Int32" Nullable="false" />
-          <Property Name="NOMBRE_DUEÑO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="CANTIDAD_PERSONAS" Type="Int32" Nullable="false" />
           <Property Name="ANIO_INICIO" Type="Int32" Nullable="false" />
           <Property Name="CANTIDAD_CARROS" Type="Int32" Nullable="false" />
@@ -790,7 +788,7 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
           </Key>
           <Property Name="ID_TIPO_NOTICIA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TIPO_NOTICIA1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="NOTICIAs" Relationship="Self.FK__NOTICIA__ID_TIPO__48CFD27E" FromRole="TIPO_NOTICIA" ToRole="NOTICIA" />
+          <NavigationProperty Name="NOTICIA" Relationship="Self.FK__NOTICIA__ID_TIPO__48CFD27E" FromRole="TIPO_NOTICIA" ToRole="NOTICIA" />
         </EntityType>
         <EntityType Name="TIPO_REPORTE">
           <Key>
@@ -1326,7 +1324,6 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
                 <ScalarProperty Name="ID_RESIDENCIA" ColumnName="ID_RESIDENCIA" />
                 <ScalarProperty Name="ID_ESTADO_RESIDENCIA" ColumnName="ID_ESTADO_RESIDENCIA" />
                 <ScalarProperty Name="NUMERO_RESIDENCIA" ColumnName="NUMERO_RESIDENCIA" />
-                <ScalarProperty Name="NOMBRE_DUEÑO" ColumnName="NOMBRE_DUEÑO" />
                 <ScalarProperty Name="CANTIDAD_PERSONAS" ColumnName="CANTIDAD_PERSONAS" />
                 <ScalarProperty Name="ANIO_INICIO" ColumnName="ANIO_INICIO" />
                 <ScalarProperty Name="CANTIDAD_CARROS" ColumnName="CANTIDAD_CARROS" />
