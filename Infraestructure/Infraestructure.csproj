@@ -103,7 +103,7 @@
     <Compile Include="Model\PLAN_COBRO.cs">
       <DependentUpon>MyModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\REPORTE.cs">
+    <Compile Include="Model\REPORTES.cs">
       <DependentUpon>MyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\RESERVACION.cs">
@@ -118,7 +118,7 @@
     <Compile Include="Model\RUBRO_COBRO.cs">
       <DependentUpon>MyModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\sysdiagram.cs">
+    <Compile Include="Model\sysdiagrams.cs">
       <DependentUpon>MyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\TIPO_NOTICIA.cs">

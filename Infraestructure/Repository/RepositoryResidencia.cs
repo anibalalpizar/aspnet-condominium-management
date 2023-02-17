@@ -17,7 +17,7 @@ namespace Infraestructure.Repository
                 using (MyContext ctx = new MyContext())
                 {
                     ctx.Configuration.LazyLoadingEnabled = false;
-                    lista = ctx.RESIDENCIAs.Include("USUARIO").ToList();
+                    lista = ctx.RESIDENCIA.Include("USUARIO").ToList();
                     
 
                 }

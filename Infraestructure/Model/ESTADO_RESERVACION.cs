@@ -18,7 +18,7 @@ namespace Infraestructure.Model
         public ESTADO_RESERVACION()
         {
             this.RESERVA_AREA_COMUN = new HashSet<RESERVA_AREA_COMUN>();
-            this.RESERVACIONs = new HashSet<RESERVACION>();
+            this.RESERVACION = new HashSet<RESERVACION>();
         }
     
         public int ID_ESTADO_RESERVACION { get; set; }
@@ -27,6 +27,6 @@ namespace Infraestructure.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RESERVA_AREA_COMUN> RESERVA_AREA_COMUN { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RESERVACION> RESERVACIONs { get; set; }
+        public virtual ICollection<RESERVACION> RESERVACION { get; set; }
     }
 }

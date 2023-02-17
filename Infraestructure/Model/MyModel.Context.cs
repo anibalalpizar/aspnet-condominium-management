@@ -33,18 +33,18 @@ namespace Infraestructure.Model
         public virtual DbSet<ESTADO_USUARIO> ESTADO_USUARIO { get; set; }
         public virtual DbSet<GESTION_DEUDA> GESTION_DEUDA { get; set; }
         public virtual DbSet<GESTION_PLANES_COBRO> GESTION_PLANES_COBRO { get; set; }
-        public virtual DbSet<INCIDENCIA> INCIDENCIAs { get; set; }
-        public virtual DbSet<NOTICIA> NOTICIAs { get; set; }
+        public virtual DbSet<INCIDENCIA> INCIDENCIA { get; set; }
+        public virtual DbSet<NOTICIA> NOTICIA { get; set; }
         public virtual DbSet<PLAN_COBRO> PLAN_COBRO { get; set; }
-        public virtual DbSet<REPORTE> REPORTES { get; set; }
+        public virtual DbSet<REPORTES> REPORTES { get; set; }
         public virtual DbSet<RESERVA_AREA_COMUN> RESERVA_AREA_COMUN { get; set; }
-        public virtual DbSet<RESERVACION> RESERVACIONs { get; set; }
-        public virtual DbSet<RESIDENCIA> RESIDENCIAs { get; set; }
+        public virtual DbSet<RESERVACION> RESERVACION { get; set; }
+        public virtual DbSet<RESIDENCIA> RESIDENCIA { get; set; }
         public virtual DbSet<RUBRO_COBRO> RUBRO_COBRO { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<TIPO_NOTICIA> TIPO_NOTICIA { get; set; }
         public virtual DbSet<TIPO_REPORTE> TIPO_REPORTE { get; set; }
         public virtual DbSet<TIPO_USUARIO> TIPO_USUARIO { get; set; }
-        public virtual DbSet<USUARIO> USUARIOs { get; set; }
+        public virtual DbSet<USUARIO> USUARIO { get; set; }
     }
 }

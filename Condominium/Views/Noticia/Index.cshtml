@@ -26,6 +26,9 @@
         <th>
             @Html.DisplayNameFor(model => model.FECHA_PUBLICACION)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TIPO_NOTICIA)
+        </th>
         <th></th>
     </tr>
 
@@ -46,6 +49,12 @@
         <td>
             @Html.DisplayFor(modelItem => item.FECHA_PUBLICACION)
         </td>
+
+        <th>
+            @Html.DisplayNameFor(model => model.TIPO_NOTICIA)
+        </th>
+
+        
         <td>
             @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
             @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |

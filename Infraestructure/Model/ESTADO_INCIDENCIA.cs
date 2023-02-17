@@ -17,13 +17,13 @@ namespace Infraestructure.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public ESTADO_INCIDENCIA()
         {
-            this.INCIDENCIAs = new HashSet<INCIDENCIA>();
+            this.INCIDENCIA = new HashSet<INCIDENCIA>();
         }
     
         public int ID_ESTADO_INCIDENCIA { get; set; }
         public string ESTADO_INCIDENCIA1 { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<INCIDENCIA> INCIDENCIAs { get; set; }
+        public virtual ICollection<INCIDENCIA> INCIDENCIA { get; set; }
     }
 }

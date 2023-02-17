@@ -12,15 +12,12 @@ namespace Infraestructure.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class REPORTE
+    public partial class sysdiagrams
     {
-        public int ID_REPORTE { get; set; }
-        public int ID_USUARIO { get; set; }
-        public int report_type_id { get; set; }
-        public System.DateTime report_date { get; set; }
-        public string report_data { get; set; }
-    
-        public virtual TIPO_REPORTE TIPO_REPORTE { get; set; }
-        public virtual USUARIO USUARIO { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

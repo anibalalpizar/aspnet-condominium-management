@@ -1,9 +1,10 @@
-﻿using Infraestructure.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data.Entity;
 using System.Text;
-using System.Threading.Tasks;
+using System.Web;
+using Infraestructure.Model;
 
 namespace Infraestructure.Repository
 {
@@ -14,13 +15,13 @@ namespace Infraestructure.Repository
             try
             {
                 IEnumerable<NOTICIA> lista = null;
-                using(MyContext ctx = new MyContext())
+                using(CONDOMINIOSEntities ctx = new CONDOMINIOSEntities())
                 {
                     ctx.Configuration.LazyLoadingEnabled = false;
                     //lista = ctx.NOTICIAs.ToList<NOTICIA>();
 
                     // obtener todos las noticias incluyendo el tipo de noticia (Anuncio o Noticia)
-                    lista = ctx.NOTICIAs.Include(x => x.TIPO_NOTICIA1).ToList();
+                    lista = ctx.NOTICIA.Include(x => x.TIPO_NOTICIA).ToList();
 
                 }
                 return lista;

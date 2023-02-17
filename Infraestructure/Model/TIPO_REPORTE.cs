@@ -18,6 +18,6 @@ namespace Infraestructure.Model
         public string NOMBRE_REPORTE { get; set; }
         public string DESCRIPCIÓN_REPORTE { get; set; }
     
-        public virtual REPORTE REPORTE { get; set; }
+        public virtual REPORTES REPORTES { get; set; }
     }
 }

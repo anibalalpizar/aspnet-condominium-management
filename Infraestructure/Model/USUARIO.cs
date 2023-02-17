@@ -18,11 +18,11 @@ namespace Infraestructure.Model
         public USUARIO()
         {
             this.GESTION_PLANES_COBRO = new HashSet<GESTION_PLANES_COBRO>();
-            this.INCIDENCIAs = new HashSet<INCIDENCIA>();
-            this.REPORTES = new HashSet<REPORTE>();
+            this.INCIDENCIA = new HashSet<INCIDENCIA>();
+            this.REPORTES = new HashSet<REPORTES>();
             this.RESERVA_AREA_COMUN = new HashSet<RESERVA_AREA_COMUN>();
-            this.RESERVACIONs = new HashSet<RESERVACION>();
-            this.RESIDENCIAs = new HashSet<RESIDENCIA>();
+            this.RESERVACION = new HashSet<RESERVACION>();
+            this.RESIDENCIA = new HashSet<RESIDENCIA>();
         }
     
         public int ID_USUARIO { get; set; }
@@ -37,15 +37,15 @@ namespace Infraestructure.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GESTION_PLANES_COBRO> GESTION_PLANES_COBRO { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<INCIDENCIA> INCIDENCIAs { get; set; }
+        public virtual ICollection<INCIDENCIA> INCIDENCIA { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<REPORTE> REPORTES { get; set; }
+        public virtual ICollection<REPORTES> REPORTES { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RESERVA_AREA_COMUN> RESERVA_AREA_COMUN { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RESERVACION> RESERVACIONs { get; set; }
+        public virtual ICollection<RESERVACION> RESERVACION { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RESIDENCIA> RESIDENCIAs { get; set; }
+        public virtual ICollection<RESIDENCIA> RESIDENCIA { get; set; }
         public virtual TIPO_USUARIO TIPO_USUARIO { get; set; }
     }
 }

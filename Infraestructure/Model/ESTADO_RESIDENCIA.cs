@@ -17,13 +17,13 @@ namespace Infraestructure.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public ESTADO_RESIDENCIA()
         {
-            this.RESIDENCIAs = new HashSet<RESIDENCIA>();
+            this.RESIDENCIA = new HashSet<RESIDENCIA>();
         }
     
         public int ID_ESTADO_RESIDENCIA { get; set; }
         public string ESTADO_RESIDENCIA1 { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RESIDENCIA> RESIDENCIAs { get; set; }
+        public virtual ICollection<RESIDENCIA> RESIDENCIA { get; set; }
     }
 }
