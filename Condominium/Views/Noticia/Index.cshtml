@@ -15,9 +15,6 @@
             @Html.DisplayNameFor(model => model.ID_NOTICIA)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ID_TIPO_NOTICIA)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.TITULO)
         </th>
         <th>
@@ -27,8 +24,9 @@
             @Html.DisplayNameFor(model => model.FECHA_PUBLICACION)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.TIPO_NOTICIA)
+            @Html.DisplayNameFor(model => model.TIPO_NOTICIA.TIPO_NOTICIA_INFO)
         </th>
+        
         <th></th>
     </tr>
 
@@ -36,9 +34,6 @@
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.ID_NOTICIA)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ID_TIPO_NOTICIA)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.TITULO)
@@ -49,12 +44,8 @@
         <td>
             @Html.DisplayFor(modelItem => item.FECHA_PUBLICACION)
         </td>
-
-        <th>
-            @Html.DisplayNameFor(model => model.TIPO_NOTICIA)
-        </th>
-
-        
+        <td>
+            @Html.DisplayFor(modelItem => item.TIPO_NOTICIA.TIPO_NOTICIA_INFO)
         <td>
             @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
             @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |

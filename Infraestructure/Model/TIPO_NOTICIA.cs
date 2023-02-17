@@ -21,7 +21,7 @@ namespace Infraestructure.Model
         }
     
         public int ID_TIPO_NOTICIA { get; set; }
-        public string TIPO_NOTICIA1 { get; set; }
+        public string TIPO_NOTICIA_INFO { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<NOTICIA> NOTICIA { get; set; }

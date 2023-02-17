@@ -26,8 +26,6 @@ namespace Infraestructure.Model
         }
     
         public int ID_USUARIO { get; set; }
-        public int ID_TIPO_USUARIO { get; set; }
-        public int ID_ESTADO { get; set; }
         public string NOMBRE { get; set; }
         public string APELLIDO { get; set; }
         public string CORREO { get; set; }

@@ -15,7 +15,6 @@ namespace Infraestructure.Model
     public partial class GESTION_PLANES_COBRO
     {
         public int ID_PLAN_COBRO { get; set; }
-        public int ID_RESIDENTE { get; set; }
         public System.DateTime FECHA_INICIO { get; set; }
         public System.DateTime FECHA_FIN { get; set; }
         public decimal MONTO { get; set; }

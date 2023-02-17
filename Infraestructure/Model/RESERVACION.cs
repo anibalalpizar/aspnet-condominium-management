@@ -15,9 +15,6 @@ namespace Infraestructure.Model
     public partial class RESERVACION
     {
         public int ID_RESERVACION { get; set; }
-        public int ID_USUARIO { get; set; }
-        public int ID_AREA_COMUN { get; set; }
-        public int ID_ESTADO_RESERVACION { get; set; }
         public System.DateTime FECHA_RESERVACION { get; set; }
         public System.DateTime FECHA_CREACION { get; set; }
         public System.DateTime FECHA_FIN_RESERVACION { get; set; }

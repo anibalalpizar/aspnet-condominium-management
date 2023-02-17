@@ -21,7 +21,7 @@ namespace Infraestructure.Repository
                     //lista = ctx.NOTICIAs.ToList<NOTICIA>();
 
                     // obtener todos las noticias incluyendo el tipo de noticia (Anuncio o Noticia)
-                    lista = ctx.NOTICIA.Include(x => x.TIPO_NOTICIA).ToList();
+                    lista = ctx.NOTICIA.Include(x => x.TIPO_NOTICIA).ToList<NOTICIA>();
 
                 }
                 return lista;
