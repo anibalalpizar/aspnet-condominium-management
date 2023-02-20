@@ -25,6 +25,32 @@ namespace Condominium.Controllers
                 throw;
             }
         }
+        public ActionResult Details(int? id)
+        {
+            IServicePlanCobro _serviceResidencia = new ServicePlanCobro();
+            GESTION_PLANES_COBRO planCobro = null;
+            try
+            {
+                // si va null
+                if (id == null)
+                {
+                    return RedirectToAction("Index");
+                }
+                planCobro = _serviceResidencia.GetPlanCobroById(Convert.ToInt32(id));
+                if (planCobro == null)
+                {
+                    TempData["Message"] = "No se encontro el registro";
+                    TempData["Redirect"] = "PlanCobro";
+                    TempData["Redirect-Action"] = "Index";
+                    return RedirectToAction("Default", "Error");
+                }
+                return View(planCobro);
+            }
+            catch
+            {
+                throw;
+            }
+        }
 
     }
 }

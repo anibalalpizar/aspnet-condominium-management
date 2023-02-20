@@ -10,5 +10,6 @@ namespace Infraestructure.Repository
     public interface IRepositoryPlanCobro
     {
         IEnumerable<GESTION_PLANES_COBRO> GetPlanCobro();
+        GESTION_PLANES_COBRO GetPlanCobroById(int id);
     }
 }

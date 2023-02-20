@@ -39,7 +39,8 @@ namespace Condominium.Controllers
                     return RedirectToAction("Index");
                 }
                 residencia = _serviceResidencia.GetResidenciaById(Convert.ToInt32(id));
-                if(residencia == null){
+                if (residencia == null)
+                {
                     TempData["Message"] = "No se encontro el registro";
                     TempData["Redirect"] = "Residencia";
                     TempData["Redirect-Action"] = "Index";
@@ -51,7 +52,7 @@ namespace Condominium.Controllers
             {
                 throw;
             }
+        }
     }
-    }
-    
+
 }

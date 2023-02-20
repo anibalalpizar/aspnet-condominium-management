@@ -26,5 +26,22 @@ namespace Infraestructure.Repository
             }
             return listaPlanesCobro;
         }
+
+        public GESTION_PLANES_COBRO GetPlanCobroById(int id)
+        {
+            GESTION_PLANES_COBRO planCobro = new GESTION_PLANES_COBRO();
+            try
+            {
+                using (MyContext ctx = new MyContext())
+                {
+                    planCobro = ctx.GESTION_PLANES_COBRO.Where(x => x.ID_PLAN_COBRO == id).FirstOrDefault();
+                }
+            }
+            catch (Exception ex)
+            {
+                // Manejo de excepciones
+            }
+            return planCobro;
+        }
     }
 }
