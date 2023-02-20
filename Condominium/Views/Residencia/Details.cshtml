@@ -1,0 +1,96 @@
+﻿@model Infraestructure.Model.RESIDENCIA
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+<style>
+    dt i {
+        margin-right: 6px;
+    }
+</style>
+
+<h2>Detalles de Residencia</h2>
+
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-6">
+                <h4 class="card-title">Residencia</h4>
+                <hr />
+                <dl class="row">
+                    <dt class="col-sm-4">
+                        <i class="fas fa-building"></i> @Html.DisplayName("ID de la residencia")
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.ID_RESIDENCIA)
+                    </dd>
+                    <dt class="col-sm-4">
+                        <i class="fas fa-home"></i> @Html.DisplayName("Número de la residencia")
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.NUMERO_RESIDENCIA)
+                    </dd>
+
+                    <dt class="col-sm-4">
+                        <i class="fas fa-users"></i> @Html.DisplayName("Cantidad de personas")
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.CANTIDAD_PERSONAS)
+                    </dd>
+
+                    <dt class="col-sm-4">
+                        <i class="fas fa-calendar"></i> @Html.DisplayName("Año de inicio")
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.ANIO_INICIO)
+                    </dd>
+
+                    <dt class="col-sm-4">
+                        <i class="fas fa-car"></i> @Html.DisplayName("Cantidad de carros")
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.CANTIDAD_CARROS)
+                    </dd>
+                </dl>
+            </div>
+            <div class="col-md-6">
+                <h4 class="card-title">Usuario</h4>
+                <hr />
+                <dl class="row">
+                    <dt class="col-sm-4">
+                        <i class="fas fa-id-card"></i> ID de Usuario:
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.ID_USUARIO)
+                    </dd>
+
+                    <dt class="col-sm-4">
+                        <i class="fas fa-user"></i> Nombre del Usuario:
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.USUARIO.NOMBRE)
+                    </dd>
+
+                    <dt class="col-sm-4">
+                        <i class="fas fa-user"></i> Apellido del Usuario:
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.USUARIO.APELLIDO)
+                    </dd>
+
+                    <dt class="col-sm-4">
+                        <i class="fas fa-envelope"></i> Correo del Usuario:
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.USUARIO.CORREO)
+                    </dd>
+                </dl>
+            </div>
+        </div>
+
+        <p>
+            @Html.ActionLink("Editar", "Edit", new { /* id = Model.PrimaryKey */ }, new { @class = "btn btn-primary" }) |
+            @Html.ActionLink("Volver a la lista", "Index", null, new { @class = "btn btn-secondary" })
+        </p>

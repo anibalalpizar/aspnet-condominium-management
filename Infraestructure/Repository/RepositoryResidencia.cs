@@ -19,5 +19,27 @@ namespace Infraestructure.Repository
             }
             return lista;
         }
+
+        public RESIDENCIA GetResidenciaById(int id)
+        {
+            RESIDENCIA oResidencia = null;
+            try
+            {
+                using (CONDOMINIOSEntities ctx = new CONDOMINIOSEntities())
+                {
+                    ctx.Configuration.LazyLoadingEnabled = false;
+                    oResidencia = ctx.RESIDENCIA.
+                        Where(l => l.ID_RESIDENCIA == id).
+                        Include(x => x.USUARIO).
+                        Include(y => y.ESTADO_RESIDENCIA).
+                        FirstOrDefault();
+                }
+            }
+            catch
+            {
+                throw;
+            }
+            return oResidencia;
+        }
     }
 }

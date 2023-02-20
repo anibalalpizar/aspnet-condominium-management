@@ -322,6 +322,9 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\PlanCobro\Index.cshtml" />
     <Content Include="Views\RubrosCobros\Index.cshtml" />
+    <Content Include="Views\Residencia\Details.cshtml" />
+    <Content Include="Views\Error\Index.cshtml" />
+    <Content Include="Views\Error\NotFound.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -26,14 +26,32 @@ namespace Condominium.Controllers
             }
             return View();
         }
-    }
-    public ActionResult Details(int? id)
-    {
-        ServiceResidencia _serviceResidencia = new ServiceResidencia();
-        RESIDENCIA residencia = null;
-        try
+
+        public ActionResult Details(int? id)
         {
-            
-        }
+            ServiceResidencia _serviceResidencia = new ServiceResidencia();
+            RESIDENCIA residencia = null;
+            try
+            {
+                // si va null
+                if (id == null)
+                {
+                    return RedirectToAction("Index");
+                }
+                residencia = _serviceResidencia.GetResidenciaById(Convert.ToInt32(id));
+                if(residencia == null){
+                    TempData["Message"] = "No se encontro el registro";
+                    TempData["Redirect"] = "Residencia";
+                    TempData["Redirect-Action"] = "Index";
+                    return RedirectToAction("Default", "Error");
+                }
+                return View(residencia);
+            }
+            catch
+            {
+                throw;
+            }
     }
+    }
+    
 }

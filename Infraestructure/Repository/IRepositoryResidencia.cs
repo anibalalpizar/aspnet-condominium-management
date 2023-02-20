@@ -10,5 +10,6 @@ namespace Infraestructure.Repository
     public interface IRepositoryResidencia
     {
         IEnumerable<RESIDENCIA> GetResidencia();
+        RESIDENCIA GetResidenciaById(int id);
     }
 }

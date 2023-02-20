@@ -80,7 +80,9 @@
                     <p class="card-text">Cantidad de personas: @item.CANTIDAD_PERSONAS</p>
                     <p class="card-text">Año de inicio: @item.ANIO_INICIO</p>
                     <p class="card-text">Cantidad de carros: @item.CANTIDAD_CARROS</p>
-                    <button type="button" class="btn btn-primary btn-detalle" data-toggle="modal" data-target="#modalDetalle_@item.ID_RESIDENCIA"><i class="fa-solid fa-circle-info"></i> Detalle</button>
+                    <button type="button" class="btn btn-primary btn-detalle" data-toggle="modal" data-target="#modalDetalle_@item.ID_RESIDENCIA"><i class="fa-solid fa-circle-info"></i> Vista Previa</button>
+                    <a href="@Url.Action("Details", "Residencia", new { id = item.ID_RESIDENCIA })" class="btn btn-success"><i class="fa-solid fa-circle-info"></i> Detalles</a>
+
                 </div>
             </div>
         </div>

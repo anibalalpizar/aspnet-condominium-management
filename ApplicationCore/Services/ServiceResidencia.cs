@@ -33,7 +33,8 @@ namespace ApplicationCore.Services
 
         public RESIDENCIA GetResidenciaById(int id)
         {
-            throw new NotImplementedException();
+            IRepositoryResidencia repository = new RepositoryResidencia();
+            return repository.GetResidenciaById(id);
         }
 
         public IEnumerable<RESIDENCIA> GetResidenciaByNombre(string nombre)
