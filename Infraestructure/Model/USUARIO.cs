@@ -32,10 +32,8 @@ namespace Infraestructure.Model
         public string APELLIDO { get; set; }
         public string CORREO { get; set; }
         public string CONTRASENA { get; set; }
-        public string FULLNAME
-        {
+        public string FULLNAME{
             get
-
             {
                 return NOMBRE + " " + APELLIDO;
             }

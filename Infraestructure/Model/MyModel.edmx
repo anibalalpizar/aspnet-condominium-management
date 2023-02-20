@@ -172,6 +172,7 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
           <Property Name="NOMBRE_RUBRO" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="MONTO" Type="decimal" Precision="18" Scale="2" Nullable="false" />
           <Property Name="IMAGEN" Type="varbinary(max)" />
+          <Property Name="DESCRIPCION" Type="varchar" MaxLength="2000" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -772,6 +773,7 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
           <Property Name="NOMBRE_RUBRO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="MONTO" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
           <Property Name="IMAGEN" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="PLAN_COBRO" Relationship="Self.PLAN_COBRO_RUBRO_COBRO" FromRole="RUBRO_COBRO" ToRole="PLAN_COBRO" />
         </EntityType>
         <EntityType Name="sysdiagrams">
@@ -1341,6 +1343,7 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
                 <ScalarProperty Name="NOMBRE_RUBRO" ColumnName="NOMBRE_RUBRO" />
                 <ScalarProperty Name="MONTO" ColumnName="MONTO" />
                 <ScalarProperty Name="IMAGEN" ColumnName="IMAGEN" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

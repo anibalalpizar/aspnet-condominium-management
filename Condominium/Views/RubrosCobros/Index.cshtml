@@ -20,6 +20,7 @@
         padding: 5px;
         border-radius: 5px;
         margin-bottom: 5px;
+        text-align: center;
     }
 
     .card {
@@ -30,7 +31,18 @@
 
     .card-body {
         padding: 1rem;
+        height: 200px;
+        overflow: hidden;
     }
+
+    .centered-text {
+        text-align: center;
+    }
+
+    .italic-text {
+        font-style: italic;
+    }
+    
 </style>
 
 <h2>Index</h2>
@@ -54,7 +66,7 @@
                     @if (item == Model.First())
                     {
                         <img src="https://static.vecteezy.com/system/resources/previews/000/604/946/large_2x/vector-water-nature-logo-and-symbols-template-icons-app.jpg" alt="Imagen @Html.DisplayFor(modelItem => item.NOMBRE_RUBRO)" class="circle-img" />
-                        <div class="service-header">@Html.DisplayFor(modelItem => item.NOMBRE_RUBRO)</div>
+                        <div class="service-header  text-center">@Html.DisplayFor(modelItem => item.NOMBRE_RUBRO)</div>
                     }
                     else if (item == Model.Skip(1).First())
                     {
@@ -73,9 +85,8 @@
                     }
                 </div>
                 <div class="card-body">
-                    <p class="card-text">lorem</p>
-                    <h5 class="card-title">Monto: @Html.DisplayFor(modelItem => item.MONTO) $</h5>
-                    <a href="@Url.Action("Details", new { id = item.ID_RUBRO_COBRO })" class="btn btn-primary">Detalles</a>
+                    <p class="card-text">@Html.DisplayFor(modelItem => item.DESCRIPCION)</p>
+                    <h5 class="card-title italic-text">Monto: @Html.DisplayFor(modelItem => item.MONTO) $</h5>
                 </div>
             </div>
         </div>

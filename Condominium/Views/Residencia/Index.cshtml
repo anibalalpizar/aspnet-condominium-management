@@ -37,6 +37,10 @@
     }
 
     /* Estilos para el modal */
+    .custom-modal {
+        max-width: 600px; /* define el ancho máximo */
+    }
+
     .modal-backdrop {
         background-color: rgba(0, 0, 0, 0.5);
     }
@@ -76,13 +80,16 @@
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">@item.USUARIO.FULLNAME</h5>
-                    <p class="card-text">Número de residencia: @item.NUMERO_RESIDENCIA</p>
-                    <p class="card-text">Cantidad de personas: @item.CANTIDAD_PERSONAS</p>
-                    <p class="card-text">Año de inicio: @item.ANIO_INICIO</p>
-                    <p class="card-text">Cantidad de carros: @item.CANTIDAD_CARROS</p>
-                    <button type="button" class="btn btn-primary btn-detalle" data-toggle="modal" data-target="#modalDetalle_@item.ID_RESIDENCIA"><i class="fa-solid fa-circle-info"></i> Vista Previa</button>
-                    <a href="@Url.Action("Details", "Residencia", new { id = item.ID_RESIDENCIA })" class="btn btn-success"><i class="fa-solid fa-circle-info"></i> Detalles</a>
-
+                    <p class="card-text"><i class="fas fa-home"></i> Número de residencia: @item.NUMERO_RESIDENCIA</p>
+                    <p class="card-text"><i class="fas fa-users"></i> Cantidad de personas: @item.CANTIDAD_PERSONAS</p>
+                    <p class="card-text"><i class="fas fa-calendar"></i> Año de inicio: @item.ANIO_INICIO</p>
+                    <p class="card-text"><i class="fas fa-car"></i> Cantidad de carros: @item.CANTIDAD_CARROS</p>
+                    <button type="button" class="btn btn-primary btn-detalle" data-toggle="modal" data-target="#modalDetalle_@item.ID_RESIDENCIA">
+                        <i class="fas fa-info-circle"></i> Vista Previa
+                    </button>
+                    <a href="@Url.Action("Details", "Residencia", new { id = item.ID_RESIDENCIA })" class="btn btn-success">
+                        <i class="fas fa-info-circle"></i> Detalles
+                    </a>
                 </div>
             </div>
         </div>
@@ -92,19 +99,21 @@
             <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header bg-primary text-white">
-                        <h5 class="modal-title" id="modalDetalleLabel">@item.USUARIO.FULLNAME - @item.USUARIO.CORREO</h5>
+                        <h5 class="modal-title" id="modalDetalleLabel"><i class="fas fa-info-circle"></i> @item.USUARIO.FULLNAME - @item.USUARIO.CORREO</h5>
                         <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close" style="position:absolute; top: 10px; right: 10px;">
-                            <span aria-hidden="true">&times;</span>
+                            <span aria-hidden="true"><i class="fas fa-times"></i></span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p>Número de residencia: @item.NUMERO_RESIDENCIA</p>
-                        <p>Cantidad de personas: @item.CANTIDAD_PERSONAS</p>
-                        <p>Año de inicio: @item.ANIO_INICIO</p>
-                        <p>Cantidad de carros: @item.CANTIDAD_CARROS</p>
+                        <p><i class="fas fa-home"></i> Número de residencia: @item.NUMERO_RESIDENCIA</p>
+                        <p><i class="fas fa-users"></i> Cantidad de personas: @item.CANTIDAD_PERSONAS</p>
+                        <p><i class="fas fa-calendar-alt"></i> Año de inicio: @item.ANIO_INICIO</p>
+                        <p><i class="fas fa-car"></i> Cantidad de carros: @item.CANTIDAD_CARROS</p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="position:absolute; top: 10px; right: 10px;">
+                            <span aria-hidden="true"><i class="fas fa-times text-black"></i></span>
+                        </button>
                     </div>
                 </div>
             </div>
