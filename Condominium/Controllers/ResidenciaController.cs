@@ -27,4 +27,13 @@ namespace Condominium.Controllers
             return View();
         }
     }
+    public ActionResult Details(int? id)
+    {
+        ServiceResidencia _serviceResidencia = new ServiceResidencia();
+        RESIDENCIA residencia = null;
+        try
+        {
+            
+        }
+    }
 }
