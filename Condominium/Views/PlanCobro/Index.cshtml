@@ -1,0 +1,188 @@
+﻿@model IEnumerable<Infraestructure.Model.GESTION_PLANES_COBRO>
+
+@{
+    ViewBag.Title = "Listado de planes de cobro";
+}
+
+<style>
+
+    .titulo-pagina {
+        text-align: center;
+        font-size: 2rem;
+        color: #336699;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .card {
+        margin-bottom: 1rem;
+        border: 1px solid #e2e8f0;
+        border-radius: 0.5rem;
+        overflow: hidden;
+    }
+
+    .card-title {
+        font-size: 1.2rem;
+        font-weight: 500;
+    }
+
+    .card-subtitle {
+        font-size: 1rem;
+        color: #4a5568;
+        margin-top: 0.5rem;
+    }
+
+    .card-text {
+        font-size: 0.9rem;
+        color: #4a5568;
+        margin: 0.25rem 0;
+    }
+
+    .card-label {
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: #718096;
+        margin-right: 0.5rem;
+    }
+
+    .card-body {
+        padding-bottom: 1.5rem;
+        margin-left: 1rem;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .btn {
+        font-size: 1.2rem;
+        padding: 0.5rem 1rem;
+    }
+
+    .btn-group {
+        margin-top: 1rem;
+        margin-right: 5px;
+    }
+
+        .btn-group .btn:first-child {
+            margin-left: 0; /* Restaura el margen izquierdo a cero para el primer botón */
+        }
+
+    .modal-title-center {
+        text-align: center;
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+    }
+
+    .dl-horizontal dt {
+        width: 30%;
+        text-align: left;
+        margin-bottom: 10px;
+    }
+
+    .dl-horizontal dd {
+        width: 70%;
+        text-align: left;
+        margin-bottom: 10px;
+    }
+
+    dt, dd {
+        margin-bottom: 15px;
+    }
+
+    .titles {
+        font-size: 1.3rem;
+        font-weight: bold;
+        margin-bottom: 1.5rem;
+        text-transform: uppercase;
+        color: #336699;
+    }
+</style>
+
+
+<div class="container">
+    <h1 class="titulo-pagina">@ViewBag.Title</h1>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
+        @foreach (var item in Model)
+        {
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-body p-3" style="padding-bottom: 1.5rem;">
+                        <h5 class="card-title">
+                            <strong>Plan de cobro para @Html.DisplayFor(modelItem => item.USUARIO.FULLNAME)</strong>
+                            - #PC-@Html.DisplayFor(modelItem => item.ID_PLAN_COBRO)
+                        </h5>
+                        <p class="card-text">Monto: @Html.DisplayFor(modelItem => item.MONTO)</p>
+                        <p class="card-text">Fecha Fin: @Html.DisplayFor(modelItem => item.FECHA_FIN)</p>
+                        <div class="btn-group d-grid">
+                            <button type="button" class="btn btn-primary btn-detalle" data-toggle="modal" data-target="#modalDetalle_@item.ID_PLAN_COBRO">
+                                <i class="fa-solid fa-circle-info"></i> Detalle
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
+@foreach (var item in Model)
+{
+    <div class="modal fade" id="modalDetalle_@item.ID_PLAN_COBRO" tabindex="-1" role="dialog" aria-labelledby="modalDetalleLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title modal-title-time small" style="font-style: italic;" id="modalDetalleLabel">Hora actual: <span class="current-time"></span></h5>
+                    <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close" style="position:absolute; top: 10px; right: 10px;">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <dl class="row">
+                        <div class="col-md-6">
+                            <h5 class="titles">Información del usuario</h5>
+                            <dt class="col-sm-4">ID de usuario:</dt>
+                            <dd class="col-sm-8">@Html.DisplayFor(model => item.USUARIO.ID_USUARIO)</dd>
+
+                            <dt class="col-sm-4">Nombre:</dt>
+                            <dd class="col-sm-8">@Html.DisplayFor(model => item.USUARIO.FULLNAME)</dd>
+
+                            <dt class="col-sm-4">Correo electrónico:</dt>
+                            <dd class="col-sm-8">@Html.DisplayFor(model => item.USUARIO.CORREO)</dd>
+                        </div>
+                        <div class="col-md-6">
+                            <h5 class="titles">Información del plan de cobro</h5>
+                            <dt class="col-sm-4">Fecha de inicio:</dt>
+                            <dd class="col-sm-8">@Html.DisplayFor(model => item.FECHA_INICIO)</dd>
+
+                            <dt class="col-sm-4">Fecha de fin:</dt>
+                            <dd class="col-sm-8">@Html.DisplayFor(model => item.FECHA_FIN)</dd>
+
+                            <dt class="col-sm-4">Monto:</dt>
+                            <dd class="col-sm-8"><span style="font-weight: normal;">$@Html.DisplayFor(model => item.MONTO)</span></dd>
+
+                            <dt class="col-sm-4">Estado de cobro:</dt>
+                            <dd class="col-sm-8">@Html.DisplayFor(model => item.ESTADO_COBRO)</dd>
+                        </div>
+                    </dl>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@section scripts {
+    <script>
+        $((data) => {
+            //console.log(data)
+            setInterval(function () {
+                $('.modal-title-time').html('Hora actual: ' + new Date().toLocaleString());
+            }, 1000);
+        });
+    </script>
+}
