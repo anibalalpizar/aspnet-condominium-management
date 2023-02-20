@@ -15,7 +15,6 @@ namespace Infraestructure.Repository
             List<RESIDENCIA> lista = null;
             using (MyContext ctx = new MyContext())
             {
-                // lista = ctx.RESIDENCIA.ToList();
                 lista = ctx.RESIDENCIA.Include(x => x.USUARIO).ToList();
             }
             return lista;

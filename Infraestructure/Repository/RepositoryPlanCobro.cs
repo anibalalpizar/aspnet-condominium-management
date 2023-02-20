@@ -15,7 +15,7 @@ namespace Infraestructure.Repository
             List<GESTION_PLANES_COBRO> listaPlanesCobro = new List<GESTION_PLANES_COBRO>();
             try
             {
-                using (CONDOMINIOSEntities ctx = new CONDOMINIOSEntities())
+                using (MyContext ctx = new MyContext())
                 {
                     listaPlanesCobro = ctx.GESTION_PLANES_COBRO.Include(x => x.USUARIO).ToList();
                 }
