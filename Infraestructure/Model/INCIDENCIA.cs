@@ -15,6 +15,8 @@ namespace Infraestructure.Model
     public partial class INCIDENCIA
     {
         public int ID_INCIDENCIA { get; set; }
+        public int ID_USUARIO { get; set; }
+        public int ID_ESTADO_INCIDENCIA { get; set; }
         public string DESCRIPCION { get; set; }
         public System.DateTime FECHA_CREACION { get; set; }
     

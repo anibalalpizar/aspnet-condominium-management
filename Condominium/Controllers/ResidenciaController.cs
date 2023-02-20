@@ -13,12 +13,12 @@ namespace Condominium.Controllers
         // GET: Residencia
         public ActionResult Index()
         {
-            IEnumerable<RESIDENCIA> lista = null;
+            IEnumerable<RESIDENCIA> list = null;
             try
             {
                 IServiceResidencia _ServiceResidencia = new ServiceResidencia();
-                lista = _ServiceResidencia.GetResidencia();
-                return View(lista);
+                list = _ServiceResidencia.GetResidencia();
+                return View(list);
             }
             catch
             {

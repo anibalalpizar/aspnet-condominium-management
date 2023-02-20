@@ -15,10 +15,12 @@ namespace Infraestructure.Model
     public partial class GESTION_DEUDA
     {
         public int ID_GESTION_DEUDA { get; set; }
+        public int ID_RESIDENCIA { get; set; }
         public int MES { get; set; }
         public int ANIO { get; set; }
         public decimal MONTO { get; set; }
         public System.DateTime FECHA_VENCIMIENTO { get; set; }
+        public int ID_ESTADO_DEUDA { get; set; }
         public string DETALLES_RUBROS { get; set; }
         public System.DateTime FECHA_REGISTRO { get; set; }
         public System.DateTime FECHA_PAGO { get; set; }

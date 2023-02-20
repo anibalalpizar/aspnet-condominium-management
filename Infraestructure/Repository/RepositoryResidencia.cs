@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data.Entity;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,22 +12,13 @@ namespace Infraestructure.Repository
     {
         public IEnumerable<RESIDENCIA> GetResidencia()
         {
-            IEnumerable<RESIDENCIA> lista = null;
-            try
+            List<RESIDENCIA> lista = null;
+            using (MyContext ctx = new MyContext())
             {
-                using (MyContext ctx = new MyContext())
-                {
-                    ctx.Configuration.LazyLoadingEnabled = false;
-                    lista = ctx.RESIDENCIA.Include("USUARIO").ToList();
-                    
-
-                }
-                return lista;
+                // lista = ctx.RESIDENCIA.ToList();
+                lista = ctx.RESIDENCIA.Include(x => x.USUARIO).ToList();
             }
-            catch
-            {
-                throw;
-            }
+            return lista;
         }
     }
 }

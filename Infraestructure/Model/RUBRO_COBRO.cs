@@ -23,6 +23,7 @@ namespace Infraestructure.Model
         public int ID_RUBRO_COBRO { get; set; }
         public string NOMBRE_RUBRO { get; set; }
         public decimal MONTO { get; set; }
+        public byte[] IMAGEN { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PLAN_COBRO> PLAN_COBRO { get; set; }

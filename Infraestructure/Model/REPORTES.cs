@@ -15,6 +15,7 @@ namespace Infraestructure.Model
     public partial class REPORTES
     {
         public int ID_REPORTE { get; set; }
+        public int ID_USUARIO { get; set; }
         public int report_type_id { get; set; }
         public System.DateTime report_date { get; set; }
         public string report_data { get; set; }

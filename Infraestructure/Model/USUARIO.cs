@@ -26,11 +26,21 @@ namespace Infraestructure.Model
         }
     
         public int ID_USUARIO { get; set; }
+        public int ID_TIPO_USUARIO { get; set; }
+        public int ID_ESTADO { get; set; }
         public string NOMBRE { get; set; }
         public string APELLIDO { get; set; }
         public string CORREO { get; set; }
         public string CONTRASENA { get; set; }
-    
+        public string FULLNAME
+        {
+            get
+
+            {
+                return NOMBRE + " " + APELLIDO;
+            }
+        }
+
         public virtual ESTADO_USUARIO ESTADO_USUARIO { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GESTION_PLANES_COBRO> GESTION_PLANES_COBRO { get; set; }

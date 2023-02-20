@@ -15,6 +15,7 @@ namespace Infraestructure.Model
     public partial class NOTICIA
     {
         public int ID_NOTICIA { get; set; }
+        public int ID_TIPO_NOTICIA { get; set; }
         public string TITULO { get; set; }
         public string CONTENIDO { get; set; }
         public System.DateTime FECHA_PUBLICACION { get; set; }

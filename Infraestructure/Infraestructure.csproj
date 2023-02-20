@@ -134,9 +134,7 @@
       <DependentUpon>MyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\IRepositoryNoticia.cs" />
     <Compile Include="Repository\IRepositoryResidencia.cs" />
-    <Compile Include="Repository\RepositoryNoticia.cs" />
     <Compile Include="Repository\RepositoryResidencia.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -148,15 +146,29 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>MyModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="Content\bootstrap-theme.css.map" />
+    <None Include="Content\bootstrap-theme.min.css.map" />
+    <None Include="Content\bootstrap.css.map" />
+    <None Include="Content\bootstrap.min.css.map" />
+    <None Include="fonts\glyphicons-halflings-regular.eot" />
+    <None Include="fonts\glyphicons-halflings-regular.ttf" />
+    <None Include="fonts\glyphicons-halflings-regular.woff" />
+    <None Include="fonts\glyphicons-halflings-regular.woff2" />
     <None Include="Model\MyModel.edmx.diagram">
       <DependentUpon>MyModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Scripts\jquery-1.9.1.min.map" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Model\MyModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>MyModel.edmx</DependentUpon>
@@ -167,6 +179,11 @@
       <DependentUpon>MyModel.edmx</DependentUpon>
       <LastGenOutput>MyModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="Scripts\jquery-1.9.1.js" />
+    <Content Include="Scripts\jquery-1.9.1.min.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
