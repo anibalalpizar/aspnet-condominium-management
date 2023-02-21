@@ -134,8 +134,8 @@
       <DependentUpon>MyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\EstadosCuenta.cs" />
-    <Compile Include="Repository\IEstadosCuenta.cs" />
+    <Compile Include="Repository\RepositoryEstadosCuenta.cs" />
+    <Compile Include="Repository\IRepositoryEstadosCuenta.cs" />
     <Compile Include="Repository\IRepositoryPlanCobro.cs" />
     <Compile Include="Repository\IRepositoryResidencia.cs" />
     <Compile Include="Repository\IRepositoryRubrosCobros.cs" />

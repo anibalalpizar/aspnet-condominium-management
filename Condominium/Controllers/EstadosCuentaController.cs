@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
-
+using ApplicationCore.Services;
 
 namespace Condominium.Controllers
 {
@@ -14,26 +14,18 @@ namespace Condominium.Controllers
         // GET: EstadosCuenta
         public ActionResult Index()
         {
-            List<GESTION_DEUDA> list = null;
+            IEnumerable<GESTION_DEUDA> list = null;
             try
             {
-                using (MyContext ctx = new MyContext())
-                {
-                    ctx.Configuration.LazyLoadingEnabled = false;
-                    //list = ctx.GESTION_DEUDA.Include("RESIDENCIA.USUARIO").ToList();
-
-                    list = ctx.GESTION_DEUDA
-                       .Include(g => g.ESTADO_DEUDA) 
-                       .Include(g => g.RESIDENCIA.USUARIO)
-                       .ToList();
-
-                }
+                IServiceEstadosCuenta _ServiceEstadosCuenta = new ServiceEstadosCuenta();
+                list = _ServiceEstadosCuenta.GetEstadosCuenta();
+                return View(list);
             }
             catch
             {
                 throw;
             }
-            return View(list);
+            return View();
         }
     }
 }

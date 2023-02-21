@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Infraestructure.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,6 @@ namespace ApplicationCore.Services
 {
     public interface IServiceEstadosCuenta
     {
+        IEnumerable<GESTION_DEUDA> GetEstadosCuenta();
     }
 }
