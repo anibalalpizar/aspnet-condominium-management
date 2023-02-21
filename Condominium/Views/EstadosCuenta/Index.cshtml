@@ -1,0 +1,87 @@
+﻿@model IEnumerable<Infraestructure.Model.GESTION_DEUDA>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_GESTION_DEUDA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_RESIDENCIA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MES)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ANIO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MONTO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FECHA_VENCIMIENTO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_ESTADO_DEUDA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DETALLES_RUBROS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FECHA_REGISTRO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FECHA_PAGO)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ID_GESTION_DEUDA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RESIDENCIA.CANTIDAD_CARROS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MES)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ANIO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MONTO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FECHA_VENCIMIENTO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ID_ESTADO_DEUDA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DETALLES_RUBROS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FECHA_REGISTRO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FECHA_PAGO)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>
