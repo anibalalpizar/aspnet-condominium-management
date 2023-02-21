@@ -332,6 +332,10 @@
     <Content Include="Views\Shared\Components\_TopNav.cshtml" />
     <Content Include="Views\Shared\Components\_Footer.cshtml" />
     <Content Include="Views\Shared\Components\_LeftNav.cshtml" />
+    <Content Include="Views\Shared\Components\Lists\ResidenciasComponent.cshtml" />
+    <Content Include="Views\Shared\Components\Lists\EstadosCuentaComponent.cshtml" />
+    <Content Include="Views\Shared\Components\Lists\PlanCobroComponent.cshtml" />
+    <Content Include="Views\Shared\Components\Lists\RubrosCobrosComponent.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
