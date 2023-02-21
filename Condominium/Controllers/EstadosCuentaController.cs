@@ -27,5 +27,21 @@ namespace Condominium.Controllers
             }
             return View();
         }
+
+        public ActionResult Details(int? id)
+        {
+            GESTION_DEUDA oGestionDeuda = null;
+            using (CONDOMINIOSEntities ctx = new CONDOMINIOSEntities())
+            {
+                ctx.Configuration.LazyLoadingEnabled = false;
+                oGestionDeuda = ctx.GESTION_DEUDA.
+                    Where(l => l.ID_GESTION_DEUDA == id).
+                    Include(x => x.RESIDENCIA).
+                    Include(y => y.RESIDENCIA.USUARIO).
+                    Include(z => z.RESIDENCIA.ESTADO_RESIDENCIA).
+                    FirstOrDefault();
+            }
+            return View(oGestionDeuda);
+        }
     }
 }

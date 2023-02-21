@@ -1,0 +1,98 @@
+﻿@model Infraestructure.Model.GESTION_DEUDA
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>GESTION_DEUDA</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ID_GESTION_DEUDA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID_GESTION_DEUDA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ID_RESIDENCIA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID_RESIDENCIA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MES)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MES)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ANIO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ANIO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MONTO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MONTO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FECHA_VENCIMIENTO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FECHA_VENCIMIENTO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ID_ESTADO_DEUDA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID_ESTADO_DEUDA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DETALLES_RUBROS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DETALLES_RUBROS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FECHA_REGISTRO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FECHA_REGISTRO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FECHA_PAGO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FECHA_PAGO)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
