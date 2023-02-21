@@ -61,6 +61,7 @@
           <Property Name="DETALLES_RUBROS" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="FECHA_REGISTRO" Type="datetime" Nullable="false" />
           <Property Name="FECHA_PAGO" Type="datetime" Nullable="false" />
+          <Property Name="TOTALPAGAR" Type="decimal" Precision="18" Scale="0" />
         </EntityType>
         <EntityType Name="GESTION_PLANES_COBRO">
           <Key>
@@ -652,6 +653,7 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
           <Property Name="DETALLES_RUBROS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="FECHA_REGISTRO" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="FECHA_PAGO" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="TOTALPAGAR" Type="Decimal" Precision="18" Scale="0" />
           <NavigationProperty Name="ESTADO_DEUDA" Relationship="Self.FK__GESTION_D__ID_ES__6B24EA82" FromRole="GESTION_DEUDA" ToRole="ESTADO_DEUDA" />
           <NavigationProperty Name="RESIDENCIA" Relationship="Self.FK__GESTION_D__ID_RE__6A30C649" FromRole="GESTION_DEUDA" ToRole="RESIDENCIA" />
         </EntityType>
@@ -1233,6 +1235,7 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
                 <ScalarProperty Name="DETALLES_RUBROS" ColumnName="DETALLES_RUBROS" />
                 <ScalarProperty Name="FECHA_REGISTRO" ColumnName="FECHA_REGISTRO" />
                 <ScalarProperty Name="FECHA_PAGO" ColumnName="FECHA_PAGO" />
+                <ScalarProperty Name="TOTALPAGAR" ColumnName="TOTALPAGAR" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

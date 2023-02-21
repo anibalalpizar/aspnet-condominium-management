@@ -24,6 +24,7 @@ namespace Infraestructure.Model
         public string DETALLES_RUBROS { get; set; }
         public System.DateTime FECHA_REGISTRO { get; set; }
         public System.DateTime FECHA_PAGO { get; set; }
+        public Nullable<decimal> TOTALPAGAR { get; set; }
     
         public virtual ESTADO_DEUDA ESTADO_DEUDA { get; set; }
         public virtual RESIDENCIA RESIDENCIA { get; set; }

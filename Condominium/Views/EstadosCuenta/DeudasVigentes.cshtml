@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Infraestructure.Model.GESTION_DEUDA>
+
+@{
+    ViewBag.Title = "DeudasVigentes";
+}
+
+<h2>DeudasVigentes</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Total a pagar
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <!-- propiedades existentes -->
+            <td>
+                @Html.DisplayFor(modelItem => item.FECHA_PAGO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TOTALPAGAR)
+            </td>
+            <td>
+                <!-- acciones existentes -->
+            </td>
+        </tr>
+    }
+
+</table>

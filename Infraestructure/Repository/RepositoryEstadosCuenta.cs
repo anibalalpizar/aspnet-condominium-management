@@ -24,7 +24,6 @@ namespace Infraestructure.Repository
                        .Include(g => g.ESTADO_DEUDA)
                        .Include(g => g.RESIDENCIA.USUARIO)
                        .ToList();
-
                 }
             }
             catch
