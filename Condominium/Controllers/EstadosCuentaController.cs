@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.Entity;
+
 
 namespace Condominium.Controllers
 {
@@ -18,7 +20,13 @@ namespace Condominium.Controllers
                 using (MyContext ctx = new MyContext())
                 {
                     ctx.Configuration.LazyLoadingEnabled = false;
-                    list = ctx.GESTION_DEUDA.ToList();
+                    //list = ctx.GESTION_DEUDA.Include("RESIDENCIA.USUARIO").ToList();
+
+                    list = ctx.GESTION_DEUDA
+                       .Include(g => g.ESTADO_DEUDA) 
+                       .Include(g => g.RESIDENCIA.USUARIO)
+                       .ToList();
+
                 }
             }
             catch

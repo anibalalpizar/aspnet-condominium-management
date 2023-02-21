@@ -1,87 +1,60 @@
 ﻿@model IEnumerable<Infraestructure.Model.GESTION_DEUDA>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Deudas";
 }
 
-<h2>Index</h2>
+<div class="container">
+    <h2>Deudas</h2>
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title"><i class="fas fa-file-invoice-dollar"></i> Deuda # @item.ID_GESTION_DEUDA</h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">
+                            <i class="fas fa-building"></i> Condominio: @Html.DisplayFor(modelItem => item.RESIDENCIA.ID_RESIDENCIA)
+                        </p>
+                        <p class="card-text"><i class="fas fa-user"></i> Residente: @Html.DisplayFor(modelItem => item.RESIDENCIA.USUARIO.FULLNAME)</p>
+                    </div>
+                    <div class="card-footer text-right">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#detallesModal-@item.ID_GESTION_DEUDA">
+                            <i class="fas fa-info-circle"></i> Mostrar más detalles
+                        </button>
+                    </div>
+                </div>
+            </div>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ID_GESTION_DEUDA)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ID_RESIDENCIA)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MES)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ANIO)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MONTO)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FECHA_VENCIMIENTO)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ID_ESTADO_DEUDA)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DETALLES_RUBROS)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FECHA_REGISTRO)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FECHA_PAGO)
-        </th>
-        <th></th>
-    </tr>
+            <!-- Modal para mostrar detalles de la deuda -->
+            <div class="modal fade" id="detallesModal-@item.ID_GESTION_DEUDA" tabindex="-1" role="dialog" aria-labelledby="detallesModalLabel-@item.ID_GESTION_DEUDA" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="detallesModalLabel-@item.ID_GESTION_DEUDA"><i class="fas fa-file-invoice-dollar"></i> Detalles de la deuda # @item.ID_GESTION_DEUDA</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>
+                                <i class="fas fa-building"></i> Residencia: @Html.DisplayFor(modelItem => item.RESIDENCIA.ID_RESIDENCIA)
+                            </p>
+                            <p><i class="fas fa-money-bill"></i> Monto: @item.MONTO</p>
+                            <p><i class="far fa-calendar-alt"></i> Fecha de vencimiento: @item.FECHA_VENCIMIENTO.ToString("dd/MM/yyyy")</p>
+                            <p><i class="fas fa-chart-line"></i> Estado de la deuda: @item.ESTADO_DEUDA.NOMBRE_ESTADO_DEUDA</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times"></i> Cerrar</button>
+                            <a href="@Url.Action("Details", new { id = item.ID_GESTION_DEUDA })" class="btn btn-primary">
+                                <i class="fa fa-info-circle"></i> Ver detalles completos
+                            </a>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ID_GESTION_DEUDA)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RESIDENCIA.CANTIDAD_CARROS)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MES)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ANIO)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MONTO)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FECHA_VENCIMIENTO)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ID_ESTADO_DEUDA)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DETALLES_RUBROS)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FECHA_REGISTRO)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FECHA_PAGO)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>
-}
-
-</table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
