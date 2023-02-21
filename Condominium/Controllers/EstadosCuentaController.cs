@@ -30,18 +30,18 @@ namespace Condominium.Controllers
 
         public ActionResult Details(int? id)
         {
-            GESTION_DEUDA oGestionDeuda = null;
-            using (CONDOMINIOSEntities ctx = new CONDOMINIOSEntities())
+            GESTION_DEUDA gestion_deuda = null;
+            try
             {
-                ctx.Configuration.LazyLoadingEnabled = false;
-                oGestionDeuda = ctx.GESTION_DEUDA.
-                    Where(l => l.ID_GESTION_DEUDA == id).
-                    Include(x => x.RESIDENCIA).
-                    Include(y => y.RESIDENCIA.USUARIO).
-                    Include(z => z.RESIDENCIA.ESTADO_RESIDENCIA).
-                    FirstOrDefault();
+                IServiceEstadosCuenta _ServiceEstadosCuenta = new ServiceEstadosCuenta();
+                gestion_deuda = _ServiceEstadosCuenta.GetEstadosCuentaById(Convert.ToInt32(id));
+                return View(gestion_deuda);
             }
-            return View(oGestionDeuda);
+            catch
+            {
+                throw;
+            }
+            return View();
         }
     }
 }

@@ -18,12 +18,16 @@
                         <p class="card-text">
                             <i class="fas fa-building"></i> Condominio: @Html.DisplayFor(modelItem => item.RESIDENCIA.ID_RESIDENCIA)
                         </p>
-                        <p class="card-text"><i class="fas fa-user"></i> Residente: @Html.DisplayFor(modelItem => item.RESIDENCIA.USUARIO.FULLNAME)</p>
+                        <p class="card-text"><i class="fas fa-user"></i> Residente: @Html.DisplayFor(modelItem => item.RESIDENCIA.USUARIO.NOMBRE) @Html.DisplayFor(modelItem => item.RESIDENCIA.USUARIO.APELLIDO)</p>
+
                     </div>
                     <div class="card-footer text-right">
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#detallesModal-@item.ID_GESTION_DEUDA">
+                        <button type="button" class="btn btn-primary btn-sm mr-2" data-toggle="modal" data-target="#detallesModal-@item.ID_GESTION_DEUDA">
                             <i class="fas fa-info-circle"></i> Mostrar más detalles
                         </button>
+                        <a href="@Url.Action("Details", new { id = item.ID_GESTION_DEUDA })" class="btn btn-secondary btn-sm">
+                            <i class="far fa-eye"></i> Ver detalles completos
+                        </a>
                     </div>
                 </div>
             </div>
@@ -47,7 +51,9 @@
                             <p><i class="fas fa-chart-line"></i> Estado de la deuda: @item.ESTADO_DEUDA.NOMBRE_ESTADO_DEUDA</p>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times"></i> Cerrar</button>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="position:absolute; top: 10px; right: 10px;">
+                                <span aria-hidden="true"><i class="fas fa-times text-black"></i></span>
+                            </button>
                             <a href="@Url.Action("Details", new { id = item.ID_GESTION_DEUDA })" class="btn btn-primary">
                                 <i class="fa fa-info-circle"></i> Ver detalles completos
                             </a>

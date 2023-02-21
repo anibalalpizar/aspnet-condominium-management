@@ -10,5 +10,6 @@ namespace Infraestructure.Repository
     public interface IRepositoryEstadosCuenta
     {
         IEnumerable<GESTION_DEUDA> GetEstadosCuenta();
+        GESTION_DEUDA GetEstadosCuentaById(int id);
     }
 }

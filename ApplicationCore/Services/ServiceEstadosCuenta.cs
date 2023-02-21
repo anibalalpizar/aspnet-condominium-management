@@ -15,5 +15,11 @@ namespace ApplicationCore.Services
             IRepositoryEstadosCuenta repository = new RepositoryEstadosCuenta();
             return repository.GetEstadosCuenta();
         }
+
+        public GESTION_DEUDA GetEstadosCuentaById(int id)
+        {
+            IRepositoryEstadosCuenta repository = new RepositoryEstadosCuenta();
+            return repository.GetEstadosCuentaById(id);
+        }
     }
 }

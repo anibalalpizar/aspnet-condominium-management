@@ -10,5 +10,6 @@ namespace ApplicationCore.Services
     public interface IServiceEstadosCuenta
     {
         IEnumerable<GESTION_DEUDA> GetEstadosCuenta();
+        GESTION_DEUDA GetEstadosCuentaById(int id);
     }
 }

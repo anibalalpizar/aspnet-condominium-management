@@ -6,93 +6,112 @@
 
 <h2>Details</h2>
 
-<div>
-    <h4>GESTION_DEUDA</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.ID_GESTION_DEUDA)
-        </dt>
+<div class="row">
+    <div class="col-md-4">
+        <h4><i class="fa fa-building"></i> Residencia</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt><i class="fa fa-home"></i> ID de Residencia</dt>
+            <dd>@Html.DisplayFor(model => model.ID_RESIDENCIA)</dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ID_GESTION_DEUDA)
-        </dd>
+            <dt><i class="fa fa-globe"></i> Estado de la Residencia</dt>
+            <dd>@Html.DisplayFor(model => model.RESIDENCIA.ESTADO_RESIDENCIA.ESTADO_RESIDENCIA1)</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ID_RESIDENCIA)
-        </dt>
+            <dt><i class="fa fa-address-card"></i> Número de la Residencia</dt>
+            <dd>@Html.DisplayFor(model => model.RESIDENCIA.NUMERO_RESIDENCIA)</dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ID_RESIDENCIA)
-        </dd>
+            <dt><i class="fa fa-users"></i> Cantidad de Personas en la Residencia</dt>
+            <dd>@Html.DisplayFor(model => model.RESIDENCIA.CANTIDAD_PERSONAS)</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.MES)
-        </dt>
+            <dt><i class="fa fa-calendar"></i> Año de Inicio de la Residencia</dt>
+            <dd>@Html.DisplayFor(model => model.RESIDENCIA.ANIO_INICIO)</dd>
+        </dl>
+    </div>
+    <div class="col-md-4">
+        <h4><i class="fa fa-user"></i> Usuario</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                <i class="fa fa-user"></i>
+                Propietario:
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.RESIDENCIA.USUARIO.NOMBRE)
+                @Html.DisplayFor(model => model.RESIDENCIA.USUARIO.APELLIDO)
+            </dd>
+            <dt>
+                <i class="fa fa-envelope"></i>
+                Correo electrónico:
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.RESIDENCIA.USUARIO.CORREO)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.MES)
-        </dd>
+            <dt>
+                <i class="fa fa-home"></i>
+                Número de residencia:
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.RESIDENCIA.NUMERO_RESIDENCIA)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ANIO)
-        </dt>
+            <dt>
+                <i class="fa fa-users"></i>
+                Cantidad de personas:
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.RESIDENCIA.CANTIDAD_PERSONAS)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ANIO)
-        </dd>
+            <dt>
+                <i class="fa fa-calendar"></i>
+                Año de inicio:
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.RESIDENCIA.ANIO_INICIO)
+            </dd>
+        </dl>
+    </div>
+    <div class="col-md-4">
+        <h4><i class="fas fa-money-bill-alt"></i> Información de la Deuda</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                <i class="fas fa-money-bill-alt"></i>
+                @Html.DisplayNameFor(model => model.MONTO)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.MONTO)
+            </dd>
+            <dt>
+                <i class="far fa-calendar-alt"></i>
+                @Html.DisplayNameFor(model => model.FECHA_VENCIMIENTO)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.FECHA_VENCIMIENTO)
+            </dd>
+            <dt>
+                <i class="fas fa-list"></i>
+                @Html.DisplayNameFor(model => model.DETALLES_RUBROS)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.DETALLES_RUBROS)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.MONTO)
-        </dt>
+            <dt>
+                <i class="far fa-calendar-check"></i>
+                @Html.DisplayNameFor(model => model.FECHA_REGISTRO)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.FECHA_REGISTRO)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.MONTO)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.FECHA_VENCIMIENTO)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FECHA_VENCIMIENTO)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ID_ESTADO_DEUDA)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ID_ESTADO_DEUDA)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DETALLES_RUBROS)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DETALLES_RUBROS)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.FECHA_REGISTRO)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FECHA_REGISTRO)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.FECHA_PAGO)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FECHA_PAGO)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+            <dt>
+                <i class="fas fa-calendar-check"></i>
+                @Html.DisplayNameFor(model => model.FECHA_PAGO)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.FECHA_PAGO)
+            </dd>
+        </dl>
+    </div>

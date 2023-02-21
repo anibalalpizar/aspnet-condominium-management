@@ -109,7 +109,7 @@
                 <div class="card h-100">
                     <div class="card-body p-3" style="padding-bottom: 1.5rem;">
                         <h5 class="card-title">
-                            <strong>Plan de cobro para @Html.DisplayFor(modelItem => item.USUARIO.FULLNAME)</strong>
+                            <strong>Plan de cobro para @Html.DisplayFor(modelItem => item.USUARIO.NOMBRE) @Html.DisplayFor(modelItem => item.USUARIO.APELLIDO)</strong>
                             - #PC-@Html.DisplayFor(modelItem => item.ID_PLAN_COBRO)
                         </h5>
                         <p class="card-text">Monto: @Html.DisplayFor(modelItem => item.MONTO)</p>
@@ -146,7 +146,8 @@
                             <dd class="col-sm-8">@Html.DisplayFor(model => item.USUARIO.ID_USUARIO)</dd>
 
                             <dt class="col-sm-4">Nombre:</dt>
-                            <dd class="col-sm-8">@Html.DisplayFor(model => item.USUARIO.FULLNAME)</dd>
+                            <dd class="col-sm-8">@Html.DisplayFor(model => item.USUARIO.NOMBRE) @Html.DisplayFor(model => item.USUARIO.APELLIDO)</dd>
+
 
                             <dt class="col-sm-4">Correo electrónico:</dt>
                             <dd class="col-sm-8">@Html.DisplayFor(model => item.USUARIO.CORREO)</dd>
@@ -167,9 +168,9 @@
                         </div>
                     </dl>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                </div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="position:absolute; top: 10px; right: 10px;">
+                    <span aria-hidden="true"><i class="fas fa-times text-black"></i></span>
+                </button>
             </div>
         </div>
     </div>
