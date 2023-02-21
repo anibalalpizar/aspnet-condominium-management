@@ -329,6 +329,9 @@
     <Content Include="Views\PlanCobro\Index.cshtml" />
     <Content Include="Views\EstadosCuenta\Index.cshtml" />
     <Content Include="Views\EstadosCuenta\Details.cshtml" />
+    <Content Include="Views\Shared\Components\_TopNav.cshtml" />
+    <Content Include="Views\Shared\Components\_Footer.cshtml" />
+    <Content Include="Views\Shared\Components\_LeftNav.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
