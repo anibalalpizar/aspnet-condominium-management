@@ -118,9 +118,6 @@
     <Compile Include="Model\RUBRO_COBRO.cs">
       <DependentUpon>MyModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\sysdiagrams.cs">
-      <DependentUpon>MyModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Model\TIPO_NOTICIA.cs">
       <DependentUpon>MyModel.tt</DependentUpon>
     </Compile>

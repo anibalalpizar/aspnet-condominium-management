@@ -41,7 +41,6 @@ namespace Infraestructure.Model
         public virtual DbSet<RESERVACION> RESERVACION { get; set; }
         public virtual DbSet<RESIDENCIA> RESIDENCIA { get; set; }
         public virtual DbSet<RUBRO_COBRO> RUBRO_COBRO { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<TIPO_NOTICIA> TIPO_NOTICIA { get; set; }
         public virtual DbSet<TIPO_REPORTE> TIPO_REPORTE { get; set; }
         public virtual DbSet<TIPO_USUARIO> TIPO_USUARIO { get; set; }

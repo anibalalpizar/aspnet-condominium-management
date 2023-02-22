@@ -175,16 +175,6 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
           <Property Name="IMAGEN" Type="varbinary(max)" />
           <Property Name="DESCRIPCION" Type="varchar" MaxLength="2000" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
         <EntityType Name="TIPO_NOTICIA">
           <Key>
             <PropertyRef Name="ID_TIPO_NOTICIA" />
@@ -219,7 +209,7 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
           <Property Name="CORREO" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="CONTRASENA" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <Association Name="FK__GESTION_D__ID_ES__6B24EA82">
+        <Association Name="FK__GESTION_D__ID_ES__628FA481">
           <End Role="ESTADO_DEUDA" Type="Self.ESTADO_DEUDA" Multiplicity="1" />
           <End Role="GESTION_DEUDA" Type="Self.GESTION_DEUDA" Multiplicity="*" />
           <ReferentialConstraint>
@@ -231,7 +221,7 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__GESTION_D__ID_RE__6A30C649">
+        <Association Name="FK__GESTION_D__ID_RE__6383C8BA">
           <End Role="RESIDENCIA" Type="Self.RESIDENCIA" Multiplicity="1" />
           <End Role="GESTION_DEUDA" Type="Self.GESTION_DEUDA" Multiplicity="*" />
           <ReferentialConstraint>
@@ -243,7 +233,7 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__GESTION_P__ID_RE__6E01572D">
+        <Association Name="FK__GESTION_P__ID_RE__6477ECF3">
           <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
           <End Role="GESTION_PLANES_COBRO" Type="Self.GESTION_PLANES_COBRO" Multiplicity="*" />
           <ReferentialConstraint>
@@ -255,7 +245,7 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__INCIDENCI__ID_ES__4316F928">
+        <Association Name="FK__INCIDENCI__ID_ES__656C112C">
           <End Role="ESTADO_INCIDENCIA" Type="Self.ESTADO_INCIDENCIA" Multiplicity="1" />
           <End Role="INCIDENCIA" Type="Self.INCIDENCIA" Multiplicity="*" />
           <ReferentialConstraint>
@@ -267,7 +257,7 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__INCIDENCI__ID_US__4222D4EF">
+        <Association Name="FK__INCIDENCI__ID_US__66603565">
           <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
           <End Role="INCIDENCIA" Type="Self.INCIDENCIA" Multiplicity="*" />
           <ReferentialConstraint>
@@ -279,7 +269,7 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__NOTICIA__ID_TIPO__48CFD27E">
+        <Association Name="FK__NOTICIA__ID_TIPO__6754599E">
           <End Role="TIPO_NOTICIA" Type="Self.TIPO_NOTICIA" Multiplicity="1" />
           <End Role="NOTICIA" Type="Self.NOTICIA" Multiplicity="*" />
           <ReferentialConstraint>
@@ -291,7 +281,7 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PLAN_COBR__ID_PL__5CD6CB2B">
+        <Association Name="FK__PLAN_COBR__ID_PL__68487DD7">
           <End Role="PLAN_COBRO" Type="Self.PLAN_COBRO" Multiplicity="1" />
           <End Role="PLAN_COBRO_RUBRO_COBRO" Type="Self.PLAN_COBRO_RUBRO_COBRO" Multiplicity="*" />
           <ReferentialConstraint>
@@ -303,7 +293,7 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PLAN_COBR__ID_RU__5DCAEF64">
+        <Association Name="FK__PLAN_COBR__ID_RU__693CA210">
           <End Role="RUBRO_COBRO" Type="Self.RUBRO_COBRO" Multiplicity="1" />
           <End Role="PLAN_COBRO_RUBRO_COBRO" Type="Self.PLAN_COBRO_RUBRO_COBRO" Multiplicity="*" />
           <ReferentialConstraint>
@@ -315,7 +305,7 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__REPORTES__ID_REP__778AC167">
+        <Association Name="FK__REPORTES__ID_REP__6A30C649">
           <End Role="TIPO_REPORTE" Type="Self.TIPO_REPORTE" Multiplicity="1" />
           <End Role="REPORTES" Type="Self.REPORTES" Multiplicity="0..1" />
           <ReferentialConstraint>
@@ -327,7 +317,7 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__REPORTES__ID_USU__76969D2E">
+        <Association Name="FK__REPORTES__ID_USU__6B24EA82">
           <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
           <End Role="REPORTES" Type="Self.REPORTES" Multiplicity="*" />
           <ReferentialConstraint>
@@ -339,7 +329,7 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RESERVA_A__ID_AR__6383C8BA">
+        <Association Name="FK__RESERVA_A__ID_AR__6C190EBB">
           <End Role="AREA_COMUN" Type="Self.AREA_COMUN" Multiplicity="1" />
           <End Role="RESERVA_AREA_COMUN" Type="Self.RESERVA_AREA_COMUN" Multiplicity="*" />
           <ReferentialConstraint>
@@ -351,7 +341,7 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RESERVA_A__ID_ES__6477ECF3">
+        <Association Name="FK__RESERVA_A__ID_ES__6D0D32F4">
           <End Role="ESTADO_RESERVACION" Type="Self.ESTADO_RESERVACION" Multiplicity="1" />
           <End Role="RESERVA_AREA_COMUN" Type="Self.RESERVA_AREA_COMUN" Multiplicity="*" />
           <ReferentialConstraint>
@@ -363,7 +353,7 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RESERVA_A__ID_US__628FA481">
+        <Association Name="FK__RESERVA_A__ID_US__6E01572D">
           <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
           <End Role="RESERVA_AREA_COMUN" Type="Self.RESERVA_AREA_COMUN" Multiplicity="*" />
           <ReferentialConstraint>
@@ -375,7 +365,7 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RESERVACI__ID_AR__5165187F">
+        <Association Name="FK__RESERVACI__ID_AR__6EF57B66">
           <End Role="AREA_COMUN" Type="Self.AREA_COMUN" Multiplicity="1" />
           <End Role="RESERVACION" Type="Self.RESERVACION" Multiplicity="*" />
           <ReferentialConstraint>
@@ -387,7 +377,7 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RESERVACI__ID_ES__52593CB8">
+        <Association Name="FK__RESERVACI__ID_ES__6FE99F9F">
           <End Role="ESTADO_RESERVACION" Type="Self.ESTADO_RESERVACION" Multiplicity="1" />
           <End Role="RESERVACION" Type="Self.RESERVACION" Multiplicity="*" />
           <ReferentialConstraint>
@@ -399,7 +389,7 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RESERVACI__ID_US__5070F446">
+        <Association Name="FK__RESERVACI__ID_US__70DDC3D8">
           <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
           <End Role="RESERVACION" Type="Self.RESERVACION" Multiplicity="*" />
           <ReferentialConstraint>
@@ -411,7 +401,7 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RESIDENCI__ID_ES__571DF1D5">
+        <Association Name="FK__RESIDENCI__ID_ES__71D1E811">
           <End Role="ESTADO_RESIDENCIA" Type="Self.ESTADO_RESIDENCIA" Multiplicity="1" />
           <End Role="RESIDENCIA" Type="Self.RESIDENCIA" Multiplicity="*" />
           <ReferentialConstraint>
@@ -423,7 +413,7 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RESIDENCI__ID_PL__797309D9">
+        <Association Name="FK__RESIDENCI__ID_PL__72C60C4A">
           <End Role="PLAN_COBRO" Type="Self.PLAN_COBRO" Multiplicity="1" />
           <End Role="RESIDENCIA" Type="Self.RESIDENCIA" Multiplicity="*" />
           <ReferentialConstraint>
@@ -435,7 +425,7 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RESIDENCI__ID_US__787EE5A0">
+        <Association Name="FK__RESIDENCI__ID_US__73BA3083">
           <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="0..1" />
           <End Role="RESIDENCIA" Type="Self.RESIDENCIA" Multiplicity="*" />
           <ReferentialConstraint>
@@ -447,7 +437,7 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__USUARIO__ID_ESTA__3C69FB99">
+        <Association Name="FK__USUARIO__ID_ESTA__74AE54BC">
           <End Role="ESTADO_USUARIO" Type="Self.ESTADO_USUARIO" Multiplicity="1" />
           <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
           <ReferentialConstraint>
@@ -459,7 +449,7 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__USUARIO__ID_TIPO__3B75D760">
+        <Association Name="FK__USUARIO__ID_TIPO__75A278F5">
           <End Role="TIPO_USUARIO" Type="Self.TIPO_USUARIO" Multiplicity="1" />
           <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
           <ReferentialConstraint>
@@ -488,7 +478,6 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
           <EntitySet Name="RESERVACION" EntityType="Self.RESERVACION" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RESIDENCIA" EntityType="Self.RESIDENCIA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RUBRO_COBRO" EntityType="Self.RUBRO_COBRO" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TIPO_NOTICIA" EntityType="Self.TIPO_NOTICIA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TIPO_REPORTE" EntityType="Self.TIPO_REPORTE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TIPO_USUARIO" EntityType="Self.TIPO_USUARIO" Schema="dbo" store:Type="Tables" />
@@ -499,87 +488,87 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
     [PLAN_COBRO_RUBRO_COBRO].[ID_RUBRO_COBRO] AS [ID_RUBRO_COBRO]
     FROM [dbo].[PLAN_COBRO_RUBRO_COBRO] AS [PLAN_COBRO_RUBRO_COBRO]</DefiningQuery>
           </EntitySet>
-          <AssociationSet Name="FK__GESTION_D__ID_ES__6B24EA82" Association="Self.FK__GESTION_D__ID_ES__6B24EA82">
+          <AssociationSet Name="FK__GESTION_D__ID_ES__628FA481" Association="Self.FK__GESTION_D__ID_ES__628FA481">
             <End Role="ESTADO_DEUDA" EntitySet="ESTADO_DEUDA" />
             <End Role="GESTION_DEUDA" EntitySet="GESTION_DEUDA" />
           </AssociationSet>
-          <AssociationSet Name="FK__GESTION_D__ID_RE__6A30C649" Association="Self.FK__GESTION_D__ID_RE__6A30C649">
+          <AssociationSet Name="FK__GESTION_D__ID_RE__6383C8BA" Association="Self.FK__GESTION_D__ID_RE__6383C8BA">
             <End Role="RESIDENCIA" EntitySet="RESIDENCIA" />
             <End Role="GESTION_DEUDA" EntitySet="GESTION_DEUDA" />
           </AssociationSet>
-          <AssociationSet Name="FK__GESTION_P__ID_RE__6E01572D" Association="Self.FK__GESTION_P__ID_RE__6E01572D">
+          <AssociationSet Name="FK__GESTION_P__ID_RE__6477ECF3" Association="Self.FK__GESTION_P__ID_RE__6477ECF3">
             <End Role="USUARIO" EntitySet="USUARIO" />
             <End Role="GESTION_PLANES_COBRO" EntitySet="GESTION_PLANES_COBRO" />
           </AssociationSet>
-          <AssociationSet Name="FK__INCIDENCI__ID_ES__4316F928" Association="Self.FK__INCIDENCI__ID_ES__4316F928">
+          <AssociationSet Name="FK__INCIDENCI__ID_ES__656C112C" Association="Self.FK__INCIDENCI__ID_ES__656C112C">
             <End Role="ESTADO_INCIDENCIA" EntitySet="ESTADO_INCIDENCIA" />
             <End Role="INCIDENCIA" EntitySet="INCIDENCIA" />
           </AssociationSet>
-          <AssociationSet Name="FK__INCIDENCI__ID_US__4222D4EF" Association="Self.FK__INCIDENCI__ID_US__4222D4EF">
+          <AssociationSet Name="FK__INCIDENCI__ID_US__66603565" Association="Self.FK__INCIDENCI__ID_US__66603565">
             <End Role="USUARIO" EntitySet="USUARIO" />
             <End Role="INCIDENCIA" EntitySet="INCIDENCIA" />
           </AssociationSet>
-          <AssociationSet Name="FK__NOTICIA__ID_TIPO__48CFD27E" Association="Self.FK__NOTICIA__ID_TIPO__48CFD27E">
+          <AssociationSet Name="FK__NOTICIA__ID_TIPO__6754599E" Association="Self.FK__NOTICIA__ID_TIPO__6754599E">
             <End Role="TIPO_NOTICIA" EntitySet="TIPO_NOTICIA" />
             <End Role="NOTICIA" EntitySet="NOTICIA" />
           </AssociationSet>
-          <AssociationSet Name="FK__PLAN_COBR__ID_PL__5CD6CB2B" Association="Self.FK__PLAN_COBR__ID_PL__5CD6CB2B">
+          <AssociationSet Name="FK__PLAN_COBR__ID_PL__68487DD7" Association="Self.FK__PLAN_COBR__ID_PL__68487DD7">
             <End Role="PLAN_COBRO" EntitySet="PLAN_COBRO" />
             <End Role="PLAN_COBRO_RUBRO_COBRO" EntitySet="PLAN_COBRO_RUBRO_COBRO" />
           </AssociationSet>
-          <AssociationSet Name="FK__PLAN_COBR__ID_RU__5DCAEF64" Association="Self.FK__PLAN_COBR__ID_RU__5DCAEF64">
+          <AssociationSet Name="FK__PLAN_COBR__ID_RU__693CA210" Association="Self.FK__PLAN_COBR__ID_RU__693CA210">
             <End Role="RUBRO_COBRO" EntitySet="RUBRO_COBRO" />
             <End Role="PLAN_COBRO_RUBRO_COBRO" EntitySet="PLAN_COBRO_RUBRO_COBRO" />
           </AssociationSet>
-          <AssociationSet Name="FK__REPORTES__ID_REP__778AC167" Association="Self.FK__REPORTES__ID_REP__778AC167">
+          <AssociationSet Name="FK__REPORTES__ID_REP__6A30C649" Association="Self.FK__REPORTES__ID_REP__6A30C649">
             <End Role="TIPO_REPORTE" EntitySet="TIPO_REPORTE" />
             <End Role="REPORTES" EntitySet="REPORTES" />
           </AssociationSet>
-          <AssociationSet Name="FK__REPORTES__ID_USU__76969D2E" Association="Self.FK__REPORTES__ID_USU__76969D2E">
+          <AssociationSet Name="FK__REPORTES__ID_USU__6B24EA82" Association="Self.FK__REPORTES__ID_USU__6B24EA82">
             <End Role="USUARIO" EntitySet="USUARIO" />
             <End Role="REPORTES" EntitySet="REPORTES" />
           </AssociationSet>
-          <AssociationSet Name="FK__RESERVA_A__ID_AR__6383C8BA" Association="Self.FK__RESERVA_A__ID_AR__6383C8BA">
+          <AssociationSet Name="FK__RESERVA_A__ID_AR__6C190EBB" Association="Self.FK__RESERVA_A__ID_AR__6C190EBB">
             <End Role="AREA_COMUN" EntitySet="AREA_COMUN" />
             <End Role="RESERVA_AREA_COMUN" EntitySet="RESERVA_AREA_COMUN" />
           </AssociationSet>
-          <AssociationSet Name="FK__RESERVA_A__ID_ES__6477ECF3" Association="Self.FK__RESERVA_A__ID_ES__6477ECF3">
+          <AssociationSet Name="FK__RESERVA_A__ID_ES__6D0D32F4" Association="Self.FK__RESERVA_A__ID_ES__6D0D32F4">
             <End Role="ESTADO_RESERVACION" EntitySet="ESTADO_RESERVACION" />
             <End Role="RESERVA_AREA_COMUN" EntitySet="RESERVA_AREA_COMUN" />
           </AssociationSet>
-          <AssociationSet Name="FK__RESERVA_A__ID_US__628FA481" Association="Self.FK__RESERVA_A__ID_US__628FA481">
+          <AssociationSet Name="FK__RESERVA_A__ID_US__6E01572D" Association="Self.FK__RESERVA_A__ID_US__6E01572D">
             <End Role="USUARIO" EntitySet="USUARIO" />
             <End Role="RESERVA_AREA_COMUN" EntitySet="RESERVA_AREA_COMUN" />
           </AssociationSet>
-          <AssociationSet Name="FK__RESERVACI__ID_AR__5165187F" Association="Self.FK__RESERVACI__ID_AR__5165187F">
+          <AssociationSet Name="FK__RESERVACI__ID_AR__6EF57B66" Association="Self.FK__RESERVACI__ID_AR__6EF57B66">
             <End Role="AREA_COMUN" EntitySet="AREA_COMUN" />
             <End Role="RESERVACION" EntitySet="RESERVACION" />
           </AssociationSet>
-          <AssociationSet Name="FK__RESERVACI__ID_ES__52593CB8" Association="Self.FK__RESERVACI__ID_ES__52593CB8">
+          <AssociationSet Name="FK__RESERVACI__ID_ES__6FE99F9F" Association="Self.FK__RESERVACI__ID_ES__6FE99F9F">
             <End Role="ESTADO_RESERVACION" EntitySet="ESTADO_RESERVACION" />
             <End Role="RESERVACION" EntitySet="RESERVACION" />
           </AssociationSet>
-          <AssociationSet Name="FK__RESERVACI__ID_US__5070F446" Association="Self.FK__RESERVACI__ID_US__5070F446">
+          <AssociationSet Name="FK__RESERVACI__ID_US__70DDC3D8" Association="Self.FK__RESERVACI__ID_US__70DDC3D8">
             <End Role="USUARIO" EntitySet="USUARIO" />
             <End Role="RESERVACION" EntitySet="RESERVACION" />
           </AssociationSet>
-          <AssociationSet Name="FK__RESIDENCI__ID_ES__571DF1D5" Association="Self.FK__RESIDENCI__ID_ES__571DF1D5">
+          <AssociationSet Name="FK__RESIDENCI__ID_ES__71D1E811" Association="Self.FK__RESIDENCI__ID_ES__71D1E811">
             <End Role="ESTADO_RESIDENCIA" EntitySet="ESTADO_RESIDENCIA" />
             <End Role="RESIDENCIA" EntitySet="RESIDENCIA" />
           </AssociationSet>
-          <AssociationSet Name="FK__RESIDENCI__ID_PL__797309D9" Association="Self.FK__RESIDENCI__ID_PL__797309D9">
+          <AssociationSet Name="FK__RESIDENCI__ID_PL__72C60C4A" Association="Self.FK__RESIDENCI__ID_PL__72C60C4A">
             <End Role="PLAN_COBRO" EntitySet="PLAN_COBRO" />
             <End Role="RESIDENCIA" EntitySet="RESIDENCIA" />
           </AssociationSet>
-          <AssociationSet Name="FK__RESIDENCI__ID_US__787EE5A0" Association="Self.FK__RESIDENCI__ID_US__787EE5A0">
+          <AssociationSet Name="FK__RESIDENCI__ID_US__73BA3083" Association="Self.FK__RESIDENCI__ID_US__73BA3083">
             <End Role="USUARIO" EntitySet="USUARIO" />
             <End Role="RESIDENCIA" EntitySet="RESIDENCIA" />
           </AssociationSet>
-          <AssociationSet Name="FK__USUARIO__ID_ESTA__3C69FB99" Association="Self.FK__USUARIO__ID_ESTA__3C69FB99">
+          <AssociationSet Name="FK__USUARIO__ID_ESTA__74AE54BC" Association="Self.FK__USUARIO__ID_ESTA__74AE54BC">
             <End Role="ESTADO_USUARIO" EntitySet="ESTADO_USUARIO" />
             <End Role="USUARIO" EntitySet="USUARIO" />
           </AssociationSet>
-          <AssociationSet Name="FK__USUARIO__ID_TIPO__3B75D760" Association="Self.FK__USUARIO__ID_TIPO__3B75D760">
+          <AssociationSet Name="FK__USUARIO__ID_TIPO__75A278F5" Association="Self.FK__USUARIO__ID_TIPO__75A278F5">
             <End Role="TIPO_USUARIO" EntitySet="TIPO_USUARIO" />
             <End Role="USUARIO" EntitySet="USUARIO" />
           </AssociationSet>
@@ -595,8 +584,8 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
           </Key>
           <Property Name="ID_AREA_COMUN" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="AREA_COMUN1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="RESERVA_AREA_COMUN" Relationship="Self.FK__RESERVA_A__ID_AR__6383C8BA" FromRole="AREA_COMUN" ToRole="RESERVA_AREA_COMUN" />
-          <NavigationProperty Name="RESERVACION" Relationship="Self.FK__RESERVACI__ID_AR__5165187F" FromRole="AREA_COMUN" ToRole="RESERVACION" />
+          <NavigationProperty Name="RESERVA_AREA_COMUN" Relationship="Self.FK__RESERVA_A__ID_AR__6C190EBB" FromRole="AREA_COMUN" ToRole="RESERVA_AREA_COMUN" />
+          <NavigationProperty Name="RESERVACION" Relationship="Self.FK__RESERVACI__ID_AR__6EF57B66" FromRole="AREA_COMUN" ToRole="RESERVACION" />
         </EntityType>
         <EntityType Name="ESTADO_DEUDA">
           <Key>
@@ -604,7 +593,7 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
           </Key>
           <Property Name="ID_ESTADO_DEUDA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NOMBRE_ESTADO_DEUDA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="GESTION_DEUDA" Relationship="Self.FK__GESTION_D__ID_ES__6B24EA82" FromRole="ESTADO_DEUDA" ToRole="GESTION_DEUDA" />
+          <NavigationProperty Name="GESTION_DEUDA" Relationship="Self.FK__GESTION_D__ID_ES__628FA481" FromRole="ESTADO_DEUDA" ToRole="GESTION_DEUDA" />
         </EntityType>
         <EntityType Name="ESTADO_INCIDENCIA">
           <Key>
@@ -612,7 +601,7 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
           </Key>
           <Property Name="ID_ESTADO_INCIDENCIA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ESTADO_INCIDENCIA1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="INCIDENCIA" Relationship="Self.FK__INCIDENCI__ID_ES__4316F928" FromRole="ESTADO_INCIDENCIA" ToRole="INCIDENCIA" />
+          <NavigationProperty Name="INCIDENCIA" Relationship="Self.FK__INCIDENCI__ID_ES__656C112C" FromRole="ESTADO_INCIDENCIA" ToRole="INCIDENCIA" />
         </EntityType>
         <EntityType Name="ESTADO_RESERVACION">
           <Key>
@@ -620,8 +609,8 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
           </Key>
           <Property Name="ID_ESTADO_RESERVACION" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ESTADO_RESERVACION1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="RESERVA_AREA_COMUN" Relationship="Self.FK__RESERVA_A__ID_ES__6477ECF3" FromRole="ESTADO_RESERVACION" ToRole="RESERVA_AREA_COMUN" />
-          <NavigationProperty Name="RESERVACION" Relationship="Self.FK__RESERVACI__ID_ES__52593CB8" FromRole="ESTADO_RESERVACION" ToRole="RESERVACION" />
+          <NavigationProperty Name="RESERVA_AREA_COMUN" Relationship="Self.FK__RESERVA_A__ID_ES__6D0D32F4" FromRole="ESTADO_RESERVACION" ToRole="RESERVA_AREA_COMUN" />
+          <NavigationProperty Name="RESERVACION" Relationship="Self.FK__RESERVACI__ID_ES__6FE99F9F" FromRole="ESTADO_RESERVACION" ToRole="RESERVACION" />
         </EntityType>
         <EntityType Name="ESTADO_RESIDENCIA">
           <Key>
@@ -629,7 +618,7 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
           </Key>
           <Property Name="ID_ESTADO_RESIDENCIA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ESTADO_RESIDENCIA1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="RESIDENCIA" Relationship="Self.FK__RESIDENCI__ID_ES__571DF1D5" FromRole="ESTADO_RESIDENCIA" ToRole="RESIDENCIA" />
+          <NavigationProperty Name="RESIDENCIA" Relationship="Self.FK__RESIDENCI__ID_ES__71D1E811" FromRole="ESTADO_RESIDENCIA" ToRole="RESIDENCIA" />
         </EntityType>
         <EntityType Name="ESTADO_USUARIO">
           <Key>
@@ -637,7 +626,7 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
           </Key>
           <Property Name="ID_ESTADO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ESTADO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="USUARIO" Relationship="Self.FK__USUARIO__ID_ESTA__3C69FB99" FromRole="ESTADO_USUARIO" ToRole="USUARIO" />
+          <NavigationProperty Name="USUARIO" Relationship="Self.FK__USUARIO__ID_ESTA__74AE54BC" FromRole="ESTADO_USUARIO" ToRole="USUARIO" />
         </EntityType>
         <EntityType Name="GESTION_DEUDA">
           <Key>
@@ -654,8 +643,8 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
           <Property Name="FECHA_REGISTRO" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="FECHA_PAGO" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="TOTALPAGAR" Type="Decimal" Precision="18" Scale="0" />
-          <NavigationProperty Name="ESTADO_DEUDA" Relationship="Self.FK__GESTION_D__ID_ES__6B24EA82" FromRole="GESTION_DEUDA" ToRole="ESTADO_DEUDA" />
-          <NavigationProperty Name="RESIDENCIA" Relationship="Self.FK__GESTION_D__ID_RE__6A30C649" FromRole="GESTION_DEUDA" ToRole="RESIDENCIA" />
+          <NavigationProperty Name="ESTADO_DEUDA" Relationship="Self.FK__GESTION_D__ID_ES__628FA481" FromRole="GESTION_DEUDA" ToRole="ESTADO_DEUDA" />
+          <NavigationProperty Name="RESIDENCIA" Relationship="Self.FK__GESTION_D__ID_RE__6383C8BA" FromRole="GESTION_DEUDA" ToRole="RESIDENCIA" />
         </EntityType>
         <EntityType Name="GESTION_PLANES_COBRO">
           <Key>
@@ -668,7 +657,7 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
           <Property Name="MONTO" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="FRECUENCIA_COBRO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ESTADO_COBRO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="USUARIO" Relationship="Self.FK__GESTION_P__ID_RE__6E01572D" FromRole="GESTION_PLANES_COBRO" ToRole="USUARIO" />
+          <NavigationProperty Name="USUARIO" Relationship="Self.FK__GESTION_P__ID_RE__6477ECF3" FromRole="GESTION_PLANES_COBRO" ToRole="USUARIO" />
         </EntityType>
         <EntityType Name="INCIDENCIA">
           <Key>
@@ -679,8 +668,8 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
           <Property Name="ID_ESTADO_INCIDENCIA" Type="Int32" Nullable="false" />
           <Property Name="DESCRIPCION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="FECHA_CREACION" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="ESTADO_INCIDENCIA" Relationship="Self.FK__INCIDENCI__ID_ES__4316F928" FromRole="INCIDENCIA" ToRole="ESTADO_INCIDENCIA" />
-          <NavigationProperty Name="USUARIO" Relationship="Self.FK__INCIDENCI__ID_US__4222D4EF" FromRole="INCIDENCIA" ToRole="USUARIO" />
+          <NavigationProperty Name="ESTADO_INCIDENCIA" Relationship="Self.FK__INCIDENCI__ID_ES__656C112C" FromRole="INCIDENCIA" ToRole="ESTADO_INCIDENCIA" />
+          <NavigationProperty Name="USUARIO" Relationship="Self.FK__INCIDENCI__ID_US__66603565" FromRole="INCIDENCIA" ToRole="USUARIO" />
         </EntityType>
         <EntityType Name="NOTICIA">
           <Key>
@@ -691,7 +680,7 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
           <Property Name="TITULO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="CONTENIDO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="FECHA_PUBLICACION" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="TIPO_NOTICIA" Relationship="Self.FK__NOTICIA__ID_TIPO__48CFD27E" FromRole="NOTICIA" ToRole="TIPO_NOTICIA" />
+          <NavigationProperty Name="TIPO_NOTICIA" Relationship="Self.FK__NOTICIA__ID_TIPO__6754599E" FromRole="NOTICIA" ToRole="TIPO_NOTICIA" />
         </EntityType>
         <EntityType Name="PLAN_COBRO">
           <Key>
@@ -700,7 +689,7 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
           <Property Name="ID_PLAN_COBRO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NOMBRE_PLAN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="DESCRIPCION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="RESIDENCIA" Relationship="Self.FK__RESIDENCI__ID_PL__797309D9" FromRole="PLAN_COBRO" ToRole="RESIDENCIA" />
+          <NavigationProperty Name="RESIDENCIA" Relationship="Self.FK__RESIDENCI__ID_PL__72C60C4A" FromRole="PLAN_COBRO" ToRole="RESIDENCIA" />
           <NavigationProperty Name="RUBRO_COBRO" Relationship="Self.PLAN_COBRO_RUBRO_COBRO" FromRole="PLAN_COBRO" ToRole="RUBRO_COBRO" />
         </EntityType>
         <EntityType Name="REPORTES">
@@ -712,8 +701,8 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
           <Property Name="report_type_id" Type="Int32" Nullable="false" />
           <Property Name="report_date" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="report_data" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="TIPO_REPORTE" Relationship="Self.FK__REPORTES__ID_REP__778AC167" FromRole="REPORTES" ToRole="TIPO_REPORTE" />
-          <NavigationProperty Name="USUARIO" Relationship="Self.FK__REPORTES__ID_USU__76969D2E" FromRole="REPORTES" ToRole="USUARIO" />
+          <NavigationProperty Name="TIPO_REPORTE" Relationship="Self.FK__REPORTES__ID_REP__6A30C649" FromRole="REPORTES" ToRole="TIPO_REPORTE" />
+          <NavigationProperty Name="USUARIO" Relationship="Self.FK__REPORTES__ID_USU__6B24EA82" FromRole="REPORTES" ToRole="USUARIO" />
         </EntityType>
         <EntityType Name="RESERVA_AREA_COMUN">
           <Key>
@@ -731,9 +720,9 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
           <Property Name="FECHA_ACTUALIZACION" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="CREADO_POR" Type="Int32" Nullable="false" />
           <Property Name="ACTUALIZADO_POR" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="AREA_COMUN" Relationship="Self.FK__RESERVA_A__ID_AR__6383C8BA" FromRole="RESERVA_AREA_COMUN" ToRole="AREA_COMUN" />
-          <NavigationProperty Name="ESTADO_RESERVACION" Relationship="Self.FK__RESERVA_A__ID_ES__6477ECF3" FromRole="RESERVA_AREA_COMUN" ToRole="ESTADO_RESERVACION" />
-          <NavigationProperty Name="USUARIO" Relationship="Self.FK__RESERVA_A__ID_US__628FA481" FromRole="RESERVA_AREA_COMUN" ToRole="USUARIO" />
+          <NavigationProperty Name="AREA_COMUN" Relationship="Self.FK__RESERVA_A__ID_AR__6C190EBB" FromRole="RESERVA_AREA_COMUN" ToRole="AREA_COMUN" />
+          <NavigationProperty Name="ESTADO_RESERVACION" Relationship="Self.FK__RESERVA_A__ID_ES__6D0D32F4" FromRole="RESERVA_AREA_COMUN" ToRole="ESTADO_RESERVACION" />
+          <NavigationProperty Name="USUARIO" Relationship="Self.FK__RESERVA_A__ID_US__6E01572D" FromRole="RESERVA_AREA_COMUN" ToRole="USUARIO" />
         </EntityType>
         <EntityType Name="RESERVACION">
           <Key>
@@ -746,9 +735,9 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
           <Property Name="FECHA_RESERVACION" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="FECHA_CREACION" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="FECHA_FIN_RESERVACION" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="AREA_COMUN" Relationship="Self.FK__RESERVACI__ID_AR__5165187F" FromRole="RESERVACION" ToRole="AREA_COMUN" />
-          <NavigationProperty Name="ESTADO_RESERVACION" Relationship="Self.FK__RESERVACI__ID_ES__52593CB8" FromRole="RESERVACION" ToRole="ESTADO_RESERVACION" />
-          <NavigationProperty Name="USUARIO" Relationship="Self.FK__RESERVACI__ID_US__5070F446" FromRole="RESERVACION" ToRole="USUARIO" />
+          <NavigationProperty Name="AREA_COMUN" Relationship="Self.FK__RESERVACI__ID_AR__6EF57B66" FromRole="RESERVACION" ToRole="AREA_COMUN" />
+          <NavigationProperty Name="ESTADO_RESERVACION" Relationship="Self.FK__RESERVACI__ID_ES__6FE99F9F" FromRole="RESERVACION" ToRole="ESTADO_RESERVACION" />
+          <NavigationProperty Name="USUARIO" Relationship="Self.FK__RESERVACI__ID_US__70DDC3D8" FromRole="RESERVACION" ToRole="USUARIO" />
         </EntityType>
         <EntityType Name="RESIDENCIA">
           <Key>
@@ -762,10 +751,10 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
           <Property Name="CANTIDAD_CARROS" Type="Int32" Nullable="false" />
           <Property Name="ID_USUARIO" Type="Int32" />
           <Property Name="ID_PLAN_COBRO" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="ESTADO_RESIDENCIA" Relationship="Self.FK__RESIDENCI__ID_ES__571DF1D5" FromRole="RESIDENCIA" ToRole="ESTADO_RESIDENCIA" />
-          <NavigationProperty Name="GESTION_DEUDA" Relationship="Self.FK__GESTION_D__ID_RE__6A30C649" FromRole="RESIDENCIA" ToRole="GESTION_DEUDA" />
-          <NavigationProperty Name="PLAN_COBRO" Relationship="Self.FK__RESIDENCI__ID_PL__797309D9" FromRole="RESIDENCIA" ToRole="PLAN_COBRO" />
-          <NavigationProperty Name="USUARIO" Relationship="Self.FK__RESIDENCI__ID_US__787EE5A0" FromRole="RESIDENCIA" ToRole="USUARIO" />
+          <NavigationProperty Name="ESTADO_RESIDENCIA" Relationship="Self.FK__RESIDENCI__ID_ES__71D1E811" FromRole="RESIDENCIA" ToRole="ESTADO_RESIDENCIA" />
+          <NavigationProperty Name="GESTION_DEUDA" Relationship="Self.FK__GESTION_D__ID_RE__6383C8BA" FromRole="RESIDENCIA" ToRole="GESTION_DEUDA" />
+          <NavigationProperty Name="PLAN_COBRO" Relationship="Self.FK__RESIDENCI__ID_PL__72C60C4A" FromRole="RESIDENCIA" ToRole="PLAN_COBRO" />
+          <NavigationProperty Name="USUARIO" Relationship="Self.FK__RESIDENCI__ID_US__73BA3083" FromRole="RESIDENCIA" ToRole="USUARIO" />
         </EntityType>
         <EntityType Name="RUBRO_COBRO">
           <Key>
@@ -778,23 +767,13 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
           <Property Name="DESCRIPCION" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="PLAN_COBRO" Relationship="Self.PLAN_COBRO_RUBRO_COBRO" FromRole="RUBRO_COBRO" ToRole="PLAN_COBRO" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
         <EntityType Name="TIPO_NOTICIA">
           <Key>
             <PropertyRef Name="ID_TIPO_NOTICIA" />
           </Key>
           <Property Name="ID_TIPO_NOTICIA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TIPO_NOTICIA_INFO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="NOTICIA" Relationship="Self.FK__NOTICIA__ID_TIPO__48CFD27E" FromRole="TIPO_NOTICIA" ToRole="NOTICIA" />
+          <NavigationProperty Name="NOTICIA" Relationship="Self.FK__NOTICIA__ID_TIPO__6754599E" FromRole="TIPO_NOTICIA" ToRole="NOTICIA" />
         </EntityType>
         <EntityType Name="TIPO_REPORTE">
           <Key>
@@ -803,7 +782,7 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
           <Property Name="TIPO_REPORTE_ID" Type="Int32" Nullable="false" />
           <Property Name="NOMBRE_REPORTE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="DESCRIPCIÓN_REPORTE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="REPORTES" Relationship="Self.FK__REPORTES__ID_REP__778AC167" FromRole="TIPO_REPORTE" ToRole="REPORTES" />
+          <NavigationProperty Name="REPORTES" Relationship="Self.FK__REPORTES__ID_REP__6A30C649" FromRole="TIPO_REPORTE" ToRole="REPORTES" />
         </EntityType>
         <EntityType Name="TIPO_USUARIO">
           <Key>
@@ -811,7 +790,7 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
           </Key>
           <Property Name="ID_TIPO_USUARIO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TIPO_USUARIO1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="USUARIO" Relationship="Self.FK__USUARIO__ID_TIPO__3B75D760" FromRole="TIPO_USUARIO" ToRole="USUARIO" />
+          <NavigationProperty Name="USUARIO" Relationship="Self.FK__USUARIO__ID_TIPO__75A278F5" FromRole="TIPO_USUARIO" ToRole="USUARIO" />
         </EntityType>
         <EntityType Name="USUARIO">
           <Key>
@@ -824,16 +803,16 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
           <Property Name="APELLIDO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="CORREO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="CONTRASENA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="ESTADO_USUARIO" Relationship="Self.FK__USUARIO__ID_ESTA__3C69FB99" FromRole="USUARIO" ToRole="ESTADO_USUARIO" />
-          <NavigationProperty Name="GESTION_PLANES_COBRO" Relationship="Self.FK__GESTION_P__ID_RE__6E01572D" FromRole="USUARIO" ToRole="GESTION_PLANES_COBRO" />
-          <NavigationProperty Name="INCIDENCIA" Relationship="Self.FK__INCIDENCI__ID_US__4222D4EF" FromRole="USUARIO" ToRole="INCIDENCIA" />
-          <NavigationProperty Name="REPORTES" Relationship="Self.FK__REPORTES__ID_USU__76969D2E" FromRole="USUARIO" ToRole="REPORTES" />
-          <NavigationProperty Name="RESERVA_AREA_COMUN" Relationship="Self.FK__RESERVA_A__ID_US__628FA481" FromRole="USUARIO" ToRole="RESERVA_AREA_COMUN" />
-          <NavigationProperty Name="RESERVACION" Relationship="Self.FK__RESERVACI__ID_US__5070F446" FromRole="USUARIO" ToRole="RESERVACION" />
-          <NavigationProperty Name="RESIDENCIA" Relationship="Self.FK__RESIDENCI__ID_US__787EE5A0" FromRole="USUARIO" ToRole="RESIDENCIA" />
-          <NavigationProperty Name="TIPO_USUARIO" Relationship="Self.FK__USUARIO__ID_TIPO__3B75D760" FromRole="USUARIO" ToRole="TIPO_USUARIO" />
+          <NavigationProperty Name="ESTADO_USUARIO" Relationship="Self.FK__USUARIO__ID_ESTA__74AE54BC" FromRole="USUARIO" ToRole="ESTADO_USUARIO" />
+          <NavigationProperty Name="GESTION_PLANES_COBRO" Relationship="Self.FK__GESTION_P__ID_RE__6477ECF3" FromRole="USUARIO" ToRole="GESTION_PLANES_COBRO" />
+          <NavigationProperty Name="INCIDENCIA" Relationship="Self.FK__INCIDENCI__ID_US__66603565" FromRole="USUARIO" ToRole="INCIDENCIA" />
+          <NavigationProperty Name="REPORTES" Relationship="Self.FK__REPORTES__ID_USU__6B24EA82" FromRole="USUARIO" ToRole="REPORTES" />
+          <NavigationProperty Name="RESERVA_AREA_COMUN" Relationship="Self.FK__RESERVA_A__ID_US__6E01572D" FromRole="USUARIO" ToRole="RESERVA_AREA_COMUN" />
+          <NavigationProperty Name="RESERVACION" Relationship="Self.FK__RESERVACI__ID_US__70DDC3D8" FromRole="USUARIO" ToRole="RESERVACION" />
+          <NavigationProperty Name="RESIDENCIA" Relationship="Self.FK__RESIDENCI__ID_US__73BA3083" FromRole="USUARIO" ToRole="RESIDENCIA" />
+          <NavigationProperty Name="TIPO_USUARIO" Relationship="Self.FK__USUARIO__ID_TIPO__75A278F5" FromRole="USUARIO" ToRole="TIPO_USUARIO" />
         </EntityType>
-        <Association Name="FK__RESERVA_A__ID_AR__6383C8BA">
+        <Association Name="FK__RESERVA_A__ID_AR__6C190EBB">
           <End Role="AREA_COMUN" Type="Self.AREA_COMUN" Multiplicity="1" />
           <End Role="RESERVA_AREA_COMUN" Type="Self.RESERVA_AREA_COMUN" Multiplicity="*" />
           <ReferentialConstraint>
@@ -845,7 +824,7 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RESERVACI__ID_AR__5165187F">
+        <Association Name="FK__RESERVACI__ID_AR__6EF57B66">
           <End Role="AREA_COMUN" Type="Self.AREA_COMUN" Multiplicity="1" />
           <End Role="RESERVACION" Type="Self.RESERVACION" Multiplicity="*" />
           <ReferentialConstraint>
@@ -857,7 +836,7 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__GESTION_D__ID_ES__6B24EA82">
+        <Association Name="FK__GESTION_D__ID_ES__628FA481">
           <End Role="ESTADO_DEUDA" Type="Self.ESTADO_DEUDA" Multiplicity="1" />
           <End Role="GESTION_DEUDA" Type="Self.GESTION_DEUDA" Multiplicity="*" />
           <ReferentialConstraint>
@@ -869,7 +848,7 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__INCIDENCI__ID_ES__4316F928">
+        <Association Name="FK__INCIDENCI__ID_ES__656C112C">
           <End Role="ESTADO_INCIDENCIA" Type="Self.ESTADO_INCIDENCIA" Multiplicity="1" />
           <End Role="INCIDENCIA" Type="Self.INCIDENCIA" Multiplicity="*" />
           <ReferentialConstraint>
@@ -881,7 +860,7 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RESERVA_A__ID_ES__6477ECF3">
+        <Association Name="FK__RESERVA_A__ID_ES__6D0D32F4">
           <End Role="ESTADO_RESERVACION" Type="Self.ESTADO_RESERVACION" Multiplicity="1" />
           <End Role="RESERVA_AREA_COMUN" Type="Self.RESERVA_AREA_COMUN" Multiplicity="*" />
           <ReferentialConstraint>
@@ -893,7 +872,7 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RESERVACI__ID_ES__52593CB8">
+        <Association Name="FK__RESERVACI__ID_ES__6FE99F9F">
           <End Role="ESTADO_RESERVACION" Type="Self.ESTADO_RESERVACION" Multiplicity="1" />
           <End Role="RESERVACION" Type="Self.RESERVACION" Multiplicity="*" />
           <ReferentialConstraint>
@@ -905,7 +884,7 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RESIDENCI__ID_ES__571DF1D5">
+        <Association Name="FK__RESIDENCI__ID_ES__71D1E811">
           <End Role="ESTADO_RESIDENCIA" Type="Self.ESTADO_RESIDENCIA" Multiplicity="1" />
           <End Role="RESIDENCIA" Type="Self.RESIDENCIA" Multiplicity="*" />
           <ReferentialConstraint>
@@ -917,7 +896,7 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__USUARIO__ID_ESTA__3C69FB99">
+        <Association Name="FK__USUARIO__ID_ESTA__74AE54BC">
           <End Role="ESTADO_USUARIO" Type="Self.ESTADO_USUARIO" Multiplicity="1" />
           <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
           <ReferentialConstraint>
@@ -929,7 +908,7 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__GESTION_D__ID_RE__6A30C649">
+        <Association Name="FK__GESTION_D__ID_RE__6383C8BA">
           <End Role="RESIDENCIA" Type="Self.RESIDENCIA" Multiplicity="1" />
           <End Role="GESTION_DEUDA" Type="Self.GESTION_DEUDA" Multiplicity="*" />
           <ReferentialConstraint>
@@ -941,7 +920,7 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__GESTION_P__ID_RE__6E01572D">
+        <Association Name="FK__GESTION_P__ID_RE__6477ECF3">
           <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
           <End Role="GESTION_PLANES_COBRO" Type="Self.GESTION_PLANES_COBRO" Multiplicity="*" />
           <ReferentialConstraint>
@@ -953,7 +932,7 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__INCIDENCI__ID_US__4222D4EF">
+        <Association Name="FK__INCIDENCI__ID_US__66603565">
           <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
           <End Role="INCIDENCIA" Type="Self.INCIDENCIA" Multiplicity="*" />
           <ReferentialConstraint>
@@ -965,7 +944,7 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__NOTICIA__ID_TIPO__48CFD27E">
+        <Association Name="FK__NOTICIA__ID_TIPO__6754599E">
           <End Role="TIPO_NOTICIA" Type="Self.TIPO_NOTICIA" Multiplicity="1" />
           <End Role="NOTICIA" Type="Self.NOTICIA" Multiplicity="*" />
           <ReferentialConstraint>
@@ -977,7 +956,7 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RESIDENCI__ID_PL__797309D9">
+        <Association Name="FK__RESIDENCI__ID_PL__72C60C4A">
           <End Role="PLAN_COBRO" Type="Self.PLAN_COBRO" Multiplicity="1" />
           <End Role="RESIDENCIA" Type="Self.RESIDENCIA" Multiplicity="*" />
           <ReferentialConstraint>
@@ -989,7 +968,7 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__REPORTES__ID_REP__778AC167">
+        <Association Name="FK__REPORTES__ID_REP__6A30C649">
           <End Role="TIPO_REPORTE" Type="Self.TIPO_REPORTE" Multiplicity="1" />
           <End Role="REPORTES" Type="Self.REPORTES" Multiplicity="0..1" />
           <ReferentialConstraint>
@@ -1001,7 +980,7 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__REPORTES__ID_USU__76969D2E">
+        <Association Name="FK__REPORTES__ID_USU__6B24EA82">
           <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
           <End Role="REPORTES" Type="Self.REPORTES" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1013,7 +992,7 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RESERVA_A__ID_US__628FA481">
+        <Association Name="FK__RESERVA_A__ID_US__6E01572D">
           <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
           <End Role="RESERVA_AREA_COMUN" Type="Self.RESERVA_AREA_COMUN" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1025,7 +1004,7 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RESERVACI__ID_US__5070F446">
+        <Association Name="FK__RESERVACI__ID_US__70DDC3D8">
           <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
           <End Role="RESERVACION" Type="Self.RESERVACION" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1037,7 +1016,7 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RESIDENCI__ID_US__787EE5A0">
+        <Association Name="FK__RESIDENCI__ID_US__73BA3083">
           <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="0..1" />
           <End Role="RESIDENCIA" Type="Self.RESIDENCIA" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1049,7 +1028,7 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__USUARIO__ID_TIPO__3B75D760">
+        <Association Name="FK__USUARIO__ID_TIPO__75A278F5">
           <End Role="TIPO_USUARIO" Type="Self.TIPO_USUARIO" Multiplicity="1" />
           <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1082,84 +1061,83 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
           <EntitySet Name="RESERVACION" EntityType="Self.RESERVACION" />
           <EntitySet Name="RESIDENCIA" EntityType="Self.RESIDENCIA" />
           <EntitySet Name="RUBRO_COBRO" EntityType="Self.RUBRO_COBRO" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="TIPO_NOTICIA" EntityType="Self.TIPO_NOTICIA" />
           <EntitySet Name="TIPO_REPORTE" EntityType="Self.TIPO_REPORTE" />
           <EntitySet Name="TIPO_USUARIO" EntityType="Self.TIPO_USUARIO" />
           <EntitySet Name="USUARIO" EntityType="Self.USUARIO" />
-          <AssociationSet Name="FK__RESERVA_A__ID_AR__6383C8BA" Association="Self.FK__RESERVA_A__ID_AR__6383C8BA">
+          <AssociationSet Name="FK__RESERVA_A__ID_AR__6C190EBB" Association="Self.FK__RESERVA_A__ID_AR__6C190EBB">
             <End Role="AREA_COMUN" EntitySet="AREA_COMUN" />
             <End Role="RESERVA_AREA_COMUN" EntitySet="RESERVA_AREA_COMUN" />
           </AssociationSet>
-          <AssociationSet Name="FK__RESERVACI__ID_AR__5165187F" Association="Self.FK__RESERVACI__ID_AR__5165187F">
+          <AssociationSet Name="FK__RESERVACI__ID_AR__6EF57B66" Association="Self.FK__RESERVACI__ID_AR__6EF57B66">
             <End Role="AREA_COMUN" EntitySet="AREA_COMUN" />
             <End Role="RESERVACION" EntitySet="RESERVACION" />
           </AssociationSet>
-          <AssociationSet Name="FK__GESTION_D__ID_ES__6B24EA82" Association="Self.FK__GESTION_D__ID_ES__6B24EA82">
+          <AssociationSet Name="FK__GESTION_D__ID_ES__628FA481" Association="Self.FK__GESTION_D__ID_ES__628FA481">
             <End Role="ESTADO_DEUDA" EntitySet="ESTADO_DEUDA" />
             <End Role="GESTION_DEUDA" EntitySet="GESTION_DEUDA" />
           </AssociationSet>
-          <AssociationSet Name="FK__INCIDENCI__ID_ES__4316F928" Association="Self.FK__INCIDENCI__ID_ES__4316F928">
+          <AssociationSet Name="FK__INCIDENCI__ID_ES__656C112C" Association="Self.FK__INCIDENCI__ID_ES__656C112C">
             <End Role="ESTADO_INCIDENCIA" EntitySet="ESTADO_INCIDENCIA" />
             <End Role="INCIDENCIA" EntitySet="INCIDENCIA" />
           </AssociationSet>
-          <AssociationSet Name="FK__RESERVA_A__ID_ES__6477ECF3" Association="Self.FK__RESERVA_A__ID_ES__6477ECF3">
+          <AssociationSet Name="FK__RESERVA_A__ID_ES__6D0D32F4" Association="Self.FK__RESERVA_A__ID_ES__6D0D32F4">
             <End Role="ESTADO_RESERVACION" EntitySet="ESTADO_RESERVACION" />
             <End Role="RESERVA_AREA_COMUN" EntitySet="RESERVA_AREA_COMUN" />
           </AssociationSet>
-          <AssociationSet Name="FK__RESERVACI__ID_ES__52593CB8" Association="Self.FK__RESERVACI__ID_ES__52593CB8">
+          <AssociationSet Name="FK__RESERVACI__ID_ES__6FE99F9F" Association="Self.FK__RESERVACI__ID_ES__6FE99F9F">
             <End Role="ESTADO_RESERVACION" EntitySet="ESTADO_RESERVACION" />
             <End Role="RESERVACION" EntitySet="RESERVACION" />
           </AssociationSet>
-          <AssociationSet Name="FK__RESIDENCI__ID_ES__571DF1D5" Association="Self.FK__RESIDENCI__ID_ES__571DF1D5">
+          <AssociationSet Name="FK__RESIDENCI__ID_ES__71D1E811" Association="Self.FK__RESIDENCI__ID_ES__71D1E811">
             <End Role="ESTADO_RESIDENCIA" EntitySet="ESTADO_RESIDENCIA" />
             <End Role="RESIDENCIA" EntitySet="RESIDENCIA" />
           </AssociationSet>
-          <AssociationSet Name="FK__USUARIO__ID_ESTA__3C69FB99" Association="Self.FK__USUARIO__ID_ESTA__3C69FB99">
+          <AssociationSet Name="FK__USUARIO__ID_ESTA__74AE54BC" Association="Self.FK__USUARIO__ID_ESTA__74AE54BC">
             <End Role="ESTADO_USUARIO" EntitySet="ESTADO_USUARIO" />
             <End Role="USUARIO" EntitySet="USUARIO" />
           </AssociationSet>
-          <AssociationSet Name="FK__GESTION_D__ID_RE__6A30C649" Association="Self.FK__GESTION_D__ID_RE__6A30C649">
+          <AssociationSet Name="FK__GESTION_D__ID_RE__6383C8BA" Association="Self.FK__GESTION_D__ID_RE__6383C8BA">
             <End Role="RESIDENCIA" EntitySet="RESIDENCIA" />
             <End Role="GESTION_DEUDA" EntitySet="GESTION_DEUDA" />
           </AssociationSet>
-          <AssociationSet Name="FK__GESTION_P__ID_RE__6E01572D" Association="Self.FK__GESTION_P__ID_RE__6E01572D">
+          <AssociationSet Name="FK__GESTION_P__ID_RE__6477ECF3" Association="Self.FK__GESTION_P__ID_RE__6477ECF3">
             <End Role="USUARIO" EntitySet="USUARIO" />
             <End Role="GESTION_PLANES_COBRO" EntitySet="GESTION_PLANES_COBRO" />
           </AssociationSet>
-          <AssociationSet Name="FK__INCIDENCI__ID_US__4222D4EF" Association="Self.FK__INCIDENCI__ID_US__4222D4EF">
+          <AssociationSet Name="FK__INCIDENCI__ID_US__66603565" Association="Self.FK__INCIDENCI__ID_US__66603565">
             <End Role="USUARIO" EntitySet="USUARIO" />
             <End Role="INCIDENCIA" EntitySet="INCIDENCIA" />
           </AssociationSet>
-          <AssociationSet Name="FK__NOTICIA__ID_TIPO__48CFD27E" Association="Self.FK__NOTICIA__ID_TIPO__48CFD27E">
+          <AssociationSet Name="FK__NOTICIA__ID_TIPO__6754599E" Association="Self.FK__NOTICIA__ID_TIPO__6754599E">
             <End Role="TIPO_NOTICIA" EntitySet="TIPO_NOTICIA" />
             <End Role="NOTICIA" EntitySet="NOTICIA" />
           </AssociationSet>
-          <AssociationSet Name="FK__RESIDENCI__ID_PL__797309D9" Association="Self.FK__RESIDENCI__ID_PL__797309D9">
+          <AssociationSet Name="FK__RESIDENCI__ID_PL__72C60C4A" Association="Self.FK__RESIDENCI__ID_PL__72C60C4A">
             <End Role="PLAN_COBRO" EntitySet="PLAN_COBRO" />
             <End Role="RESIDENCIA" EntitySet="RESIDENCIA" />
           </AssociationSet>
-          <AssociationSet Name="FK__REPORTES__ID_REP__778AC167" Association="Self.FK__REPORTES__ID_REP__778AC167">
+          <AssociationSet Name="FK__REPORTES__ID_REP__6A30C649" Association="Self.FK__REPORTES__ID_REP__6A30C649">
             <End Role="TIPO_REPORTE" EntitySet="TIPO_REPORTE" />
             <End Role="REPORTES" EntitySet="REPORTES" />
           </AssociationSet>
-          <AssociationSet Name="FK__REPORTES__ID_USU__76969D2E" Association="Self.FK__REPORTES__ID_USU__76969D2E">
+          <AssociationSet Name="FK__REPORTES__ID_USU__6B24EA82" Association="Self.FK__REPORTES__ID_USU__6B24EA82">
             <End Role="USUARIO" EntitySet="USUARIO" />
             <End Role="REPORTES" EntitySet="REPORTES" />
           </AssociationSet>
-          <AssociationSet Name="FK__RESERVA_A__ID_US__628FA481" Association="Self.FK__RESERVA_A__ID_US__628FA481">
+          <AssociationSet Name="FK__RESERVA_A__ID_US__6E01572D" Association="Self.FK__RESERVA_A__ID_US__6E01572D">
             <End Role="USUARIO" EntitySet="USUARIO" />
             <End Role="RESERVA_AREA_COMUN" EntitySet="RESERVA_AREA_COMUN" />
           </AssociationSet>
-          <AssociationSet Name="FK__RESERVACI__ID_US__5070F446" Association="Self.FK__RESERVACI__ID_US__5070F446">
+          <AssociationSet Name="FK__RESERVACI__ID_US__70DDC3D8" Association="Self.FK__RESERVACI__ID_US__70DDC3D8">
             <End Role="USUARIO" EntitySet="USUARIO" />
             <End Role="RESERVACION" EntitySet="RESERVACION" />
           </AssociationSet>
-          <AssociationSet Name="FK__RESIDENCI__ID_US__787EE5A0" Association="Self.FK__RESIDENCI__ID_US__787EE5A0">
+          <AssociationSet Name="FK__RESIDENCI__ID_US__73BA3083" Association="Self.FK__RESIDENCI__ID_US__73BA3083">
             <End Role="USUARIO" EntitySet="USUARIO" />
             <End Role="RESIDENCIA" EntitySet="RESIDENCIA" />
           </AssociationSet>
-          <AssociationSet Name="FK__USUARIO__ID_TIPO__3B75D760" Association="Self.FK__USUARIO__ID_TIPO__3B75D760">
+          <AssociationSet Name="FK__USUARIO__ID_TIPO__75A278F5" Association="Self.FK__USUARIO__ID_TIPO__75A278F5">
             <End Role="TIPO_USUARIO" EntitySet="TIPO_USUARIO" />
             <End Role="USUARIO" EntitySet="USUARIO" />
           </AssociationSet>
@@ -1347,17 +1325,6 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
                 <ScalarProperty Name="MONTO" ColumnName="MONTO" />
                 <ScalarProperty Name="IMAGEN" ColumnName="IMAGEN" />
                 <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="CONDOMINIOSModel.sysdiagrams">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
