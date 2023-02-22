@@ -66,7 +66,7 @@ namespace Infraestructure.Repository
         public GESTION_DEUDA GetEstadosCuentaById(int id)
         {
             GESTION_DEUDA oGestionDeuda = null;
-            using (CONDOMINIOSEntities ctx = new CONDOMINIOSEntities())
+            using (MyContext ctx = new MyContext())
             {
                 ctx.Configuration.LazyLoadingEnabled = false;
                 oGestionDeuda = ctx.GESTION_DEUDA.

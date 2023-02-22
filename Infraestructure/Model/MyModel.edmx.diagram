@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="b849776b7e834096abcf38fd4aa3593a" Name="Diagram1">
+      <Diagram DiagramId="0258dba612fe416cb39588fcaf627657" Name="Diagram1" ZoomLevel="55">
         <EntityTypeShape EntityType="CONDOMINIOSModel.AREA_COMUN" Width="1.5" PointX="6" PointY="4.375" IsExpanded="true" />
         <EntityTypeShape EntityType="CONDOMINIOSModel.ESTADO_DEUDA" Width="1.5" PointX="8.25" PointY="19.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CONDOMINIOSModel.ESTADO_INCIDENCIA" Width="1.5" PointX="6" PointY="19.75" IsExpanded="true" />
