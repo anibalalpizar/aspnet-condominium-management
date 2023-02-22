@@ -337,6 +337,7 @@
     <Content Include="Views\Shared\Components\Lists\PlanCobroComponent.cshtml" />
     <Content Include="Views\Shared\Components\Lists\RubrosCobrosComponent.cshtml" />
     <Content Include="Views\EstadosCuenta\DeudasVigentes.cshtml" />
+    <Content Include="Views\Shared\Components\Lists\DeudasVigentesComponent.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,36 +1,23 @@
 ﻿@model IEnumerable<Infraestructure.Model.GESTION_DEUDA>
 
-@{
-    ViewBag.Title = "DeudasVigentes";
-}
+<h2>Deudas vigentes</h2>
 
-<h2>DeudasVigentes</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
-    <tr>
-        <th>
-            Total a pagar
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
+    <thead>
         <tr>
-            <!-- propiedades existentes -->
-            <td>
-                @Html.DisplayFor(modelItem => item.FECHA_PAGO)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TOTALPAGAR)
-            </td>
-            <td>
-                <!-- acciones existentes -->
-            </td>
+            <th>Mes</th>
+            <th>Plan de cobro</th>
+            <th>Total a pagar</th>
         </tr>
-    }
-
+    </thead>
+    <tbody>
+        @foreach (var deuda in Model)
+        {
+            <tr>
+                <td>@System.Globalization.DateTimeFormatInfo.CurrentInfo.GetMonthName(deuda.MES) @deuda.ANIO</td>
+                <td>@deuda.RESIDENCIA.PLAN_COBRO.NOMBRE_PLAN</td>
+                <td>@(deuda.TOTALPAGAR.HasValue ? deuda.TOTALPAGAR.Value.ToString("C2") : "")</td>
+            </tr>
+        }
+    </tbody>
 </table>

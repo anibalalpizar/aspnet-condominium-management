@@ -73,5 +73,37 @@ namespace Condominium.Controllers
             }
             return View(list);
         }
+
+        //    public ActionResult DeudasVigentes()
+        //    {
+        //        List<GESTION_DEUDA> list = null;
+        //        try
+        //        {
+        //            using (MyContext ctx = new MyContext())
+        //            {
+        //                ctx.Configuration.LazyLoadingEnabled = false;
+
+        //                list = ctx.GESTION_DEUDA
+        //                    .Include(g => g.ESTADO_DEUDA)
+        //                    .Include(g => g.RESIDENCIA.USUARIO)
+        //                    .Where(g => g.ESTADO_DEUDA.NOMBRE_ESTADO_DEUDA == "PENDIENTE")
+        //                    .ToList();
+
+        //                foreach (var deuda in list)
+        //                {
+        //                    var mes = deuda.MES.ToString("MMMM");
+        //                    var planCobro = ctx.PLAN_COBRO.Find(deuda.RESIDENCIA.ID_PLAN_COBRO);
+        //                    var totalPagar = planCobro.RUBRO_COBRO.Sum(r => r.MONTO);
+        //                    deuda.TOTALPAGAR = totalPagar; // Asignar valor a TotalPagar
+        //                }
+        //            }
+        //        }
+        //        catch
+        //        {
+        //            throw;
+        //        }
+        //        return View(list);
+        //    }
+        //}
     }
 }
