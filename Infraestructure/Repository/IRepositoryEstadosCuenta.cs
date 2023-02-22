@@ -11,5 +11,6 @@ namespace Infraestructure.Repository
     {
         IEnumerable<GESTION_DEUDA> GetEstadosCuenta();
         GESTION_DEUDA GetEstadosCuentaById(int id);
+        IEnumerable<GESTION_DEUDA> GetDeudasVigentes();
     }
 }

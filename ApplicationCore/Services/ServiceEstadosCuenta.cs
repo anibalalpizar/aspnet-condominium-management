@@ -10,6 +10,12 @@ namespace ApplicationCore.Services
 {
     public class ServiceEstadosCuenta : IServiceEstadosCuenta
     {
+        public IEnumerable<GESTION_DEUDA> GetDeudasVigentes()
+        {
+            IRepositoryEstadosCuenta repository = new RepositoryEstadosCuenta();
+            return repository.GetDeudasVigentes();
+        }
+
         public IEnumerable<GESTION_DEUDA> GetEstadosCuenta()
         {
             IRepositoryEstadosCuenta repository = new RepositoryEstadosCuenta();
