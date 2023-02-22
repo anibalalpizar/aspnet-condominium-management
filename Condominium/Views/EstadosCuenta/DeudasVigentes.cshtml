@@ -2,22 +2,58 @@
 
 <h2>Deudas vigentes</h2>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Mes</th>
-            <th>Plan de cobro</th>
-            <th>Total a pagar</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var deuda in Model)
-        {
-            <tr>
-                <td>@System.Globalization.DateTimeFormatInfo.CurrentInfo.GetMonthName(deuda.MES) @deuda.ANIO</td>
-                <td>@deuda.RESIDENCIA.PLAN_COBRO.NOMBRE_PLAN</td>
-                <td>@(deuda.TOTALPAGAR.HasValue ? deuda.TOTALPAGAR.Value.ToString("C2") : "")</td>
-            </tr>
-        }
-    </tbody>
-</table>
+<div class="row">
+    @foreach (var deuda in Model)
+    {
+        <div class="col-md-4">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">@System.Globalization.DateTimeFormatInfo.CurrentInfo.GetMonthName(deuda.MES) @deuda.ANIO</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">@deuda.RESIDENCIA.PLAN_COBRO.NOMBRE_PLAN</h6>
+                    <p class="card-text">@Html.Raw("<i class=\"fas fa-money-bill\"></i>") Total a pagar: @(deuda.TOTALPAGAR.HasValue ? deuda.TOTALPAGAR.Value.ToString("C2") : "")</p>
+                    <td>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-@deuda.ID_GESTION_DEUDA">Ver más</button>
+                    </td>
+                </div>
+            </div>
+        </div>
+        <!-- Modal para mostrar información detallada de la deuda -->
+        <div class="modal fade" id="modal-@deuda.ID_GESTION_DEUDA" tabindex="-1" role="dialog" aria-labelledby="modal-@deuda.ID_GESTION_DEUDA-label" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal-@deuda.ID_GESTION_DEUDA-label">Información detallada de la deuda</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <!-- Columna de información del usuario -->
+                            <div class="col-md-4">
+                                <h6>Información del usuario</h6>
+                                <p>Nombre: @deuda.RESIDENCIA.USUARIO.NOMBRE</p>
+                                <p>Apellido: @deuda.RESIDENCIA.USUARIO.APELLIDO</p>
+                                <p>Correo: @deuda.RESIDENCIA.USUARIO.CORREO</p>
+                            </div>
+                            <!-- Columna de información de la residencia -->
+                            <div class="col-md-4">
+                                <h6>Información de la residencia</h6>
+                                <p>Numero residencia: @deuda.RESIDENCIA.NUMERO_RESIDENCIA</p>
+                                <p>Personas: @deuda.RESIDENCIA.CANTIDAD_PERSONAS</p>
+                                <p>Carros: @deuda.RESIDENCIA.CANTIDAD_CARROS</p>
+                            </div>
+                            <!-- Columna de información de la deuda -->
+                            <div class="col-sm-4">
+                                <h6>Información de la deuda</h6>
+                                <p><strong>Total a pagar:</strong> @(deuda.TOTALPAGAR.HasValue ? deuda.TOTALPAGAR.Value.ToString("C2") : "")</p>
+                                <p><strong>Estado:</strong> @deuda.ESTADO_DEUDA.NOMBRE_ESTADO_DEUDA</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            }
+        </div>
+
