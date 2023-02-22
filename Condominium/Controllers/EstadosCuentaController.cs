@@ -59,6 +59,23 @@ namespace Condominium.Controllers
                 throw;
             }
             return View();
-        }      
+        }
+        
+        public ActionResult HistorialPagos()
+        {
+            IEnumerable<GESTION_DEUDA> list = null;
+            try
+            {
+                // Historial Pagos
+                IServiceEstadosCuenta _ServiceEstadosCuenta = new ServiceEstadosCuenta();
+                list = _ServiceEstadosCuenta.GetHistorialPagos();
+                return View(list);
+            }
+            catch
+            {
+                throw;
+            }
+            return View();
+        }
     }
 }

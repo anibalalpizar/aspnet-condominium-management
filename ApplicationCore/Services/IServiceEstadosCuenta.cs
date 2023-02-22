@@ -12,5 +12,6 @@ namespace ApplicationCore.Services
         IEnumerable<GESTION_DEUDA> GetEstadosCuenta();
         GESTION_DEUDA GetEstadosCuentaById(int id);
         IEnumerable<GESTION_DEUDA> GetDeudasVigentes();
+        IEnumerable<GESTION_DEUDA> GetHistorialPagos();
     }
 }

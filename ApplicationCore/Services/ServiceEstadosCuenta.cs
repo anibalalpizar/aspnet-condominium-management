@@ -27,5 +27,11 @@ namespace ApplicationCore.Services
             IRepositoryEstadosCuenta repository = new RepositoryEstadosCuenta();
             return repository.GetEstadosCuentaById(id);
         }
+
+        public IEnumerable<GESTION_DEUDA> GetHistorialPagos()
+        {
+            IRepositoryEstadosCuenta repository = new RepositoryEstadosCuenta();
+            return repository.GetHistorialPagos();
+        }
     }
 }

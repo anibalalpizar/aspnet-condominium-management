@@ -63,9 +63,9 @@
         margin-right: 5px;
     }
 
-        .btn-group .btn:first-child {
+    .btn-group .btn:first-child {
             margin-left: 0; /* Restaura el margen izquierdo a cero para el primer botón */
-        }
+    }
 
     .modal-title-center {
         text-align: center;
@@ -112,12 +112,15 @@
                             <strong>Plan de cobro para @Html.DisplayFor(modelItem => item.USUARIO.NOMBRE) @Html.DisplayFor(modelItem => item.USUARIO.APELLIDO)</strong>
                             - #PC-@Html.DisplayFor(modelItem => item.ID_PLAN_COBRO)
                         </h5>
-                        <p class="card-text">Monto: @Html.DisplayFor(modelItem => item.MONTO)</p>
-                        <p class="card-text">Fecha Fin: @Html.DisplayFor(modelItem => item.FECHA_FIN)</p>
+                        <p class="card-text">Monto: @Html.DisplayFor(modelItem => item.MONTO) <i class="fas fa-dollar-sign"></i></p>
+                        <p class="card-text">Fecha Fin: @Html.DisplayFor(modelItem => item.FECHA_FIN) <i class="fas fa-calendar-alt"></i></p>
                         <div class="btn-group d-grid">
                             <button type="button" class="btn btn-primary btn-detalle" data-toggle="modal" data-target="#modalDetalle_@item.ID_PLAN_COBRO">
-                                <i class="fa-solid fa-circle-info"></i> Detalle
+                                <i class="fas fa-info-circle"></i> Vista Previa
                             </button>
+                            <a href="@Url.Action("Details", "PlanCobro", new { id = item.ID_PLAN_COBRO })" class="btn btn-success">
+                                <i class="fas fa-info-circle"></i> Detalles
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -141,29 +144,26 @@
                 <div class="modal-body">
                     <dl class="row">
                         <div class="col-md-6">
-                            <h5 class="titles">Información del usuario</h5>
-                            <dt class="col-sm-4">ID de usuario:</dt>
+                            <h5 class="titles"><i class="fas fa-user"></i> Información del usuario</h5>
+                            <dt class="col-sm-4"><i class="fas fa-id-badge"></i> ID de usuario:</dt>
                             <dd class="col-sm-8">@Html.DisplayFor(model => item.USUARIO.ID_USUARIO)</dd>
-
-                            <dt class="col-sm-4">Nombre:</dt>
+                            <dt class="col-sm-4"><i class="fas fa-user"></i> Nombre:</dt>
                             <dd class="col-sm-8">@Html.DisplayFor(model => item.USUARIO.NOMBRE) @Html.DisplayFor(model => item.USUARIO.APELLIDO)</dd>
 
-
-                            <dt class="col-sm-4">Correo electrónico:</dt>
+                            <dt class="col-sm-4"><i class="fas fa-envelope"></i> Correo electrónico:</dt>
                             <dd class="col-sm-8">@Html.DisplayFor(model => item.USUARIO.CORREO)</dd>
                         </div>
                         <div class="col-md-6">
-                            <h5 class="titles">Información del plan de cobro</h5>
-                            <dt class="col-sm-4">Fecha de inicio:</dt>
+                            <h5 class="titles"><i class="fas fa-money-bill"></i> Información del plan de cobro</h5>
+                            <dt class="col-sm-4"><i class="fas fa-calendar-alt"></i> Fecha de inicio:</dt>
                             <dd class="col-sm-8">@Html.DisplayFor(model => item.FECHA_INICIO)</dd>
-
-                            <dt class="col-sm-4">Fecha de fin:</dt>
+                            <dt class="col-sm-4"><i class="fas fa-calendar-alt"></i> Fecha de fin:</dt>
                             <dd class="col-sm-8">@Html.DisplayFor(model => item.FECHA_FIN)</dd>
 
-                            <dt class="col-sm-4">Monto:</dt>
+                            <dt class="col-sm-4"><i class="fas fa-dollar-sign"></i> Monto:</dt>
                             <dd class="col-sm-8"><span style="font-weight: normal;">$@Html.DisplayFor(model => item.MONTO)</span></dd>
 
-                            <dt class="col-sm-4">Estado de cobro:</dt>
+                            <dt class="col-sm-4"><i class="fas fa-check-circle"></i> Estado de cobro:</dt>
                             <dd class="col-sm-8">@Html.DisplayFor(model => item.ESTADO_COBRO)</dd>
                         </div>
                     </dl>
@@ -171,6 +171,9 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="position:absolute; top: 10px; right: 10px;">
                     <span aria-hidden="true"><i class="fas fa-times text-black"></i></span>
                 </button>
+                <a href="@Url.Action("Details", "PlanCobro", new { id = item.ID_PLAN_COBRO })" class="btn btn-success">
+                    <i class="fas fa-info-circle"></i> Ver detalles completos
+                </a>
             </div>
         </div>
     </div>

@@ -34,7 +34,8 @@ namespace Infraestructure.Repository
             {
                 using (MyContext ctx = new MyContext())
                 {
-                    planCobro = ctx.GESTION_PLANES_COBRO.Where(x => x.ID_PLAN_COBRO == id).FirstOrDefault();
+                    planCobro = ctx.GESTION_PLANES_COBRO.Where(x => x.ID_PLAN_COBRO == id)
+                        .Include(u => u.USUARIO).FirstOrDefault();
                 }
             }
             catch (Exception ex)

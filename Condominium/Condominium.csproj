@@ -324,7 +324,6 @@
     <Content Include="Views\Residencia\Details.cshtml" />
     <Content Include="Views\Error\Index.cshtml" />
     <Content Include="Views\Error\NotFound.cshtml" />
-    <Content Include="Views\PlanCobro\Details.cshtml" />
     <Content Include="Views\Residencia\Index.cshtml" />
     <Content Include="Views\PlanCobro\Index.cshtml" />
     <Content Include="Views\EstadosCuenta\Index.cshtml" />
@@ -338,6 +337,9 @@
     <Content Include="Views\Shared\Components\Lists\RubrosCobrosComponent.cshtml" />
     <Content Include="Views\EstadosCuenta\DeudasVigentes.cshtml" />
     <Content Include="Views\Shared\Components\Lists\DeudasVigentesComponent.cshtml" />
+    <Content Include="Views\EstadosCuenta\HistorialPagos.cshtml" />
+    <Content Include="Views\Shared\Components\Lists\HistorialPagosComponent.cshtml" />
+    <Content Include="Views\PlanCobro\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -40,6 +40,40 @@ namespace Infraestructure.Repository
             return list;
         }
 
+        public IEnumerable<GESTION_DEUDA> GetHistorialPagos()
+        {
+            List<GESTION_DEUDA> list = null;
+            try
+            {
+                using (MyContext ctx = new MyContext())
+                {
+                    ctx.Configuration.LazyLoadingEnabled = false;
+
+                    list = ctx.GESTION_DEUDA
+                        .Include(g => g.ESTADO_DEUDA)
+                        .Include(g => g.RESIDENCIA.USUARIO)
+                        .Where(g => g.ESTADO_DEUDA.NOMBRE_ESTADO_DEUDA == "PAGADO")
+                        .ToList();
+                    
+                    if (list.Count > 0)
+                    {
+                        var planCobro = ctx.PLAN_COBRO.Find(list[0].RESIDENCIA.ID_PLAN_COBRO);
+                        foreach (var deuda in list)
+                        {
+                            var mes = System.Globalization.DateTimeFormatInfo.CurrentInfo.GetMonthName(deuda.MES);
+                            var totalPagado = planCobro.RUBRO_COBRO.Where(r => r.ID_RUBRO_COBRO == deuda.ID_ESTADO_DEUDA).Select(r => r.MONTO).SingleOrDefault();
+                            deuda.TOTALPAGAR = totalPagado;
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                throw;
+            }
+            return list;
+        }
+
         public IEnumerable<GESTION_DEUDA> GetEstadosCuenta()
         {
             List<GESTION_DEUDA> list = null;

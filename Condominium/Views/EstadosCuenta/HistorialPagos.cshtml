@@ -1,13 +1,14 @@
 ﻿@model IEnumerable<Infraestructure.Model.GESTION_DEUDA>
 
-<style>
-    i {
-        margin-right: 5px;
-    }
-</style>
+@{
+    ViewBag.Title = "HistorialPagos";
+}
 
-<h2>Deudas vigentes</h2>
+<h2>HistorialPagos</h2>
 
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
 <div class="row">
     @foreach (var deuda in Model)
     {
@@ -61,4 +62,3 @@
         </div>
     }
 </div>
-

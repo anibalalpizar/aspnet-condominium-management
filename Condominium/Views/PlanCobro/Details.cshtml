@@ -1,40 +1,49 @@
-﻿@model Infraestructure.Model.PLAN_COBRO
+﻿@model Infraestructure.Model.GESTION_PLANES_COBRO
 
 @{
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
-
 <div>
-    <h4>PLAN_COBRO</h4>
+    <h4>GESTION_PLANES_COBRO</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.ID_PLAN_COBRO)
-        </dt>
+    <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                    <i class="fas fa-user"></i> Información del usuario
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <dl class="dl-horizontal">
+                        <p><i class="fas fa-id-card"></i> ID de usuario: @Html.DisplayFor(model => model.USUARIO.ID_USUARIO)</p>
+                        <p><i class="fas fa-user"></i> Nombre completo: @Html.DisplayFor(model => model.USUARIO.NOMBRE) @Html.DisplayFor(model => model.USUARIO.APELLIDO)</p>
+                        <p><i class="fas fa-envelope"></i> Correo electrónico: @Html.DisplayFor(model => model.USUARIO.CORREO)</p>
 
-        <dd>
-            @Html.DisplayFor(model => model.ID_PLAN_COBRO)
-        </dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    <i class="fas fa-wallet"></i> Información del plan de cobro
+                </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <dl class="dl-horizontal">
+                        <p><i class="fas fa-calendar-alt"></i> Fecha inicio: @Html.DisplayFor(model => model.FECHA_INICIO)</p>
+                        <p><i class="fas fa-calendar-alt"></i> Fecha fin: @Html.DisplayFor(model => model.FECHA_FIN)</p>
+                        <p><i class="fas fa-dollar-sign"></i> Monto: @Html.DisplayFor(model => model.MONTO)</p>
+                        <p><i class="fas fa-exclamation-triangle"></i> Estado de cobro: @Html.DisplayFor(model => model.ESTADO_COBRO)</p>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.NOMBRE_PLAN)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NOMBRE_PLAN)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DESCRIPCION)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DESCRIPCION)
-        </dd>
-
-    </dl>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
