@@ -1,0 +1,571 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CONDOMINIOSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AREA_COMUN">
+    <Key>
+      <PropertyRef Name="ID_AREA_COMUN" />
+    </Key>
+    <Property Name="ID_AREA_COMUN" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AREA_COMUN" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ESTADO_DEUDA">
+    <Key>
+      <PropertyRef Name="ID_ESTADO_DEUDA" />
+    </Key>
+    <Property Name="ID_ESTADO_DEUDA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NOMBRE_ESTADO_DEUDA" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ESTADO_INCIDENCIA">
+    <Key>
+      <PropertyRef Name="ID_ESTADO_INCIDENCIA" />
+    </Key>
+    <Property Name="ID_ESTADO_INCIDENCIA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ESTADO_INCIDENCIA" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ESTADO_RESERVACION">
+    <Key>
+      <PropertyRef Name="ID_ESTADO_RESERVACION" />
+    </Key>
+    <Property Name="ID_ESTADO_RESERVACION" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ESTADO_RESERVACION" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ESTADO_RESIDENCIA">
+    <Key>
+      <PropertyRef Name="ID_ESTADO_RESIDENCIA" />
+    </Key>
+    <Property Name="ID_ESTADO_RESIDENCIA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ESTADO_RESIDENCIA" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ESTADO_USUARIO">
+    <Key>
+      <PropertyRef Name="ID_ESTADO" />
+    </Key>
+    <Property Name="ID_ESTADO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ESTADO" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GESTION_DEUDA">
+    <Key>
+      <PropertyRef Name="ID_GESTION_DEUDA" />
+    </Key>
+    <Property Name="ID_GESTION_DEUDA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_RESIDENCIA" Type="int" Nullable="false" />
+    <Property Name="MES" Type="int" Nullable="false" />
+    <Property Name="ANIO" Type="int" Nullable="false" />
+    <Property Name="MONTO" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="FECHA_VENCIMIENTO" Type="datetime" Nullable="false" />
+    <Property Name="ID_ESTADO_DEUDA" Type="int" Nullable="false" />
+    <Property Name="DETALLES_RUBROS" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="FECHA_REGISTRO" Type="datetime" Nullable="false" />
+    <Property Name="FECHA_PAGO" Type="datetime" Nullable="false" />
+    <Property Name="TOTALPAGAR" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="GESTION_PLANES_COBRO">
+    <Key>
+      <PropertyRef Name="ID_PLAN_COBRO" />
+    </Key>
+    <Property Name="ID_PLAN_COBRO" Type="int" Nullable="false" />
+    <Property Name="ID_RESIDENTE" Type="int" Nullable="false" />
+    <Property Name="FECHA_INICIO" Type="date" Nullable="false" />
+    <Property Name="FECHA_FIN" Type="date" Nullable="false" />
+    <Property Name="MONTO" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="FRECUENCIA_COBRO" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ESTADO_COBRO" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="INCIDENCIA">
+    <Key>
+      <PropertyRef Name="ID_INCIDENCIA" />
+    </Key>
+    <Property Name="ID_INCIDENCIA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_USUARIO" Type="int" Nullable="false" />
+    <Property Name="ID_ESTADO_INCIDENCIA" Type="int" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="FECHA_CREACION" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NOTICIA">
+    <Key>
+      <PropertyRef Name="ID_NOTICIA" />
+    </Key>
+    <Property Name="ID_NOTICIA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_TIPO_NOTICIA" Type="int" Nullable="false" />
+    <Property Name="TITULO" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CONTENIDO" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="FECHA_PUBLICACION" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PLAN_COBRO">
+    <Key>
+      <PropertyRef Name="ID_PLAN_COBRO" />
+    </Key>
+    <Property Name="ID_PLAN_COBRO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NOMBRE_PLAN" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="PLAN_COBRO_RUBRO_COBRO">
+    <Key>
+      <PropertyRef Name="ID_PLAN_COBRO" />
+      <PropertyRef Name="ID_RUBRO_COBRO" />
+    </Key>
+    <Property Name="ID_PLAN_COBRO" Type="int" Nullable="false" />
+    <Property Name="ID_RUBRO_COBRO" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="REPORTES">
+    <Key>
+      <PropertyRef Name="ID_REPORTE" />
+    </Key>
+    <Property Name="ID_REPORTE" Type="int" Nullable="false" />
+    <Property Name="ID_USUARIO" Type="int" Nullable="false" />
+    <Property Name="report_type_id" Type="int" Nullable="false" />
+    <Property Name="report_date" Type="date" Nullable="false" />
+    <Property Name="report_data" Type="text" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RESERVA_AREA_COMUN">
+    <Key>
+      <PropertyRef Name="ID_RESERVA_AREA_COMUN" />
+    </Key>
+    <Property Name="ID_RESERVA_AREA_COMUN" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_USUARIO" Type="int" Nullable="false" />
+    <Property Name="ID_AREA_COMUN" Type="int" Nullable="false" />
+    <Property Name="FECHA_RESERVA" Type="datetime" Nullable="false" />
+    <Property Name="HORA_INICIO" Type="datetime" Nullable="false" />
+    <Property Name="HORA_FIN" Type="datetime" Nullable="false" />
+    <Property Name="ID_ESTADO_RESERVACION" Type="int" Nullable="false" />
+    <Property Name="COMENTARIOS" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="FECHA_CREACION" Type="datetime" Nullable="false" />
+    <Property Name="FECHA_ACTUALIZACION" Type="datetime" Nullable="false" />
+    <Property Name="CREADO_POR" Type="int" Nullable="false" />
+    <Property Name="ACTUALIZADO_POR" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RESERVACION">
+    <Key>
+      <PropertyRef Name="ID_RESERVACION" />
+    </Key>
+    <Property Name="ID_RESERVACION" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_USUARIO" Type="int" Nullable="false" />
+    <Property Name="ID_AREA_COMUN" Type="int" Nullable="false" />
+    <Property Name="ID_ESTADO_RESERVACION" Type="int" Nullable="false" />
+    <Property Name="FECHA_RESERVACION" Type="datetime" Nullable="false" />
+    <Property Name="FECHA_CREACION" Type="datetime" Nullable="false" />
+    <Property Name="FECHA_FIN_RESERVACION" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RESIDENCIA">
+    <Key>
+      <PropertyRef Name="ID_RESIDENCIA" />
+    </Key>
+    <Property Name="ID_RESIDENCIA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_ESTADO_RESIDENCIA" Type="int" Nullable="false" />
+    <Property Name="NUMERO_RESIDENCIA" Type="int" Nullable="false" />
+    <Property Name="CANTIDAD_PERSONAS" Type="int" Nullable="false" />
+    <Property Name="ANIO_INICIO" Type="int" Nullable="false" />
+    <Property Name="CANTIDAD_CARROS" Type="int" Nullable="false" />
+    <Property Name="ID_USUARIO" Type="int" />
+    <Property Name="ID_PLAN_COBRO" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RUBRO_COBRO">
+    <Key>
+      <PropertyRef Name="ID_RUBRO_COBRO" />
+    </Key>
+    <Property Name="ID_RUBRO_COBRO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NOMBRE_RUBRO" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MONTO" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="IMAGEN" Type="varbinary(max)" />
+    <Property Name="DESCRIPCION" Type="varchar" MaxLength="2000" />
+  </EntityType>
+  <EntityType Name="TIPO_NOTICIA">
+    <Key>
+      <PropertyRef Name="ID_TIPO_NOTICIA" />
+    </Key>
+    <Property Name="ID_TIPO_NOTICIA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TIPO_NOTICIA_INFO" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TIPO_REPORTE">
+    <Key>
+      <PropertyRef Name="TIPO_REPORTE_ID" />
+    </Key>
+    <Property Name="TIPO_REPORTE_ID" Type="int" Nullable="false" />
+    <Property Name="NOMBRE_REPORTE" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DESCRIPCIÓN_REPORTE" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TIPO_USUARIO">
+    <Key>
+      <PropertyRef Name="ID_TIPO_USUARIO" />
+    </Key>
+    <Property Name="ID_TIPO_USUARIO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TIPO_USUARIO" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="USUARIO">
+    <Key>
+      <PropertyRef Name="ID_USUARIO" />
+    </Key>
+    <Property Name="ID_USUARIO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_TIPO_USUARIO" Type="int" Nullable="false" />
+    <Property Name="ID_ESTADO" Type="int" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="APELLIDO" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CORREO" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CONTRASENA" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__GESTION_D__ID_ES__628FA481">
+    <End Role="ESTADO_DEUDA" Type="Self.ESTADO_DEUDA" Multiplicity="1" />
+    <End Role="GESTION_DEUDA" Type="Self.GESTION_DEUDA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADO_DEUDA">
+        <PropertyRef Name="ID_ESTADO_DEUDA" />
+      </Principal>
+      <Dependent Role="GESTION_DEUDA">
+        <PropertyRef Name="ID_ESTADO_DEUDA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__GESTION_D__ID_RE__6383C8BA">
+    <End Role="RESIDENCIA" Type="Self.RESIDENCIA" Multiplicity="1" />
+    <End Role="GESTION_DEUDA" Type="Self.GESTION_DEUDA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RESIDENCIA">
+        <PropertyRef Name="ID_RESIDENCIA" />
+      </Principal>
+      <Dependent Role="GESTION_DEUDA">
+        <PropertyRef Name="ID_RESIDENCIA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__GESTION_P__ID_RE__6477ECF3">
+    <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+    <End Role="GESTION_PLANES_COBRO" Type="Self.GESTION_PLANES_COBRO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIO">
+        <PropertyRef Name="ID_USUARIO" />
+      </Principal>
+      <Dependent Role="GESTION_PLANES_COBRO">
+        <PropertyRef Name="ID_RESIDENTE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__INCIDENCI__ID_ES__656C112C">
+    <End Role="ESTADO_INCIDENCIA" Type="Self.ESTADO_INCIDENCIA" Multiplicity="1" />
+    <End Role="INCIDENCIA" Type="Self.INCIDENCIA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADO_INCIDENCIA">
+        <PropertyRef Name="ID_ESTADO_INCIDENCIA" />
+      </Principal>
+      <Dependent Role="INCIDENCIA">
+        <PropertyRef Name="ID_ESTADO_INCIDENCIA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__INCIDENCI__ID_US__66603565">
+    <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+    <End Role="INCIDENCIA" Type="Self.INCIDENCIA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIO">
+        <PropertyRef Name="ID_USUARIO" />
+      </Principal>
+      <Dependent Role="INCIDENCIA">
+        <PropertyRef Name="ID_USUARIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__NOTICIA__ID_TIPO__6754599E">
+    <End Role="TIPO_NOTICIA" Type="Self.TIPO_NOTICIA" Multiplicity="1" />
+    <End Role="NOTICIA" Type="Self.NOTICIA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TIPO_NOTICIA">
+        <PropertyRef Name="ID_TIPO_NOTICIA" />
+      </Principal>
+      <Dependent Role="NOTICIA">
+        <PropertyRef Name="ID_TIPO_NOTICIA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PLAN_COBR__ID_PL__68487DD7">
+    <End Role="PLAN_COBRO" Type="Self.PLAN_COBRO" Multiplicity="1" />
+    <End Role="PLAN_COBRO_RUBRO_COBRO" Type="Self.PLAN_COBRO_RUBRO_COBRO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PLAN_COBRO">
+        <PropertyRef Name="ID_PLAN_COBRO" />
+      </Principal>
+      <Dependent Role="PLAN_COBRO_RUBRO_COBRO">
+        <PropertyRef Name="ID_PLAN_COBRO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PLAN_COBR__ID_RU__693CA210">
+    <End Role="RUBRO_COBRO" Type="Self.RUBRO_COBRO" Multiplicity="1" />
+    <End Role="PLAN_COBRO_RUBRO_COBRO" Type="Self.PLAN_COBRO_RUBRO_COBRO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RUBRO_COBRO">
+        <PropertyRef Name="ID_RUBRO_COBRO" />
+      </Principal>
+      <Dependent Role="PLAN_COBRO_RUBRO_COBRO">
+        <PropertyRef Name="ID_RUBRO_COBRO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__REPORTES__ID_REP__6A30C649">
+    <End Role="TIPO_REPORTE" Type="Self.TIPO_REPORTE" Multiplicity="1" />
+    <End Role="REPORTES" Type="Self.REPORTES" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="TIPO_REPORTE">
+        <PropertyRef Name="TIPO_REPORTE_ID" />
+      </Principal>
+      <Dependent Role="REPORTES">
+        <PropertyRef Name="ID_REPORTE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__REPORTES__ID_USU__6B24EA82">
+    <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+    <End Role="REPORTES" Type="Self.REPORTES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIO">
+        <PropertyRef Name="ID_USUARIO" />
+      </Principal>
+      <Dependent Role="REPORTES">
+        <PropertyRef Name="ID_USUARIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RESERVA_A__ID_AR__6C190EBB">
+    <End Role="AREA_COMUN" Type="Self.AREA_COMUN" Multiplicity="1" />
+    <End Role="RESERVA_AREA_COMUN" Type="Self.RESERVA_AREA_COMUN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AREA_COMUN">
+        <PropertyRef Name="ID_AREA_COMUN" />
+      </Principal>
+      <Dependent Role="RESERVA_AREA_COMUN">
+        <PropertyRef Name="ID_AREA_COMUN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RESERVA_A__ID_ES__6D0D32F4">
+    <End Role="ESTADO_RESERVACION" Type="Self.ESTADO_RESERVACION" Multiplicity="1" />
+    <End Role="RESERVA_AREA_COMUN" Type="Self.RESERVA_AREA_COMUN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADO_RESERVACION">
+        <PropertyRef Name="ID_ESTADO_RESERVACION" />
+      </Principal>
+      <Dependent Role="RESERVA_AREA_COMUN">
+        <PropertyRef Name="ID_ESTADO_RESERVACION" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RESERVA_A__ID_US__6E01572D">
+    <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+    <End Role="RESERVA_AREA_COMUN" Type="Self.RESERVA_AREA_COMUN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIO">
+        <PropertyRef Name="ID_USUARIO" />
+      </Principal>
+      <Dependent Role="RESERVA_AREA_COMUN">
+        <PropertyRef Name="ID_USUARIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RESERVACI__ID_AR__6EF57B66">
+    <End Role="AREA_COMUN" Type="Self.AREA_COMUN" Multiplicity="1" />
+    <End Role="RESERVACION" Type="Self.RESERVACION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AREA_COMUN">
+        <PropertyRef Name="ID_AREA_COMUN" />
+      </Principal>
+      <Dependent Role="RESERVACION">
+        <PropertyRef Name="ID_AREA_COMUN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RESERVACI__ID_ES__6FE99F9F">
+    <End Role="ESTADO_RESERVACION" Type="Self.ESTADO_RESERVACION" Multiplicity="1" />
+    <End Role="RESERVACION" Type="Self.RESERVACION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADO_RESERVACION">
+        <PropertyRef Name="ID_ESTADO_RESERVACION" />
+      </Principal>
+      <Dependent Role="RESERVACION">
+        <PropertyRef Name="ID_ESTADO_RESERVACION" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RESERVACI__ID_US__70DDC3D8">
+    <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+    <End Role="RESERVACION" Type="Self.RESERVACION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIO">
+        <PropertyRef Name="ID_USUARIO" />
+      </Principal>
+      <Dependent Role="RESERVACION">
+        <PropertyRef Name="ID_USUARIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RESIDENCI__ID_ES__71D1E811">
+    <End Role="ESTADO_RESIDENCIA" Type="Self.ESTADO_RESIDENCIA" Multiplicity="1" />
+    <End Role="RESIDENCIA" Type="Self.RESIDENCIA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADO_RESIDENCIA">
+        <PropertyRef Name="ID_ESTADO_RESIDENCIA" />
+      </Principal>
+      <Dependent Role="RESIDENCIA">
+        <PropertyRef Name="ID_ESTADO_RESIDENCIA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RESIDENCI__ID_PL__72C60C4A">
+    <End Role="PLAN_COBRO" Type="Self.PLAN_COBRO" Multiplicity="1" />
+    <End Role="RESIDENCIA" Type="Self.RESIDENCIA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PLAN_COBRO">
+        <PropertyRef Name="ID_PLAN_COBRO" />
+      </Principal>
+      <Dependent Role="RESIDENCIA">
+        <PropertyRef Name="ID_PLAN_COBRO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RESIDENCI__ID_US__73BA3083">
+    <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="0..1" />
+    <End Role="RESIDENCIA" Type="Self.RESIDENCIA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIO">
+        <PropertyRef Name="ID_USUARIO" />
+      </Principal>
+      <Dependent Role="RESIDENCIA">
+        <PropertyRef Name="ID_USUARIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__USUARIO__ID_ESTA__74AE54BC">
+    <End Role="ESTADO_USUARIO" Type="Self.ESTADO_USUARIO" Multiplicity="1" />
+    <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADO_USUARIO">
+        <PropertyRef Name="ID_ESTADO" />
+      </Principal>
+      <Dependent Role="USUARIO">
+        <PropertyRef Name="ID_ESTADO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__USUARIO__ID_TIPO__75A278F5">
+    <End Role="TIPO_USUARIO" Type="Self.TIPO_USUARIO" Multiplicity="1" />
+    <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TIPO_USUARIO">
+        <PropertyRef Name="ID_TIPO_USUARIO" />
+      </Principal>
+      <Dependent Role="USUARIO">
+        <PropertyRef Name="ID_TIPO_USUARIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CONDOMINIOSModelStoreContainer">
+    <EntitySet Name="AREA_COMUN" EntityType="Self.AREA_COMUN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ESTADO_DEUDA" EntityType="Self.ESTADO_DEUDA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ESTADO_INCIDENCIA" EntityType="Self.ESTADO_INCIDENCIA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ESTADO_RESERVACION" EntityType="Self.ESTADO_RESERVACION" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ESTADO_RESIDENCIA" EntityType="Self.ESTADO_RESIDENCIA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ESTADO_USUARIO" EntityType="Self.ESTADO_USUARIO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GESTION_DEUDA" EntityType="Self.GESTION_DEUDA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GESTION_PLANES_COBRO" EntityType="Self.GESTION_PLANES_COBRO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="INCIDENCIA" EntityType="Self.INCIDENCIA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NOTICIA" EntityType="Self.NOTICIA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PLAN_COBRO" EntityType="Self.PLAN_COBRO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="REPORTES" EntityType="Self.REPORTES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RESERVA_AREA_COMUN" EntityType="Self.RESERVA_AREA_COMUN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RESERVACION" EntityType="Self.RESERVACION" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RESIDENCIA" EntityType="Self.RESIDENCIA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RUBRO_COBRO" EntityType="Self.RUBRO_COBRO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TIPO_NOTICIA" EntityType="Self.TIPO_NOTICIA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TIPO_REPORTE" EntityType="Self.TIPO_REPORTE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TIPO_USUARIO" EntityType="Self.TIPO_USUARIO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USUARIO" EntityType="Self.USUARIO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PLAN_COBRO_RUBRO_COBRO" EntityType="Self.PLAN_COBRO_RUBRO_COBRO" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [PLAN_COBRO_RUBRO_COBRO].[ID_PLAN_COBRO] AS [ID_PLAN_COBRO], 
+    [PLAN_COBRO_RUBRO_COBRO].[ID_RUBRO_COBRO] AS [ID_RUBRO_COBRO]
+    FROM [dbo].[PLAN_COBRO_RUBRO_COBRO] AS [PLAN_COBRO_RUBRO_COBRO]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__GESTION_D__ID_ES__628FA481" Association="Self.FK__GESTION_D__ID_ES__628FA481">
+      <End Role="ESTADO_DEUDA" EntitySet="ESTADO_DEUDA" />
+      <End Role="GESTION_DEUDA" EntitySet="GESTION_DEUDA" />
+    </AssociationSet>
+    <AssociationSet Name="FK__GESTION_D__ID_RE__6383C8BA" Association="Self.FK__GESTION_D__ID_RE__6383C8BA">
+      <End Role="RESIDENCIA" EntitySet="RESIDENCIA" />
+      <End Role="GESTION_DEUDA" EntitySet="GESTION_DEUDA" />
+    </AssociationSet>
+    <AssociationSet Name="FK__GESTION_P__ID_RE__6477ECF3" Association="Self.FK__GESTION_P__ID_RE__6477ECF3">
+      <End Role="USUARIO" EntitySet="USUARIO" />
+      <End Role="GESTION_PLANES_COBRO" EntitySet="GESTION_PLANES_COBRO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__INCIDENCI__ID_ES__656C112C" Association="Self.FK__INCIDENCI__ID_ES__656C112C">
+      <End Role="ESTADO_INCIDENCIA" EntitySet="ESTADO_INCIDENCIA" />
+      <End Role="INCIDENCIA" EntitySet="INCIDENCIA" />
+    </AssociationSet>
+    <AssociationSet Name="FK__INCIDENCI__ID_US__66603565" Association="Self.FK__INCIDENCI__ID_US__66603565">
+      <End Role="USUARIO" EntitySet="USUARIO" />
+      <End Role="INCIDENCIA" EntitySet="INCIDENCIA" />
+    </AssociationSet>
+    <AssociationSet Name="FK__NOTICIA__ID_TIPO__6754599E" Association="Self.FK__NOTICIA__ID_TIPO__6754599E">
+      <End Role="TIPO_NOTICIA" EntitySet="TIPO_NOTICIA" />
+      <End Role="NOTICIA" EntitySet="NOTICIA" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PLAN_COBR__ID_PL__68487DD7" Association="Self.FK__PLAN_COBR__ID_PL__68487DD7">
+      <End Role="PLAN_COBRO" EntitySet="PLAN_COBRO" />
+      <End Role="PLAN_COBRO_RUBRO_COBRO" EntitySet="PLAN_COBRO_RUBRO_COBRO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PLAN_COBR__ID_RU__693CA210" Association="Self.FK__PLAN_COBR__ID_RU__693CA210">
+      <End Role="RUBRO_COBRO" EntitySet="RUBRO_COBRO" />
+      <End Role="PLAN_COBRO_RUBRO_COBRO" EntitySet="PLAN_COBRO_RUBRO_COBRO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__REPORTES__ID_REP__6A30C649" Association="Self.FK__REPORTES__ID_REP__6A30C649">
+      <End Role="TIPO_REPORTE" EntitySet="TIPO_REPORTE" />
+      <End Role="REPORTES" EntitySet="REPORTES" />
+    </AssociationSet>
+    <AssociationSet Name="FK__REPORTES__ID_USU__6B24EA82" Association="Self.FK__REPORTES__ID_USU__6B24EA82">
+      <End Role="USUARIO" EntitySet="USUARIO" />
+      <End Role="REPORTES" EntitySet="REPORTES" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RESERVA_A__ID_AR__6C190EBB" Association="Self.FK__RESERVA_A__ID_AR__6C190EBB">
+      <End Role="AREA_COMUN" EntitySet="AREA_COMUN" />
+      <End Role="RESERVA_AREA_COMUN" EntitySet="RESERVA_AREA_COMUN" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RESERVA_A__ID_ES__6D0D32F4" Association="Self.FK__RESERVA_A__ID_ES__6D0D32F4">
+      <End Role="ESTADO_RESERVACION" EntitySet="ESTADO_RESERVACION" />
+      <End Role="RESERVA_AREA_COMUN" EntitySet="RESERVA_AREA_COMUN" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RESERVA_A__ID_US__6E01572D" Association="Self.FK__RESERVA_A__ID_US__6E01572D">
+      <End Role="USUARIO" EntitySet="USUARIO" />
+      <End Role="RESERVA_AREA_COMUN" EntitySet="RESERVA_AREA_COMUN" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RESERVACI__ID_AR__6EF57B66" Association="Self.FK__RESERVACI__ID_AR__6EF57B66">
+      <End Role="AREA_COMUN" EntitySet="AREA_COMUN" />
+      <End Role="RESERVACION" EntitySet="RESERVACION" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RESERVACI__ID_ES__6FE99F9F" Association="Self.FK__RESERVACI__ID_ES__6FE99F9F">
+      <End Role="ESTADO_RESERVACION" EntitySet="ESTADO_RESERVACION" />
+      <End Role="RESERVACION" EntitySet="RESERVACION" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RESERVACI__ID_US__70DDC3D8" Association="Self.FK__RESERVACI__ID_US__70DDC3D8">
+      <End Role="USUARIO" EntitySet="USUARIO" />
+      <End Role="RESERVACION" EntitySet="RESERVACION" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RESIDENCI__ID_ES__71D1E811" Association="Self.FK__RESIDENCI__ID_ES__71D1E811">
+      <End Role="ESTADO_RESIDENCIA" EntitySet="ESTADO_RESIDENCIA" />
+      <End Role="RESIDENCIA" EntitySet="RESIDENCIA" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RESIDENCI__ID_PL__72C60C4A" Association="Self.FK__RESIDENCI__ID_PL__72C60C4A">
+      <End Role="PLAN_COBRO" EntitySet="PLAN_COBRO" />
+      <End Role="RESIDENCIA" EntitySet="RESIDENCIA" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RESIDENCI__ID_US__73BA3083" Association="Self.FK__RESIDENCI__ID_US__73BA3083">
+      <End Role="USUARIO" EntitySet="USUARIO" />
+      <End Role="RESIDENCIA" EntitySet="RESIDENCIA" />
+    </AssociationSet>
+    <AssociationSet Name="FK__USUARIO__ID_ESTA__74AE54BC" Association="Self.FK__USUARIO__ID_ESTA__74AE54BC">
+      <End Role="ESTADO_USUARIO" EntitySet="ESTADO_USUARIO" />
+      <End Role="USUARIO" EntitySet="USUARIO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__USUARIO__ID_TIPO__75A278F5" Association="Self.FK__USUARIO__ID_TIPO__75A278F5">
+      <End Role="TIPO_USUARIO" EntitySet="TIPO_USUARIO" />
+      <End Role="USUARIO" EntitySet="USUARIO" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

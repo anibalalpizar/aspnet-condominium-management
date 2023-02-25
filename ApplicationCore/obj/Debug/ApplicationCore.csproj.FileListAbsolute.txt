@@ -1,0 +1,12 @@
+C:\Users\anibal\AspNet-Sistema-Condominios\ApplicationCore\bin\Debug\ApplicationCore.dll
+C:\Users\anibal\AspNet-Sistema-Condominios\ApplicationCore\bin\Debug\ApplicationCore.pdb
+C:\Users\anibal\AspNet-Sistema-Condominios\ApplicationCore\bin\Debug\Infraestructure.dll
+C:\Users\anibal\AspNet-Sistema-Condominios\ApplicationCore\bin\Debug\EntityFramework.dll
+C:\Users\anibal\AspNet-Sistema-Condominios\ApplicationCore\bin\Debug\Infraestructure.pdb
+C:\Users\anibal\AspNet-Sistema-Condominios\ApplicationCore\bin\Debug\Infraestructure.dll.config
+C:\Users\anibal\AspNet-Sistema-Condominios\ApplicationCore\bin\Debug\EntityFramework.xml
+C:\Users\anibal\AspNet-Sistema-Condominios\ApplicationCore\obj\Debug\ApplicationCore.csproj.AssemblyReference.cache
+C:\Users\anibal\AspNet-Sistema-Condominios\ApplicationCore\obj\Debug\ApplicationCore.csproj.CoreCompileInputs.cache
+C:\Users\anibal\AspNet-Sistema-Condominios\ApplicationCore\obj\Debug\ApplicationCore.csproj.CopyComplete
+C:\Users\anibal\AspNet-Sistema-Condominios\ApplicationCore\obj\Debug\ApplicationCore.dll
+C:\Users\anibal\AspNet-Sistema-Condominios\ApplicationCore\obj\Debug\ApplicationCore.pdb
