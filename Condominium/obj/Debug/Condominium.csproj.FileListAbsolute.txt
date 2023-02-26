@@ -55,6 +55,7 @@ C:\Users\anibal\AspNet-Sistema-Condominios\Condominium\bin\ApplicationCore.dll
 C:\Users\anibal\AspNet-Sistema-Condominios\Condominium\bin\EntityFramework.dll
 C:\Users\anibal\AspNet-Sistema-Condominios\Condominium\bin\EntityFramework.SqlServer.dll
 C:\Users\anibal\AspNet-Sistema-Condominios\Condominium\bin\Infraestructure.dll
+C:\Users\anibal\AspNet-Sistema-Condominios\Condominium\bin\log4net.dll
 C:\Users\anibal\AspNet-Sistema-Condominios\Condominium\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\anibal\AspNet-Sistema-Condominios\Condominium\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\anibal\AspNet-Sistema-Condominios\Condominium\bin\Newtonsoft.Json.dll
@@ -71,6 +72,7 @@ C:\Users\anibal\AspNet-Sistema-Condominios\Condominium\bin\Infraestructure.pdb
 C:\Users\anibal\AspNet-Sistema-Condominios\Condominium\bin\Infraestructure.dll.config
 C:\Users\anibal\AspNet-Sistema-Condominios\Condominium\bin\EntityFramework.xml
 C:\Users\anibal\AspNet-Sistema-Condominios\Condominium\bin\EntityFramework.SqlServer.xml
+C:\Users\anibal\AspNet-Sistema-Condominios\Condominium\bin\log4net.xml
 C:\Users\anibal\AspNet-Sistema-Condominios\Condominium\bin\System.Web.Helpers.xml
 C:\Users\anibal\AspNet-Sistema-Condominios\Condominium\bin\System.Web.Mvc.xml
 C:\Users\anibal\AspNet-Sistema-Condominios\Condominium\bin\System.Web.Optimization.xml

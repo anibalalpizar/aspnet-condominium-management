@@ -142,10 +142,9 @@
     <Compile Include="Repository\RepositoryPlanCobro.cs" />
     <Compile Include="Repository\RepositoryResidencia.cs" />
     <Compile Include="Repository\RepositoryRubrosCobros.cs" />
+    <Compile Include="Utils\Log.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Utils\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
     <None Include="Content\bootstrap-theme.css.map" />
