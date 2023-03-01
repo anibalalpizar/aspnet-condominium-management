@@ -22,16 +22,16 @@ namespace Infraestructure.Repository
                     list = ctx.GESTION_DEUDA
                         .Include(g => g.ESTADO_DEUDA)
                         .Include(g => g.RESIDENCIA.USUARIO)
-                        .Include(f => f.RESIDENCIA.PLAN_COBRO)
+                        .Include(g => g.PLAN_COBRO)
                         .Where(g => g.ESTADO_DEUDA.NOMBRE_ESTADO_DEUDA == "PENDIENTE")
                         .ToList();
 
-                    if (list.Count > 0)
-                    {
-                        var mes = list[0].MES.ToString("MMMM");
-                        var planCobro = ctx.PLAN_COBRO.Find(list[0].RESIDENCIA.ID_PLAN_COBRO);
-                        var totalPagar = planCobro.RUBRO_COBRO.Sum(r => r.MONTO);
-                    }
+                    //if (list.Count > 0)
+                    //{
+                    //    var mes = list[0].MES.ToString("MMMM");
+                    //    var planCobro = ctx.PLAN_COBRO.Find(list[0].RESIDENCIA.GESTION_DEUDA);
+                    //    var totalPagar = planCobro.RUBRO_COBRO.Sum(r => r.MONTO);
+                    //}
                 }
             }
             catch
@@ -53,18 +53,18 @@ namespace Infraestructure.Repository
                     list = ctx.GESTION_DEUDA
                         .Include(g => g.ESTADO_DEUDA)
                         .Include(g => g.RESIDENCIA.USUARIO)
-                        .Include(f => f.RESIDENCIA.PLAN_COBRO)
+                        //.Include(f => f.RESIDENCIA.PLAN_COBRO)
                         .Where(g => g.ESTADO_DEUDA.NOMBRE_ESTADO_DEUDA == "PAGADO")                    
                         .ToList();
                     
                     if (list.Count > 0)
                     {
-                        var planCobro = ctx.PLAN_COBRO.Find(list[0].RESIDENCIA.ID_PLAN_COBRO);
+                        //var planCobro = ctx.PLAN_COBRO.Find(list[0].RESIDENCIA.ID_PLAN_COBRO);
                         foreach (var deuda in list)
                         {
                             var mes = System.Globalization.DateTimeFormatInfo.CurrentInfo.GetMonthName(deuda.MES);
-                            var totalPagado = planCobro.RUBRO_COBRO.Where(r => r.ID_RUBRO_COBRO == deuda.ID_ESTADO_DEUDA).Select(r => r.MONTO).SingleOrDefault();
-                            deuda.TOTALPAGAR = totalPagado;
+                            //var totalPagado = planCobro.RUBRO_COBRO.Where(r => r.ID_RUBRO_COBRO == deuda.ID_ESTADO_DEUDA).Select(r => r.MONTO).SingleOrDefault();
+                            //deuda.TOTALPAGAR = totalPagado;
                         }
                     }
                 }

@@ -53,6 +53,7 @@
           </Key>
           <Property Name="ID_GESTION_DEUDA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_RESIDENCIA" Type="int" Nullable="false" />
+          <Property Name="ID_PLAN_COBRO" Type="int" />
           <Property Name="MES" Type="int" Nullable="false" />
           <Property Name="ANIO" Type="int" Nullable="false" />
           <Property Name="MONTO" Type="decimal" Precision="18" Scale="2" Nullable="false" />
@@ -163,7 +164,6 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
           <Property Name="ANIO_INICIO" Type="int" Nullable="false" />
           <Property Name="CANTIDAD_CARROS" Type="int" Nullable="false" />
           <Property Name="ID_USUARIO" Type="int" />
-          <Property Name="ID_PLAN_COBRO" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="RUBRO_COBRO">
           <Key>
@@ -174,6 +174,16 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
           <Property Name="MONTO" Type="decimal" Precision="18" Scale="2" Nullable="false" />
           <Property Name="IMAGEN" Type="varbinary(max)" />
           <Property Name="DESCRIPCION" Type="varchar" MaxLength="2000" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="TIPO_NOTICIA">
           <Key>
@@ -413,18 +423,6 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RESIDENCI__ID_PL__72C60C4A">
-          <End Role="PLAN_COBRO" Type="Self.PLAN_COBRO" Multiplicity="1" />
-          <End Role="RESIDENCIA" Type="Self.RESIDENCIA" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PLAN_COBRO">
-              <PropertyRef Name="ID_PLAN_COBRO" />
-            </Principal>
-            <Dependent Role="RESIDENCIA">
-              <PropertyRef Name="ID_PLAN_COBRO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__RESIDENCI__ID_US__73BA3083">
           <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="0..1" />
           <End Role="RESIDENCIA" Type="Self.RESIDENCIA" Multiplicity="*" />
@@ -461,6 +459,18 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_GESTION_DEUDA_PLAN_COBRO">
+          <End Role="PLAN_COBRO" Type="Self.PLAN_COBRO" Multiplicity="0..1" />
+          <End Role="GESTION_DEUDA" Type="Self.GESTION_DEUDA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PLAN_COBRO">
+              <PropertyRef Name="ID_PLAN_COBRO" />
+            </Principal>
+            <Dependent Role="GESTION_DEUDA">
+              <PropertyRef Name="ID_PLAN_COBRO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="CONDOMINIOSModelStoreContainer">
           <EntitySet Name="AREA_COMUN" EntityType="Self.AREA_COMUN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ESTADO_DEUDA" EntityType="Self.ESTADO_DEUDA" Schema="dbo" store:Type="Tables" />
@@ -478,6 +488,7 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
           <EntitySet Name="RESERVACION" EntityType="Self.RESERVACION" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RESIDENCIA" EntityType="Self.RESIDENCIA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RUBRO_COBRO" EntityType="Self.RUBRO_COBRO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TIPO_NOTICIA" EntityType="Self.TIPO_NOTICIA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TIPO_REPORTE" EntityType="Self.TIPO_REPORTE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TIPO_USUARIO" EntityType="Self.TIPO_USUARIO" Schema="dbo" store:Type="Tables" />
@@ -556,10 +567,6 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
             <End Role="ESTADO_RESIDENCIA" EntitySet="ESTADO_RESIDENCIA" />
             <End Role="RESIDENCIA" EntitySet="RESIDENCIA" />
           </AssociationSet>
-          <AssociationSet Name="FK__RESIDENCI__ID_PL__72C60C4A" Association="Self.FK__RESIDENCI__ID_PL__72C60C4A">
-            <End Role="PLAN_COBRO" EntitySet="PLAN_COBRO" />
-            <End Role="RESIDENCIA" EntitySet="RESIDENCIA" />
-          </AssociationSet>
           <AssociationSet Name="FK__RESIDENCI__ID_US__73BA3083" Association="Self.FK__RESIDENCI__ID_US__73BA3083">
             <End Role="USUARIO" EntitySet="USUARIO" />
             <End Role="RESIDENCIA" EntitySet="RESIDENCIA" />
@@ -571,6 +578,10 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
           <AssociationSet Name="FK__USUARIO__ID_TIPO__75A278F5" Association="Self.FK__USUARIO__ID_TIPO__75A278F5">
             <End Role="TIPO_USUARIO" EntitySet="TIPO_USUARIO" />
             <End Role="USUARIO" EntitySet="USUARIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GESTION_DEUDA_PLAN_COBRO" Association="Self.FK_GESTION_DEUDA_PLAN_COBRO">
+            <End Role="PLAN_COBRO" EntitySet="PLAN_COBRO" />
+            <End Role="GESTION_DEUDA" EntitySet="GESTION_DEUDA" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -634,6 +645,7 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
           </Key>
           <Property Name="ID_GESTION_DEUDA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_RESIDENCIA" Type="Int32" Nullable="false" />
+          <Property Name="ID_PLAN_COBRO" Type="Int32" />
           <Property Name="MES" Type="Int32" Nullable="false" />
           <Property Name="ANIO" Type="Int32" Nullable="false" />
           <Property Name="MONTO" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
@@ -645,6 +657,7 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
           <Property Name="TOTALPAGAR" Type="Decimal" Precision="18" Scale="0" />
           <NavigationProperty Name="ESTADO_DEUDA" Relationship="Self.FK__GESTION_D__ID_ES__628FA481" FromRole="GESTION_DEUDA" ToRole="ESTADO_DEUDA" />
           <NavigationProperty Name="RESIDENCIA" Relationship="Self.FK__GESTION_D__ID_RE__6383C8BA" FromRole="GESTION_DEUDA" ToRole="RESIDENCIA" />
+          <NavigationProperty Name="PLAN_COBRO" Relationship="Self.FK_GESTION_DEUDA_PLAN_COBRO" FromRole="GESTION_DEUDA" ToRole="PLAN_COBRO" />
         </EntityType>
         <EntityType Name="GESTION_PLANES_COBRO">
           <Key>
@@ -689,7 +702,7 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
           <Property Name="ID_PLAN_COBRO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NOMBRE_PLAN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="DESCRIPCION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="RESIDENCIA" Relationship="Self.FK__RESIDENCI__ID_PL__72C60C4A" FromRole="PLAN_COBRO" ToRole="RESIDENCIA" />
+          <NavigationProperty Name="GESTION_DEUDA" Relationship="Self.FK_GESTION_DEUDA_PLAN_COBRO" FromRole="PLAN_COBRO" ToRole="GESTION_DEUDA" />
           <NavigationProperty Name="RUBRO_COBRO" Relationship="Self.PLAN_COBRO_RUBRO_COBRO" FromRole="PLAN_COBRO" ToRole="RUBRO_COBRO" />
         </EntityType>
         <EntityType Name="REPORTES">
@@ -750,10 +763,8 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
           <Property Name="ANIO_INICIO" Type="Int32" Nullable="false" />
           <Property Name="CANTIDAD_CARROS" Type="Int32" Nullable="false" />
           <Property Name="ID_USUARIO" Type="Int32" />
-          <Property Name="ID_PLAN_COBRO" Type="Int32" Nullable="false" />
           <NavigationProperty Name="ESTADO_RESIDENCIA" Relationship="Self.FK__RESIDENCI__ID_ES__71D1E811" FromRole="RESIDENCIA" ToRole="ESTADO_RESIDENCIA" />
           <NavigationProperty Name="GESTION_DEUDA" Relationship="Self.FK__GESTION_D__ID_RE__6383C8BA" FromRole="RESIDENCIA" ToRole="GESTION_DEUDA" />
-          <NavigationProperty Name="PLAN_COBRO" Relationship="Self.FK__RESIDENCI__ID_PL__72C60C4A" FromRole="RESIDENCIA" ToRole="PLAN_COBRO" />
           <NavigationProperty Name="USUARIO" Relationship="Self.FK__RESIDENCI__ID_US__73BA3083" FromRole="RESIDENCIA" ToRole="USUARIO" />
         </EntityType>
         <EntityType Name="RUBRO_COBRO">
@@ -766,6 +777,16 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
           <Property Name="IMAGEN" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="DESCRIPCION" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="PLAN_COBRO" Relationship="Self.PLAN_COBRO_RUBRO_COBRO" FromRole="RUBRO_COBRO" ToRole="PLAN_COBRO" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="TIPO_NOTICIA">
           <Key>
@@ -920,6 +941,18 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_GESTION_DEUDA_PLAN_COBRO">
+          <End Role="PLAN_COBRO" Type="Self.PLAN_COBRO" Multiplicity="0..1" />
+          <End Role="GESTION_DEUDA" Type="Self.GESTION_DEUDA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PLAN_COBRO">
+              <PropertyRef Name="ID_PLAN_COBRO" />
+            </Principal>
+            <Dependent Role="GESTION_DEUDA">
+              <PropertyRef Name="ID_PLAN_COBRO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__GESTION_P__ID_RE__6477ECF3">
           <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
           <End Role="GESTION_PLANES_COBRO" Type="Self.GESTION_PLANES_COBRO" Multiplicity="*" />
@@ -953,18 +986,6 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
             </Principal>
             <Dependent Role="NOTICIA">
               <PropertyRef Name="ID_TIPO_NOTICIA" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__RESIDENCI__ID_PL__72C60C4A">
-          <End Role="PLAN_COBRO" Type="Self.PLAN_COBRO" Multiplicity="1" />
-          <End Role="RESIDENCIA" Type="Self.RESIDENCIA" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PLAN_COBRO">
-              <PropertyRef Name="ID_PLAN_COBRO" />
-            </Principal>
-            <Dependent Role="RESIDENCIA">
-              <PropertyRef Name="ID_PLAN_COBRO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1061,6 +1082,7 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
           <EntitySet Name="RESERVACION" EntityType="Self.RESERVACION" />
           <EntitySet Name="RESIDENCIA" EntityType="Self.RESIDENCIA" />
           <EntitySet Name="RUBRO_COBRO" EntityType="Self.RUBRO_COBRO" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="TIPO_NOTICIA" EntityType="Self.TIPO_NOTICIA" />
           <EntitySet Name="TIPO_REPORTE" EntityType="Self.TIPO_REPORTE" />
           <EntitySet Name="TIPO_USUARIO" EntityType="Self.TIPO_USUARIO" />
@@ -1101,6 +1123,10 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
             <End Role="RESIDENCIA" EntitySet="RESIDENCIA" />
             <End Role="GESTION_DEUDA" EntitySet="GESTION_DEUDA" />
           </AssociationSet>
+          <AssociationSet Name="FK_GESTION_DEUDA_PLAN_COBRO" Association="Self.FK_GESTION_DEUDA_PLAN_COBRO">
+            <End Role="PLAN_COBRO" EntitySet="PLAN_COBRO" />
+            <End Role="GESTION_DEUDA" EntitySet="GESTION_DEUDA" />
+          </AssociationSet>
           <AssociationSet Name="FK__GESTION_P__ID_RE__6477ECF3" Association="Self.FK__GESTION_P__ID_RE__6477ECF3">
             <End Role="USUARIO" EntitySet="USUARIO" />
             <End Role="GESTION_PLANES_COBRO" EntitySet="GESTION_PLANES_COBRO" />
@@ -1112,10 +1138,6 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
           <AssociationSet Name="FK__NOTICIA__ID_TIPO__6754599E" Association="Self.FK__NOTICIA__ID_TIPO__6754599E">
             <End Role="TIPO_NOTICIA" EntitySet="TIPO_NOTICIA" />
             <End Role="NOTICIA" EntitySet="NOTICIA" />
-          </AssociationSet>
-          <AssociationSet Name="FK__RESIDENCI__ID_PL__72C60C4A" Association="Self.FK__RESIDENCI__ID_PL__72C60C4A">
-            <End Role="PLAN_COBRO" EntitySet="PLAN_COBRO" />
-            <End Role="RESIDENCIA" EntitySet="RESIDENCIA" />
           </AssociationSet>
           <AssociationSet Name="FK__REPORTES__ID_REP__6A30C649" Association="Self.FK__REPORTES__ID_REP__6A30C649">
             <End Role="TIPO_REPORTE" EntitySet="TIPO_REPORTE" />
@@ -1205,6 +1227,7 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
               <MappingFragment StoreEntitySet="GESTION_DEUDA">
                 <ScalarProperty Name="ID_GESTION_DEUDA" ColumnName="ID_GESTION_DEUDA" />
                 <ScalarProperty Name="ID_RESIDENCIA" ColumnName="ID_RESIDENCIA" />
+                <ScalarProperty Name="ID_PLAN_COBRO" ColumnName="ID_PLAN_COBRO" />
                 <ScalarProperty Name="MES" ColumnName="MES" />
                 <ScalarProperty Name="ANIO" ColumnName="ANIO" />
                 <ScalarProperty Name="MONTO" ColumnName="MONTO" />
@@ -1313,7 +1336,6 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
                 <ScalarProperty Name="ANIO_INICIO" ColumnName="ANIO_INICIO" />
                 <ScalarProperty Name="CANTIDAD_CARROS" ColumnName="CANTIDAD_CARROS" />
                 <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
-                <ScalarProperty Name="ID_PLAN_COBRO" ColumnName="ID_PLAN_COBRO" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1325,6 +1347,17 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
                 <ScalarProperty Name="MONTO" ColumnName="MONTO" />
                 <ScalarProperty Name="IMAGEN" ColumnName="IMAGEN" />
                 <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="CONDOMINIOSModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

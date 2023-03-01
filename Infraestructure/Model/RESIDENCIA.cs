@@ -27,12 +27,10 @@ namespace Infraestructure.Model
         public int ANIO_INICIO { get; set; }
         public int CANTIDAD_CARROS { get; set; }
         public Nullable<int> ID_USUARIO { get; set; }
-        public int ID_PLAN_COBRO { get; set; }
     
         public virtual ESTADO_RESIDENCIA ESTADO_RESIDENCIA { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GESTION_DEUDA> GESTION_DEUDA { get; set; }
-        public virtual PLAN_COBRO PLAN_COBRO { get; set; }
         public virtual USUARIO USUARIO { get; set; }
     }
 }

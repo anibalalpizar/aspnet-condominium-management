@@ -17,7 +17,7 @@ namespace Infraestructure.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public PLAN_COBRO()
         {
-            this.RESIDENCIA = new HashSet<RESIDENCIA>();
+            this.GESTION_DEUDA = new HashSet<GESTION_DEUDA>();
             this.RUBRO_COBRO = new HashSet<RUBRO_COBRO>();
         }
     
@@ -26,7 +26,7 @@ namespace Infraestructure.Model
         public string DESCRIPCION { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RESIDENCIA> RESIDENCIA { get; set; }
+        public virtual ICollection<GESTION_DEUDA> GESTION_DEUDA { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RUBRO_COBRO> RUBRO_COBRO { get; set; }
     }

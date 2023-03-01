@@ -16,6 +16,7 @@ namespace Infraestructure.Model
     {
         public int ID_GESTION_DEUDA { get; set; }
         public int ID_RESIDENCIA { get; set; }
+        public Nullable<int> ID_PLAN_COBRO { get; set; }
         public int MES { get; set; }
         public int ANIO { get; set; }
         public decimal MONTO { get; set; }
@@ -28,5 +29,6 @@ namespace Infraestructure.Model
     
         public virtual ESTADO_DEUDA ESTADO_DEUDA { get; set; }
         public virtual RESIDENCIA RESIDENCIA { get; set; }
+        public virtual PLAN_COBRO PLAN_COBRO { get; set; }
     }
 }

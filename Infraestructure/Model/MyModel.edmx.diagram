@@ -4,27 +4,28 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="19fb0404636e4e74ba93eecd0c5519af" Name="Diagram1">
-        <EntityTypeShape EntityType="CONDOMINIOSModel.AREA_COMUN" Width="1.5" PointX="6" PointY="4.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="CONDOMINIOSModel.ESTADO_DEUDA" Width="1.5" PointX="8.25" PointY="19.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CONDOMINIOSModel.ESTADO_INCIDENCIA" Width="1.5" PointX="6" PointY="19.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CONDOMINIOSModel.ESTADO_RESERVACION" Width="1.5" PointX="6" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="CONDOMINIOSModel.ESTADO_RESIDENCIA" Width="1.5" PointX="6" PointY="22.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="CONDOMINIOSModel.ESTADO_USUARIO" Width="1.5" PointX="0.75" PointY="11.75" IsExpanded="true" />
+      <Diagram DiagramId="c9cd78e4b7ef41de85826ceb80839df1" Name="Diagram1">
+        <EntityTypeShape EntityType="CONDOMINIOSModel.AREA_COMUN" Width="1.5" PointX="6" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CONDOMINIOSModel.ESTADO_DEUDA" Width="1.5" PointX="8.25" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CONDOMINIOSModel.ESTADO_INCIDENCIA" Width="1.5" PointX="6" PointY="20" IsExpanded="true" />
+        <EntityTypeShape EntityType="CONDOMINIOSModel.ESTADO_RESERVACION" Width="1.5" PointX="6" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CONDOMINIOSModel.ESTADO_RESIDENCIA" Width="1.5" PointX="6" PointY="23" IsExpanded="true" />
+        <EntityTypeShape EntityType="CONDOMINIOSModel.ESTADO_USUARIO" Width="1.5" PointX="0.75" PointY="12" IsExpanded="true" />
         <EntityTypeShape EntityType="CONDOMINIOSModel.GESTION_DEUDA" Width="1.5" PointX="10.5" PointY="14.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="CONDOMINIOSModel.GESTION_PLANES_COBRO" Width="1.5" PointX="5.25" PointY="11.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="CONDOMINIOSModel.INCIDENCIA" Width="1.5" PointX="8.25" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CONDOMINIOSModel.GESTION_PLANES_COBRO" Width="1.5" PointX="5.25" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CONDOMINIOSModel.INCIDENCIA" Width="1.5" PointX="8.25" PointY="11.625" IsExpanded="true" />
         <EntityTypeShape EntityType="CONDOMINIOSModel.NOTICIA" Width="1.5" PointX="11" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="CONDOMINIOSModel.PLAN_COBRO" Width="1.5" PointX="6" PointY="24.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CONDOMINIOSModel.REPORTES" Width="1.5" PointX="5.25" PointY="7.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="CONDOMINIOSModel.RESERVA_AREA_COMUN" Width="1.5" PointX="5.25" PointY="14.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="CONDOMINIOSModel.RESERVACION" Width="1.5" PointX="8.25" PointY="7.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="CONDOMINIOSModel.RESIDENCIA" Width="1.5" PointX="8.25" PointY="14.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="CONDOMINIOSModel.RUBRO_COBRO" Width="1.5" PointX="8.25" PointY="24.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CONDOMINIOSModel.PLAN_COBRO" Width="1.5" PointX="8.25" PointY="22" IsExpanded="true" />
+        <EntityTypeShape EntityType="CONDOMINIOSModel.REPORTES" Width="1.5" PointX="5.25" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CONDOMINIOSModel.RESERVA_AREA_COMUN" Width="1.5" PointX="5.25" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CONDOMINIOSModel.RESERVACION" Width="1.5" PointX="8.25" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CONDOMINIOSModel.RESIDENCIA" Width="1.5" PointX="8.25" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CONDOMINIOSModel.RUBRO_COBRO" Width="1.5" PointX="10.5" PointY="21.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CONDOMINIOSModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CONDOMINIOSModel.TIPO_NOTICIA" Width="1.5" PointX="8.75" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="CONDOMINIOSModel.TIPO_REPORTE" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CONDOMINIOSModel.TIPO_USUARIO" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CONDOMINIOSModel.USUARIO" Width="1.5" PointX="3" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CONDOMINIOSModel.TIPO_REPORTE" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CONDOMINIOSModel.TIPO_USUARIO" Width="1.5" PointX="0.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="CONDOMINIOSModel.USUARIO" Width="1.5" PointX="3" PointY="10.875" IsExpanded="true" />
         <AssociationConnector Association="CONDOMINIOSModel.FK__RESERVA_A__ID_AR__6C190EBB" ManuallyRouted="false" />
         <AssociationConnector Association="CONDOMINIOSModel.FK__RESERVACI__ID_AR__6EF57B66" ManuallyRouted="false" />
         <AssociationConnector Association="CONDOMINIOSModel.FK__GESTION_D__ID_ES__628FA481" ManuallyRouted="false" />
@@ -34,10 +35,10 @@
         <AssociationConnector Association="CONDOMINIOSModel.FK__RESIDENCI__ID_ES__71D1E811" ManuallyRouted="false" />
         <AssociationConnector Association="CONDOMINIOSModel.FK__USUARIO__ID_ESTA__74AE54BC" ManuallyRouted="false" />
         <AssociationConnector Association="CONDOMINIOSModel.FK__GESTION_D__ID_RE__6383C8BA" ManuallyRouted="false" />
+        <AssociationConnector Association="CONDOMINIOSModel.FK_GESTION_DEUDA_PLAN_COBRO" ManuallyRouted="false" />
         <AssociationConnector Association="CONDOMINIOSModel.FK__GESTION_P__ID_RE__6477ECF3" ManuallyRouted="false" />
         <AssociationConnector Association="CONDOMINIOSModel.FK__INCIDENCI__ID_US__66603565" ManuallyRouted="false" />
         <AssociationConnector Association="CONDOMINIOSModel.FK__NOTICIA__ID_TIPO__6754599E" ManuallyRouted="false" />
-        <AssociationConnector Association="CONDOMINIOSModel.FK__RESIDENCI__ID_PL__72C60C4A" ManuallyRouted="false" />
         <AssociationConnector Association="CONDOMINIOSModel.FK__REPORTES__ID_REP__6A30C649" ManuallyRouted="false" />
         <AssociationConnector Association="CONDOMINIOSModel.FK__REPORTES__ID_USU__6B24EA82" ManuallyRouted="false" />
         <AssociationConnector Association="CONDOMINIOSModel.FK__RESERVA_A__ID_US__6E01572D" ManuallyRouted="false" />

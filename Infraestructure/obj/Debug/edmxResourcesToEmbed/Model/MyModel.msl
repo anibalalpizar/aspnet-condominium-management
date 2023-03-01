@@ -54,6 +54,7 @@
         <MappingFragment StoreEntitySet="GESTION_DEUDA">
           <ScalarProperty Name="ID_GESTION_DEUDA" ColumnName="ID_GESTION_DEUDA" />
           <ScalarProperty Name="ID_RESIDENCIA" ColumnName="ID_RESIDENCIA" />
+          <ScalarProperty Name="ID_PLAN_COBRO" ColumnName="ID_PLAN_COBRO" />
           <ScalarProperty Name="MES" ColumnName="MES" />
           <ScalarProperty Name="ANIO" ColumnName="ANIO" />
           <ScalarProperty Name="MONTO" ColumnName="MONTO" />
@@ -162,7 +163,6 @@
           <ScalarProperty Name="ANIO_INICIO" ColumnName="ANIO_INICIO" />
           <ScalarProperty Name="CANTIDAD_CARROS" ColumnName="CANTIDAD_CARROS" />
           <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
-          <ScalarProperty Name="ID_PLAN_COBRO" ColumnName="ID_PLAN_COBRO" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -174,6 +174,17 @@
           <ScalarProperty Name="MONTO" ColumnName="MONTO" />
           <ScalarProperty Name="IMAGEN" ColumnName="IMAGEN" />
           <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="CONDOMINIOSModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
