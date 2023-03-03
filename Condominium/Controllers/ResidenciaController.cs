@@ -53,6 +53,19 @@ namespace Condominium.Controllers
                 throw;
             }
         }
+
+        ////Crea un nuevo tipo de Noticia
+        //[HttpGet]
+        //public ActionResult Create()
+        //{
+
+        //}
+
+
+
+
+
+
     }
 
 }
