@@ -7,61 +7,70 @@
 <h2>IndexAdmin</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <a href="@Url.Action("Create", "PlanCobro")" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Crear</a>
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ID_PLAN_COBRO)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ID_RESIDENTE)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FECHA_INICIO)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FECHA_FIN)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MONTO)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FRECUENCIA_COBRO)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ESTADO_COBRO)
-        </th>
-        <th></th>
-    </tr>
+<div class="row">
+    <div class="col-lg-8">
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.USUARIO.NOMBRE)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MONTO)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FECHA_FIN)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MONTO)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ESTADO_COBRO)
+                </th>
+                <th></th>
+            </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ID_PLAN_COBRO)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ID_RESIDENTE)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FECHA_INICIO)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FECHA_FIN)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MONTO)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FRECUENCIA_COBRO)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ESTADO_COBRO)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-        </td>
-    </tr>
-}
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.USUARIO.NOMBRE)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MONTO)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FECHA_FIN)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MONTO)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ESTADO_COBRO)
+                    </td>
+                    <td>
+                        <a href="@Url.Action("Edit", "PlanCobro", new { id=  item.ID_PLAN_COBRO })" class="btn btn-primary"><i class="fa-solid fa-edit"></i> Editar</a>
+                        <a href="@Url.Action("Details", "PlanCobro", new { id=  item.ID_PLAN_COBRO })" class="btn btn-primary"><i class="fa-solid fa-eye"></i> Detalles</a>
 
-</table>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+    @* Falta *@
+    <div class="col-md-4">
+        <div class="card my-4">
+            <h5 class="card-header">Buscar por nombre de usuario</h5>
+
+            <div class="card-body">
+                <div class="input-group">
+                    @Html.TextBox("filtro", "", new { @class = "form-control" })
+                    <button type="button" id="btnBuscar" class="btn btn-secondary">Buscar</button>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
