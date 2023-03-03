@@ -343,6 +343,7 @@
     <Content Include="Views\EstadosCuenta\HistorialPagos.cshtml" />
     <Content Include="Views\Shared\Components\Lists\HistorialPagosComponent.cshtml" />
     <Content Include="Views\PlanCobro\Details.cshtml" />
+    <Content Include="Views\PlanCobro\IndexAdmin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

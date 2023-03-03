@@ -3,6 +3,7 @@ using Infraestructure.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
 
@@ -20,18 +21,37 @@ namespace Condominium.Controllers
                 list = _ServicePlanCobro.GetPlanCobro();
                 return View(list);
             }
-            catch
+            catch (Exception ex)
             {
-                throw;
+                Log.Error(ex, MethodBase.GetCurrentMethod());
+                TempData["Message"] = "Error al procesar los datos!" + ex.Message;
+                return RedirectToAction("Default", "Error");
             }
         }
+
+        public ActionResult IndexAdmin()
+        {
+            IEnumerable<GESTION_PLANES_COBRO> list = null;
+            try
+            {
+                IServicePlanCobro _ServicePlanCobro = new ServicePlanCobro();
+                list = _ServicePlanCobro.GetPlanCobro();
+                return View(list);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, MethodBase.GetCurrentMethod());
+                TempData["Message"] = "Error al procesar los datos!" + ex.Message;
+                return RedirectToAction("Default", "Error");
+            }
+        }
+
         public ActionResult Details(int? id)
         {
             IServicePlanCobro _serviceResidencia = new ServicePlanCobro();
             GESTION_PLANES_COBRO planCobro = null;
             try
             {
-                // si va null
                 if (id == null)
                 {
                     return RedirectToAction("Index");
@@ -46,9 +66,11 @@ namespace Condominium.Controllers
                 }
                 return View(planCobro);
             }
-            catch
+            catch (Exception ex)
             {
-                throw;
+                Log.Error(ex, MethodBase.GetCurrentMethod());
+                TempData["Message"] = "Error al procesar los datos!" + ex.Message;
+                return RedirectToAction("Default", "Error");
             }
         }
 

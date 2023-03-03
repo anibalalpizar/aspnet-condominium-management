@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Infraestructure.Model.GESTION_PLANES_COBRO>
+
+@{
+    ViewBag.Title = "IndexAdmin";
+}
+
+<h2>IndexAdmin</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_PLAN_COBRO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_RESIDENTE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FECHA_INICIO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FECHA_FIN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MONTO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FRECUENCIA_COBRO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ESTADO_COBRO)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ID_PLAN_COBRO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ID_RESIDENTE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FECHA_INICIO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FECHA_FIN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MONTO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FRECUENCIA_COBRO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ESTADO_COBRO)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+        </td>
+    </tr>
+}
+
+</table>
