@@ -1,25 +1,56 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Recurso no encontrado";
 }
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <p class="text-center">
-                <h1 class="display-1 fw-bold">404</h1>
-            <p class="fs-3"> <span class="text-danger">Opps!</span> Recurso no encontrado</p>
+<style>
+    .error-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 80vh;
+    }
 
-            <p class="lead">
-                Lo sentimos, se ha producido un error, no se ha encontrado el recurso o página solicitado.
-            </p>
-            <div style="margin-top: 15px; margin-bottom: 15px;">
-                @Html.ActionLink("Regresar", "Index", "Home", null, new { @class = "btn btn-primary btn-lg", @style = "margin-right:10px;" })
+    .error-title {
+        font-size: 5rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
 
-            </div>
-        </div>
+    .error-message {
+        font-size: 2rem;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .error-buttons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+        .error-buttons .btn {
+            font-size: 1.2rem;
+            padding: 1rem 2rem;
+            border-radius: 2rem;
+        }
+
+        .error-buttons .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+            .error-buttons .btn-primary:hover {
+                background-color: #0069d9;
+                border-color: #0062cc;
+            }
+</style>
+
+<div class="error-container">
+    <h1 class="error-title">404</h1>
+    <p class="error-message">Lo sentimos, no hemos encontrado la página que estás buscando.</p>
+    <div class="error-buttons">
+        <a href="/" class="btn btn-primary">Regresar al inicio</a>
     </div>
 </div>
-
-
-
