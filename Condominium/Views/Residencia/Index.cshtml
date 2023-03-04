@@ -72,56 +72,55 @@
     }
     
 </style>
-
-<!-- Lista de residencias -->
-<div class="container-tarjetas d-flex justify-content-center flex-wrap">
-    @foreach (var item in Model)
-    {
-        <div class="col-md-4 mb-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">@item.USUARIO.NOMBRE @item.USUARIO.APELLIDO</h5>
-                    <p class="card-text"><i class="fas fa-home"></i> Número de residencia: @item.NUMERO_RESIDENCIA</p>
-                    <p class="card-text"><i class="fas fa-users"></i> Cantidad de personas: @item.CANTIDAD_PERSONAS</p>
-                    <p class="card-text"><i class="fas fa-calendar"></i> Año de inicio: @item.ANIO_INICIO</p>
-                    <p class="card-text"><i class="fas fa-car"></i> Cantidad de carros: @item.CANTIDAD_CARROS</p>
-                    <button type="button" class="btn btn-primary btn-detalle" data-toggle="modal" data-target="#modalDetalle_@item.ID_RESIDENCIA">
-                        <i class="fas fa-info-circle"></i> Vista Previa
-                    </button>
-                    <a href="@Url.Action("Details", "Residencia", new { id = item.ID_RESIDENCIA })" class="btn btn-success">
-                        <i class="fas fa-info-circle"></i> Detalles
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Modal -->
-        <div class="modal fade" id="modalDetalle_@item.ID_RESIDENCIA" tabindex="-1" role="dialog" aria-labelledby="modalDetalleLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-                <div class="modal-content">
-                    <div class="modal-header bg-primary text-white">
-                        <h5 class="modal-title" id="modalDetalleLabel"><i class="fas fa-info-circle"></i> @item.USUARIO.NOMBRE @item.USUARIO.APELLIDO - @item.USUARIO.CORREO</h5>
-
-                        <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close" style="position:absolute; top: 10px; right: 10px;">
-                            <span aria-hidden="true"><i class="fas fa-times"></i></span>
+    <div class="container-tarjetas d-flex justify-content-center flex-wrap">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">@item.USUARIO.NOMBRE @item.USUARIO.APELLIDO</h5>
+                        <p class="card-text"><i class="fas fa-home"></i> Número de residencia: @item.NUMERO_RESIDENCIA</p>
+                        <p class="card-text"><i class="fas fa-users"></i> Cantidad de personas: @item.CANTIDAD_PERSONAS</p>
+                        <p class="card-text"><i class="fas fa-calendar"></i> Año de inicio: @item.ANIO_INICIO</p>
+                        <p class="card-text"><i class="fas fa-car"></i> Cantidad de carros: @item.CANTIDAD_CARROS</p>
+                        <button type="button" class="btn btn-primary btn-detalle" data-toggle="modal" data-target="#modalDetalle_@item.ID_RESIDENCIA">
+                            <i class="fas fa-info-circle"></i> Vista Previa
                         </button>
-                    </div>
-                    <div class="modal-body">
-                        <p><i class="fas fa-home"></i> Número de residencia: @item.NUMERO_RESIDENCIA</p>
-                        <p><i class="fas fa-users"></i> Cantidad de personas: @item.CANTIDAD_PERSONAS</p>
-                        <p><i class="fas fa-calendar-alt"></i> Año de inicio: @item.ANIO_INICIO</p>
-                        <p><i class="fas fa-car"></i> Cantidad de carros: @item.CANTIDAD_CARROS</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="position:absolute; top: 10px; right: 10px;">
-                            <span aria-hidden="true"><i class="fas fa-times text-black"></i></span>
-                        </button>
-                        <a href="@Url.Action("Details", new { id = item.ID_RESIDENCIA })" class="btn btn-primary">
-                            <i class="fa fa-info-circle"></i> Ver detalles completos
+                        <a href="@Url.Action("Details", "Residencia", new { id = item.ID_RESIDENCIA })" class="btn btn-success">
+                            <i class="fas fa-info-circle"></i> Detalles
                         </a>
                     </div>
                 </div>
             </div>
-        </div>
-    }
-</div>
+            
+
+            <!-- Modal -->
+            <div class="modal fade" id="modalDetalle_@item.ID_RESIDENCIA" tabindex="-1" role="dialog" aria-labelledby="modalDetalleLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header bg-primary text-white">
+                            <h5 class="modal-title" id="modalDetalleLabel"><i class="fas fa-info-circle"></i> @item.USUARIO.NOMBRE @item.USUARIO.APELLIDO - @item.USUARIO.CORREO</h5>
+
+                            <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close" style="position:absolute; top: 10px; right: 10px;">
+                                <span aria-hidden="true"><i class="fas fa-times"></i></span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p><i class="fas fa-home"></i> Número de residencia: @item.NUMERO_RESIDENCIA</p>
+                            <p><i class="fas fa-users"></i> Cantidad de personas: @item.CANTIDAD_PERSONAS</p>
+                            <p><i class="fas fa-calendar-alt"></i> Año de inicio: @item.ANIO_INICIO</p>
+                            <p><i class="fas fa-car"></i> Cantidad de carros: @item.CANTIDAD_CARROS</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="position:absolute; top: 10px; right: 10px;">
+                                <span aria-hidden="true"><i class="fas fa-times text-black"></i></span>
+                            </button>
+                            <a href="@Url.Action("Details", new { id = item.ID_RESIDENCIA })" class="btn btn-primary">
+                                <i class="fa fa-info-circle"></i> Ver detalles completos
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>

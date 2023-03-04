@@ -1,6 +1,9 @@
-﻿using System;
+﻿using ApplicationCore.Services;
+using Infraestructure.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
 
@@ -10,21 +13,19 @@ namespace Condominium.Controllers
     {
         public ActionResult Index()
         {
-            return View();
-        }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            IEnumerable<NOTICIA> list = null;
+            try
+            {
+                IServiceNoticias _ServiceNoticias = new ServiceNoticias();
+                list = _ServiceNoticias.GetNoticias();
+                return View(list);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, MethodBase.GetCurrentMethod());
+                TempData["Message"] = "Error al procesar los datos!" + ex.Message;
+                return RedirectToAction("Default", "Error");
+            }
         }
     }
 }
