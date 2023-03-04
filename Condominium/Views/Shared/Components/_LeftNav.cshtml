@@ -12,23 +12,153 @@
     .nav a.nav-link {
         margin-bottom: 2px;
     }
+
+    .nav-item {
+        border-bottom: 1px solid #ddd;
+    }
+
+    .nav-item:not(:last-child) {
+            border-bottom: none;
+    }
+
+    .nav-link {
+        padding: 10px 20px;
+    }
+
+    .nav-link:hover {
+        background-color: #808080 !important;
+    }
+
+    .sb-sidenav-menu-heading {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.1rem;
+        color: #fff;
+        opacity: 0.6;
+        margin-bottom: 10px;
+    }
+
+    .nav-item > a.nav-link:before {
+        display: none;
+    }
+
+    .sb-sidenav-footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+    }
+
+    .sb-footer-username {
+        font-size: 0.8rem;
+        font-weight: 600;
+        margin: 5px;
+    }
+
+    .sb-footer-icons {
+        display: flex;
+        justify-content: center;
+        margin-top: 5px;
+    }
+
+    .sb-footer-icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 30px;
+        height: 30px;
+        margin: 0 5px;
+        border-radius: 50%;
+        background-color: rgba(33, 37, 41, 0.5);
+        color: #fff;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+    }
+
+     .sb-footer-icon:hover {
+        background-color: rgba(33, 37, 41, 0.8);
+        transform: scale(1.1);
+     }
+
+    .dropdown-menu {
+        background-color: #f8f9fa;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+        padding: 0;
+    }
+
+    .dropdown-item {
+        color: #212529;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.5;
+        padding: 10px 20px;
+        text-decoration: none;
+        display: block;
+    }
+
+    .dropdown-item:hover, .dropdown-item:focus {
+        background-color: #e9ecef;
+        color: #212529;
+    }
 </style>
 
 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
     <div class="sb-sidenav-menu">
         <div class="nav">
-            <div class="sb-sidenav-menu-heading">Example text</div>
-            <div class="sb-sidenav-menu-heading">Listados</div>
-            @Html.Partial("Components/Lists/ResidenciasComponent")
-            @Html.Partial("Components/Lists/EstadosCuentaComponent")
-            @Html.Partial("Components/Lists/PlanCobroComponent")
-            @Html.Partial("Components/Lists/RubrosCobrosComponent")
-            @Html.Partial("Components/Lists/DeudasVigentesComponent")
-            @Html.Partial("Components/Lists/HistorialPagosComponent")
+            <div class="sb-sidenav-menu-heading"><i class="fas fa-list"></i> Listados</div>
+            <div class="nav-item">
+                <a class="nav-link" href="@Url.Action("Index", "Residencia")">
+                    <span class="ml-2">Residencias</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a class="nav-link" href="@Url.Action("Index", "EstadosCuenta")">
+                    <span class="ml-2">Estados de cuenta</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a class="nav-link" href="@Url.Action("Index", "PlanCobro")">
+                    <span class="ml-2">Plan de cobro</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a class="nav-link" href="@Url.Action("Index", "RubrosCobros")">
+                    <span class="ml-2">Rubros de cobros</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a class="nav-link" href="@Url.Action("DeudasVigentes", "EstadosCuenta")">
+                    <span class="ml-2">Deudas vigentes</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a class="nav-link" href="@Url.Action("HistorialPagos", "EstadosCuenta")">
+                    <span class="ml-2">Historial de pagos</span>
+                </a>
+            </div>
+            <div class="sb-sidenav-menu-heading mt-3"><i class="fas fa-key"></i> Mantenimientos</div>
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="ml-2">Mantenimientos</span>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="@Url.Action("IndexAdmin","PlanCobro")">Plan de Cobro</a>
+                </div>
+            </div>
         </div>
     </div>
     <div class="sb-sidenav-footer">
-        <div class="small">Logged in as:</div>
-        Start Bootstrap
+        <span class="small">Logged in as:</span>
+        <span class="sb-footer-username">Projecto Condominios</span>
+        <div class="sb-footer-icons">
+            <a href="#" class="sb-footer-icon"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="sb-footer-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="sb-footer-icon"><i class="fab fa-instagram"></i></a>
+        </div>
     </div>
 </nav>
