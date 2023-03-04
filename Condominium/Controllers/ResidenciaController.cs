@@ -3,6 +3,7 @@ using Infraestructure.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
 
@@ -20,11 +21,12 @@ namespace Condominium.Controllers
                 list = _ServiceResidencia.GetResidencia();
                 return View(list);
             }
-            catch
+            catch (Exception ex)
             {
-                throw;
+                Log.Error(ex, MethodBase.GetCurrentMethod());
+                TempData["Message"] = "Error al procesar los datos!" + ex.Message;
+                return RedirectToAction("Default", "Error");
             }
-            return View();
         }
 
         public ActionResult Details(int? id)

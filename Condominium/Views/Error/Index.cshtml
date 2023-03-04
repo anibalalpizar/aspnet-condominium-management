@@ -4,23 +4,43 @@
 }
 
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="text-center">
+<style>
+    .error-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 80vh;
+    }
 
-                <h2 class="fs-3" style="color:red">
-                    @ViewBag.Title
-                </h2>
-                <div class="lead">
-                    @ViewBag.Description
-                </div>
-                <div style="margin-top: 15px; margin-bottom: 15px;">
-                    @Html.ActionLink("Regresar", (String)ViewBag.redirectAction, (String)ViewBag.redirect, null, new { @class = "btn btn-primary btn-lg", @style = "margin-right:10px;" })
+    .error-title {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
 
-                </div>
-            </div>
-        </div>
+    .error-message {
+        font-size: 1.5rem;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .error-buttons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+        .error-buttons .btn {
+            margin-right: 1rem;
+            font-size: 1.2rem;
+        }
+</style>
+
+
+<div class="error-container">
+    <h2 class="error-title">Oops, ha ocurrido un error</h2>
+    <p class="error-message">Lo sentimos, algo salió mal en la página que estabas intentando acceder.</p>
+    <div class="error-buttons">
+        <a href="/" class="btn btn-primary">Regresar al inicio</a>
     </div>
 </div>
-
