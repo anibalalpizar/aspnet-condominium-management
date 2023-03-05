@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Data.Entity;
 using System.Threading.Tasks;
+using System.Data.Entity.Infrastructure;
 
 namespace Infraestructure.Repository
 {
@@ -12,12 +13,27 @@ namespace Infraestructure.Repository
     {
         public IEnumerable<NOTICIA> GetNoticias()
         {
-            List<NOTICIA> list = null;
-            using (MyContext ctx = new MyContext())
+            try
             {
-                list = ctx.NOTICIA.Include(x => x.TIPO_NOTICIA).ToList();
+                List<NOTICIA> list = null;
+                using (MyContext ctx = new MyContext())
+                {
+                    list = ctx.NOTICIA.Include(x => x.TIPO_NOTICIA).ToList();
+                }
+                return list;
             }
-            return list;
+            catch (DbUpdateException dbEx)
+            {
+                string mensaje = "";
+                Log.Error(dbEx, System.Reflection.MethodBase.GetCurrentMethod(), ref mensaje);
+                throw new Exception(mensaje);
+            }
+            catch (Exception ex)
+            {
+                string mensaje = "";
+                Log.Error(ex, System.Reflection.MethodBase.GetCurrentMethod(), ref mensaje);
+                throw;
+            }
         }
     }
 }

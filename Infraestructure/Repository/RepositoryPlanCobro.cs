@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Data.Entity;
 using System.Threading.Tasks;
+using System.Data.Entity.Infrastructure;
 
 namespace Infraestructure.Repository
 {
@@ -20,9 +21,17 @@ namespace Infraestructure.Repository
                     listaPlanesCobro = ctx.GESTION_PLANES_COBRO.Include(x => x.USUARIO).ToList();
                 }
             }
+            catch (DbUpdateException dbEx)
+            {
+                string mensaje = "";
+                Log.Error(dbEx, System.Reflection.MethodBase.GetCurrentMethod(), ref mensaje);
+                throw new Exception(mensaje);
+            }
             catch (Exception ex)
             {
-                // Manejo de excepciones
+                string mensaje = "";
+                Log.Error(ex, System.Reflection.MethodBase.GetCurrentMethod(), ref mensaje);
+                throw;
             }
             return listaPlanesCobro;
         }
@@ -38,9 +47,17 @@ namespace Infraestructure.Repository
                         .Include(u => u.USUARIO).FirstOrDefault();
                 }
             }
+            catch (DbUpdateException dbEx)
+            {
+                string mensaje = "";
+                Log.Error(dbEx, System.Reflection.MethodBase.GetCurrentMethod(), ref mensaje);
+                throw new Exception(mensaje);
+            }
             catch (Exception ex)
             {
-                // Manejo de excepciones
+                string mensaje = "";
+                Log.Error(ex, System.Reflection.MethodBase.GetCurrentMethod(), ref mensaje);
+                throw;
             }
             return planCobro;
         }
