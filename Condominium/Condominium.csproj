@@ -133,7 +133,6 @@
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\EstadosCuentaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\InformacionController.cs" />
     <Compile Include="Controllers\PlanCobroController.cs" />
     <Compile Include="Controllers\ResidenciaController.cs" />
     <Compile Include="Controllers\RubrosCobrosController.cs" />
@@ -299,7 +298,6 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="webfonts\fa-brands-400.svg" />
     <Content Include="webfonts\fa-regular-400.svg" />
     <Content Include="webfonts\fa-solid-900.svg" />
@@ -346,6 +344,7 @@
     <Content Include="Views\Shared\Components\Lists\HistorialPagosComponent.cshtml" />
     <Content Include="Views\PlanCobro\Details.cshtml" />
     <Content Include="Views\PlanCobro\IndexAdmin.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
