@@ -92,8 +92,8 @@
           </Key>
           <Property Name="ID_NOTICIA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_TIPO_NOTICIA" Type="int" Nullable="false" />
-          <Property Name="TITULO" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="CONTENIDO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TITULO" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="CONTENIDO" Type="varchar" MaxLength="500" Nullable="false" />
           <Property Name="FECHA_PUBLICACION" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="PLAN_COBRO">
@@ -690,8 +690,8 @@ advertencia 6002: La tabla o vista 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' no t
           </Key>
           <Property Name="ID_NOTICIA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_TIPO_NOTICIA" Type="Int32" Nullable="false" />
-          <Property Name="TITULO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="CONTENIDO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TITULO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CONTENIDO" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="FECHA_PUBLICACION" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="TIPO_NOTICIA" Relationship="Self.FK__NOTICIA__ID_TIPO__6754599E" FromRole="NOTICIA" ToRole="TIPO_NOTICIA" />
         </EntityType>

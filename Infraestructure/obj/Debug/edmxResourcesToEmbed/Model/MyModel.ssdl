@@ -87,8 +87,8 @@
     </Key>
     <Property Name="ID_NOTICIA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ID_TIPO_NOTICIA" Type="int" Nullable="false" />
-    <Property Name="TITULO" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="CONTENIDO" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TITULO" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="CONTENIDO" Type="varchar" MaxLength="500" Nullable="false" />
     <Property Name="FECHA_PUBLICACION" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="PLAN_COBRO">

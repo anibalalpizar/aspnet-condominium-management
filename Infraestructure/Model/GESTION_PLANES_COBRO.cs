@@ -23,5 +23,7 @@ namespace Infraestructure.Model
         public string ESTADO_COBRO { get; set; }
     
         public virtual USUARIO USUARIO { get; set; }
+       
     }
+    
 }

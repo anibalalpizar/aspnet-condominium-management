@@ -74,5 +74,33 @@ namespace Condominium.Controllers
             }
         }
 
+        //Craer Plan de Cobro
+        [HttpGet]
+
+        public ActionResult Create()
+        {
+            ViewBag.idResidente = listResidente();
+            ViewBag.idEstadoDeuda = listEstadoDeuda();
+            return View();
+        }
+
+
+        private SelectList listResidente(int idUsuario = 0)
+        {
+            IServiceUsuario serviceUsuario = new ServiceUsuario();
+            IEnumerable<USUARIO> listaResidencia = serviceUsuario.GetUSUARIOs();
+            return new SelectList(listaResidencia, "ID_USUARIO", "NOMBRE", idUsuario);
+        }
+
+        private SelectList listEstadoDeuda(int idEstado = 0)
+        {
+            IServiceEstadoDeuda service = new ServiceEstadoDeuda();
+            IEnumerable<ESTADO_DEUDA> estado = service.getEstadoDeuda();
+            return new SelectList(estado, "ID_ESTADO_DEUDA", "NOMBRE_ESTADO_DEUDA");
+        }
+
+
+
+
     }
 }

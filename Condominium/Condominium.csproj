@@ -345,6 +345,7 @@
     <Content Include="Views\PlanCobro\Details.cshtml" />
     <Content Include="Views\PlanCobro\IndexAdmin.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\PlanCobro\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
