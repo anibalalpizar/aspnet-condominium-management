@@ -7,6 +7,18 @@
 <h2>Noticias</h2>
 
 <style>
+    h2 {
+        border-bottom: 2px solid #333;
+        color: #333;
+        font-family: 'Helvetica Neue', sans-serif;
+        font-size: 28px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        text-transform: uppercase;
+        margin-top: 15px;
+    }
+    
     .carousel-header {
         position: absolute;
         bottom: 20px;
@@ -82,8 +94,32 @@
     .carousel-inner {
         border: 1px solid #ccc;
     }
-    
-    
+
+    .card {
+        border: none;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+    }
+
+    .card-header {
+        background-color: #333;
+        color: #fff;
+        font-size: 1.2rem;
+    }
+
+    .card-title {
+        font-size: 1.2rem;
+    }
+
+    .card-text {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        margin-bottom: 1rem;
+    }
+
+    .text-muted {
+        color: #ccc;
+    }
 </style>
 
 <div id="noticiasCarousel" class="carousel slide" data-ride="carousel">
@@ -122,3 +158,19 @@
             </div>
         }
     </div>
+</div>
+<div class="row">
+    @foreach (var item in Model.OrderBy(x => Guid.NewGuid()).Take(3))
+    {
+        <div class="col-md-4 mb-5">
+            <div class="card mt-4">
+                <div class="card-header">@Html.DisplayFor(modelItem => item.TIPO_NOTICIA.TIPO_NOTICIA_INFO)</div>
+                <div class="card-body">
+                    <h5 class="card-title font-weight-bold">@Html.DisplayFor(modelItem => item.TITULO)</h5>
+                    <p class="card-text">@Html.DisplayFor(modelItem => item.CONTENIDO)</p>
+                    <p class="card-text"><small class="text-muted">@Html.DisplayFor(modelItem => item.FECHA_PUBLICACION)</small></p>
+                </div>
+            </div>
+        </div>
+    }
+</div>
