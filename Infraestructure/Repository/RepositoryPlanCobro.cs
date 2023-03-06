@@ -61,5 +61,44 @@ namespace Infraestructure.Repository
             }
             return planCobro;
         }
+
+        public GESTION_PLANES_COBRO Save(GESTION_PLANES_COBRO plan)
+        {
+           
+
+            try
+            {
+                int retorno = 0;
+                GESTION_PLANES_COBRO gestion = null;
+                using (MyContext ctx = new MyContext())
+                {
+                    ctx.Configuration.LazyLoadingEnabled = false;
+                    gestion = GetPlanCobroById((int)plan.ID_PLAN_COBRO);
+                    IRepositoryPlanCobro repositoryPlanCobro = new RepositoryPlanCobro();
+
+                    if (gestion == null)
+                    {
+                        ctx.GESTION_PLANES_COBRO.Add(plan);
+                        retorno = ctx.SaveChanges();
+                    }
+                }
+               
+
+                return gestion;
+
+            }
+            catch (DbUpdateException dbEx)
+            {
+                string mensaje = "";
+                Log.Error(dbEx, System.Reflection.MethodBase.GetCurrentMethod(), ref mensaje);
+                throw new Exception(mensaje);
+            }
+            catch (Exception ex)
+            {
+                string mensaje = "";
+                Log.Error(ex, System.Reflection.MethodBase.GetCurrentMethod(), ref mensaje);
+                throw;
+            }
+        }
     }
 }

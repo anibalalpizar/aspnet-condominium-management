@@ -7,7 +7,7 @@
 <h2>Create</h2>
 
 @*@using (Html.BeginForm())*@
-@using (Html.BeginForm("Save", "Libro", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("Save", "PlanCobro", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 
@@ -76,11 +76,12 @@
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Save" class="btn btn-default" />
+                @Html.ActionLink("Back to List", "IndexAdmin", null, new { @class = "btn btn-secondary" })
             </div>
         </div>
     </div>
 }
 
-<div>
+@*<div>
     @Html.ActionLink("Back to List", "Index")
-</div>
+</div>*@

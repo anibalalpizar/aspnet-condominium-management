@@ -11,5 +11,7 @@ namespace ApplicationCore.Services
     {
         IEnumerable<GESTION_PLANES_COBRO> GetPlanCobro();
         GESTION_PLANES_COBRO GetPlanCobroById(int id);
+
+        GESTION_PLANES_COBRO Save(GESTION_PLANES_COBRO plan);
     }
 }

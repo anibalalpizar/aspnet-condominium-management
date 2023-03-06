@@ -1,11 +1,14 @@
 ﻿using ApplicationCore.Services;
 using Infraestructure.Model;
+using Microsoft.VisualBasic.CompilerServices;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
+
 
 namespace Condominium.Controllers
 {
@@ -45,6 +48,7 @@ namespace Condominium.Controllers
                 return RedirectToAction("Default", "Error");
             }
         }
+
 
         public ActionResult Details(int? id)
         {
@@ -97,6 +101,31 @@ namespace Condominium.Controllers
             IServiceEstadoDeuda service = new ServiceEstadoDeuda();
             IEnumerable<ESTADO_DEUDA> estado = service.getEstadoDeuda();
             return new SelectList(estado, "ID_ESTADO_DEUDA", "NOMBRE_ESTADO_DEUDA");
+        }
+
+
+        //Guardar / SAVE 
+        [HttpPost]
+        public ActionResult Save(GESTION_PLANES_COBRO gestion) 
+        {
+           
+            IServicePlanCobro servicePlanCobro = new ServicePlanCobro();
+
+            try
+            {
+                if(ModelState.IsValid)
+                {
+                    GESTION_PLANES_COBRO oGestion = servicePlanCobro.Save(gestion);
+                }
+                return RedirectToAction("IndexAdmin");
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, MethodBase.GetCurrentMethod());
+                TempData["Message"] = "Error al procesar los datos!" + ex.Message;
+                return RedirectToAction("Default", "Error");
+            }
+
         }
 
 
