@@ -10,5 +10,8 @@ namespace Infraestructure.Repository
     public interface IRepositoryRubrosCobros
     {
         IEnumerable<RUBRO_COBRO> GetRubrosCobros();
+        RUBRO_COBRO GetRubroCobrosById(int id);
+        RUBRO_COBRO Save(RUBRO_COBRO plan);
+        void Delete(int id);
     }
 }

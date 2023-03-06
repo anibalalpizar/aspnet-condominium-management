@@ -70,8 +70,8 @@
           </Key>
           <Property Name="ID_PLAN_COBRO" Type="int" Nullable="false" />
           <Property Name="ID_RESIDENTE" Type="int" Nullable="false" />
-          <Property Name="FECHA_INICIO" Type="date" Nullable="false" />
-          <Property Name="FECHA_FIN" Type="date" Nullable="false" />
+          <Property Name="FECHA_INICIO" Type="date" />
+          <Property Name="FECHA_FIN" Type="date" />
           <Property Name="MONTO" Type="decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="FRECUENCIA_COBRO" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="ESTADO_COBRO" Type="varchar" MaxLength="20" Nullable="false" />
@@ -665,8 +665,8 @@ advertencia 6002: La tabla o vista 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' no t
           </Key>
           <Property Name="ID_PLAN_COBRO" Type="Int32" Nullable="false" />
           <Property Name="ID_RESIDENTE" Type="Int32" Nullable="false" />
-          <Property Name="FECHA_INICIO" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="FECHA_FIN" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="FECHA_INICIO" Type="DateTime" Precision="0" />
+          <Property Name="FECHA_FIN" Type="DateTime" Precision="0" />
           <Property Name="MONTO" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="FRECUENCIA_COBRO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ESTADO_COBRO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />

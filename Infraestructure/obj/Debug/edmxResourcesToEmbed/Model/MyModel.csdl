@@ -76,8 +76,8 @@
     </Key>
     <Property Name="ID_PLAN_COBRO" Type="Int32" Nullable="false" />
     <Property Name="ID_RESIDENTE" Type="Int32" Nullable="false" />
-    <Property Name="FECHA_INICIO" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="FECHA_FIN" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="FECHA_INICIO" Type="DateTime" Precision="0" />
+    <Property Name="FECHA_FIN" Type="DateTime" Precision="0" />
     <Property Name="MONTO" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
     <Property Name="FRECUENCIA_COBRO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="ESTADO_COBRO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />

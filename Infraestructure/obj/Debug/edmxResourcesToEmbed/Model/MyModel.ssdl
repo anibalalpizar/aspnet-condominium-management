@@ -65,8 +65,8 @@
     </Key>
     <Property Name="ID_PLAN_COBRO" Type="int" Nullable="false" />
     <Property Name="ID_RESIDENTE" Type="int" Nullable="false" />
-    <Property Name="FECHA_INICIO" Type="date" Nullable="false" />
-    <Property Name="FECHA_FIN" Type="date" Nullable="false" />
+    <Property Name="FECHA_INICIO" Type="date" />
+    <Property Name="FECHA_FIN" Type="date" />
     <Property Name="MONTO" Type="decimal" Precision="10" Scale="2" Nullable="false" />
     <Property Name="FRECUENCIA_COBRO" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="ESTADO_COBRO" Type="varchar" MaxLength="20" Nullable="false" />

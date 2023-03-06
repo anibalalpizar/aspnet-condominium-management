@@ -38,11 +38,12 @@ namespace Infraestructure.Repository
 
         public GESTION_PLANES_COBRO GetPlanCobroById(int id)
         {
-            GESTION_PLANES_COBRO planCobro = new GESTION_PLANES_COBRO();
+            GESTION_PLANES_COBRO planCobro = null;
             try
             {
                 using (MyContext ctx = new MyContext())
                 {
+                    ctx.Configuration.LazyLoadingEnabled = false;
                     planCobro = ctx.GESTION_PLANES_COBRO.Where(x => x.ID_PLAN_COBRO == id)
                         .Include(u => u.USUARIO).FirstOrDefault();
                 }
@@ -74,7 +75,7 @@ namespace Infraestructure.Repository
                 {
                     ctx.Configuration.LazyLoadingEnabled = false;
                     gestion = GetPlanCobroById((int)plan.ID_PLAN_COBRO);
-                    IRepositoryPlanCobro repositoryPlanCobro = new RepositoryPlanCobro();
+                    
 
                     if (gestion == null)
                     {

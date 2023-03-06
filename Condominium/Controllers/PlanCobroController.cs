@@ -113,11 +113,12 @@ namespace Condominium.Controllers
 
             try
             {
+
                 if(ModelState.IsValid)
                 {
                     GESTION_PLANES_COBRO oGestion = servicePlanCobro.Save(gestion);
                 }
-                return RedirectToAction("IndexAdmin");
+                return RedirectToAction("IndexAdmin");  
             }
             catch (Exception ex)
             {
