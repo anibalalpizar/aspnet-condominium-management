@@ -10,5 +10,6 @@ namespace Infraestructure.Repository
     public interface IRepositoryNoticias
     {
         IEnumerable<NOTICIA> GetNoticias();
+        NOTICIA Save(NOTICIA noticia);
     }
 }

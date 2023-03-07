@@ -11,5 +11,6 @@ namespace ApplicationCore.Services
     {
         IEnumerable<NOTICIA> GetNoticias();
         IEnumerable<string> GetNoticiaTipo();
+        NOTICIA Save(NOTICIA noticia);
     }
 }

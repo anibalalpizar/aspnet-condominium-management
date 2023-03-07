@@ -21,5 +21,11 @@ namespace ApplicationCore.Services
             IRepositoryNoticias repositoryNoticas = new RepositoryNoticias();
             return repositoryNoticas.GetNoticias().Select(x => x.TITULO);
         }
+
+        public NOTICIA Save(NOTICIA noticia)
+        {
+            IRepositoryNoticias repository = new RepositoryNoticias();
+            return repository.Save(noticia);
+        }
     }
 }

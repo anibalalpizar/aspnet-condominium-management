@@ -142,6 +142,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\Log.cs" />
+    <Compile Include="Utils\SweetAlertHelper.cs" />
+    <Compile Include="Utils\Util.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\all.css" />
@@ -353,6 +356,7 @@
     <Content Include="Views\RubrosCobros\Edit.cshtml" />
     <Content Include="Views\PlanCobro\Edit.cshtml" />
     <Content Include="Views\Noticias\IndexAdmin.cshtml" />
+    <Content Include="Views\Noticias\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

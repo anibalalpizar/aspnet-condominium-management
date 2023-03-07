@@ -178,6 +178,8 @@ C:\Users\ale-b\Desktop\AspNet-Sistema-Condominios\Condominium\obj\Debug\Condomin
 C:\Users\ale-b\Desktop\AspNet-Sistema-Condominios\Condominium\obj\Debug\Condominium.csproj.CopyComplete
 C:\Users\ale-b\Desktop\AspNet-Sistema-Condominios\Condominium\obj\Debug\Condominium.dll
 C:\Users\ale-b\Desktop\AspNet-Sistema-Condominios\Condominium\obj\Debug\Condominium.pdb
+C:\Users\anibal\Desktop\AspNet-Sistema-Condominios\Condominium\obj\Debug\Condominium.csproj.AssemblyReference.cache
+C:\Users\anibal\Desktop\AspNet-Sistema-Condominios\Condominium\obj\Debug\Condominium.csproj.CoreCompileInputs.cache
 C:\Users\anibal\Desktop\AspNet-Sistema-Condominios\Condominium\bin\Condominium.dll.config
 C:\Users\anibal\Desktop\AspNet-Sistema-Condominios\Condominium\bin\Condominium.dll
 C:\Users\anibal\Desktop\AspNet-Sistema-Condominios\Condominium\bin\Condominium.pdb
@@ -263,8 +265,6 @@ C:\Users\anibal\Desktop\AspNet-Sistema-Condominios\Condominium\bin\System.Web.We
 C:\Users\anibal\Desktop\AspNet-Sistema-Condominios\Condominium\bin\Newtonsoft.Json.xml
 C:\Users\anibal\Desktop\AspNet-Sistema-Condominios\Condominium\bin\Antlr3.Runtime.pdb
 C:\Users\anibal\Desktop\AspNet-Sistema-Condominios\Condominium\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\anibal\Desktop\AspNet-Sistema-Condominios\Condominium\obj\Debug\Condominium.csproj.AssemblyReference.cache
-C:\Users\anibal\Desktop\AspNet-Sistema-Condominios\Condominium\obj\Debug\Condominium.csproj.CoreCompileInputs.cache
 C:\Users\anibal\Desktop\AspNet-Sistema-Condominios\Condominium\obj\Debug\Condominium.csproj.CopyComplete
 C:\Users\anibal\Desktop\AspNet-Sistema-Condominios\Condominium\obj\Debug\Condominium.dll
 C:\Users\anibal\Desktop\AspNet-Sistema-Condominios\Condominium\obj\Debug\Condominium.pdb
