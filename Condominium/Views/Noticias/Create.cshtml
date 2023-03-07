@@ -46,10 +46,50 @@
         border: none;
     }
 
-        .input-group-addon i {
+    .input-group-addon i {
             font-size: 1.25rem;
             color: #333;
-        }
+     }
+
+    .ui-datepicker {
+        font-size: 0.9rem;
+    }
+
+    .ui-datepicker-header {
+        background-color: #333333;
+        color: #FFFFFF;
+    }
+
+    .ui-datepicker-prev span, .ui-datepicker-next span {
+        border-color: #FFFFFF;
+    }
+
+    .ui-datepicker-prev:hover span, .ui-datepicker-next:hover span {
+        background-color: #FFFFFF;
+        color: #333333;
+    }
+
+    .ui-datepicker-calendar tbody td a {
+        color: #333333;
+    }
+
+    .ui-datepicker-calendar tbody td a:hover {
+            background-color: #F5F5F5;
+    }
+
+    .ui-datepicker-calendar tbody td.ui-datepicker-today a {
+        background-color: #CCCCCC;
+        color: #333333;
+    }
+
+    .ui-datepicker-calendar .ui-datepicker-unselectable.ui-state-disabled a {
+        color: #CCCCCC;
+    }
+
+    .ui-datepicker-inline {
+        border: none;
+        background-color: #FFFFFF;
+    }
 </style>
 
 @using (Html.BeginForm("Save", "Noticias", FormMethod.Post, new { enctype = "multipart/form-data" }))
@@ -92,12 +132,10 @@
                             <h5><i class="fas fa-calendar"></i> @Html.LabelFor(model => model.FECHA_PUBLICACION, "Fecha de publicación", htmlAttributes: new { @class = "form-label" })</h5>
                             <div class="position-relative">
                                 @Html.EditorFor(model => model.FECHA_PUBLICACION, new { htmlAttributes = new { @class = "form-control datepicker" } })
-                                <span class="input-group-addon position-absolute top-0 end-0" onclick="$(this).prev().focus();"><i class="fas fa-calendar text-muted"></i></span>
+                                <span class="position-absolute top-50 translate-middle-y end-0 me-2" onclick="$(this).prev().focus();"><i class="fas fa-calendar text-muted"></i></span>
                             </div>
                             @Html.ValidationMessageFor(model => model.FECHA_PUBLICACION, "", new { @class = "text-danger" })
                         </div>
-
-
                         <div class="form-group text-center">
                             <div class="btn-group" role="group">
                                 <button type="submit" class="btn btn-primary"><i class="fas fa-plus"></i> Crear</button>
@@ -112,11 +150,11 @@
 }
 
 @section scripts {
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/smoothness/jquery-ui.css" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
     <script>
-        $(function () {
+        $(() => {
             $(".datepicker").datepicker({
                 dateFormat: "yy-mm-dd",
                 showAnim: "slideDown",
@@ -131,7 +169,7 @@
             });
         });
 
-        function toggleCalendar() {
+        toggleCalendar = () => {
             var calendar = document.getElementById("calendar");
             if (calendar.style.display === "none") {
                 calendar.style.display = "block";
@@ -140,13 +178,12 @@
             }
         }
 
-        $(document).mouseup(function (e) {
+        $(document).mouseup((e) => {
             var container = $("#calendar");
             if (!container.is(e.target) && container.has(e.target).length === 0) {
                 container.hide();
             }
         });
-     
     </script>
 }
 
