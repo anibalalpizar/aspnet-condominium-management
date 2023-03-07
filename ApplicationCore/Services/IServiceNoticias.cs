@@ -10,5 +10,6 @@ namespace ApplicationCore.Services
     public interface IServiceNoticias
     {
         IEnumerable<NOTICIA> GetNoticias();
+        IEnumerable<string> GetNoticiaTipo();
     }
 }

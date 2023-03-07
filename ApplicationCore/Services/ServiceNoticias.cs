@@ -15,5 +15,11 @@ namespace ApplicationCore.Services
             IRepositoryNoticias _repositoryNoticias = new RepositoryNoticias();
             return _repositoryNoticias.GetNoticias();
         }
+
+        public IEnumerable<string> GetNoticiaTipo()
+        {
+            IRepositoryNoticias repositoryNoticas = new RepositoryNoticias();
+            return repositoryNoticas.GetNoticias().Select(x => x.TITULO);
+        }
     }
 }
