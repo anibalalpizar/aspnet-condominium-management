@@ -4,6 +4,39 @@
     ViewBag.Title = "Create";
 }
 
+<style>
+    .form-label {
+        font-weight: bold;
+    }
+
+    .card {
+        border: none;
+        background-color: #fff;
+    }
+
+    h4.card-title {
+        font-size: 1.5rem;
+    }
+
+    .btn-secondary {
+        border: none;
+        background-color: transparent;
+    }
+
+    .container {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .form-group {
+        margin-bottom: 1rem;
+    }
+
+    .btn-group {
+        margin-top: 1rem;
+    }
+</style>
+
 @using (Html.BeginForm("Save", "Noticias", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
@@ -57,38 +90,3 @@
         </div>
     </div>
 }
-
-<style>
-    .form-label {
-        font-weight: bold;
-    }
-    .card {
-        border: none;
-        background-color: #fff;
-    }
-
-    h4.card-title {
-        font-size: 1.5rem;
-    }
-
-    .btn-secondary {
-        border: none;
-        background-color: transparent;
-    }
-
-    .container {
-        margin-top: 1rem;
-        margin-bottom: 1rem;
-    }
-
-    .form-group {
-        margin-bottom: 1rem;
-    }
-
-    .btn-group {
-        margin-top: 1rem;
-    }
-
-
-
-</style>
