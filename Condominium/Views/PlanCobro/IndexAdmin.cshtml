@@ -1,95 +1,48 @@
 ﻿@model IEnumerable<Infraestructure.Model.GESTION_PLANES_COBRO>
 
 @{
-    ViewBag.Title = "IndexAdmin";
+    ViewBag.Title = "Planes de Cobro";
 }
 
-<h2>IndexAdmin</h2>
-
-<p>
-    <a href="@Url.Action("Create", "PlanCobro")" class="btn btn-primary"><i class="fas fa-plus"></i> Crear</a>
-</p>
-
-<style>
-        .card.my-4 {
-            background-color: #f8f9fa;
-            border: 1px solid #e2e3e5;
-            border-radius: 0.25rem;
-        }
-
-        .card.my-4 .card-header {
-            background-color: #e9ecef;
-            border-bottom: 1px solid #e2e3e5;
-            font-weight: 500;
-        }
-
-        .card.my-4 .card-body {
-            padding: 1rem;
-        }
-
-        .card.my-4 .input-group {
-            margin-bottom: 0;
-        }
-
-        .btn-secondary {
-            color: #fff;
-            background-color: #6c757d;
-            border-color: #6c757d;
-        }
-
-        .btn-secondary:hover {
-            color: #fff;
-            background-color: #5a6268;
-            border-color: #545b62;
-        }
-</style>
-
-
-
-<div class="row">
-    <div class="col-md-8">
-        <div class="table-responsive h-100">
-            <table class="table table-hover table-striped">
-                <thead>
-                    <tr>
-                        <th>Usuario</th>
-                        <th>Monto</th>
-                        <th>Fecha de vencimiento</th>
-                        <th>Estado del cobro</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model)
-                    {
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <h2 class="text-center mb-4">Planes de Cobro</h2>
+            <div class="input-group mb-3">
+                @Html.TextBox("filtro", "", new { @class = "form-control", placeholder = "Buscar por nombre de usuario..." })
+                <button type="button" id="btnBuscar" class="btn btn-secondary">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
                         <tr>
-                            <td>@Html.DisplayFor(modelItem => item.USUARIO.NOMBRE)</td>
-                            <td>@Html.DisplayFor(modelItem => item.MONTO)</td>
-                            <td>@Html.DisplayFor(modelItem => item.FECHA_FIN)</td>
-                            <td>
-                                <span style="color: @(item.ESTADO_COBRO == "Pendiente" ? "#fff" : item.ESTADO_COBRO == "Activo" ? "#fff" : "#6c757d"); background-color: @(item.ESTADO_COBRO == "Pendiente" ? "#e0a800" : item.ESTADO_COBRO == "Activo" ? "#198754" : "#6c757d33"); padding: 0.25rem 0.5rem; border-radius: 0.25rem; border: 2px solid #6c757d;">@item.ESTADO_COBRO</span>
-                            </td>
-                            <td>
-                                <a href="@Url.Action("Edit", "PlanCobro", new { id = item.ID_PLAN_COBRO })" class="btn btn-primary mx-1"><i class="fas fa-pencil-alt"></i> Editar</a>
-                                <a href="@Url.Action("Details", "PlanCobro", new { id = item.ID_PLAN_COBRO })" class="btn btn-info mx-1"><i class="fas fa-eye"></i> Detalles</a>
-                                <a href="@Url.Action("Delete", "PlanCobro", new { id = item.ID_PLAN_COBRO })" class="btn btn-danger mx-1" style="background-color: #dc3545;"><i class="fas fa-trash"></i> Eliminar</a>
-                            </td>
+                            <th>Usuario</th>
+                            <th>Monto</th>
+                            <th>Estado</th>
+                            <th class="text-right">
+                                <a href="@Url.Action("Create", "PlanCobro")" class="btn btn-success"><i class="fas fa-plus"></i></a>
+                            </th>
                         </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="card my-4">
-            <h5 class="card-header bg-primary text-white">Buscar por nombre de usuario</h5>
-            <div class="card-body d-flex justify-content-center">
-                <div class="input-group">
-                    @Html.TextBox("filtro", "", new { @class = "form-control" })
-                    <button type="button" id="btnBuscar" class="btn btn-secondary">
-                        <i class="fas fa-search"></i> Buscar
-                    </button>
-                </div>
+                    </thead>
+
+                    <tbody id="tableBody">
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.USUARIO.NOMBRE)</td>
+                                <td>@Html.DisplayFor(modelItem => item.MONTO)</td>
+                                <td>@Html.DisplayFor(modelItem => item.ESTADO_COBRO)</td>
+                                <td>
+                                    <a href="@Url.Action("Edit", "PlanCobro", new { id = item.ID_PLAN_COBRO })" class="btn btn-primary btn-sm mx-1"><i class="fas fa-pencil-alt"></i></a>
+                                    <a href="@Url.Action("Details", "PlanCobro", new { id = item.ID_PLAN_COBRO })" class="btn btn-info btn-sm mx-1"><i class="fas fa-eye"></i></a>
+                                    <a href="@Url.Action("Delete", "PlanCobro", new { id = item.ID_PLAN_COBRO })" class="btn btn-danger btn-sm mx-1"><i class="fas fa-trash"></i></a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
