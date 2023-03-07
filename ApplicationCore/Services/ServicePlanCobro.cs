@@ -10,6 +10,11 @@ namespace ApplicationCore.Services
 {
     public class ServicePlanCobro : IServicePlanCobro
     {
+        public void Delete(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<GESTION_PLANES_COBRO> GetPlanCobro()
         {
             IRepositoryPlanCobro repository = new RepositoryPlanCobro();

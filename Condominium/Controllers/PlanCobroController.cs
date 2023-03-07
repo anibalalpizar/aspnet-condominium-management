@@ -130,6 +130,40 @@ namespace Condominium.Controllers
         }
 
 
+        //Editar Gestion de Planes cobro
+        public ActionResult Edit(int? id)
+        {
+            ServicePlanCobro service = new ServicePlanCobro();
+            GESTION_PLANES_COBRO gestion = null;
+
+            try
+            {
+                if (id == null)
+                {
+                    return RedirectToAction("IndexAdmin");
+                }
+
+                gestion = service.GetPlanCobroById(Convert.ToInt32(id));
+
+                if (gestion == null)
+                {
+                    TempData["Message"] = "No existe el libro solicitado";
+                    TempData["Redirect"] = "RubrosCobros";
+                    TempData["Redirect-Action"] = "IndexAdmin";
+                    // Redireccion a la captura del Error
+                    return RedirectToAction("Default", "Error");
+                }
+                ViewBag.IdResidente = listResidente(gestion.ID_RESIDENTE);
+                return View(gestion);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, MethodBase.GetCurrentMethod());
+                TempData["Message"] = "Error al procesar los datos!" + ex.Message;
+                return RedirectToAction("Default", "Error");
+            }
+        }
+
 
 
     }

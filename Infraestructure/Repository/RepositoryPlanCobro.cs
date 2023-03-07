@@ -11,6 +11,37 @@ namespace Infraestructure.Repository
 {
     public class RepositoryPlanCobro : IRepositoryPlanCobro
     {
+        public void Delete(int id)
+        {
+            try
+            {
+                GESTION_PLANES_COBRO gestion = null;
+                using(MyContext ctx = new MyContext())
+                {
+                    ctx.Configuration.LazyLoadingEnabled = false;
+                    gestion = GetPlanCobroById(id);
+
+                    if (gestion != null )
+                    {
+                        ctx.GESTION_PLANES_COBRO.Remove(gestion);
+                        ctx.SaveChanges();
+                    }
+                }
+            }
+            catch (DbUpdateException dbEx)
+            {
+                string mensaje = "";
+                Log.Error(dbEx, System.Reflection.MethodBase.GetCurrentMethod(), ref mensaje);
+                throw new Exception(mensaje);
+            }
+            catch (Exception ex)
+            {
+                string mensaje = "";
+                Log.Error(ex, System.Reflection.MethodBase.GetCurrentMethod(), ref mensaje);
+                throw;
+            }
+        }
+
         public IEnumerable<GESTION_PLANES_COBRO> GetPlanCobro()
         {
             List<GESTION_PLANES_COBRO> listaPlanesCobro = new List<GESTION_PLANES_COBRO>();
@@ -79,7 +110,15 @@ namespace Infraestructure.Repository
 
                     if (gestion == null)
                     {
+                        //Insertar Plan Cobro
                         ctx.GESTION_PLANES_COBRO.Add(plan);
+                        retorno = ctx.SaveChanges();
+                    }
+                    else
+                    {
+                        //Actualizar Plan Cobro / Modificar
+                        ctx.GESTION_PLANES_COBRO.Add(plan);
+                        ctx.Entry(plan).State = EntityState.Modified;
                         retorno = ctx.SaveChanges();
                     }
                 }
