@@ -7,11 +7,16 @@
 <style>
     .form-label {
         font-weight: bold;
+        font-size: 1rem;
     }
 
     .card {
         border: none;
         background-color: #fff;
+    }
+
+    h5.card-title {
+        font-size: 1.25rem;
     }
 
     h4.card-title {
@@ -35,6 +40,16 @@
     .btn-group {
         margin-top: 1rem;
     }
+
+    .input-group-addon {
+        background-color: transparent;
+        border: none;
+    }
+
+        .input-group-addon i {
+            font-size: 1.25rem;
+            color: #333;
+        }
 </style>
 
 @using (Html.BeginForm("Save", "Noticias", FormMethod.Post, new { enctype = "multipart/form-data" }))
@@ -46,41 +61,46 @@
             <div class="col-md-8 offset-md-2">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title text-center mb-4">Crear Noticia</h4>
+                        <h4 class="card-title text-center mb-4"><i class="fas fa-newspaper"></i> Crear Noticia</h4>
                         <hr>
                         <div class="form-group">
-                            @Html.LabelFor(model => model.ID_TIPO_NOTICIA, htmlAttributes: new { @class = "form-label" })
+                            <label for="ID_TIPO_NOTICIA" class="form-label"><i class="fas fa-newspaper"></i> Tipo de Noticia</label>
                             <div>
                                 @Html.DropDownListFor(model => model.ID_TIPO_NOTICIA,
                                     (SelectList)ViewBag.idTipoNoticia,
-                                    "Seleccione un autor",
+                                    "Seleccione un tipo de noticia",
                                     htmlAttributes: new { @class = "form-control" })
                             </div>
                         </div>
                         <div class="form-group">
-                            @Html.LabelFor(model => model.TITULO, htmlAttributes: new { @class = "form-label" })
+                            <label class="form-label" for="TITULO">
+                                <i class="fas fa-pencil-alt"></i> Título
+                            </label>
                             <div>
                                 @Html.EditorFor(model => model.TITULO, new { htmlAttributes = new { @class = "form-control" } })
                                 @Html.ValidationMessageFor(model => model.TITULO, "", new { @class = "text-danger" })
                             </div>
                         </div>
                         <div class="form-group">
-                            @Html.LabelFor(model => model.CONTENIDO, htmlAttributes: new { @class = "form-label" })
+                            <h5 class="card-title mb-3"><i class="fas fa-file-alt"></i> Contenido de la noticia</h5>
                             <div>
                                 @Html.EditorFor(model => model.CONTENIDO, new { htmlAttributes = new { @class = "form-control" } })
                                 @Html.ValidationMessageFor(model => model.CONTENIDO, "", new { @class = "text-danger" })
                             </div>
                         </div>
                         <div class="form-group">
-                            @Html.LabelFor(model => model.FECHA_PUBLICACION, htmlAttributes: new { @class = "form-label" })
-                            <div>
-                                @Html.EditorFor(model => model.FECHA_PUBLICACION, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.FECHA_PUBLICACION, "", new { @class = "text-danger" })
+                            <h5><i class="fas fa-calendar"></i> @Html.LabelFor(model => model.FECHA_PUBLICACION, "Fecha de publicación", htmlAttributes: new { @class = "form-label" })</h5>
+                            <div class="position-relative">
+                                @Html.EditorFor(model => model.FECHA_PUBLICACION, new { htmlAttributes = new { @class = "form-control datepicker" } })
+                                <span class="input-group-addon position-absolute top-0 end-0" onclick="$(this).prev().focus();"><i class="fas fa-calendar text-muted"></i></span>
                             </div>
+                            @Html.ValidationMessageFor(model => model.FECHA_PUBLICACION, "", new { @class = "text-danger" })
                         </div>
+
+
                         <div class="form-group text-center">
                             <div class="btn-group" role="group">
-                                <input type="submit" value="Crear" class="btn btn-primary" />
+                                <button type="submit" class="btn btn-primary"><i class="fas fa-plus"></i> Crear</button>
                                 @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-secondary" })
                             </div>
                         </div>
@@ -90,3 +110,45 @@
         </div>
     </div>
 }
+
+@section scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/smoothness/jquery-ui.css" />
+    <script>
+        $(function () {
+            $(".datepicker").datepicker({
+                dateFormat: "yy-mm-dd",
+                showAnim: "slideDown",
+                theme: "base",
+                themeRoller: {
+                    primary: "#333333",
+                    secondary: "#F5F5F5",
+                    text: "#333333",
+                    hover: "#F5F5F5",
+                    active: "#CCCCCC"
+                }
+            });
+        });
+
+        function toggleCalendar() {
+            var calendar = document.getElementById("calendar");
+            if (calendar.style.display === "none") {
+                calendar.style.display = "block";
+            } else {
+                calendar.style.display = "none";
+            }
+        }
+
+        $(document).mouseup(function (e) {
+            var container = $("#calendar");
+            if (!container.is(e.target) && container.has(e.target).length === 0) {
+                container.hide();
+            }
+        });
+     
+    </script>
+}
+
+
+
