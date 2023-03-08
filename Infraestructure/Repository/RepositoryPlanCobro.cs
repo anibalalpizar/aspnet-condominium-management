@@ -6,6 +6,7 @@ using System.Text;
 using System.Data.Entity;
 using System.Threading.Tasks;
 using System.Data.Entity.Infrastructure;
+using static System.Collections.Specialized.BitVector32;
 
 namespace Infraestructure.Repository
 {
@@ -75,9 +76,11 @@ namespace Infraestructure.Repository
                 using (MyContext ctx = new MyContext())
                 {
                     ctx.Configuration.LazyLoadingEnabled = false;
-                    planCobro = ctx.GESTION_PLANES_COBRO.Where(x => x.ID_PLAN_COBRO == id)
-                        .Include(u => u.USUARIO).FirstOrDefault();
+                   planCobro = ctx.GESTION_PLANES_COBRO.Where(x => x.ID_PLAN_COBRO == id)
+                     .Include(u => u.USUARIO).FirstOrDefault();
+                   // planCobro = ctx.GESTION_PLANES_COBRO.Find(id);
                 }
+                return planCobro;
             }
             catch (DbUpdateException dbEx)
             {
@@ -91,7 +94,7 @@ namespace Infraestructure.Repository
                 Log.Error(ex, System.Reflection.MethodBase.GetCurrentMethod(), ref mensaje);
                 throw;
             }
-            return planCobro;
+            
         }
 
         public GESTION_PLANES_COBRO Save(GESTION_PLANES_COBRO plan)
@@ -102,11 +105,13 @@ namespace Infraestructure.Repository
             {
                 int retorno = 0;
                 GESTION_PLANES_COBRO gestion = null;
+              
+
                 using (MyContext ctx = new MyContext())
                 {
                     ctx.Configuration.LazyLoadingEnabled = false;
                     gestion = GetPlanCobroById((int)plan.ID_PLAN_COBRO);
-                    
+
 
                     if (gestion == null)
                     {
@@ -117,15 +122,15 @@ namespace Infraestructure.Repository
                     else
                     {
                         //Actualizar Plan Cobro / Modificar
+                       // gestion.ID_RESIDENTE = plan.ID_RESIDENTE; // Establecer la llave foránea
                         ctx.GESTION_PLANES_COBRO.Add(plan);
-                        ctx.Entry(plan).State = EntityState.Modified;
+                        ctx.Entry(gestion).State = EntityState.Modified;
+                       // ctx.Entry(gestion).CurrentValues.SetValues(plan);
                         retorno = ctx.SaveChanges();
                     }
+                    return gestion;
                 }
                
-
-                return gestion;
-
             }
             catch (DbUpdateException dbEx)
             {
@@ -142,3 +147,4 @@ namespace Infraestructure.Repository
         }
     }
 }
+//gestion.ID_RESIDENTE = plan.ID_RESIDENTE; // Establecer la llave foránea
