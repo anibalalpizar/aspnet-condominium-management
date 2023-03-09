@@ -7,6 +7,7 @@ using System.Linq;
 using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
+using static System.Collections.Specialized.BitVector32;
 
 namespace Condominium.Controllers
 {
@@ -68,5 +69,40 @@ namespace Condominium.Controllers
                 return RedirectToAction("Default", "Error");
             }
         }
+
+        //Editar las noticias
+        public ActionResult Edit(int? id)
+        {
+            IServiceNoticias noticia = new ServiceNoticias();
+            NOTICIA noti = null;
+            try
+            {
+               if(id == null)
+                {
+                    return RedirectToAction("IndexAdmin");
+                }
+
+               noti = noticia.GetNoticiasById(Convert.ToInt32(id));
+
+                if (noti == null)
+                {
+                    TempData["Message"] = "No existe el libro solicitado";
+                    TempData["Redirect"] = "RubrosCobros";
+                    TempData["Redirect-Action"] = "IndexAdmin";
+                    // Redireccion a la captura del Error
+                    return RedirectToAction("Default", "Error");
+                }
+                ViewBag.IdTipoNotocia = listaTiposNoticias(noti.ID_TIPO_NOTICIA);
+                return View(noti);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, MethodBase.GetCurrentMethod());
+                TempData["Message"] = "Error al procesar los datos!" + ex.Message;
+                return RedirectToAction("Default", "Error");
+            }
+        }
+
+
     }
 }

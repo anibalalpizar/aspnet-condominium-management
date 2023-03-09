@@ -36,12 +36,75 @@ namespace Infraestructure.Repository
             }
         }
 
-        public NOTICIA GetNoticiaByID(int id)
+        //public NOTICIA GetNoticiaByID(int id)
+        //{
+        //    NOTICIA oNoticia = null;
+        //    try
+        //    {
+        //        using(MyContext ctx = new MyContext())
+        //        {
+        //            ctx.Configuration.LazyLoadingEnabled = false;
+        //            oNoticia = ctx.NOTICIA.
+        //                Where(x => x.ID_NOTICIA == id).
+        //                Include("TIPO_NOTICIA").
+        //                FirstOrDefault();
+        //        }
+        //        return oNoticia;
+        //    }
+        //    catch (DbUpdateException dbEx)
+        //    {
+        //        string mensaje = "";
+        //        Log.Error(dbEx, System.Reflection.MethodBase.GetCurrentMethod(), ref mensaje);
+        //        throw new Exception(mensaje);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        string mensaje = "";
+        //        Log.Error(ex, System.Reflection.MethodBase.GetCurrentMethod(), ref mensaje);
+        //        throw;
+        //    }
+        //}
+
+
+        public NOTICIA Save(NOTICIA noticia)
+        {
+            int retorno = 0;
+            NOTICIA oNoticia = null;
+
+            using (MyContext ctx = new MyContext())
+            {
+                ctx.Configuration.LazyLoadingEnabled = false;
+                oNoticia = GetNoticiasById((int)noticia.ID_NOTICIA);
+
+                if (oNoticia == null)
+                {
+                    //Insertar una nueva Noticia
+                    ctx.NOTICIA.Add(noticia);
+                    retorno = ctx.SaveChanges();
+                }
+                else
+                {
+                    //Actualizar una noticia ya insertada a la DB
+                    ctx.NOTICIA.Add(noticia);
+                    ctx.Entry(noticia).State = EntityState.Modified;
+                    retorno = ctx.SaveChanges();
+                }
+
+            }
+            return oNoticia;
+        }
+
+        public void Delete(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public NOTICIA GetNoticiasById(int id)
         {
             NOTICIA oNoticia = null;
             try
             {
-                using(MyContext ctx = new MyContext())
+                using (MyContext ctx = new MyContext())
                 {
                     ctx.Configuration.LazyLoadingEnabled = false;
                     oNoticia = ctx.NOTICIA.
@@ -64,34 +127,5 @@ namespace Infraestructure.Repository
                 throw;
             }
         }
-
-
-        public NOTICIA Save(NOTICIA noticia)
-        {
-            int retorno = 0;
-            NOTICIA oNoticia = null;
-
-            using (MyContext ctx = new MyContext())
-            {
-                ctx.Configuration.LazyLoadingEnabled = false;
-                oNoticia = GetNoticiaByID((int)noticia.ID_NOTICIA);
-
-                if (oNoticia == null)
-                {
-                    ctx.NOTICIA.Add(noticia);
-                    retorno = ctx.SaveChanges();
-                }
-                else
-                {
-
-                    ctx.NOTICIA.Add(noticia);
-                    ctx.Entry(noticia).State = EntityState.Modified;
-                    retorno = ctx.SaveChanges();
-                }
-
-            }
-            return oNoticia;
-        }
-
     }
 }

@@ -122,15 +122,15 @@ namespace Infraestructure.Repository
                     else
                     {
                         //Actualizar Plan Cobro / Modificar
-                       // gestion.ID_RESIDENTE = plan.ID_RESIDENTE; // Establecer la llave foránea
+                                         
                         ctx.GESTION_PLANES_COBRO.Add(plan);
-                        ctx.Entry(gestion).State = EntityState.Modified;
-                       // ctx.Entry(gestion).CurrentValues.SetValues(plan);
+                        ctx.Entry(plan).State = EntityState.Modified;
                         retorno = ctx.SaveChanges();
                     }
-                    return gestion;
+                   
                 }
                
+                return gestion;
             }
             catch (DbUpdateException dbEx)
             {

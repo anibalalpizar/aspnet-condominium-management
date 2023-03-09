@@ -11,5 +11,7 @@ namespace Infraestructure.Repository
     {
         IEnumerable<NOTICIA> GetNoticias();
         NOTICIA Save(NOTICIA noticia);
+        NOTICIA GetNoticiasById(int id);
+        void Delete(int id);
     }
 }

@@ -22,8 +22,6 @@ namespace Infraestructure.Model
         public decimal MONTO { get; set; }
         public string FRECUENCIA_COBRO { get; set; }
         public string ESTADO_COBRO { get; set; }
-
-        [ForeignKey("ID_RESIDENTE")]
         public USUARIO USUARIO { get; set; }
     }
 }

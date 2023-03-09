@@ -10,10 +10,21 @@ namespace ApplicationCore.Services
 {
     public class ServiceNoticias : IServiceNoticias
     {
+        public void Delete(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<NOTICIA> GetNoticias()
         {
             IRepositoryNoticias _repositoryNoticias = new RepositoryNoticias();
             return _repositoryNoticias.GetNoticias();
+        }
+
+        public NOTICIA GetNoticiasById(int id)
+        {
+            IRepositoryNoticias repositoryNoticias = new RepositoryNoticias();
+            return repositoryNoticias.GetNoticiasById(id);
         }
 
         public IEnumerable<string> GetNoticiaTipo()
