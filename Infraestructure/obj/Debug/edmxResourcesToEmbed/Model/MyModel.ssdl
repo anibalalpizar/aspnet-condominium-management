@@ -99,8 +99,8 @@
     <Property Name="NOMBRE_PLAN" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="DESCRIPCION" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="PLAN_COBRO_RUBRO_COBRO">
     <Key>
       <PropertyRef Name="ID_PLAN_COBRO" />
@@ -271,6 +271,18 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
       </Principal>
       <Dependent Role="INCIDENCIA">
         <PropertyRef Name="ID_USUARIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__NOTICIA__ID_TIPO__6754599E">
+    <End Role="TIPO_NOTICIA" Type="Self.TIPO_NOTICIA" Multiplicity="1" />
+    <End Role="NOTICIA" Type="Self.NOTICIA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TIPO_NOTICIA">
+        <PropertyRef Name="ID_TIPO_NOTICIA" />
+      </Principal>
+      <Dependent Role="NOTICIA">
+        <PropertyRef Name="ID_TIPO_NOTICIA" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -454,18 +466,6 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_NOTICIA_TIPO_NOTICA">
-    <End Role="TIPO_NOTICIA" Type="Self.TIPO_NOTICIA" Multiplicity="1" />
-    <End Role="NOTICIA" Type="Self.NOTICIA" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TIPO_NOTICIA">
-        <PropertyRef Name="ID_TIPO_NOTICIA" />
-      </Principal>
-      <Dependent Role="NOTICIA">
-        <PropertyRef Name="ID_TIPO_NOTICIA" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityContainer Name="CONDOMINIOSModelStoreContainer">
     <EntitySet Name="AREA_COMUN" EntityType="Self.AREA_COMUN" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ESTADO_DEUDA" EntityType="Self.ESTADO_DEUDA" Schema="dbo" store:Type="Tables" />
@@ -513,6 +513,10 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
     <AssociationSet Name="FK__INCIDENCI__ID_US__66603565" Association="Self.FK__INCIDENCI__ID_US__66603565">
       <End Role="USUARIO" EntitySet="USUARIO" />
       <End Role="INCIDENCIA" EntitySet="INCIDENCIA" />
+    </AssociationSet>
+    <AssociationSet Name="FK__NOTICIA__ID_TIPO__6754599E" Association="Self.FK__NOTICIA__ID_TIPO__6754599E">
+      <End Role="TIPO_NOTICIA" EntitySet="TIPO_NOTICIA" />
+      <End Role="NOTICIA" EntitySet="NOTICIA" />
     </AssociationSet>
     <AssociationSet Name="FK__PLAN_COBR__ID_PL__68487DD7" Association="Self.FK__PLAN_COBR__ID_PL__68487DD7">
       <End Role="PLAN_COBRO" EntitySet="PLAN_COBRO" />
@@ -573,10 +577,6 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
     <AssociationSet Name="FK_GESTION_DEUDA_PLAN_COBRO" Association="Self.FK_GESTION_DEUDA_PLAN_COBRO">
       <End Role="PLAN_COBRO" EntitySet="PLAN_COBRO" />
       <End Role="GESTION_DEUDA" EntitySet="GESTION_DEUDA" />
-    </AssociationSet>
-    <AssociationSet Name="FK_NOTICIA_TIPO_NOTICA" Association="Self.FK_NOTICIA_TIPO_NOTICA">
-      <End Role="TIPO_NOTICIA" EntitySet="TIPO_NOTICIA" />
-      <End Role="NOTICIA" EntitySet="NOTICIA" />
     </AssociationSet>
   </EntityContainer>
 </Schema>
