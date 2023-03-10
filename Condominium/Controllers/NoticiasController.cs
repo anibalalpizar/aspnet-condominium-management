@@ -37,7 +37,7 @@ namespace Condominium.Controllers
             ViewBag.idTipoNoticia = listaTiposNoticias();
             return View();
         }
-        
+
         public SelectList listaTiposNoticias(int idTipoNoticia = 0)
         {
             IServiceTipoNoticias _serviceNoticia = new ServiceTipoNoticias();
@@ -55,8 +55,20 @@ namespace Condominium.Controllers
                 {
                     NOTICIA oNoticiaI = _serviceNoticia.Save(noticia);
                 }
-                
-                return RedirectToAction("IndexAdmin");
+                else
+                {
+                    ViewBag.idTipoNoticia = listaTiposNoticias(noticia.ID_NOTICIA);
+                    if(noticia.ID_NOTICIA > 0)
+                    {
+                        return (ActionResult)View("Edit", noticia);
+                    }
+                    else
+                    {
+                        return View("Create", noticia);
+                    }
+                }
+
+                return RedirectToAction("Index");
             }
             catch (Exception ex)
             {
@@ -70,30 +82,30 @@ namespace Condominium.Controllers
             }
         }
 
+
         //Editar las noticias
         public ActionResult Edit(int? id)
         {
-            IServiceNoticias noticia = new ServiceNoticias();
-            NOTICIA noti = null;
+            ServiceNoticias _ServiceNoticia = new ServiceNoticias();
+            NOTICIA noticia = null;
             try
             {
-               if(id == null)
+                if (id == null)
                 {
-                    return RedirectToAction("IndexAdmin");
+                    return RedirectToAction("Index");
                 }
 
-               noti = noticia.GetNoticiasById(Convert.ToInt32(id));
+                noticia = _ServiceNoticia.GetNoticiasById(Convert.ToInt32(id));
 
-                if (noti == null)
+                if (noticia == null)
                 {
-                    TempData["Message"] = "No existe el libro solicitado";
+                    TempData["Message"] = "No existe la noticia solicitado";
                     TempData["Redirect"] = "RubrosCobros";
                     TempData["Redirect-Action"] = "IndexAdmin";
-                    // Redireccion a la captura del Error
                     return RedirectToAction("Default", "Error");
                 }
-                ViewBag.IdTipoNotocia = listaTiposNoticias(noti.ID_TIPO_NOTICIA);
-                return View(noti);
+                ViewBag.ID_TIPO_NOTICA = listaTiposNoticias(noticia.ID_TIPO_NOTICIA);
+                return View(noticia);
             }
             catch (Exception ex)
             {

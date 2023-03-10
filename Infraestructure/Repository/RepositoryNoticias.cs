@@ -91,6 +91,8 @@ namespace Infraestructure.Repository
                 }
 
             }
+            if(retorno > 0)
+                oNoticia = GetNoticiasById((int)noticia.ID_NOTICIA);
             return oNoticia;
         }
 

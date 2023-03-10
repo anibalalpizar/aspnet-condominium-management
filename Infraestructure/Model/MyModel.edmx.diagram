@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="973f512ad8a54da8b70c5df6e7994832" Name="Diagram1">
+      <Diagram DiagramId="648150f3d41747ad8b4463fad5e684a4" Name="Diagram1">
         <EntityTypeShape EntityType="CONDOMINIOSModel.AREA_COMUN" Width="1.5" PointX="6" PointY="4.625" IsExpanded="true" />
         <EntityTypeShape EntityType="CONDOMINIOSModel.ESTADO_DEUDA" Width="1.5" PointX="8.25" PointY="19.625" IsExpanded="true" />
         <EntityTypeShape EntityType="CONDOMINIOSModel.ESTADO_INCIDENCIA" Width="1.5" PointX="6" PointY="20" IsExpanded="true" />
@@ -38,7 +38,7 @@
         <AssociationConnector Association="CONDOMINIOSModel.FK_GESTION_DEUDA_PLAN_COBRO" ManuallyRouted="false" />
         <AssociationConnector Association="CONDOMINIOSModel.FK__GESTION_P__ID_RE__6477ECF3" ManuallyRouted="false" />
         <AssociationConnector Association="CONDOMINIOSModel.FK__INCIDENCI__ID_US__66603565" ManuallyRouted="false" />
-        <AssociationConnector Association="CONDOMINIOSModel.FK__NOTICIA__ID_TIPO__6754599E" ManuallyRouted="false" />
+        <AssociationConnector Association="CONDOMINIOSModel.FK_NOTICIA_TIPO_NOTICA" ManuallyRouted="false" />
         <AssociationConnector Association="CONDOMINIOSModel.FK__REPORTES__ID_REP__6A30C649" ManuallyRouted="false" />
         <AssociationConnector Association="CONDOMINIOSModel.FK__REPORTES__ID_USU__6B24EA82" ManuallyRouted="false" />
         <AssociationConnector Association="CONDOMINIOSModel.FK__RESERVA_A__ID_US__6E01572D" ManuallyRouted="false" />

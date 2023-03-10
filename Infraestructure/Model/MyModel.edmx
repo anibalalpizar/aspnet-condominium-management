@@ -104,8 +104,8 @@
           <Property Name="NOMBRE_PLAN" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="DESCRIPCION" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="PLAN_COBRO_RUBRO_COBRO">
           <Key>
             <PropertyRef Name="ID_PLAN_COBRO" />
@@ -276,18 +276,6 @@ advertencia 6002: La tabla o vista 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' no t
             </Principal>
             <Dependent Role="INCIDENCIA">
               <PropertyRef Name="ID_USUARIO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__NOTICIA__ID_TIPO__6754599E">
-          <End Role="TIPO_NOTICIA" Type="Self.TIPO_NOTICIA" Multiplicity="1" />
-          <End Role="NOTICIA" Type="Self.NOTICIA" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TIPO_NOTICIA">
-              <PropertyRef Name="ID_TIPO_NOTICIA" />
-            </Principal>
-            <Dependent Role="NOTICIA">
-              <PropertyRef Name="ID_TIPO_NOTICIA" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -471,6 +459,18 @@ advertencia 6002: La tabla o vista 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' no t
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_NOTICIA_TIPO_NOTICA">
+          <End Role="TIPO_NOTICIA" Type="Self.TIPO_NOTICIA" Multiplicity="1" />
+          <End Role="NOTICIA" Type="Self.NOTICIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_NOTICIA">
+              <PropertyRef Name="ID_TIPO_NOTICIA" />
+            </Principal>
+            <Dependent Role="NOTICIA">
+              <PropertyRef Name="ID_TIPO_NOTICIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="CONDOMINIOSModelStoreContainer">
           <EntitySet Name="AREA_COMUN" EntityType="Self.AREA_COMUN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ESTADO_DEUDA" EntityType="Self.ESTADO_DEUDA" Schema="dbo" store:Type="Tables" />
@@ -518,10 +518,6 @@ advertencia 6002: La tabla o vista 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' no t
           <AssociationSet Name="FK__INCIDENCI__ID_US__66603565" Association="Self.FK__INCIDENCI__ID_US__66603565">
             <End Role="USUARIO" EntitySet="USUARIO" />
             <End Role="INCIDENCIA" EntitySet="INCIDENCIA" />
-          </AssociationSet>
-          <AssociationSet Name="FK__NOTICIA__ID_TIPO__6754599E" Association="Self.FK__NOTICIA__ID_TIPO__6754599E">
-            <End Role="TIPO_NOTICIA" EntitySet="TIPO_NOTICIA" />
-            <End Role="NOTICIA" EntitySet="NOTICIA" />
           </AssociationSet>
           <AssociationSet Name="FK__PLAN_COBR__ID_PL__68487DD7" Association="Self.FK__PLAN_COBR__ID_PL__68487DD7">
             <End Role="PLAN_COBRO" EntitySet="PLAN_COBRO" />
@@ -582,6 +578,10 @@ advertencia 6002: La tabla o vista 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' no t
           <AssociationSet Name="FK_GESTION_DEUDA_PLAN_COBRO" Association="Self.FK_GESTION_DEUDA_PLAN_COBRO">
             <End Role="PLAN_COBRO" EntitySet="PLAN_COBRO" />
             <End Role="GESTION_DEUDA" EntitySet="GESTION_DEUDA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NOTICIA_TIPO_NOTICA" Association="Self.FK_NOTICIA_TIPO_NOTICA">
+            <End Role="TIPO_NOTICIA" EntitySet="TIPO_NOTICIA" />
+            <End Role="NOTICIA" EntitySet="NOTICIA" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -693,7 +693,7 @@ advertencia 6002: La tabla o vista 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' no t
           <Property Name="TITULO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="CONTENIDO" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="FECHA_PUBLICACION" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="TIPO_NOTICIA" Relationship="Self.FK__NOTICIA__ID_TIPO__6754599E" FromRole="NOTICIA" ToRole="TIPO_NOTICIA" />
+          <NavigationProperty Name="TIPO_NOTICIA" Relationship="Self.FK_NOTICIA_TIPO_NOTICA" FromRole="NOTICIA" ToRole="TIPO_NOTICIA" />
         </EntityType>
         <EntityType Name="PLAN_COBRO">
           <Key>
@@ -794,7 +794,7 @@ advertencia 6002: La tabla o vista 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' no t
           </Key>
           <Property Name="ID_TIPO_NOTICIA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TIPO_NOTICIA_INFO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="NOTICIA" Relationship="Self.FK__NOTICIA__ID_TIPO__6754599E" FromRole="TIPO_NOTICIA" ToRole="NOTICIA" />
+          <NavigationProperty Name="NOTICIA" Relationship="Self.FK_NOTICIA_TIPO_NOTICA" FromRole="TIPO_NOTICIA" ToRole="NOTICIA" />
         </EntityType>
         <EntityType Name="TIPO_REPORTE">
           <Key>
@@ -977,7 +977,7 @@ advertencia 6002: La tabla o vista 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' no t
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__NOTICIA__ID_TIPO__6754599E">
+        <Association Name="FK_NOTICIA_TIPO_NOTICA">
           <End Role="TIPO_NOTICIA" Type="Self.TIPO_NOTICIA" Multiplicity="1" />
           <End Role="NOTICIA" Type="Self.NOTICIA" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1135,7 +1135,7 @@ advertencia 6002: La tabla o vista 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' no t
             <End Role="USUARIO" EntitySet="USUARIO" />
             <End Role="INCIDENCIA" EntitySet="INCIDENCIA" />
           </AssociationSet>
-          <AssociationSet Name="FK__NOTICIA__ID_TIPO__6754599E" Association="Self.FK__NOTICIA__ID_TIPO__6754599E">
+          <AssociationSet Name="FK_NOTICIA_TIPO_NOTICA" Association="Self.FK_NOTICIA_TIPO_NOTICA">
             <End Role="TIPO_NOTICIA" EntitySet="TIPO_NOTICIA" />
             <End Role="NOTICIA" EntitySet="NOTICIA" />
           </AssociationSet>
@@ -1424,7 +1424,7 @@ advertencia 6002: La tabla o vista 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' no t
         <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
-        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->
