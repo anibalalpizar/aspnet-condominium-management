@@ -19,7 +19,7 @@
       <PropertyRef Name="ID_ESTADO_INCIDENCIA" />
     </Key>
     <Property Name="ID_ESTADO_INCIDENCIA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="ESTADO_INCIDENCIA" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DESCRIPCION_ESTADO_INCIDENCIA" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="ESTADO_RESERVACION">
     <Key>

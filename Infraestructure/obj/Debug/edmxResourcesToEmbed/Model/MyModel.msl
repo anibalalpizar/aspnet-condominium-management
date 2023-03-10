@@ -21,7 +21,7 @@
       <EntityTypeMapping TypeName="CONDOMINIOSModel.ESTADO_INCIDENCIA">
         <MappingFragment StoreEntitySet="ESTADO_INCIDENCIA">
           <ScalarProperty Name="ID_ESTADO_INCIDENCIA" ColumnName="ID_ESTADO_INCIDENCIA" />
-          <ScalarProperty Name="ESTADO_INCIDENCIA1" ColumnName="ESTADO_INCIDENCIA" />
+          <ScalarProperty Name="DESCRIPCION_ESTADO_INCIDENCIA" ColumnName="DESCRIPCION_ESTADO_INCIDENCIA" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

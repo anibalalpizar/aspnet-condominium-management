@@ -360,11 +360,7 @@
     <Content Include="Views\Noticias\Edit.cshtml" />
     <Content Include="Views\PlanCobro\Edit.cshtml" />
     <Content Include="Views\RubrosCobros\Deleted.cshtml" />
-    <Content Include="Views\Incidencia\Create.cshtml" />
-    <Content Include="Views\Incidencia\Delete.cshtml" />
-    <Content Include="Views\Incidencia\Details.cshtml" />
-    <Content Include="Views\Incidencia\Edit.cshtml" />
-    <Content Include="Views\Incidencia\Index.cshtml" />
+    <Content Include="Views\Incidencia\IndexAdmin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

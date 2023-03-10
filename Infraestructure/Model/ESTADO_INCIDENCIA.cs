@@ -21,7 +21,7 @@ namespace Infraestructure.Model
         }
     
         public int ID_ESTADO_INCIDENCIA { get; set; }
-        public string ESTADO_INCIDENCIA1 { get; set; }
+        public string DESCRIPCION_ESTADO_INCIDENCIA { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<INCIDENCIA> INCIDENCIA { get; set; }

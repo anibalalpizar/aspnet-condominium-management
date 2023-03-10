@@ -24,7 +24,7 @@
             <PropertyRef Name="ID_ESTADO_INCIDENCIA" />
           </Key>
           <Property Name="ID_ESTADO_INCIDENCIA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ESTADO_INCIDENCIA" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DESCRIPCION_ESTADO_INCIDENCIA" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="ESTADO_RESERVACION">
           <Key>
@@ -612,7 +612,7 @@ advertencia 6002: La tabla o vista 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' no t
             <PropertyRef Name="ID_ESTADO_INCIDENCIA" />
           </Key>
           <Property Name="ID_ESTADO_INCIDENCIA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ESTADO_INCIDENCIA1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DESCRIPCION_ESTADO_INCIDENCIA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="INCIDENCIA" Relationship="Self.FK__INCIDENCI__ID_ES__656C112C" FromRole="ESTADO_INCIDENCIA" ToRole="INCIDENCIA" />
         </EntityType>
         <EntityType Name="ESTADO_RESERVACION">
@@ -1196,7 +1196,7 @@ advertencia 6002: La tabla o vista 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' no t
             <EntityTypeMapping TypeName="CONDOMINIOSModel.ESTADO_INCIDENCIA">
               <MappingFragment StoreEntitySet="ESTADO_INCIDENCIA">
                 <ScalarProperty Name="ID_ESTADO_INCIDENCIA" ColumnName="ID_ESTADO_INCIDENCIA" />
-                <ScalarProperty Name="ESTADO_INCIDENCIA1" ColumnName="ESTADO_INCIDENCIA" />
+                <ScalarProperty Name="DESCRIPCION_ESTADO_INCIDENCIA" ColumnName="DESCRIPCION_ESTADO_INCIDENCIA" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

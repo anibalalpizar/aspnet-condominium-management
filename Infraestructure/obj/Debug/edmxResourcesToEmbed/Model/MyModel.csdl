@@ -22,7 +22,7 @@
       <PropertyRef Name="ID_ESTADO_INCIDENCIA" />
     </Key>
     <Property Name="ID_ESTADO_INCIDENCIA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="ESTADO_INCIDENCIA1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DESCRIPCION_ESTADO_INCIDENCIA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="INCIDENCIA" Relationship="Self.FK__INCIDENCI__ID_ES__656C112C" FromRole="ESTADO_INCIDENCIA" ToRole="INCIDENCIA" />
   </EntityType>
   <EntityType Name="ESTADO_RESERVACION">
