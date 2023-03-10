@@ -129,6 +129,11 @@ namespace Condominium.Controllers
             }
         }
 
+        [HttpGet]
+        public ActionResult Deleted()
+        {
+            return View();
+        }
 
         //Eliminar Rubros de cobros
         [HttpPost]
@@ -138,20 +143,28 @@ namespace Condominium.Controllers
             RUBRO_COBRO rubro = null;
             try
             {
-                if(id != null)
+                if(id == null)
                 {
-                    
+                    return RedirectToAction("IndexAdmin");
                 }
 
+                rubro = serviceRubrosCobros.GetRubroCobrosById(Convert.ToInt32(id));
 
-                return View();
+                if (rubro.BORRADO == 0)
+                    {
+                        serviceRubrosCobros.Delete(Convert.ToInt32(id));
+                    }
+                
+                
+                return View(rubro);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                Log.Error(ex, MethodBase.GetCurrentMethod());
+                TempData["Message"] = "Error al procesar los datos!" + ex.Message;
+                return RedirectToAction("Default", "Error");
             }
-           
+
         }
     }
 }

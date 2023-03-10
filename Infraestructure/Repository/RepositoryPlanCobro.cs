@@ -77,8 +77,8 @@ namespace Infraestructure.Repository
                 {
                     ctx.Configuration.LazyLoadingEnabled = false;
                    planCobro = ctx.GESTION_PLANES_COBRO.Where(x => x.ID_PLAN_COBRO == id)
-                     .Include(u => u.USUARIO).FirstOrDefault();
-                   // planCobro = ctx.GESTION_PLANES_COBRO.Find(id);
+                     .Include("USUARIO").FirstOrDefault();
+                  
                 }
                 return planCobro;
             }
@@ -129,7 +129,8 @@ namespace Infraestructure.Repository
                     }
                    
                 }
-               
+                if (retorno > 0)
+                    gestion = GetPlanCobroById((int)gestion.ID_PLAN_COBRO);
                 return gestion;
             }
             catch (DbUpdateException dbEx)

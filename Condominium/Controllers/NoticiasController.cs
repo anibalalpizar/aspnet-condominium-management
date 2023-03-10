@@ -43,6 +43,7 @@ namespace Condominium.Controllers
             IServiceTipoNoticias _serviceNoticia = new ServiceTipoNoticias();
             IEnumerable<TIPO_NOTICIA> lista = _serviceNoticia.GetTipoNoticias();
             return new SelectList(lista, "ID_TIPO_NOTICIA", "TIPO_NOTICIA_INFO", idTipoNoticia);
+
         }
 
         [HttpPost]
@@ -57,7 +58,7 @@ namespace Condominium.Controllers
                 }
                 else
                 {
-                    ViewBag.idTipoNoticia = listaTiposNoticias(noticia.ID_NOTICIA);
+                    ViewBag.idTipoNoticia = listaTiposNoticias(noticia.ID_TIPO_NOTICIA);
                     if(noticia.ID_NOTICIA > 0)
                     {
                         return (ActionResult)View("Edit", noticia);
@@ -68,7 +69,7 @@ namespace Condominium.Controllers
                     }
                 }
 
-                return RedirectToAction("Index");
+                return RedirectToAction("IndexAdmin");
             }
             catch (Exception ex)
             {
@@ -92,7 +93,7 @@ namespace Condominium.Controllers
             {
                 if (id == null)
                 {
-                    return RedirectToAction("Index");
+                    return RedirectToAction("IndexAdmin");
                 }
 
                 noticia = _ServiceNoticia.GetNoticiasById(Convert.ToInt32(id));
@@ -104,7 +105,7 @@ namespace Condominium.Controllers
                     TempData["Redirect-Action"] = "IndexAdmin";
                     return RedirectToAction("Default", "Error");
                 }
-                ViewBag.ID_TIPO_NOTICA = listaTiposNoticias(noticia.ID_TIPO_NOTICIA);
+                ViewBag.ID_TIPO_NOTICIA = listaTiposNoticias(noticia.ID_TIPO_NOTICIA);
                 return View(noticia);
             }
             catch (Exception ex)

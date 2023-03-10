@@ -12,7 +12,8 @@ namespace ApplicationCore.Services
     {
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            IRepositoryPlanCobro repositoryPlanCobro = new RepositoryPlanCobro();
+            repositoryPlanCobro.Delete(id);
         }
 
         public IEnumerable<GESTION_PLANES_COBRO> GetPlanCobro()

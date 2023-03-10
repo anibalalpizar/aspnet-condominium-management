@@ -118,6 +118,19 @@ namespace Condominium.Controllers
                 {
                     GESTION_PLANES_COBRO oGestion = servicePlanCobro.Save(gestion);
                 }
+                else
+                {
+                    ViewBag.idResidente = listResidente(gestion.ID_USUARIO);
+
+                    if(gestion.ID_PLAN_COBRO > 0)
+                    {
+                        return (ActionResult)View("Edit",gestion);
+                    }
+                    else
+                    {
+                        return View("Create", gestion);
+                    }
+                }
                 return RedirectToAction("IndexAdmin");  
             }
             catch (Exception ex)
@@ -145,15 +158,15 @@ namespace Condominium.Controllers
 
                 gestion = service.GetPlanCobroById(Convert.ToInt32(id));
 
+
                 if (gestion == null)
                 {
-                    TempData["Message"] = "No existe el libro solicitado";
+                    TempData["Message"] = "No existe la noticia solicitado";
                     TempData["Redirect"] = "RubrosCobros";
                     TempData["Redirect-Action"] = "IndexAdmin";
-                    // Redireccion a la captura del Error
                     return RedirectToAction("Default", "Error");
                 }
-                ViewBag.IdResidente = listResidente(gestion.ID_RESIDENTE);
+                ViewBag.ID_USUARIO = listResidente(gestion.ID_USUARIO);
                 return View(gestion);
             }
             catch (Exception ex)
@@ -164,6 +177,7 @@ namespace Condominium.Controllers
             }
         }
 
+       
 
 
     }

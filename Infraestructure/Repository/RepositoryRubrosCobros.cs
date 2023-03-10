@@ -24,9 +24,13 @@ namespace Infraestructure.Repository
 
                     if (rubro != null)
                     {
-                        //Eliminar Cobro
-                        ctx.RUBRO_COBRO.Remove(rubro);
-                        ctx.SaveChanges();
+                        if (rubro.BORRADO == 0)
+                        {
+                            ctx.RUBRO_COBRO.Remove(rubro);
+                            ctx.SaveChanges();
+                        }
+                        
+                      
                     }
                    
                 }

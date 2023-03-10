@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="700c11999df6479dba7faf821e148492" Name="Diagram1">
+      <Diagram DiagramId="adf3b9a1ef094db0b1703f11e2fec4ce" Name="Diagram1">
         <EntityTypeShape EntityType="CONDOMINIOSModel.AREA_COMUN" Width="1.5" PointX="6" PointY="4.625" IsExpanded="true" />
         <EntityTypeShape EntityType="CONDOMINIOSModel.ESTADO_DEUDA" Width="1.5" PointX="8.25" PointY="19.625" IsExpanded="true" />
         <EntityTypeShape EntityType="CONDOMINIOSModel.ESTADO_INCIDENCIA" Width="1.5" PointX="6" PointY="20" IsExpanded="true" />
@@ -20,7 +20,7 @@
         <EntityTypeShape EntityType="CONDOMINIOSModel.RESERVA_AREA_COMUN" Width="1.5" PointX="5.25" PointY="14.875" IsExpanded="true" />
         <EntityTypeShape EntityType="CONDOMINIOSModel.RESERVACION" Width="1.5" PointX="8.25" PointY="7.375" IsExpanded="true" />
         <EntityTypeShape EntityType="CONDOMINIOSModel.RESIDENCIA" Width="1.5" PointX="8.25" PointY="15.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="CONDOMINIOSModel.RUBRO_COBRO" Width="1.5" PointX="10.5" PointY="21.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CONDOMINIOSModel.RUBRO_COBRO" Width="1.5" PointX="10.5" PointY="21.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CONDOMINIOSModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CONDOMINIOSModel.TIPO_NOTICIA" Width="1.5" PointX="8.75" PointY="1.25" IsExpanded="true" />
         <EntityTypeShape EntityType="CONDOMINIOSModel.TIPO_REPORTE" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
@@ -36,7 +36,7 @@
         <AssociationConnector Association="CONDOMINIOSModel.FK__USUARIO__ID_ESTA__74AE54BC" ManuallyRouted="false" />
         <AssociationConnector Association="CONDOMINIOSModel.FK__GESTION_D__ID_RE__6383C8BA" ManuallyRouted="false" />
         <AssociationConnector Association="CONDOMINIOSModel.FK_GESTION_DEUDA_PLAN_COBRO" ManuallyRouted="false" />
-        <AssociationConnector Association="CONDOMINIOSModel.FK__GESTION_P__ID_RE__6477ECF3" ManuallyRouted="false" />
+        <AssociationConnector Association="CONDOMINIOSModel.FK_GESTION_PLANES_COBRO_USUARIO" ManuallyRouted="false" />
         <AssociationConnector Association="CONDOMINIOSModel.FK__INCIDENCI__ID_US__66603565" ManuallyRouted="false" />
         <AssociationConnector Association="CONDOMINIOSModel.FK__NOTICIA__ID_TIPO__6754599E" ManuallyRouted="false" />
         <AssociationConnector Association="CONDOMINIOSModel.FK__REPORTES__ID_REP__6A30C649" ManuallyRouted="false" />

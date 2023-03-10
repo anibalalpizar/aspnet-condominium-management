@@ -64,7 +64,7 @@
       <PropertyRef Name="ID_PLAN_COBRO" />
     </Key>
     <Property Name="ID_PLAN_COBRO" Type="int" Nullable="false" />
-    <Property Name="ID_RESIDENTE" Type="int" Nullable="false" />
+    <Property Name="ID_USUARIO" Type="int" Nullable="false" />
     <Property Name="FECHA_INICIO" Type="date" />
     <Property Name="FECHA_FIN" Type="date" />
     <Property Name="MONTO" Type="decimal" Precision="10" Scale="2" Nullable="false" />
@@ -169,6 +169,7 @@ advertencia 6002: La tabla o vista 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' no t
     <Property Name="MONTO" Type="decimal" Precision="18" Scale="2" Nullable="false" />
     <Property Name="IMAGEN" Type="varbinary(max)" />
     <Property Name="DESCRIPCION" Type="varchar" MaxLength="2000" />
+    <Property Name="BORRADO" Type="int" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
@@ -235,18 +236,6 @@ advertencia 6002: La tabla o vista 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' no t
       </Principal>
       <Dependent Role="GESTION_DEUDA">
         <PropertyRef Name="ID_RESIDENCIA" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__GESTION_P__ID_RE__6477ECF3">
-    <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
-    <End Role="GESTION_PLANES_COBRO" Type="Self.GESTION_PLANES_COBRO" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="USUARIO">
-        <PropertyRef Name="ID_USUARIO" />
-      </Principal>
-      <Dependent Role="GESTION_PLANES_COBRO">
-        <PropertyRef Name="ID_RESIDENTE" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -466,6 +455,18 @@ advertencia 6002: La tabla o vista 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' no t
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_GESTION_PLANES_COBRO_USUARIO">
+    <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+    <End Role="GESTION_PLANES_COBRO" Type="Self.GESTION_PLANES_COBRO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIO">
+        <PropertyRef Name="ID_USUARIO" />
+      </Principal>
+      <Dependent Role="GESTION_PLANES_COBRO">
+        <PropertyRef Name="ID_USUARIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="CONDOMINIOSModelStoreContainer">
     <EntitySet Name="AREA_COMUN" EntityType="Self.AREA_COMUN" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ESTADO_DEUDA" EntityType="Self.ESTADO_DEUDA" Schema="dbo" store:Type="Tables" />
@@ -501,10 +502,6 @@ advertencia 6002: La tabla o vista 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' no t
     <AssociationSet Name="FK__GESTION_D__ID_RE__6383C8BA" Association="Self.FK__GESTION_D__ID_RE__6383C8BA">
       <End Role="RESIDENCIA" EntitySet="RESIDENCIA" />
       <End Role="GESTION_DEUDA" EntitySet="GESTION_DEUDA" />
-    </AssociationSet>
-    <AssociationSet Name="FK__GESTION_P__ID_RE__6477ECF3" Association="Self.FK__GESTION_P__ID_RE__6477ECF3">
-      <End Role="USUARIO" EntitySet="USUARIO" />
-      <End Role="GESTION_PLANES_COBRO" EntitySet="GESTION_PLANES_COBRO" />
     </AssociationSet>
     <AssociationSet Name="FK__INCIDENCI__ID_ES__656C112C" Association="Self.FK__INCIDENCI__ID_ES__656C112C">
       <End Role="ESTADO_INCIDENCIA" EntitySet="ESTADO_INCIDENCIA" />
@@ -577,6 +574,10 @@ advertencia 6002: La tabla o vista 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' no t
     <AssociationSet Name="FK_GESTION_DEUDA_PLAN_COBRO" Association="Self.FK_GESTION_DEUDA_PLAN_COBRO">
       <End Role="PLAN_COBRO" EntitySet="PLAN_COBRO" />
       <End Role="GESTION_DEUDA" EntitySet="GESTION_DEUDA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GESTION_PLANES_COBRO_USUARIO" Association="Self.FK_GESTION_PLANES_COBRO_USUARIO">
+      <End Role="USUARIO" EntitySet="USUARIO" />
+      <End Role="GESTION_PLANES_COBRO" EntitySet="GESTION_PLANES_COBRO" />
     </AssociationSet>
   </EntityContainer>
 </Schema>
