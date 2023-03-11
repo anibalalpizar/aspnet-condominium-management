@@ -89,6 +89,10 @@ body {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+.navbar-custom {
+    background-color: rgb(48,115,121);
+}
+
 hr {
     margin: 1rem 0;
     color: inherit;
