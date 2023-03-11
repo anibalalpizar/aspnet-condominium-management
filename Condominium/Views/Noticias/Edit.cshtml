@@ -33,6 +33,8 @@
                                 @Html.DropDownListFor(model => model.ID_TIPO_NOTICIA, null, htmlAttributes: new { @class = "form-control" })
                             </div>
 
+                            <br />
+
                             <div class="form-group">
                                 <label for="TITULO" class="control-label">
                                     <i class="fas fa-heading" style="color: rgb(39, 58, 93);"></i>
@@ -41,6 +43,7 @@
                                 @Html.EditorFor(model => model.TITULO, new { htmlAttributes = new { @class = "form-control" } })
                                 @Html.ValidationMessageFor(model => model.TITULO, "", new { @class = "text-danger" })
                             </div>
+                            <br />
 
                             <div class="form-group">
                                 <label for="CONTENIDO" class="control-label">
@@ -50,17 +53,22 @@
                                 @Html.EditorFor(model => model.CONTENIDO, new { htmlAttributes = new { @class = "form-control" } })
                                 @Html.ValidationMessageFor(model => model.CONTENIDO, "", new { @class = "text-danger" })
                             </div>
+                            <br />
 
                             <div class="form-group">
-                                <label for="FECHA_PUBLICACION" style="color: rgb(39, 58, 93)"><i class="fas fa-calendar-alt"></i> Fecha de Publicación</label>
+                                <label for="FECHA_PUBLICACION" style="color: rgb(39, 58, 93)">
+                                    <i class="fas fa-calendar-alt"></i> Fecha de Publicación
+                                </label>
                                 @Html.EditorFor(model => model.FECHA_PUBLICACION, new { htmlAttributes = new { @class = "form-control" } })
                                 @Html.ValidationMessageFor(model => model.FECHA_PUBLICACION, "", new { @class = "text-danger" })
                             </div>
+                            <br />
 
-                            <div class="form-group text-center">
-                                <button type="submit" class="btn btn-primary">Guardar</button>
+                            <div class="form-group text-center mt-4">
+                                <button type="submit" class="btn btn-primary mr-2">Guardar</button>
                                 <a href="@Url.Action("IndexAdmin", "Noticias")" class="btn btn-danger">Cancelar</a>
                             </div>
+
                         }
                     </div>
                 </div>
