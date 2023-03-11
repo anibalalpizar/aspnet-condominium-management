@@ -100,11 +100,6 @@
         text-decoration: none;
         display: block;
     }
-
-    .dropdown-item:hover, .dropdown-item:focus {
-        background-color: #e9ecef;
-        color: #212529;
-    }
 </style>
 
 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion" style="background-color: rgb(25,37,60) ">
@@ -113,43 +108,48 @@
             <div class="sb-sidenav-menu-heading"><i class="fas fa-list"></i> Listados</div>
             <div class="nav-item">
                 <a class="nav-link" href="@Url.Action("Index", "Residencia")">
-                    <span class="ml-2">Residencias</span>
+                    <i class="fas fa-home mr-2"></i>
+                    <span style="margin-left: 10px;">Residencias</span>
                 </a>
             </div>
             <div class="nav-item">
                 <a class="nav-link" href="@Url.Action("Index", "EstadosCuenta")">
-                    <span class="ml-2">Estados de cuenta</span>
+                    <span class="ml-2"><i class="fas fa-money-check-alt"></i>&nbsp;&nbsp;Estados de cuenta</span>
                 </a>
             </div>
             <div class="nav-item">
                 <a class="nav-link" href="@Url.Action("Index", "PlanCobro")">
-                    <span class="ml-2">Plan de cobro</span>
+                    <i class="fas fa-money-bill-wave mr-2"></i>
+                    <span style="margin-left: 10px;">Plan de cobro</span>
                 </a>
             </div>
             <div class="nav-item">
                 <a class="nav-link" href="@Url.Action("Index", "RubrosCobros")">
-                    <span class="ml-2">Rubros de cobros</span>
+                    <i class="fas fa-credit-card mr-2"></i>
+                    <span style="margin-left: 10px;">Rubros de cobros</span>
                 </a>
             </div>
             <div class="nav-item">
                 <a class="nav-link" href="@Url.Action("DeudasVigentes", "EstadosCuenta")">
-                    <span class="ml-2">Deudas vigentes</span>
+                    <i class="fas fa-hand-holding-usd me-1"></i>
+                    <span class="ms-1">Deudas vigentes</span>
                 </a>
             </div>
             <div class="nav-item">
                 <a class="nav-link" href="@Url.Action("HistorialPagos", "EstadosCuenta")">
-                    <span class="ml-2">Historial de pagos</span>
+                    <i class="far fa-calendar-check me-2"></i>
+                    <span>Historial de pagos</span>
                 </a>
             </div>
             <div class="sb-sidenav-menu-heading mt-3"><i class="fas fa-key"></i> Mantenimientos</div>
             <div class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="ml-2">Mantenimientos</span>
+                    <span class="ml-2"><i class="fas fa-cogs"></i> Mantenimientos</span>
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="@Url.Action("IndexAdmin","PlanCobro")">Plan de Cobro</a>
-                    <a class="dropdown-item" href="@Url.Action("IndexAdmin","RubrosCobros")">Rubros de cobros</a>
-                    <a class="dropdown-item" href="@Url.Action("IndexAdmin","Noticias")">Noticias | Información</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: #f5a442; border: none;">
+                    <a class="dropdown-item" href="@Url.Action("IndexAdmin","PlanCobro")" style="color: white;"><i class="fas fa-file-invoice-dollar me-2"></i> Plan de Cobro</a>
+                    <a class="dropdown-item" href="@Url.Action("IndexAdmin","RubrosCobros")" style="color: white;"><i class="fas fa-coins me-2"></i> Rubros de cobros</a>
+                    <a class="dropdown-item" href="@Url.Action("IndexAdmin","Noticias")" style="color: white;"><i class="fas fa-newspaper me-2"></i> Noticias | Información</a>
                 </div>
             </div>
         </div>
