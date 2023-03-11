@@ -18,7 +18,7 @@
         text-transform: uppercase;
         margin-top: 15px;
     }
-    
+
     .carousel-header {
         position: absolute;
         bottom: 20px;
@@ -47,7 +47,7 @@
     }
 
     a.carousel-control-next:hover, a.carousel-control-prev:hover {
-        color: #333;
+        color: rgb(39, 58, 93);
     }
 
     .carousel-item {
@@ -62,7 +62,7 @@
     }
 
     .card-header {
-        background-color: rgb(10, 30, 34);
+        background-color: rgb(39, 58, 93);
         color: #fff;
     }
 
@@ -81,14 +81,14 @@
     }
 
     .carousel-indicators li {
-        background-color: #ccc;
+        background-color: rgb(39, 58, 93);
         border-radius: 50%;
         width: 10px;
         height: 10px;
     }
 
     .carousel-indicators .active {
-        background-color: #333;
+        background-color: cornflowerblue;
     }
 
     .carousel-inner {
@@ -102,7 +102,7 @@
     }
 
     .card-header {
-        background-color: #333;
+        background-color: rgb(39, 58, 93);
         color: #fff;
         font-size: 1.2rem;
     }
@@ -136,7 +136,7 @@
         {
             <div class="carousel-item @(item == Model.First() ? "active" : "")">
                 <div class="card mb-5">
-                    <div class="card-header d-flex justify-content-between align-items-center bg-dark text-white">
+                    <div class="card-header d-flex justify-content-between align-items-center bg-dark text-white" style="">
                         <span class="font-weight-bold">@Html.DisplayFor(modelItem => item.TIPO_NOTICIA.TIPO_NOTICIA_INFO)</span>
                         <div class="carousel-header">
                             <a class="carousel-control-prev mr-3" href="#noticiasCarousel" role="button" data-slide="prev">
