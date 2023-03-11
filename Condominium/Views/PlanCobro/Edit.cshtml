@@ -4,80 +4,165 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
 
-@using (Html.BeginForm("Save", "PlanCobro", FormMethod.Post, new { enctype = "multipart/form-data" }))
-{
-    
-        @Html.AntiForgeryToken()
+<style>
+    .form-group.form-inline > div:nth-child(1) {
+        width: 50%;
+        float: left;
+    }
 
-        <div class="form-horizontal">
-            <h4>GESTION_PLANES_COBRO</h4>
-            <hr />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div class="form-group">
-                @Html.LabelFor(model => model.ID_PLAN_COBRO, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.ID_PLAN_COBRO, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.ID_PLAN_COBRO, "", new { @class = "text-danger" })
+    .form-group.form-inline > div:nth-child(2) {
+        width: 50%;
+        float: right;
+    }
+
+    .form-horizontal {
+        background-color: #fff;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+
+    .form-horizontal label {
+            color: rgb(39, 58, 93);
+            font-weight: bold;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-control {
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-shadow: none;
+    }
+
+    .btn-default {
+        background-color: rgb(39, 58, 93);
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+    }
+
+    .btn-default:hover {
+            background-color: #333;
+            color: #fff;
+    }
+
+    .text-danger {
+        color: red;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+</style>
+
+<h2 style="font-size: 24px; margin-bottom: 10px; margin-top:5px ;text-align: center;">Modificar Planes de Cobro</h2>
+<hr style="border: none; border-top: 2px solid #ccc; margin-bottom: 20px;">
+
+<div class="row">
+    <div class="col-md-8">
+        @using (Html.BeginForm("Save", "PlanCobro", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group hidden">
+                    <div class="col-md-10">
+                        @Html.HiddenFor(model => model.ID_PLAN_COBRO, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="ID_USUARIO" class="control-label col-md-2"><i class="fas fa-user" style="color: rgb(39, 58, 93)"></i> Usuario</label>
+                    <div class="col-md-10">
+                        @Html.DropDownList("ID_USUARIO", null, htmlAttributes: new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="MONTO" class="control-label col-md-2"><i class="fas fa-money-bill-wave" style="color:rgb(39, 58, 93);"></i> Monto</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.MONTO, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.MONTO, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="FRECUENCIA_COBRO" class="control-label col-md-2"><i class="fas fa-calendar-alt" style="color: rgb(39, 58, 93)"></i> Frecuencia de cobro</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.FRECUENCIA_COBRO, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.FRECUENCIA_COBRO, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="ESTADO_COBRO" class="control-label col-md-2"><i class="fas fa-check-circle" style="color: rgb(39, 58, 93);"></i> Estado del cobro</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.ESTADO_COBRO, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ESTADO_COBRO, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <div class="row">
+                            <div class="col-md-6" style="display: inline-block; width: 50%;">
+                                <label for="FECHA_INICIO" class="control-label" style="color: rgb(39, 58, 93);">
+                                    <i class="fa fa-calendar" style="color: rgb(39, 58, 93);"></i> Fecha inicio
+                                </label>
+                                @Html.EditorFor(model => model.FECHA_INICIO, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.FECHA_INICIO, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-md-6" style="display: inline-block; width: 50%;">
+                                <label for="FECHA_FIN" class="control-label" style="color: rgb(39, 58, 93);">
+                                    <i class="fa fa-calendar" style="color: rgb(39, 58, 93);"></i> Fecha fin
+                                </label>
+                                @Html.EditorFor(model => model.FECHA_FIN, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.FECHA_FIN, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Save" class="btn btn-default" />
+                    </div>
                 </div>
             </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.ID_USUARIO, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.DropDownList("ID_USUARIO", null, htmlAttributes: new { @class = "form-control" })
+        }
+    </div>
+    <div class="col-md-3">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card mb-3" style="background-color: #f8f9fa;">
+                    <div class="card-header" style="background-color: rgb(39, 58, 93); color: white;">
+                        Importancia de llevar una buena gestión de planes de cobro
+                    </div>
+                    <div class="card-body">
+                        <p style="color: rgb(39, 58, 93);">Asegura el flujo de efectivo de tu negocio</p>
+                    </div>
                 </div>
             </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.FECHA_INICIO, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.FECHA_INICIO, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.FECHA_INICIO, "", new { @class = "text-danger" })
+            <div class="col-md-12">
+                <div class="card mb-3" style="background-color: #f8f9fa;">
+                    <div class="card-header" style="background-color: rgb(39, 58, 93); color: white;">
+                        Importancia de llevar una buena gestión de planes de cobro
+                    </div>
+                    <div class="card-body">
+                        <p style="color: rgb(39, 58, 93);">Aumenta la eficiencia de tu proceso de cobranza</p>
+                    </div>
                 </div>
             </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.FECHA_FIN, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.FECHA_FIN, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.FECHA_FIN, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.MONTO, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.MONTO, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.MONTO, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.FRECUENCIA_COBRO, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.FRECUENCIA_COBRO, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.FRECUENCIA_COBRO, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.ESTADO_COBRO, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.ESTADO_COBRO, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.ESTADO_COBRO, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Save" class="btn btn-default" />
+            <div class="col-md-12">
+                <div class="card mb-3" style="background-color: #f8f9fa;">
+                    <div class="card-header" style="background-color: rgb(39, 58, 93); color: white;">
+                        Importancia de llevar una buena gestión de planes de cobro
+                    </div>
+                    <div class="card-body">
+                        <p style="color: rgb(39, 58, 93);">Mejora la relación con tus clientes al tener una comunicación clara y efectiva sobre el proceso de cobranza</p>
+                    </div>
                 </div>
             </div>
         </div>
-    }
-
-    <div>
-        @Html.ActionLink("Back to List", "IndexAdmin")
     </div>
+</div>
