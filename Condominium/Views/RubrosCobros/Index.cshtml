@@ -11,16 +11,6 @@
         border-radius: 50%;
         object-fit: cover;
         margin-right: 20px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    }
-
-    .service-header {
-        background-color: #007BFF;
-        color: #FFF;
-        padding: 5px;
-        border-radius: 5px;
-        margin-bottom: 5px;
-        text-align: center;
     }
 
     .card {
@@ -29,41 +19,59 @@
         box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.2);
     }
 
+    .card-amount {
+        font-size: 1.2rem;
+        margin-top: 0.5rem;
+    }
+
+    .card-text {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .card:hover {
+        transform: scale(1.02);
+    }
+
+    .card-title {
+        font-size: 1.2rem;
+        margin: 0.5rem 0;
+    }
+
     .card-body {
         padding: 1rem;
         height: 200px;
         overflow: hidden;
     }
 
-    .centered-text {
-        text-align: center;
-    }
-
     .italic-text {
-        font-style: italic;     
+        font-style: italic;
     }
-    
+
+    .card-image {
+        width: 100%;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 5px 5px 0 0;
+    }
 </style>
-
-<h2>Index</h2>
-
-
-
-<div class="row">
-    @foreach (var item in Model)
-    {
-        <div class="col-md-3 mb-4">
-            <div class="card" style="box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);">
-                <div style="display: flex; align-items: center">
-                  
+<div class="container">
+    <h1 class="text-center mb-4">RUBROS DE COBRO</h1>
+    <div class="row justify-content-center">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-image">
                         <img src="data:image/jpg;charset=utf-8;base64,@Convert.ToBase64String(item.IMAGEN)" alt="Imagen @Html.DisplayFor(modelItem => item.NOMBRE_RUBRO)" class="circle-img" />
-                        <div class="service-header  text-center">@Html.DisplayFor(modelItem => item.NOMBRE_RUBRO)</div>
-                </div>
-                <div class="card-body">
-                    <p class="card-text">@Html.DisplayFor(modelItem => item.DESCRIPCION)</p>
-                    <h5 class="card-title italic-text">Monto: @Html.DisplayFor(modelItem => item.MONTO) $</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="service-header">@Html.DisplayFor(modelItem => item.NOMBRE_RUBRO)</div>
+                        <p class="card-text">@Html.DisplayFor(modelItem => item.DESCRIPCION)</p>
+                        <h5 class="card-title italic-text">Monto: @Html.DisplayFor(modelItem => item.MONTO) $</h5>
+                    </div>
                 </div>
             </div>
-        </div>
-    }
+        }
+    </div>
 </div>
