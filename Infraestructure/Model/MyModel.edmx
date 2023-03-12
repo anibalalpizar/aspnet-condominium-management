@@ -97,8 +97,8 @@
           <Property Name="CONTENIDO" Type="varchar" MaxLength="500" Nullable="false" />
           <Property Name="FECHA_PUBLICACION" Type="datetime" Nullable="false" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="PLAN_COBRO_RUBRO_COBRO">
           <Key>
             <PropertyRef Name="ID_PLAN_COBRO" />
@@ -1403,7 +1403,7 @@ advertencia 6002: La tabla o vista 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' no t
         <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
-        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->
