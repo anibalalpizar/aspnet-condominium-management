@@ -32,8 +32,8 @@
                         {
                             <tr>
                                 <td>@Html.DisplayFor(modelItem => item.USUARIO.NOMBRE)</td>
-                                <td>@Html.DisplayFor(modelItem => item.MONTO)</td>
-                                <td>@Html.DisplayFor(modelItem => item.ESTADO_COBRO)</td>
+                                <td>@Html.DisplayFor(modelItem => item.TOTAL)</td>
+                                <td>@Html.DisplayFor(modelItem => item.ESTADO_DEUDA.NOMBRE_ESTADO_DEUDA)</td>
                                 <td>
                                     <a href="@Url.Action("Edit", "PlanCobro", new { id = item.ID_PLAN_COBRO })" class="btn btn-primary btn-sm mx-1"><i class="fas fa-pencil-alt"></i></a>
                                     <a href="@Url.Action("Details", "PlanCobro", new { id = item.ID_PLAN_COBRO })" class="btn btn-info btn-sm mx-1"><i class="fas fa-eye"></i></a>

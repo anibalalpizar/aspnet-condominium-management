@@ -28,10 +28,10 @@ namespace ApplicationCore.Services
             return repository.GetPlanCobroById(id);
         }
 
-        public GESTION_PLANES_COBRO Save(GESTION_PLANES_COBRO plan)
+        public GESTION_PLANES_COBRO Save(GESTION_PLANES_COBRO plan, string[] selectRubrosCobros)
         {
             IRepositoryPlanCobro repositoryPlanCobro = new RepositoryPlanCobro();
-            return repositoryPlanCobro.Save(plan);
+            return repositoryPlanCobro.Save(plan, selectRubrosCobros);
         }
     }
 }

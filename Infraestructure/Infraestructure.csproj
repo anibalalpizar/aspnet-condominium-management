@@ -103,9 +103,6 @@
     <Compile Include="Model\NOTICIA.cs">
       <DependentUpon>MyModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\PLAN_COBRO.cs">
-      <DependentUpon>MyModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Model\REPORTES.cs">
       <DependentUpon>MyModel.tt</DependentUpon>
     </Compile>

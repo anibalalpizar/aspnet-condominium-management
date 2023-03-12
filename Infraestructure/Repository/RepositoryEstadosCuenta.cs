@@ -21,10 +21,10 @@ namespace Infraestructure.Repository
                     ctx.Configuration.LazyLoadingEnabled = false;
 
                     list = ctx.GESTION_DEUDA
-                        .Include(g => g.ESTADO_DEUDA)
+                      
                         .Include(g => g.RESIDENCIA.USUARIO)
-                        .Include(g => g.PLAN_COBRO)
-                        .Where(g => g.ESTADO_DEUDA.NOMBRE_ESTADO_DEUDA == "PENDIENTE")
+                        .Include(g => g.GESTION_PLANES_COBRO)
+                     //   .Where(g => g.ESTADO_DEUDA.NOMBRE_ESTADO_DEUDA == "PENDIENTE")
                         .ToList();
                 }
             }
@@ -53,10 +53,10 @@ namespace Infraestructure.Repository
                     ctx.Configuration.LazyLoadingEnabled = false;
 
                     list = ctx.GESTION_DEUDA
-                        .Include(g => g.ESTADO_DEUDA)
+                     //   .Include(g => g.ESTADO_DEUDA)
                         .Include(g => g.RESIDENCIA.USUARIO)
-                        .Include(f => f.PLAN_COBRO)
-                        .Where(g => g.ESTADO_DEUDA.NOMBRE_ESTADO_DEUDA == "PAGADO")
+                        .Include(f => f.GESTION_PLANES_COBRO)
+                     //   .Where(g => g.ESTADO_DEUDA.NOMBRE_ESTADO_DEUDA == "PAGADO")
                         .ToList();
 
                     if (list.Count > 0)
@@ -93,7 +93,7 @@ namespace Infraestructure.Repository
                     ctx.Configuration.LazyLoadingEnabled = false;
 
                     list = ctx.GESTION_DEUDA
-                       .Include(g => g.ESTADO_DEUDA)
+                     //  .Include(g => g.ESTADO_DEUDA)
                        .Include(g => g.RESIDENCIA.USUARIO)
                        .ToList();
                 }

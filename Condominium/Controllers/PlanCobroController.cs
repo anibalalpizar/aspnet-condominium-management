@@ -85,6 +85,7 @@ namespace Condominium.Controllers
         {
             ViewBag.idResidente = listResidente();
             ViewBag.idEstadoDeuda = listEstadoDeuda();
+            ViewBag.idRubroCobro = listRubros();
             return View();
         }
 
@@ -103,10 +104,23 @@ namespace Condominium.Controllers
             return new SelectList(estado, "ID_ESTADO_DEUDA", "NOMBRE_ESTADO_DEUDA");
         }
 
+        private MultiSelectList listRubros(ICollection<RUBRO_COBRO> rubrosCobros = null)
+        {
+            IServiceRubrosCobros serviceRubrosCobros = new ServiceRubrosCobros();
+            IEnumerable<RUBRO_COBRO> lista = serviceRubrosCobros.GetRubrosCobros();
+            int[] listaRubros = null;
+            if (rubrosCobros != null)
+            {
+                listaRubros = rubrosCobros.Select(r => r.ID_RUBRO_COBRO).ToArray();
+            }
+
+            return new MultiSelectList(lista, "ID_RUBRO_COBRO", "NOMBRE_RUBRO", listaRubros);
+        }
+
 
         //Guardar / SAVE 
         [HttpPost]
-        public ActionResult Save(GESTION_PLANES_COBRO gestion) 
+        public ActionResult Save(GESTION_PLANES_COBRO gestion, string[] selectRubrosCobros) 
         {
            
             IServicePlanCobro servicePlanCobro = new ServicePlanCobro();
@@ -116,13 +130,15 @@ namespace Condominium.Controllers
 
                 if(ModelState.IsValid)
                 {
-                    GESTION_PLANES_COBRO oGestion = servicePlanCobro.Save(gestion);
+                    GESTION_PLANES_COBRO oGestion = servicePlanCobro.Save(gestion, selectRubrosCobros);
                 }
                 else
                 {
-                    ViewBag.idResidente = listResidente(gestion.ID_USUARIO);
+                    ViewBag.idResidente = listResidente((int)gestion.ID_USUARIO);
+                    ViewBag.idEstadoDeuda = listEstadoDeuda((int)gestion.ID_ESTADO_DEUDA);
+                    ViewBag.idRubroCobro = listRubros(gestion.RUBRO_COBRO);
 
-                    if(gestion.ID_PLAN_COBRO > 0)
+                    if (gestion.ID_PLAN_COBRO > 0)
                     {
                         return (ActionResult)View("Edit",gestion);
                     }
@@ -166,7 +182,9 @@ namespace Condominium.Controllers
                     TempData["Redirect-Action"] = "IndexAdmin";
                     return RedirectToAction("Default", "Error");
                 }
-                ViewBag.ID_USUARIO = listResidente(gestion.ID_USUARIO);
+                ViewBag.ID_USUARIO = listResidente((int)gestion.ID_USUARIO);
+                ViewBag.ID_ESTADO_DEUDA = listEstadoDeuda((int)gestion.ID_ESTADO_DEUDA);
+                ViewBag.ID_RUBRO_COBRO = listRubros(gestion.RUBRO_COBRO);
                 return View(gestion);
             }
             catch (Exception ex)

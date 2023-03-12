@@ -72,11 +72,12 @@
         <MappingFragment StoreEntitySet="GESTION_PLANES_COBRO">
           <ScalarProperty Name="ID_PLAN_COBRO" ColumnName="ID_PLAN_COBRO" />
           <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
+          <ScalarProperty Name="ID_ESTADO_DEUDA" ColumnName="ID_ESTADO_DEUDA" />
+          <ScalarProperty Name="NOMBRE_PLAN" ColumnName="NOMBRE_PLAN" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
           <ScalarProperty Name="FECHA_INICIO" ColumnName="FECHA_INICIO" />
           <ScalarProperty Name="FECHA_FIN" ColumnName="FECHA_FIN" />
-          <ScalarProperty Name="MONTO" ColumnName="MONTO" />
-          <ScalarProperty Name="FRECUENCIA_COBRO" ColumnName="FRECUENCIA_COBRO" />
-          <ScalarProperty Name="ESTADO_COBRO" ColumnName="ESTADO_COBRO" />
+          <ScalarProperty Name="TOTAL" ColumnName="TOTAL" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -99,15 +100,6 @@
           <ScalarProperty Name="TITULO" ColumnName="TITULO" />
           <ScalarProperty Name="CONTENIDO" ColumnName="CONTENIDO" />
           <ScalarProperty Name="FECHA_PUBLICACION" ColumnName="FECHA_PUBLICACION" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="PLAN_COBRO">
-      <EntityTypeMapping TypeName="CONDOMINIOSModel.PLAN_COBRO">
-        <MappingFragment StoreEntitySet="PLAN_COBRO">
-          <ScalarProperty Name="ID_PLAN_COBRO" ColumnName="ID_PLAN_COBRO" />
-          <ScalarProperty Name="NOMBRE_PLAN" ColumnName="NOMBRE_PLAN" />
-          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -228,7 +220,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <AssociationSetMapping Name="PLAN_COBRO_RUBRO_COBRO" TypeName="CONDOMINIOSModel.PLAN_COBRO_RUBRO_COBRO" StoreEntitySet="PLAN_COBRO_RUBRO_COBRO">
-      <EndProperty Name="PLAN_COBRO">
+      <EndProperty Name="GESTION_PLANES_COBRO">
         <ScalarProperty Name="ID_PLAN_COBRO" ColumnName="ID_PLAN_COBRO" />
       </EndProperty>
       <EndProperty Name="RUBRO_COBRO">

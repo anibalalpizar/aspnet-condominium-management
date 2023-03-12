@@ -112,7 +112,7 @@
                             <strong>Plan de cobro para @Html.DisplayFor(modelItem => item.USUARIO.NOMBRE) @Html.DisplayFor(modelItem => item.USUARIO.APELLIDO)</strong>
                             - #PC-@Html.DisplayFor(modelItem => item.ID_PLAN_COBRO)
                         </h5>
-                        <p class="card-text">Monto: @Html.DisplayFor(modelItem => item.MONTO) <i class="fas fa-dollar-sign"></i></p>
+                        <p class="card-text">Monto: @Html.DisplayFor(modelItem => item.TOTAL) <i class="fas fa-dollar-sign"></i></p>
                         <p class="card-text">Fecha Fin: @Html.DisplayFor(modelItem => item.FECHA_FIN) <i class="fas fa-calendar-alt"></i></p>
                         <div class="btn-group d-grid">
                             <button type="button" class="btn btn-primary btn-detalle" data-toggle="modal" data-target="#modalDetalle_@item.ID_PLAN_COBRO">
@@ -161,10 +161,10 @@
                             <dd class="col-sm-8">@Html.DisplayFor(model => item.FECHA_FIN)</dd>
 
                             <dt class="col-sm-4"><i class="fas fa-dollar-sign"></i> Monto:</dt>
-                            <dd class="col-sm-8"><span style="font-weight: normal;">$@Html.DisplayFor(model => item.MONTO)</span></dd>
+                            <dd class="col-sm-8"><span style="font-weight: normal;">$@Html.DisplayFor(model => item.TOTAL)</span></dd>
 
                             <dt class="col-sm-4"><i class="fas fa-check-circle"></i> Estado de cobro:</dt>
-                            <dd class="col-sm-8">@Html.DisplayFor(model => item.ESTADO_COBRO)</dd>
+                            @*<dd class="col-sm-8">@Html.DisplayFor(model => item.ESTADO_COBRO)</dd>*@
                         </div>
                     </dl>
                 </div>
