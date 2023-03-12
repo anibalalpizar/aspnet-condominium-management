@@ -22,7 +22,7 @@ namespace Infraestructure.Repository
             INCIDENCIA incidencia = null;
             try
             {
-                using(MyContext ctx = new MyContext())
+                using (MyContext ctx = new MyContext())
                 {
                     incidencia = ctx.INCIDENCIA.Find(id);
                 }
@@ -43,17 +43,16 @@ namespace Infraestructure.Repository
             }
         }
 
-        //Este es para traer las todas las incidencias mediante una lista
         public IEnumerable<INCIDENCIA> GetIncidencias()
         {
-            List<INCIDENCIA> incidencias = null;
             try
             {
-                using(MyContext ctx = new MyContext())
+                List<INCIDENCIA> list = null;
+                using (MyContext ctx = new MyContext())
                 {
-                    ctx.Configuration.LazyLoadingEnabled = false;
-                    incidencias= ctx.INCIDENCIA.ToList();
+                    list = ctx.INCIDENCIA.Include(x => x.ESTADO_INCIDENCIA).Include(x => x.USUARIO).ToList();
                 }
+                return list;
             }
             catch (DbUpdateException dbEx)
             {
@@ -67,7 +66,6 @@ namespace Infraestructure.Repository
                 Log.Error(ex, System.Reflection.MethodBase.GetCurrentMethod(), ref mensaje);
                 throw;
             }
-            return incidencias;
         }
 
         //Este es para insertar una incidencia en la DB
@@ -77,12 +75,12 @@ namespace Infraestructure.Repository
             INCIDENCIA Oincidencia = null;
             try
             {
-                using(MyContext ctx = new MyContext())
+                using (MyContext ctx = new MyContext())
                 {
-                    ctx.Configuration.LazyLoadingEnabled=false;
+                    ctx.Configuration.LazyLoadingEnabled = false;
                     Oincidencia = GetIncidenciaById(incidencia.ID_INCIDENCIA);
 
-                    if(Oincidencia == null)
+                    if (Oincidencia == null)
                     {
                         //Insertar 
                         ctx.INCIDENCIA.Add(incidencia);
