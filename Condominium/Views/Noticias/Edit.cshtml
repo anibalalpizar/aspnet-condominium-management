@@ -4,6 +4,11 @@
     ViewBag.Title = "Modificar Noticias";
 }
 
+<style>
+    a {
+        text-decoration: none;
+    }
+</style>
 
 <div class="container my-5">
     <h1 class="text-center mb-4">@ViewBag.Title</h1>
@@ -24,15 +29,15 @@
                                 <div class="form-group">
                                     @Html.HiddenFor(model => model.ID_NOTICIA)
                                 </div>
-                                <div class="form-group mb-4 position-relative d-flex align-items-center" style="padding-right: 30px;">
+                                <div class="form-group mb-4 position-relative d-flex align-items-center" style="padding-right: 30px;" data-toggle="modal" data-target="#exampleModal">
                                     <label for="ID_TIPO_NOTICIA" style="color: rgb(39, 58, 93)">
-                                        <i class="fas fa-newspaper" style="margin-right: 5px"></i> Tipo de Noticia
+                                        <i class="fas fa-plus-square" style="margin-right: 5px"></i> Tipo de Noticia
                                     </label>
                                     @Html.DropDownListFor(model => model.ID_TIPO_NOTICIA, null, htmlAttributes: new { @class = "form-control" })
-                                    <i class="fas fa-plus position-absolute end-0 top-50 translate-middle-y text-success" style="right: -20px; margin-bottom: 3px;" data-toggle="modal" data-target="#exampleModal"></i>
+                                    <a href="#" class="d-flex align-items-center justify-content-center position-absolute end-0 top-50 translate-middle-y text-success" style="right: -20px; margin-bottom: 3px; width: 30px; height: 30px; border-radius: 50%;" onclick="mostrarAdvertencia()">
+                                        <span style="font-size: 1.2rem;">  <strong>+</strong></span>
+                                    </a>
                                 </div>
-
-
                                 <div class="form-group mb-4">
                                     <label for="TITULO" class="control-label">
                                         <i class="fas fa-heading" style="color: rgb(39, 58, 93);"></i>
@@ -74,22 +79,29 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Nuevo elemento</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Agregar nuevo tipo de noticia</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <!-- Aquí puedes agregar los campos para crear un nuevo elemento -->
+                ¿Está seguro que desea agregar un nuevo tipo de noticia?
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary">Guardar</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-success" onclick="redirigir()">Aceptar</button>
             </div>
         </div>
     </div>
 </div>
 
+
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        function redirigir() {
+            // Redirige al usuario a la página de Google
+            window.location.href = 'https://www.google.com';
+        }
+    </script>
 }
