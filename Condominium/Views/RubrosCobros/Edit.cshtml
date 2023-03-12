@@ -1,61 +1,147 @@
 ﻿@model Infraestructure.Model.RUBRO_COBRO
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Modificar Rubros de Cobros";
 }
+<style>
+    .container {
+        margin-top: 20px;
+    }
 
-<h2>Edit</h2>
-@using (Html.BeginForm("Save", "RubrosCobros", FormMethod.Post, new { enctype = "multipart/form-data" }))
-{
-    @Html.AntiForgeryToken()
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 offset-md-2">
-                <div class="card">
-                    <div class="card-header">
-                        <h4 class="card-title">Edit RUBRO_COBRO</h4>
-                    </div>
-                    <div class="card-body">
-                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.ID_RUBRO_COBRO, htmlAttributes: new { @class = "control-label" })
-                            @Html.EditorFor(model => model.ID_RUBRO_COBRO, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.ID_RUBRO_COBRO, "", new { @class = "text-danger" })
+    .card {
+        border: none;
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-header {
+        background-color: rgb(39, 58, 93);
+        color: white;
+        border-bottom: 1px solid #dee2e6;
+        padding: 10px 15px;
+    }
+
+    .card-title {
+        font-weight: 700;
+        margin-bottom: 0;
+    }
+
+    .card-body {
+        padding: 15px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-control {
+        border: none;
+        border-bottom: 1px solid #ced4da;
+        box-shadow: none;
+        border-radius: 0;
+        background-color: transparent;
+    }
+
+        .form-control:focus {
+            border-color: #80bdff;
+            box-shadow: none;
+        }
+
+    .text-danger {
+        color: #dc3545;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+    .btn-secondary {
+        background-color: #6c757d;
+        border-color: #6c757d;
+    }
+
+        .btn-primary:hover,
+        .btn-secondary:hover {
+            background-color: #0069d9;
+            border-color: #0062cc;
+        }
+
+        .btn-primary i,
+        .btn-secondary i {
+            margin-right: 5px;
+        }
+
+        .btn-primary:active,
+        .btn-secondary:active {
+            background-color: #0062cc;
+            border-color: #005cbf;
+        }
+
+        .btn-primary:focus,
+        .btn-secondary:focus {
+            box-shadow: none;
+        }
+</style>
+
+<div class="container my-5">
+    @using (Html.BeginForm("Save", "RubrosCobros", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <h1 class="text-center mb-4">@ViewBag.Title</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Editar Rubro de Cobro</h4>
                         </div>
-
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.NOMBRE_RUBRO, htmlAttributes: new { @class = "control-label" })
-                            @Html.EditorFor(model => model.NOMBRE_RUBRO, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.NOMBRE_RUBRO, "", new { @class = "text-danger" })
-                        </div>
-
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.MONTO, htmlAttributes: new { @class = "control-label" })
-                            @Html.EditorFor(model => model.MONTO, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.MONTO, "", new { @class = "text-danger" })
-                        </div>
-
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.DESCRIPCION, htmlAttributes: new { @class = "control-label" })
-                            @Html.EditorFor(model => model.DESCRIPCION, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.DESCRIPCION, "", new { @class = "text-danger" })
-                        </div>
-
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.IMAGEN, htmlAttributes: new { @class = "control-label" })
-                            <div>
-                                <img src="data:image/jpeg;charset=utf-8;base64,@Convert.ToBase64String(Model.IMAGEN)" id="ImagenProducto" style="height:75px;width:75px" />
+                        <div class="card-body">
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <div class="form-group">
+                                @Html.HiddenFor(model => model.ID_RUBRO_COBRO, new { htmlAttributes = new { @class = "form-control" } })
                             </div>
-                            @Html.HiddenFor(model => model.IMAGEN)
-                        </div>
-
-                        <div class="form-group">
-                            <input type="submit" value="Create" class="btn btn-primary" />
-                            @Html.ActionLink("Regresar al listado", "IndexAdmin", null, new { @class = "btn btn-secondary" })
+                            <div class="form-group">
+                                <label class="control-label" for="NOMBRE_RUBRO">
+                                    <i class="fas fa-info-circle" style="color: rgb(39, 58, 93)"></i>
+                                    Nombre del Rubro
+                                </label>
+                                @Html.EditorFor(model => model.NOMBRE_RUBRO, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.NOMBRE_RUBRO, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="MONTO">
+                                    <i class="fas fa-dollar-sign" style="color: rgb(39, 58, 93)"></i>
+                                    Monto
+                                </label>
+                                @Html.EditorFor(model => model.MONTO, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.MONTO, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="DESCRIPCION">
+                                    <i class="fas fa-comment-alt" style="color: rgb(39, 58, 93)"></i>
+                                    Descripción
+                                </label>
+                                @Html.EditorFor(model => model.DESCRIPCION, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.DESCRIPCION, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group" style="text-align:left">
+                                <label class="control-label" for="IMAGEN" style="color: rgb(39, 58, 93);">
+                                    <i class="fas fa-image fa-lg"></i>
+                                    Seleccionar imagen del rubro
+                                </label>
+                                <br />
+                                @Html.HiddenFor(model => model.IMAGEN)
+                                <div style="border: 1px solid rgb(39, 58, 93); border-radius: 5px; padding: 5px; display: inline-block;">
+                                    <img src="data:image/jpeg;charset=utf-8;base64,@Convert.ToBase64String(Model.IMAGEN)" id="ImagenProducto" style="height:75px;width:75px; object-fit: cover;" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="Create" class="btn btn-primary" />
+                                @Html.ActionLink("Regresar al listado", "IndexAdmin", null, new { @class = "btn btn-secondary" })
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-}
+    }
+</div>
