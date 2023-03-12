@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Infraestructure.Model.INCIDENCIA>
+
+@{
+    ViewBag.Title = "IndexAdmin";
+}
+
+<h2>IndexAdmin</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DESCRIPCION)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FECHA_CREACION)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ESTADO_INCIDENCIA.DESCRIPCION_ESTADO_INCIDENCIA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.USUARIO.NOMBRE)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DESCRIPCION)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FECHA_CREACION)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ESTADO_INCIDENCIA.DESCRIPCION_ESTADO_INCIDENCIA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.USUARIO.NOMBRE)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID_INCIDENCIA }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID_INCIDENCIA }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID_INCIDENCIA })
+        </td>
+    </tr>
+}
+
+</table>
