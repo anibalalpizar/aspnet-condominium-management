@@ -1,59 +1,82 @@
 ﻿@model Infraestructure.Model.INCIDENCIA
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Modificar Incidencias";
 }
+<style>
+    a {
+        text-decoration: none;
+    }
+</style>
 
-<h2>Edit</h2>
 
-@using (Html.BeginForm("Save", "Incidencia", FormMethod.Post, new { enctype = "multipart/form-data" }))
-{
-    @Html.AntiForgeryToken()
+<div class="container">
+    <h1 class="text-center mb-4">@ViewBag.Title</h1>
+    @using (Html.BeginForm("Save", "Incidencia", FormMethod.Post, new { enctype = "multipart/form-data", @class = "col-md-8 offset-md-2" }))
+    {
+        @Html.AntiForgeryToken()
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="text-center">Editar Incidencias</h5>
+                </div>
+                <div class="card-body">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="form-group">
+                            @Html.HiddenFor(model => model.ID_INCIDENCIA)
+                        </div>
+                        <div class="form-group mb-4 position-relative d-flex align-items-center" style="padding-right: 30px;" data-toggle="modal" data-target="#exampleModal">
+                            <label for="ID_USUARIO" style="color: rgb(39, 58, 93)">
+                                <i class="fas fa-plus-square" style="margin-right: 5px"></i> Tipo de Noticia
+                            </label>
+                            @Html.DropDownListFor(model => model.ID_USUARIO, null, htmlAttributes: new { @class = "form-control" })
+                            <a href="#" class="d-flex align-items-center justify-content-center position-absolute end-0 top-50 translate-middle-y text-success" style="right: -20px; margin-bottom: 3px; width: 30px; height: 30px; border-radius: 50%;" onclick="mostrarAdvertencia()">
+                                <span style="font-size: 1.2rem;">  <strong>+</strong></span>
+                            </a>
+                        </div>
 
-    <div class="form-horizontal">
-        <h4>INCIDENCIA</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.ID_INCIDENCIA)
+                        <div class="form-group mb-4 position-relative d-flex align-items-center" style="padding-right: 30px;" data-toggle="modal" data-target="#exampleModal">
+                            <label for="ID_ESTADO_INCIDENCIA" style="color: rgb(39, 58, 93)">
+                                <i class="fas fa-plus-square" style="margin-right: 5px"></i> Tipo de Noticia
+                            </label>
+                            @Html.DropDownListFor(model => model.ID_ESTADO_INCIDENCIA, null, htmlAttributes: new { @class = "form-control" })
+                            <a href="#" class="d-flex align-items-center justify-content-center position-absolute end-0 top-50 translate-middle-y text-success" style="right: -20px; margin-bottom: 3px; width: 30px; height: 30px; border-radius: 50%;" onclick="mostrarAdvertencia()">
+                                <span style="font-size: 1.2rem;">  <strong>+</strong></span>
+                            </a>
+                        </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.ID_USUARIO, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownList("ID_USUARIO", null, htmlAttributes: new { @class = "form-control" })
-        </div>
-    </div>
+                        <div class="form-group mb-4">
+                            <label for="DESCRIPCION" class="control-label">
+                                <i class="fas fa-heading" style="color: rgb(39, 58, 93);"></i>
+                                Título:
+                            </label>
+                            @Html.EditorFor(model => model.DESCRIPCION, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.DESCRIPCION, "", new { @class = "text-danger" })
+                        </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.ID_ESTADO_INCIDENCIA, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownList("ID_ESTADO_INCIDENCIA", null, htmlAttributes: new { @class = "form-control" })
-        </div>
-    </div>
+                        <div class="form-group mb-4">
+                            <label for="FECHA_CREACION" style="color: rgb(39, 58, 93)">
+                                <i class="fas fa-calendar-alt"></i> Fecha de Publicación
+                            </label>
+                            @Html.EditorFor(model => model.FECHA_CREACION, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.FECHA_CREACION, "", new { @class = "text-danger" })
+                        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.DESCRIPCION, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.DESCRIPCION, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.DESCRIPCION, "", new { @class = "text-danger" })
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn btn-primary mr-2">Guardar</button>
+                            <a href="@Url.Action("IndexAdmin", "Incidencia")" class="btn btn-danger">Cancelar</a>
+                        </div>
+
+                    }
+                </div>
             </div>
         </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.FECHA_CREACION, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.FECHA_CREACION, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.FECHA_CREACION, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
-        </div>
     </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "IndexAdmin")
 </div>
+    }
+</div>
+
