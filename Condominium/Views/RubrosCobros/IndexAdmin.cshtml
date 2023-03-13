@@ -8,16 +8,15 @@
     <div class="row">
         <div class="col-md-8 mx-auto">
             <h2 class="text-center mb-4">Rubros de Cobro</h2>
-            <div class="input-group mb-3">
+            @*<div class="input-group mb-3">
                 @Html.TextBox("filtro", "", new { @class = "form-control", placeholder = "Buscar por nombre de rubro de cobro..." })
                 <button type="button" id="btnBuscar" class="btn btn-secondary">
                     <i class="fas fa-search"></i>
                 </button>
-            </div>
+            </div>*@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>ID</th>
                         <th>Nombre</th>
                         <th>Monto</th>
                         <th>Descripción</th>
@@ -31,7 +30,7 @@
                     @foreach (var item in Model)
                     {
                         <tr>
-                            <td>@Html.DisplayFor(modelItem => item.ID_RUBRO_COBRO)</td>
+                            @*<td>@Html.DisplayFor(modelItem => item.ID_RUBRO_COBRO)</td>*@
                             <td>@Html.DisplayFor(modelItem => item.NOMBRE_RUBRO)</td>
                             <td>@Html.DisplayFor(modelItem => item.MONTO)</td>
                             <td>@Html.DisplayFor(modelItem => item.DESCRIPCION)</td>
