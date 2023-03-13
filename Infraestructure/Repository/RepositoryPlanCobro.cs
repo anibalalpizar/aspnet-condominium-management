@@ -79,7 +79,7 @@ namespace Infraestructure.Repository
                 {
                     ctx.Configuration.LazyLoadingEnabled = false;
                    planCobro = ctx.GESTION_PLANES_COBRO.Where(x => x.ID_PLAN_COBRO == id)
-                     .Include("USUARIO").Include("ESTADO_DEUDA").FirstOrDefault();
+                     .Include("USUARIO").Include("ESTADO_DEUDA").Include("RUBRO_COBRO").FirstOrDefault();
                   
                 }
                 return planCobro;
@@ -125,8 +125,10 @@ namespace Infraestructure.Repository
                             foreach (var rubro in selectRubrosCobros)
                             {
                                 var rubroAdd = repositoryRubrosCobros.GetRubroCobrosById(int.Parse(rubro));
+                                
                                 ctx.RUBRO_COBRO.Attach(rubroAdd);
                                 plan.RUBRO_COBRO.Add(rubroAdd);
+                                
                             }
                         }
                       

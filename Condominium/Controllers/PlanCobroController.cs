@@ -78,6 +78,7 @@ namespace Condominium.Controllers
                     return RedirectToAction("Index");
                 }
                 planCobro = _serviceResidencia.GetPlanCobroById(Convert.ToInt32(id));
+
                 if (planCobro == null)
                 {
                     TempData["Message"] = "No se encontro el registro";
@@ -154,6 +155,7 @@ namespace Condominium.Controllers
                 if(ModelState.IsValid)
                 {
                     GESTION_PLANES_COBRO oGestion = servicePlanCobro.Save(gestion, selectRubrosCobros);
+
                 }
                 else
                 {
