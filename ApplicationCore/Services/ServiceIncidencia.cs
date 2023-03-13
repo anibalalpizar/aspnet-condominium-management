@@ -27,6 +27,11 @@ namespace ApplicationCore.Services
             return repositotyIncidencia.GetIncidencias();
         }
 
+        public IEnumerable<string> GetIncidenciasEstado()
+        {
+            throw new NotImplementedException();
+        }
+
         public INCIDENCIA Save(INCIDENCIA incidencia)
         {
             IRepositotyIncidencia repositotyIncidencia = new RepositoryIncidencia();

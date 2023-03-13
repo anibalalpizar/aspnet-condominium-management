@@ -23,7 +23,7 @@ namespace Infraestructure.Repository
                     list = ctx.GESTION_DEUDA
                       
                         .Include(g => g.RESIDENCIA.USUARIO)
-                        .Include(g => g.GESTION_PLANES_COBRO)
+                      //  .Include(g => g.GESTION_PLANES_COBRO)
                      //   .Where(g => g.ESTADO_DEUDA.NOMBRE_ESTADO_DEUDA == "PENDIENTE")
                         .ToList();
                 }
@@ -55,7 +55,7 @@ namespace Infraestructure.Repository
                     list = ctx.GESTION_DEUDA
                      //   .Include(g => g.ESTADO_DEUDA)
                         .Include(g => g.RESIDENCIA.USUARIO)
-                        .Include(f => f.GESTION_PLANES_COBRO)
+                      //  .Include(f => f.GESTION_PLANES_COBRO)
                      //   .Where(g => g.ESTADO_DEUDA.NOMBRE_ESTADO_DEUDA == "PAGADO")
                         .ToList();
 

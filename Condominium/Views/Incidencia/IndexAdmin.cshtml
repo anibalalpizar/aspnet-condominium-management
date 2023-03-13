@@ -19,6 +19,7 @@
                 <th>Fecha Creación</th>
                 <th>Estado</th>
                 <th>Usuario</th>
+                
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -31,9 +32,13 @@
                     <td>@Html.DisplayFor(modelItem => item.ESTADO_INCIDENCIA.DESCRIPCION_ESTADO_INCIDENCIA)</td>
                     <td>@Html.DisplayFor(modelItem => item.USUARIO.NOMBRE)</td>
                     <td>
-                        <a href="@Url.Action("Actualizar", new { id = item.ID_INCIDENCIA })" class="btn @(item.ID_ESTADO_INCIDENCIA == 1 ? "btn-success" : "btn-warning") btn-sm">
-                            <i class="fas @(item.ID_ESTADO_INCIDENCIA == 1 ? "fa-check-circle" : "fa-undo-alt") me-2"></i>@(item.ID_ESTADO_INCIDENCIA == 1 ? "Cerrar incidencia" : "Reabrir incidencia")
-                        </a>
+                        <div class="d-flex justify-content-center mb-3">
+                            <a href="@Url.Action("Actualizar", new { id = item.ID_INCIDENCIA })" class="btn @(item.ID_ESTADO_INCIDENCIA == 1 ? "btn-success" : "btn-warning") btn-sm">
+                                <i class="fas @(item.ID_ESTADO_INCIDENCIA == 1 ? "fa-check-circle" : "fa-undo-alt") me-2"></i>@(item.ID_ESTADO_INCIDENCIA == 1 ? "Cerrar incidencia" : "Reabrir incidencia")
+                            </a>
+
+                            <a href="@Url.Action("Edit", "Incidencia", new { id = item.ID_INCIDENCIA })" class="btn btn-primary btn-sm mx-1"><i class="fas fa-pencil-alt"></i> </a>
+                        </div>
                     </td>
                 </tr>
             }

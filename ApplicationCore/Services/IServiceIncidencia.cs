@@ -10,6 +10,7 @@ namespace ApplicationCore.Services
     public interface IServiceIncidencia
     {
         IEnumerable<INCIDENCIA> GetIncidencias();
+        IEnumerable<string> GetIncidenciasEstado();
         INCIDENCIA GetIncidenciaById(int id);
         INCIDENCIA Save(INCIDENCIA incidencia);
         void Delete(int id);

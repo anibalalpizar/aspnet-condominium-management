@@ -49,6 +49,23 @@ namespace Condominium.Controllers
             }
         }
 
+        public ActionResult IndexPrueba()
+        {
+            IEnumerable<GESTION_PLANES_COBRO> list = null;
+            try
+            {
+                IServicePlanCobro _ServicePlanCobro = new ServicePlanCobro();
+                list = _ServicePlanCobro.GetPlanCobro();
+                return View(list);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, MethodBase.GetCurrentMethod());
+                TempData["Message"] = "Error al procesar los datos!" + ex.Message;
+                return RedirectToAction("Default", "Error");
+            }
+        }
+
 
         public ActionResult Details(int? id)
         {
@@ -86,9 +103,15 @@ namespace Condominium.Controllers
             ViewBag.idResidente = listResidente();
             ViewBag.idEstadoDeuda = listEstadoDeuda();
             ViewBag.idRubroCobro = listRubros();
+          //  ViewBag.montoTotal = montoTotal();
             return View();
         }
 
+        //public RUBRO_COBRO montoTotal(int  id = 0)
+        //{
+        //    IServiceRubrosCobros serviceRubrosCobros = new ServiceRubrosCobros();
+        //    return serviceRubrosCobros.GetRubroCobrosById(Convert.ToInt32(id));
+        //}
 
         private SelectList listResidente(int idUsuario = 0)
         {
@@ -137,6 +160,7 @@ namespace Condominium.Controllers
                     ViewBag.idResidente = listResidente((int)gestion.ID_USUARIO);
                     ViewBag.idEstadoDeuda = listEstadoDeuda((int)gestion.ID_ESTADO_DEUDA);
                     ViewBag.idRubroCobro = listRubros(gestion.RUBRO_COBRO);
+                   
 
                     if (gestion.ID_PLAN_COBRO > 0)
                     {

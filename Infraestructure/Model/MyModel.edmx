@@ -68,7 +68,7 @@
           <Key>
             <PropertyRef Name="ID_PLAN_COBRO" />
           </Key>
-          <Property Name="ID_PLAN_COBRO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_PLAN_COBRO" Type="int" Nullable="false" />
           <Property Name="ID_USUARIO" Type="int" />
           <Property Name="ID_ESTADO_DEUDA" Type="int" />
           <Property Name="NOMBRE_PLAN" Type="varchar" MaxLength="50" Nullable="false" />
@@ -97,8 +97,6 @@
           <Property Name="CONTENIDO" Type="varchar" MaxLength="500" Nullable="false" />
           <Property Name="FECHA_PUBLICACION" Type="datetime" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="PLAN_COBRO_RUBRO_COBRO">
           <Key>
             <PropertyRef Name="ID_PLAN_COBRO" />
@@ -164,7 +162,7 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
           </Key>
           <Property Name="ID_RUBRO_COBRO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NOMBRE_RUBRO" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="MONTO" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="MONTO" Type="decimal" Precision="18" Scale="2" />
           <Property Name="IMAGEN" Type="varbinary(max)" />
           <Property Name="DESCRIPCION" Type="varchar" MaxLength="2000" />
           <Property Name="BORRADO" Type="int" />
@@ -429,18 +427,6 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_GESTION_DEUDA_PLAN_COBRO">
-          <End Role="GESTION_PLANES_COBRO" Type="Self.GESTION_PLANES_COBRO" Multiplicity="0..1" />
-          <End Role="GESTION_DEUDA" Type="Self.GESTION_DEUDA" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="GESTION_PLANES_COBRO">
-              <PropertyRef Name="ID_PLAN_COBRO" />
-            </Principal>
-            <Dependent Role="GESTION_DEUDA">
-              <PropertyRef Name="ID_PLAN_COBRO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_PLAN_COBRO_ESTADO_DEUDA">
           <End Role="ESTADO_DEUDA" Type="Self.ESTADO_DEUDA" Multiplicity="0..1" />
           <End Role="GESTION_PLANES_COBRO" Type="Self.GESTION_PLANES_COBRO" Multiplicity="*" />
@@ -476,6 +462,7 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
           <EntitySet Name="GESTION_PLANES_COBRO" EntityType="Self.GESTION_PLANES_COBRO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="INCIDENCIA" EntityType="Self.INCIDENCIA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NOTICIA" EntityType="Self.NOTICIA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PLAN_COBRO_RUBRO_COBRO" EntityType="Self.PLAN_COBRO_RUBRO_COBRO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="REPORTES" EntityType="Self.REPORTES" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RESERVA_AREA_COMUN" EntityType="Self.RESERVA_AREA_COMUN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RESERVACION" EntityType="Self.RESERVACION" Schema="dbo" store:Type="Tables" />
@@ -486,12 +473,6 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
           <EntitySet Name="TIPO_REPORTE" EntityType="Self.TIPO_REPORTE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TIPO_USUARIO" EntityType="Self.TIPO_USUARIO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="USUARIO" EntityType="Self.USUARIO" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="PLAN_COBRO_RUBRO_COBRO" EntityType="Self.PLAN_COBRO_RUBRO_COBRO" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [PLAN_COBRO_RUBRO_COBRO].[ID_PLAN_COBRO] AS [ID_PLAN_COBRO], 
-    [PLAN_COBRO_RUBRO_COBRO].[ID_RUBRO_COBRO] AS [ID_RUBRO_COBRO]
-    FROM [dbo].[PLAN_COBRO_RUBRO_COBRO] AS [PLAN_COBRO_RUBRO_COBRO]</DefiningQuery>
-          </EntitySet>
           <AssociationSet Name="FK__GESTION_D__ID_RE__6383C8BA" Association="Self.FK__GESTION_D__ID_RE__6383C8BA">
             <End Role="RESIDENCIA" EntitySet="RESIDENCIA" />
             <End Role="GESTION_DEUDA" EntitySet="GESTION_DEUDA" />
@@ -563,10 +544,6 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
           <AssociationSet Name="FK__USUARIO__ID_TIPO__75A278F5" Association="Self.FK__USUARIO__ID_TIPO__75A278F5">
             <End Role="TIPO_USUARIO" EntitySet="TIPO_USUARIO" />
             <End Role="USUARIO" EntitySet="USUARIO" />
-          </AssociationSet>
-          <AssociationSet Name="FK_GESTION_DEUDA_PLAN_COBRO" Association="Self.FK_GESTION_DEUDA_PLAN_COBRO">
-            <End Role="GESTION_PLANES_COBRO" EntitySet="GESTION_PLANES_COBRO" />
-            <End Role="GESTION_DEUDA" EntitySet="GESTION_DEUDA" />
           </AssociationSet>
           <AssociationSet Name="FK_PLAN_COBRO_ESTADO_DEUDA" Association="Self.FK_PLAN_COBRO_ESTADO_DEUDA">
             <End Role="ESTADO_DEUDA" EntitySet="ESTADO_DEUDA" />
@@ -649,13 +626,12 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
           <Property Name="FECHA_PAGO" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="TOTALPAGAR" Type="Decimal" Precision="18" Scale="0" />
           <NavigationProperty Name="RESIDENCIA" Relationship="Self.FK__GESTION_D__ID_RE__6383C8BA" FromRole="GESTION_DEUDA" ToRole="RESIDENCIA" />
-          <NavigationProperty Name="GESTION_PLANES_COBRO" Relationship="Self.FK_GESTION_DEUDA_PLAN_COBRO" FromRole="GESTION_DEUDA" ToRole="GESTION_PLANES_COBRO" />
         </EntityType>
         <EntityType Name="GESTION_PLANES_COBRO">
           <Key>
             <PropertyRef Name="ID_PLAN_COBRO" />
           </Key>
-          <Property Name="ID_PLAN_COBRO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_PLAN_COBRO" Type="Int32" Nullable="false" />
           <Property Name="ID_USUARIO" Type="Int32" />
           <Property Name="ID_ESTADO_DEUDA" Type="Int32" />
           <Property Name="NOMBRE_PLAN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
@@ -664,7 +640,6 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
           <Property Name="FECHA_FIN" Type="DateTime" Precision="0" />
           <Property Name="TOTAL" Type="Decimal" Precision="18" Scale="0" />
           <NavigationProperty Name="ESTADO_DEUDA" Relationship="Self.FK_PLAN_COBRO_ESTADO_DEUDA" FromRole="GESTION_PLANES_COBRO" ToRole="ESTADO_DEUDA" />
-          <NavigationProperty Name="GESTION_DEUDA" Relationship="Self.FK_GESTION_DEUDA_PLAN_COBRO" FromRole="GESTION_PLANES_COBRO" ToRole="GESTION_DEUDA" />
           <NavigationProperty Name="USUARIO" Relationship="Self.FK_PLAN_COBRO_USUARIO" FromRole="GESTION_PLANES_COBRO" ToRole="USUARIO" />
           <NavigationProperty Name="RUBRO_COBRO" Relationship="Self.PLAN_COBRO_RUBRO_COBRO" FromRole="GESTION_PLANES_COBRO" ToRole="RUBRO_COBRO" />
         </EntityType>
@@ -759,7 +734,7 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
           </Key>
           <Property Name="ID_RUBRO_COBRO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NOMBRE_RUBRO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="MONTO" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="MONTO" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="IMAGEN" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="DESCRIPCION" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
           <Property Name="BORRADO" Type="Int32" />
@@ -925,18 +900,6 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
             </Principal>
             <Dependent Role="GESTION_DEUDA">
               <PropertyRef Name="ID_RESIDENCIA" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_GESTION_DEUDA_PLAN_COBRO">
-          <End Role="GESTION_PLANES_COBRO" Type="Self.GESTION_PLANES_COBRO" Multiplicity="0..1" />
-          <End Role="GESTION_DEUDA" Type="Self.GESTION_DEUDA" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="GESTION_PLANES_COBRO">
-              <PropertyRef Name="ID_PLAN_COBRO" />
-            </Principal>
-            <Dependent Role="GESTION_DEUDA">
-              <PropertyRef Name="ID_PLAN_COBRO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1107,10 +1070,6 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
           </AssociationSet>
           <AssociationSet Name="FK__GESTION_D__ID_RE__6383C8BA" Association="Self.FK__GESTION_D__ID_RE__6383C8BA">
             <End Role="RESIDENCIA" EntitySet="RESIDENCIA" />
-            <End Role="GESTION_DEUDA" EntitySet="GESTION_DEUDA" />
-          </AssociationSet>
-          <AssociationSet Name="FK_GESTION_DEUDA_PLAN_COBRO" Association="Self.FK_GESTION_DEUDA_PLAN_COBRO">
-            <End Role="GESTION_PLANES_COBRO" EntitySet="GESTION_PLANES_COBRO" />
             <End Role="GESTION_DEUDA" EntitySet="GESTION_DEUDA" />
           </AssociationSet>
           <AssociationSet Name="FK_PLAN_COBRO_USUARIO" Association="Self.FK_PLAN_COBRO_USUARIO">
@@ -1403,7 +1362,7 @@ warning 6002: The table/view 'CONDOMINIOS.dbo.PLAN_COBRO_RUBRO_COBRO' does not h
         <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
-        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->

@@ -24,7 +24,7 @@ namespace Infraestructure.Repository
             {
                 using (MyContext ctx = new MyContext())
                 {
-                    incidencia = ctx.INCIDENCIA.Find(id);
+                    incidencia = ctx.INCIDENCIA.Where(x => x.ID_INCIDENCIA == id).Include("USUARIO").Include("ESTADO_INCIDENCIA").FirstOrDefault();
                 }
 
                 return incidencia;
@@ -94,8 +94,13 @@ namespace Infraestructure.Repository
                         retorno = ctx.SaveChanges();
                     }
 
-                    return Oincidencia;
+                  
                 }
+
+                if (retorno > 0)
+                    incidencia = GetIncidenciaById((int)incidencia.ID_INCIDENCIA);
+
+                return Oincidencia;
             }
             catch (DbUpdateException dbEx)
             {

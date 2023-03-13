@@ -1,0 +1,100 @@
+﻿@model Infraestructure.Model.INCIDENCIA
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm("Save", "Incidencia", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>INCIDENCIA</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ID_USUARIO, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.ID_USUARIO,
+           (SelectList)ViewBag.idResidente,
+           "Seleccione Usuario",
+           htmlAttributes: new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ID_ESTADO_INCIDENCIA, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.ID_ESTADO_INCIDENCIA,
+           (SelectList)ViewBag.idEstadoIncidencia,
+           "Seleccione Estado ",
+           htmlAttributes: new { @class = "form-control" })
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.DESCRIPCION, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.DESCRIPCION, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.DESCRIPCION, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <h5><i class="fas fa-calendar"></i> @Html.LabelFor(model => model.FECHA_CREACION, "Fecha de publicación", htmlAttributes: new { @class = "form-label" })</h5>
+        <div class="position-relative">
+            @Html.EditorFor(model => model.FECHA_CREACION, new { htmlAttributes = new { @class = "form-control datepicker" } })
+            <span class="position-absolute top-50 translate-middle-y end-0 me-2" onclick="$(this).prev().focus();"><i class="fas fa-calendar text-muted"></i></span>
+        </div>
+        @Html.ValidationMessageFor(model => model.FECHA_CREACION, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+            <a href="@Url.Action("IndexAdmin", "Incidencia")" class="btn btn-danger"><i class="fas fa-times"></i> Cancelar</a>
+        </div>
+    </div>
+</div>
+}
+@section scripts {
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/smoothness/jquery-ui.css" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+    <script>
+        $(() => {
+            $(".datepicker").datepicker({
+                dateFormat: "yy-mm-dd",
+                showAnim: "slideDown",
+                theme: "base",
+                themeRoller: {
+                    primary: "#333333",
+                    secondary: "#F5F5F5",
+                    text: "#333333",
+                    hover: "#F5F5F5",
+                    active: "#CCCCCC"
+                }
+            });
+        });
+
+        toggleCalendar = () => {
+            var calendar = document.getElementById("calendar");
+            if (calendar.style.display === "none") {
+                calendar.style.display = "block";
+            } else {
+                calendar.style.display = "none";
+            }
+        }
+
+        $(document).mouseup((e) => {
+            var container = $("#calendar");
+            if (!container.is(e.target) && container.has(e.target).length === 0) {
+                container.hide();
+            }
+        });
+    </script>
+}

@@ -68,7 +68,7 @@ namespace Condominium.Controllers
         {
             IServiceEstadoIncidencia serviceEstadoIncidencia = new ServiceEstadoIncidencia();
             IEnumerable<ESTADO_INCIDENCIA> listaEstado = serviceEstadoIncidencia.getEstadoDeuda();
-            return new SelectList(listaEstado, "ID_ESTADO_INCIDENCIA", "ESTADO_INCIDENCIA", idEstadoIncidencia);
+            return new SelectList(listaEstado, "ID_ESTADO_INCIDENCIA", "DESCRIPCION_ESTADO_INCIDENCIA", idEstadoIncidencia);
         }
         //Guardar Incidencia
         [HttpPost]
