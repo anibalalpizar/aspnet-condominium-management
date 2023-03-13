@@ -31,7 +31,6 @@ namespace Condominium.Controllers
         }
 
 
-        //Vista para el Administrador
         public ActionResult IndexAdmin()
         {
             IEnumerable<INCIDENCIA> list = null;

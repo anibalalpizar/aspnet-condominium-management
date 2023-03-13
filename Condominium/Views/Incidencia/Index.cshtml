@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Infraestructure.Model.INCIDENCIA>
+
+@{
+    ViewBag.Title = "Incidencias";
+}
+
+<h2 class="text-center mb-4">Incidencias</h2>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    @foreach (var item in Model)
+    {
+        <div class="col">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-exclamation-triangle me-2 text-danger"></i>@Html.DisplayFor(modelItem => item.DESCRIPCION)</h5>
+                    <p class="card-text"><i class="fas fa-calendar-alt me-2 text-primary"></i>@Html.DisplayFor(modelItem => item.FECHA_CREACION)</p>
+                    <p class="card-text"><i class="fas fa-info-circle me-2 text-info"></i>@Html.DisplayFor(modelItem => item.ESTADO_INCIDENCIA.DESCRIPCION_ESTADO_INCIDENCIA)</p>
+                    <p class="card-text">
+                        <i class="fas fa-user me-2 text-success"></i>
+                        @Html.DisplayFor(modelItem => item.USUARIO.NOMBRE)
+                        @Html.DisplayFor(modelItem => item.USUARIO.APELLIDO) -
+                        @Html.DisplayFor(modelItem => item.USUARIO.CORREO)
+                    </p>
+                    <div class="d-flex justify-content-end">
+                        <div class="btn-group" role="group" aria-label="Acciones">
+                            @Html.ActionLink("Detalles", "Details", new { id = item.ID_INCIDENCIA }, new { @class = "btn btn-info btn-sm" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<style>
+    .card-text {
+        margin-bottom: 0.25rem;
+    }
+</style>

@@ -375,6 +375,7 @@
     <Content Include="Views\PlanCobro\Edit.cshtml" />
     <Content Include="Views\RubrosCobros\Deleted.cshtml" />
     <Content Include="Views\Incidencia\IndexAdmin.cshtml" />
+    <Content Include="Views\Incidencia\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
