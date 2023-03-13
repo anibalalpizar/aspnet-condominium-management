@@ -371,13 +371,13 @@
     <Content Include="Views\Noticias\IndexAdmin.cshtml" />
     <Content Include="Views\Noticias\Create.cshtml" />
     <Content Include="Views\Noticias\Edit.cshtml" />
-    <Content Include="Views\PlanCobro\Edit.cshtml" />
     <Content Include="Views\RubrosCobros\Deleted.cshtml" />
     <Content Include="Views\Incidencia\IndexAdmin.cshtml" />
     <Content Include="Views\Incidencia\Index.cshtml" />
     <Content Include="Views\PlanCobro\Create.cshtml" />
     <Content Include="Views\Incidencia\Create.cshtml" />
     <Content Include="Views\Incidencia\Edit.cshtml" />
+    <Content Include="Views\PlanCobro\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
