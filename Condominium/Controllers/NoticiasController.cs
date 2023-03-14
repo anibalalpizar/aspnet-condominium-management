@@ -114,8 +114,7 @@ namespace Condominium.Controllers
             NOTICIA noticia = null;
             try
             {
-               // using (MyContext ctx = new MyContext())
-               // {
+              
                     if (id == null)
                     {
                         return RedirectToAction("IndexAdmin");
@@ -123,23 +122,25 @@ namespace Condominium.Controllers
 
                     noticia = _ServiceNoticia.GetNoticiasById(Convert.ToInt32(id));
 
-                //    if(noticia != null)
+                //if (noticia.DOCUMENTO != null)
                 //{
+                //    byte[] hola = null;
                 //    if (nuevoPdfFile != null)
                 //    {
-                //        byte[] pdfBytes = null;
                 //        using (var pdfStream = nuevoPdfFile.InputStream)
                 //        {
-                //            using (var pdfMemoryStream = new MemoryStream()) 
+                //            using (var pdfMemoryStream = new MemoryStream())
                 //            {
                 //                pdfStream.CopyTo(pdfMemoryStream);
-                //                pdfBytes = pdfMemoryStream.ToArray();
+                //                noticia.DOCUMENTO = pdfMemoryStream.ToArray();
+                              
                 //            }
                 //        }
-                //        noticia.DOCUMENTO = pdfBytes;
                 //    }
-                //    _ServiceNoticia.Save(noticia);
+                    
+
                 //}
+
 
 
                 if (noticia == null)
