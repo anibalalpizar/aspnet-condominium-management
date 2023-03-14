@@ -29,15 +29,16 @@
                                 <div class="form-group">
                                     @Html.HiddenFor(model => model.ID_NOTICIA)
                                 </div>
-                                <div class="form-group mb-4 position-relative d-flex align-items-center" style="padding-right: 30px;" data-toggle="modal" data-target="#exampleModal">
+                                <div class="form-group mb-4 position-relative d-flex align-items-center" style="padding-right: 30px;">
                                     <label for="ID_TIPO_NOTICIA" style="color: rgb(39, 58, 93)">
                                         <i class="fas fa-plus-square" style="margin-right: 5px"></i> Tipo de Noticia
                                     </label>
                                     @Html.DropDownListFor(model => model.ID_TIPO_NOTICIA, null, htmlAttributes: new { @class = "form-control" })
-                                    <a href="#" class="d-flex align-items-center justify-content-center position-absolute end-0 top-50 translate-middle-y text-success" style="right: -20px; margin-bottom: 3px; width: 30px; height: 30px; border-radius: 50%;" onclick="mostrarAdvertencia()">
-                                        <span style="font-size: 1.2rem;">  <strong>+</strong></span>
+                                    <a href="#" class="d-flex align-items-center justify-content-center position-absolute end-0 top-50 translate-middle-y text-success" style="right: -20px; margin-bottom: 3px; width: 30px; height: 30px; border-radius: 50%;" data-toggle="modal" data-target="#exampleModal" onclick="mostrarAdvertencia()">
+                                        <span style="font-size: 1.2rem;"><strong>+</strong></span>
                                     </a>
                                 </div>
+
                                 <div class="form-group mb-4">
                                     <label for="TITULO" class="control-label">
                                         <i class="fas fa-heading" style="color: rgb(39, 58, 93);"></i>
@@ -79,22 +80,22 @@
                                 </div>
 
                                 @*@if (Model.DOCUMENTO != null && Model.DOCUMENTO.Length > 0)
-                                {
+            {
 
-                                    <div class="form-group">
-                                        @Html.LabelFor(model => model.DOCUMENTO, htmlAttributes: new { @class = "control-label col-md-2" })
-                                        <div class="col-md-10">
-                                            <object data="data:application/pdf;base64,@Convert.ToBase64String(Model.DOCUMENTO)" type="application/pdf" width="100%" height="400px">
-                                                <p>Tu navegador no soporta PDFs. <a href="data:application/pdf;base64,@Convert.ToBase64String(Model.DOCUMENTO)" download>Descargar PDF</a></p>
-                                            </object>
-                                            @Html.HiddenFor(model => model.DOCUMENTO)
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label" for="PDF">Seleccionar archivo PDF</label>
-                                            <input type="file" name="DOCUMENTO" id="pdfFile" accept=".pdf" />
-                                        </div>
-                                    </div>
-                                }*@
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DOCUMENTO, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <object data="data:application/pdf;base64,@Convert.ToBase64String(Model.DOCUMENTO)" type="application/pdf" width="100%" height="400px">
+                            <p>Tu navegador no soporta PDFs. <a href="data:application/pdf;base64,@Convert.ToBase64String(Model.DOCUMENTO)" download>Descargar PDF</a></p>
+                        </object>
+                        @Html.HiddenFor(model => model.DOCUMENTO)
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="PDF">Seleccionar archivo PDF</label>
+                        <input type="file" name="DOCUMENTO" id="pdfFile" accept=".pdf" />
+                    </div>
+                </div>
+            }*@
 
                                 <div class="form-group text-center">
                                     <button type="submit" class="btn btn-primary mr-2">Guardar</button>
