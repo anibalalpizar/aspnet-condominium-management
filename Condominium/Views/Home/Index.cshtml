@@ -124,17 +124,18 @@
     <ol class="carousel-indicators">
         @for (int i = 0; i < Model.Count(); i++)
         {
-            <li data-target="#noticiasCarousel" data-slide-to="@i" @(i == 0 ? "class='active'" : "")></li>
+            <li data-target="#noticiasCarousel" data-slide-to="@i" class="@((i == 0) ? "active" : "")"></li>
         }
     </ol>
+
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
         @foreach (var item in Model)
         {
             <div class="carousel-item @(item == Model.First() ? "active" : "")">
                 <div class="card mb-5">
-                    <div class="card-header d-flex justify-content-between align-items-center bg-dark text-white" style="">
-                        <span class="font-weight-bold">@Html.DisplayFor(modelItem => item.TIPO_NOTICIA.TIPO_NOTICIA_INFO)</span>
+                    <div class="card-header d-flex justify-content-between align-items-center text-white" style="">
+                        <span class="font-weight-bold"><i class="fas fa-info-circle" style="color: #fff;"></i> @Html.DisplayFor(modelItem => item.TIPO_NOTICIA.TIPO_NOTICIA_INFO)</span>
                         <div class="carousel-header">
                             <a class="carousel-control-prev mr-3" href="#noticiasCarousel" role="button" data-slide="prev">
                                 <span class="fas fa-chevron-left"></span>
@@ -147,9 +148,13 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title font-weight-bold">@Html.DisplayFor(modelItem => item.TITULO)</h5>
-                        <p class="card-text">@Html.DisplayFor(modelItem => item.CONTENIDO)</p>
-                        <p class="card-text"><small class="text-muted">@Html.DisplayFor(modelItem => item.FECHA_PUBLICACION)</small></p>
+                        <h5 class="card-title font-weight-bold">
+                            <i class="fas fa-star" style="color: #273A5D;"></i> @Html.DisplayFor(modelItem => item.TITULO)
+                        </h5>
+                        <i class="fas fa-file-alt" style="color: #273A5D;"></i> @Html.DisplayFor(modelItem => item.CONTENIDO)                      <p class="card-text">
+                            <small class="text-muted"><i class="fas fa-clock" style="color: #273A5D;"></i> @Html.DisplayFor(modelItem => item.FECHA_PUBLICACION)</small>
+                        </p>
+
                     </div>
                 </div>
             </div>
@@ -162,23 +167,30 @@
     {
         <div class="col-md-4 mb-5">
             <div class="card mt-4">
-                <div class="card-header">@Html.DisplayFor(modelItem => item.TIPO_NOTICIA.TIPO_NOTICIA_INFO)</div>
+                <div class="card-header">
+                    <i class="fas fa-book" style="color: #ccc;"></i> @Html.DisplayFor(modelItem => item.TIPO_NOTICIA.TIPO_NOTICIA_INFO)
+                </div>
                 <div class="card-body">
-                    <h5 class="card-title font-weight-bold">@Html.DisplayFor(modelItem => item.TITULO)</h5>
-                    <p class="card-text">@Html.DisplayFor(modelItem => item.CONTENIDO)</p>
+                    <h5 class="card-title font-weight-bold">
+                        <i class="fas fa-bookmark" style="color: #273A5D;"></i>
+                        @Html.DisplayFor(modelItem => item.TITULO)
+                    </h5>
+                    <p class="card-text">
+                        <i class="fas fa-pencil-alt mr-2" style="color: #273A5D;"></i>
+                        @Html.DisplayFor(modelItem => item.CONTENIDO)
+                    </p>
+                    <p class="card-text"><small class="text-muted" style="color: #273A5D;">@Html.DisplayFor(modelItem => item.FECHA_PUBLICACION)</small></p>
                     @if (item.DOCUMENTO != null)
                     {
-                        <div class="card-footer">
-                            <a href="@Url.Action("DownloadDocumento", new { id = item.ID_NOTICIA })" class="btn btn-primary" download>Descargar</a>
+                        <div>
+                            <a href="@Url.Action("DownloadDocumento", new { id = item.ID_NOTICIA })" class="btn btn-primary btn-sm" download>
+                                <i class="fas fa-file-pdf"></i> Descargar PDF
+                            </a>
                         </div>
                     }
-                    <p class="card-text"><small class="text-muted">@Html.DisplayFor(modelItem => item.FECHA_PUBLICACION)</small></p>
                 </div>
             </div>
         </div>
     }
 </div>
-
-
-
 
