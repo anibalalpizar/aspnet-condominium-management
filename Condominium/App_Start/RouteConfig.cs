@@ -18,11 +18,6 @@ namespace Condominium
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
-            routes.MapRoute(
-                name: "DownloadDocumento",
-                url: "Noticias/DownloadDocumento/{id}",
-                defaults: new { controller = "Noticias", action = "DownloadDocumento", id = UrlParameter.Optional }
-            );
         }
     }
 }
