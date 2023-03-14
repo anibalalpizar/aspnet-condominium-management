@@ -68,6 +68,7 @@ namespace Condominium.Controllers
 
             try
             {
+            
                 if (cobro.IMAGEN == null)
                 {
                     if(ImageFile != null)

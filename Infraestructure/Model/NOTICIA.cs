@@ -19,6 +19,7 @@ namespace Infraestructure.Model
         public string TITULO { get; set; }
         public string CONTENIDO { get; set; }
         public System.DateTime FECHA_PUBLICACION { get; set; }
+        public byte[] DOCUMENTO { get; set; }
     
         public virtual TIPO_NOTICIA TIPO_NOTICIA { get; set; }
     }

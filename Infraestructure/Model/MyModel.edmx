@@ -96,6 +96,7 @@
           <Property Name="TITULO" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="CONTENIDO" Type="varchar" MaxLength="500" Nullable="false" />
           <Property Name="FECHA_PUBLICACION" Type="datetime" Nullable="false" />
+          <Property Name="DOCUMENTO" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="PLAN_COBRO_RUBRO_COBRO">
           <Key>
@@ -682,6 +683,7 @@
           <Property Name="TITULO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="CONTENIDO" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="FECHA_PUBLICACION" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DOCUMENTO" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="TIPO_NOTICIA" Relationship="Self.FK__NOTICIA__ID_TIPO__6754599E" FromRole="NOTICIA" ToRole="TIPO_NOTICIA" />
         </EntityType>
         <EntityType Name="REPORTES">
@@ -1252,6 +1254,7 @@
                 <ScalarProperty Name="TITULO" ColumnName="TITULO" />
                 <ScalarProperty Name="CONTENIDO" ColumnName="CONTENIDO" />
                 <ScalarProperty Name="FECHA_PUBLICACION" ColumnName="FECHA_PUBLICACION" />
+                <ScalarProperty Name="DOCUMENTO" ColumnName="DOCUMENTO" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

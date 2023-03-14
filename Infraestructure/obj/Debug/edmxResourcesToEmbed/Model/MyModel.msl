@@ -100,6 +100,7 @@
           <ScalarProperty Name="TITULO" ColumnName="TITULO" />
           <ScalarProperty Name="CONTENIDO" ColumnName="CONTENIDO" />
           <ScalarProperty Name="FECHA_PUBLICACION" ColumnName="FECHA_PUBLICACION" />
+          <ScalarProperty Name="DOCUMENTO" ColumnName="DOCUMENTO" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

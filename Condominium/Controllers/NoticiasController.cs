@@ -3,6 +3,8 @@ using Condominium.Util;
 using Infraestructure.Model;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Web;
@@ -47,11 +49,33 @@ namespace Condominium.Controllers
         }
 
         [HttpPost]
-        public ActionResult Save(NOTICIA noticia)
+        public ActionResult Save(NOTICIA noticia, HttpPostedFileBase pdfFile)
         {
             IServiceNoticias _serviceNoticia = new ServiceNoticias();
             try
             {
+                if(noticia.DOCUMENTO == null) 
+                {
+               
+                byte[] pdfBytes = null;
+                if (pdfFile != null)
+                {
+                    using (var pdfStream = pdfFile.InputStream)
+                    {
+                        using (var pdfMemoryStream = new MemoryStream())
+                        {
+                            pdfStream.CopyTo(pdfMemoryStream);
+                            pdfBytes = pdfMemoryStream.ToArray();
+                        }
+                    }
+                }
+
+                noticia.DOCUMENTO = pdfBytes;
+                ModelState.Remove("DOCUMENTO");
+
+                }
+
+
                 if (ModelState.IsValid)
                 {
                     NOTICIA oNoticiaI = _serviceNoticia.Save(noticia);
@@ -85,18 +109,39 @@ namespace Condominium.Controllers
 
 
         //Editar las noticias
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int? id, HttpPostedFileBase nuevoPdfFile)
         {
             ServiceNoticias _ServiceNoticia = new ServiceNoticias();
             NOTICIA noticia = null;
             try
             {
-                if (id == null)
-                {
-                    return RedirectToAction("IndexAdmin");
-                }
+               // using (MyContext ctx = new MyContext())
+               // {
+                    if (id == null)
+                    {
+                        return RedirectToAction("IndexAdmin");
+                    }
 
-                noticia = _ServiceNoticia.GetNoticiasById(Convert.ToInt32(id));
+                    noticia = _ServiceNoticia.GetNoticiasById(Convert.ToInt32(id));
+
+                //    if(noticia != null)
+                //{
+                //    if (nuevoPdfFile != null)
+                //    {
+                //        byte[] pdfBytes = null;
+                //        using (var pdfStream = nuevoPdfFile.InputStream)
+                //        {
+                //            using (var pdfMemoryStream = new MemoryStream()) 
+                //            {
+                //                pdfStream.CopyTo(pdfMemoryStream);
+                //                pdfBytes = pdfMemoryStream.ToArray();
+                //            }
+                //        }
+                //        noticia.DOCUMENTO = pdfBytes;
+                //    }
+                //    _ServiceNoticia.Save(noticia);
+                //}
+
 
                 if (noticia == null)
                 {
