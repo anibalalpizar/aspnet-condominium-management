@@ -153,6 +153,7 @@
                     </div>
                 </div>
             </div>
+
         }
     </div>
 </div>
@@ -165,9 +166,19 @@
                 <div class="card-body">
                     <h5 class="card-title font-weight-bold">@Html.DisplayFor(modelItem => item.TITULO)</h5>
                     <p class="card-text">@Html.DisplayFor(modelItem => item.CONTENIDO)</p>
+                    @if (item.DOCUMENTO != null)
+                    {
+                        <div class="card-footer">
+                            <a href="@Url.Action("DownloadDocumento", new { id = item.ID_NOTICIA })" class="btn btn-primary" download>Descargar</a>
+                        </div>
+                    }
                     <p class="card-text"><small class="text-muted">@Html.DisplayFor(modelItem => item.FECHA_PUBLICACION)</small></p>
                 </div>
             </div>
         </div>
     }
 </div>
+
+
+
+

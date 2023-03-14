@@ -54,24 +54,24 @@ namespace Condominium.Controllers
             IServiceNoticias _serviceNoticia = new ServiceNoticias();
             try
             {
-                if(noticia.DOCUMENTO == null) 
+                if (noticia.DOCUMENTO == null)
                 {
-               
-                byte[] pdfBytes = null;
-                if (pdfFile != null)
-                {
-                    using (var pdfStream = pdfFile.InputStream)
+
+                    byte[] pdfBytes = null;
+                    if (pdfFile != null)
                     {
-                        using (var pdfMemoryStream = new MemoryStream())
+                        using (var pdfStream = pdfFile.InputStream)
                         {
-                            pdfStream.CopyTo(pdfMemoryStream);
-                            pdfBytes = pdfMemoryStream.ToArray();
+                            using (var pdfMemoryStream = new MemoryStream())
+                            {
+                                pdfStream.CopyTo(pdfMemoryStream);
+                                pdfBytes = pdfMemoryStream.ToArray();
+                            }
                         }
                     }
-                }
 
-                noticia.DOCUMENTO = pdfBytes;
-                ModelState.Remove("DOCUMENTO");
+                    noticia.DOCUMENTO = pdfBytes;
+                    ModelState.Remove("DOCUMENTO");
 
                 }
 
@@ -83,7 +83,7 @@ namespace Condominium.Controllers
                 else
                 {
                     ViewBag.idTipoNoticia = listaTiposNoticias(noticia.ID_TIPO_NOTICIA);
-                    if(noticia.ID_NOTICIA > 0)
+                    if (noticia.ID_NOTICIA > 0)
                     {
                         return (ActionResult)View("Edit", noticia);
                     }
@@ -107,9 +107,25 @@ namespace Condominium.Controllers
             }
         }
 
+        public ActionResult DownloadDocumento(int id)
+        {
+            using (var db = new MyContext())
+            {
+                var noticia = db.NOTICIA.Find(id);
+                if (noticia == null || noticia.DOCUMENTO == null)
+                {
+                    return HttpNotFound();
+                }
 
-        //Editar las noticias
-        public ActionResult Edit(int? id, HttpPostedFileBase nuevoPdfFile)
+                var fileName = "documento.pdf"; 
+                return File(noticia.DOCUMENTO, "application/pdf", fileName);
+            }
+        }
+    
+
+
+    //Editar las noticias
+    public ActionResult Edit(int? id, HttpPostedFileBase nuevoPdfFile)
         {
             ServiceNoticias _ServiceNoticia = new ServiceNoticias();
             NOTICIA noticia = null;
