@@ -107,23 +107,6 @@ namespace Condominium.Controllers
             }
         }
 
-        public ActionResult DownloadDocumento(int id)
-        {
-            using (var db = new MyContext())
-            {
-                var noticia = db.NOTICIA.Find(id);
-                if (noticia == null || noticia.DOCUMENTO == null)
-                {
-                    return HttpNotFound();
-                }
-
-                var fileName = "documento.pdf"; 
-                return File(noticia.DOCUMENTO, "application/pdf", fileName);
-            }
-        }
-    
-
-
     //Editar las noticias
     public ActionResult Edit(int? id, HttpPostedFileBase nuevoPdfFile)
         {

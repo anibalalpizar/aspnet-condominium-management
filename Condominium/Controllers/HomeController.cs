@@ -27,5 +27,21 @@ namespace Condominium.Controllers
                 return RedirectToAction("Default", "Error");
             }
         }
+
+        public ActionResult DownloadDocumento(int id)
+        {
+            using (var db = new MyContext())
+            {
+                var noticia = db.NOTICIA.Find(id);
+                if (noticia == null || noticia.DOCUMENTO == null)
+                {
+                    return HttpNotFound();
+                }
+
+                var fileName = "documento.pdf";
+                return File(noticia.DOCUMENTO, "application/pdf", fileName);
+            }
+        }
     }
+
 }
