@@ -28,5 +28,6 @@ namespace Infraestructure.Model
         public Nullable<decimal> TOTALPAGAR { get; set; }
     
         public virtual RESIDENCIA RESIDENCIA { get; set; }
+        public virtual GESTION_PLANES_COBRO GESTION_PLANES_COBRO { get; set; }
     }
 }

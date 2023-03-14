@@ -17,6 +17,7 @@ namespace Infraestructure.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public GESTION_PLANES_COBRO()
         {
+            this.GESTION_DEUDA = new HashSet<GESTION_DEUDA>();
             this.RUBRO_COBRO = new HashSet<RUBRO_COBRO>();
         }
     
@@ -30,6 +31,8 @@ namespace Infraestructure.Model
         public Nullable<decimal> TOTAL { get; set; }
     
         public virtual ESTADO_DEUDA ESTADO_DEUDA { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<GESTION_DEUDA> GESTION_DEUDA { get; set; }
         public virtual USUARIO USUARIO { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RUBRO_COBRO> RUBRO_COBRO { get; set; }

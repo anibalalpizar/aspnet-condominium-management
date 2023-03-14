@@ -16,7 +16,7 @@
             <div class="card mb-3">
                 <div class="card-body">
                     <h5 class="card-title">@System.Globalization.DateTimeFormatInfo.CurrentInfo.GetMonthName(deuda.MES) @deuda.ANIO</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">@deuda.GESTION_PLANES_COBRO.NOMBRE_PLAN</h6>
+                    <h6 class="card-subtitle mb-2 text-muted">@deuda.GESTION_PLANES_COBRO.USUARIO.NOMBRE</h6>
                     <p class="card-text">@Html.Raw("<i class=\"fas fa-money-bill\"></i>") Total a pagar: @(deuda.TOTALPAGAR.HasValue ? deuda.TOTALPAGAR.Value.ToString("C2") : "")</p>
                     <td>
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-@deuda.ID_GESTION_DEUDA">Ver más</button>
