@@ -37,7 +37,7 @@
                                     foreach (var r in Model.RUBRO_COBRO)
                                     {
                                         suma += r.MONTO ?? 0m; // Conversión explícita para evitar el error CS0266
-                                        <li>@r.MONTO</li>
+                                        <li>@r.NOMBRE_RUBRO</li>
                                     }
                                 }
                             </ul>
