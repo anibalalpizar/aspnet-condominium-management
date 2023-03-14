@@ -7,13 +7,15 @@ using System.Threading.Tasks;
 
 namespace Infraestructure.Model
 {
-    internal partial class TIPO_NOTICIAMetadata
-    {
-        public int ID_TIPO_NOTICIA { get; set; }
-        
-        [Display(Name = "Nombre")]
-        public string TIPO_NOTICIA { get; set; }
+    internal partial class LibroMetadata
 
-        public virtual ICollection<NOTICIA> NOTICIAs { get; set; }
+    {
+
+        public string NOMBRE_RUBRO { get; set; }
+
+        [Required(ErrorMessage = "{0} es un dato requerido")]
+        public string Isbn { get; set; }
+
+
     }
 }

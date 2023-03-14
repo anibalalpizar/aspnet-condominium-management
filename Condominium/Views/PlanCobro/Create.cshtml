@@ -1,85 +1,73 @@
 ﻿@model Infraestructure.Model.GESTION_PLANES_COBRO
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Crear Plan de cobro";
 }
 
-<h2>Create</h2>
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-12 col-lg-9">
+            <h2 class="text-center mb-4">Crear Plan de cobro</h2>
+            @using (Html.BeginForm("Save", "PlanCobro", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                <div class="row justify-content-center">
+                    <div class="col-md-10">
+                        <div class="card">
+                            <div class="card-body col-md-12">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="ID_USUARIO">
+                                                <i class="fas fa-user" style="color: rgb(39, 58, 93);"></i>
+                                                Seleccione el usuario
+                                            </label>
+                                            @Html.DropDownListFor(model => model.ID_USUARIO, (SelectList)ViewBag.idResidente, "Seleccione Usuario", new { @class = "form-control" })
+                                        </div>
 
-@using (Html.BeginForm("Save", "PlanCobro", FormMethod.Post, new { enctype = "multipart/form-data" }))
-{
-    @Html.AntiForgeryToken()
+                                        <div class="form-group">
+                                            <label for="@Html.IdFor(model => model.ID_ESTADO_DEUDA)">
+                                                <i class="fas fa-info-circle" style="color: rgb(39, 58, 93);"></i> Estado de deuda:
+                                            </label>
+                                            @Html.DropDownListFor(model => model.ID_ESTADO_DEUDA, (SelectList)ViewBag.idEstadoDeuda, "Seleccione Estado", new { @class = "form-control" })
+                                        </div>
 
-<div class="form-horizontal">
-    <h4>GESTION_PLANES_COBRO</h4>
-    <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                        <div class="form-group">
+                                            <label style="color: rgb(39, 58, 93); font-size: 16px;"><i class="fas fa-tags" style="color: rgb(39, 58, 93);"></i> Rubros de Cobro</label>
+                                            @Html.DropDownList("selectRubrosCobros", (MultiSelectList)ViewBag.idRubroCobro, new { @class = "form-control", multiple = "multiple" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="@Html.IdFor(model => model.NOMBRE_PLAN)">
+                                                <i class="fas fa-file-alt" style="color: rgb(39, 58, 93);"></i> Nombre del plan:
+                                            </label>
+                                            @Html.EditorFor(model => model.NOMBRE_PLAN, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.NOMBRE_PLAN, "", new { @class = "text-danger" })
+                                        </div>
 
+                                        <div class="form-group">
+                                            <label for="@Html.IdFor(model => model.DESCRIPCION)">
+                                                <i class="fas fa-info-circle" style="color: rgb(39, 58, 93);"></i> Descripción:
+                                            </label>
+                                            @Html.EditorFor(model => model.DESCRIPCION, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.DESCRIPCION, "", new { @class = "text-danger" })
+                                        </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.ID_USUARIO, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownListFor(model => model.ID_USUARIO,
-           (SelectList)ViewBag.idResidente,
-           "Seleccione Usuario",
-           htmlAttributes: new { @class = "form-control" })
+                                        <div class="form-group">
+                                            <label for="@Html.IdFor(model => model.ID_PLAN_COBRO)">
+                                                <i class="fas fa-info-circle" style="color: rgb(39, 58, 93);"></i> Plan de cobro:
+                                            </label>
+                                            @Html.EditorFor(model => model.ID_PLAN_COBRO, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.ID_PLAN_COBRO, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
         </div>
     </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.ID_ESTADO_DEUDA, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownListFor(model => model.ID_ESTADO_DEUDA,
-           (SelectList)ViewBag.idEstadoDeuda,
-           "Seleccione Estado",
-           htmlAttributes: new { @class = "form-control" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.RUBRO_COBRO, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownList("selectRubrosCobros",
-           (MultiSelectList)ViewBag.idRubroCobro,
-           htmlAttributes: new { @class = "form-control", multiple = "multiple" })
-
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.NOMBRE_PLAN, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.NOMBRE_PLAN, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.NOMBRE_PLAN, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.DESCRIPCION, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.DESCRIPCION, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.DESCRIPCION, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.ID_PLAN_COBRO, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.ID_PLAN_COBRO, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.ID_PLAN_COBRO, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Create" class="btn btn-default" />
-        </div>
-    </div>
-</div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
 </div>
