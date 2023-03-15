@@ -12,18 +12,19 @@ namespace Infraestructure.Model
     {
         public int ID_PLAN_COBRO { get; set; }
 
+
+
+
         [Display(Name = "Id Usuario")]
         [Required(ErrorMessage = "{0} es un dato requerido")]
-
-
-
         public int ID_USUARIO { get; set; }
+
+
+
+
 
         [Display(Name = "Id Estado Deuda")]
         [Required(ErrorMessage = "{0} es un dato requerido")]
-
-
-
 
         public int ID_ESTADO_DEUDA { get; set; }
 
@@ -39,11 +40,18 @@ namespace Infraestructure.Model
         [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "{0} solo acepta letras")]
         [Required(ErrorMessage = "{0} es un dato requerido")]
 
+
+
+
+
         public string DESCRIPCION { get; set; }
 
         [Display(Name = "Fecha Inicio")]
         [RegularExpression(@"^(20|21|22|23|[0-1]\d)-([0-1]\d)-([0-3]\d)$", ErrorMessage = "{0} debe estar en formato yy-mm-dd")]
         [Required(ErrorMessage = "{0} es un dato requerido")]
+
+
+
 
         public DateTime FECHA_INICIO { get; set; }
 
