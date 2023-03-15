@@ -4,55 +4,70 @@
     ViewBag.Title = "Details";
 }
 
-<div>
-    <h4>GESTION_PLANES_COBRO</h4>
+<div style="padding: 20px;">
+    <h4 style="margin-bottom: 20px;">Gestion de Planes de cobro</h4>
     <hr />
-    <div class="accordion" id="accordionExample">
-        <div class="accordion-item">
-            <h2 class="accordion-header" id="headingOne">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                    <i class="fas fa-user"></i> Información del usuario
-                </button>
-            </h2>
-            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                    <dl class="dl-horizontal">
-                        <p><i class="fas fa-id-card"></i> ID de usuario: @Html.DisplayFor(model => model.USUARIO.ID_USUARIO)</p>
-                        <p><i class="fas fa-user"></i> Nombre completo: @Html.DisplayFor(model => model.USUARIO.NOMBRE) @Html.DisplayFor(model => model.USUARIO.APELLIDO)</p>
-                        <p><i class="fas fa-envelope"></i> Correo electrónico: @Html.DisplayFor(model => model.USUARIO.CORREO)</p>
-                    </dl>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="accordion" id="accordionExample1">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne1">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne1" aria-expanded="false" aria-controls="collapseOne1" style="background-color: #F2F2F2; color: #444;">
+                            <i class="fas fa-user"></i> Información del usuario 1
+                        </button>
+                    </h2>
+                    <div id="collapseOne1" class="accordion-collapse collapse" aria-labelledby="headingOne1" data-bs-parent="#accordionExample1">
+                        <div class="accordion-body">
+                            <dl class="dl-horizontal">
+                                <p><i class="fas fa-id-card"></i> ID de usuario: @Html.DisplayFor(model => model.USUARIO.ID_USUARIO)</p>
+                                <p><i class="fas fa-user"></i> Nombre completo: @Html.DisplayFor(model => model.USUARIO.NOMBRE) @Html.DisplayFor(model => model.USUARIO.APELLIDO)</p>
+                                <p><i class="fas fa-envelope"></i> Correo electrónico: @Html.DisplayFor(model => model.USUARIO.CORREO)</p>
+                            </dl>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-            <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                    <dl class="dl-horizontal">
-                        <p><i class="fas fa-calendar-alt"></i> Fecha inicio: @Html.DisplayFor(model => model.FECHA_INICIO)</p>
-                        <p><i class="fas fa-calendar-alt"></i> Fecha fin: @Html.DisplayFor(model => model.FECHA_FIN)</p>
-                        <p>
-                            <i class="fas fa-dollar-sign"></i> TOTAL <b>@Html.DisplayNameFor(model => model.RUBRO_COBRO):</b>
-                            <ul>
-                                @{
-                                    decimal suma = 0;
-                                    foreach (var r in Model.RUBRO_COBRO)
-                                    {
-                                        suma += r.MONTO ?? 0m; // Conversión explícita para evitar el error CS0266
-                                        <li>@r.NOMBRE_RUBRO</li>
+        </div>
+        <div class="col-md-6">
+            <div class="accordion" id="accordionExample2">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo2">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo2" aria-expanded="false" aria-controls="collapseTwo2" style="background-color: #F2F2F2; color: #444;">
+                            <i class="fas fa-calendar-alt"></i> Información del plan de cobro 2
+                        </button>
+                    </h2>
+                    <div id="collapseTwo2" class="accordion-collapse collapse" aria-labelledby="headingTwo2" data-bs-parent="#accordionExample2">
+                        <div class="accordion-body">
+                            <dl class="dl-horizontal">
+                                <p style="margin-bottom: 5px;"><i class="fas fa-calendar-alt"></i> Fecha de inicio: <span style="font-weight: bold;">@Html.DisplayFor(model => model.FECHA_INICIO)</span></p>
+                                <p style="margin-bottom: 5px;"><i class="fas fa-calendar-alt"></i> Fecha de fin: <span style="font-weight: bold;">@Html.DisplayFor(model => model.FECHA_FIN)</span></p>
+                                <p style="margin-bottom: 0;">
+                                    <i class="fas fa-dollar-sign"></i>
+                                    <span style="font-weight: bold;">Total a pagar por:</span>
+                                    <span style="font-weight: normal;"> @Html.DisplayNameFor(model => model.RUBRO_COBRO)</span>
+                                </p>
+                                <ul style="list-style: none; margin: 0; padding: 0;">
+                                    @{
+                                        decimal suma = 0;
+                                        foreach (var r in Model.RUBRO_COBRO)
+                                        {
+                                            suma += r.MONTO ?? 0m;
+                                            <li style="margin-bottom: 5px;">
+                                                <i class="fas fa-check-circle" style="color: #4CAF50;"></i>
+                                                <span style="margin-left: 5px;">@r.NOMBRE_RUBRO</span>
+                                            </li>
+                                        }
                                     }
-                                }
-                            </ul>
-                            Suma: @suma
-                        </p>
-                        @*<p><i class="fas fa-exclamation-triangle"></i> Estado de cobro: @Html.DisplayFor(model => model.ESTADO_COBRO)</p>*@
-                    </dl>
+                                </ul>
+                                <p style="margin-top: 10px;">
+                                    <span style="font-weight: bold;">Total a pagar:</span>
+                                    <span style="font-weight: normal;"> $@suma</span>
+                                </p>
+
+                            </dl>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-
         </div>
     </div>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

@@ -7,6 +7,43 @@ using System.Threading.Tasks;
 
 namespace Infraestructure.Model
 {
+
+    internal partial class GESTION_PLANES_COBROMetadata
+    {
+
+        public int ID_PLAN_COBRO { get; set; }
+        [Display(Name = "Id Residente")]
+        [Required(ErrorMessage = "{0} es un dato requerido")]
+        public int ID_USUARIO { get; set; }
+
+        public int ID_ESTADO_DEUDA { get; set; }
+
+        public string NOMBRE_PLAN { get; set; }
+
+        [Display(Name = "DESCRIPCION")]
+        [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "{0} solo acepta letras")]
+        [Required(ErrorMessage = "{0} es un dato requerido")]
+        public string DESCRIPCION { get; set; }
+
+        public DateTime FECHA_INICIO { get; set; }
+
+        public DateTime FECHA_FIN { get; set; }
+
+        public decimal TOTAL { get; set; }
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+
     //internal partial class PlanCobroMetadata
 
     //{
