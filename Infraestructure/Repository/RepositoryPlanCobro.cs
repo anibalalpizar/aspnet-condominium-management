@@ -160,8 +160,8 @@ namespace Infraestructure.Repository
                     }
                    
                 }
-                //if (retorno > 0)
-                //    plan = GetPlanCobroById((int)plan.ID_PLAN_COBRO);
+                if (retorno > 0)
+                    plan = GetPlanCobroById((int)plan.ID_PLAN_COBRO);
                 return gestion;
             }
             catch (DbUpdateException dbEx)
