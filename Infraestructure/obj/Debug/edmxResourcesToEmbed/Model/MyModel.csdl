@@ -74,7 +74,7 @@
       <PropertyRef Name="ID_PLAN_COBRO" />
     </Key>
     <Property Name="ID_PLAN_COBRO" Type="Int32" Nullable="false" />
-    <Property Name="ID_USUARIO" Type="Int32" />
+    <Property Name="ID_USUARIO" Type="Int32" Nullable="false" />
     <Property Name="ID_ESTADO_DEUDA" Type="Int32" />
     <Property Name="NOMBRE_PLAN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="DESCRIPCION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
@@ -360,7 +360,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_PLAN_COBRO_USUARIO">
-    <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="0..1" />
+    <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
     <End Role="GESTION_PLANES_COBRO" Type="Self.GESTION_PLANES_COBRO" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="USUARIO">

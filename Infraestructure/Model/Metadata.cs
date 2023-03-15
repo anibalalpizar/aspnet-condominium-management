@@ -15,16 +15,23 @@ namespace Infraestructure.Model
         [Display(Name = "Id Usuario")]
         [Required(ErrorMessage = "{0} es un dato requerido")]
 
+
+
         public int ID_USUARIO { get; set; }
 
         [Display(Name = "Id Estado Deuda")]
         [Required(ErrorMessage = "{0} es un dato requerido")]
+
+
+
 
         public int ID_ESTADO_DEUDA { get; set; }
 
         [Display(Name = "Nombre Plan")]
         [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "{0} solo acepta letras")]
         [Required(ErrorMessage = "{0} es un dato requerido")]
+
+
 
         public string NOMBRE_PLAN { get; set; }
 

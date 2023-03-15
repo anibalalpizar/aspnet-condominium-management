@@ -63,35 +63,22 @@
                                     @Html.ValidationMessageFor(model => model.FECHA_PUBLICACION, "", new { @class = "text-danger" })
                                 </div>
 
-
-
-                                @*<div class="form-group">
-                                    @Html.LabelFor(model => model.DOCUMENTO, htmlAttributes: new { @class = "control-label col-md-2" })
-                                    <div class="col-md-10">
-                                        <object data="data:application/pdf;base64,@Convert.ToBase64String(Model.DOCUMENTO)" type="application/pdf" width="100%" height="400px">
-                                            <p>Tu navegador no soporta PDFs. <a href="data:application/pdf;base64,@Convert.ToBase64String(Model.DOCUMENTO)" download>Descargar PDF</a></p>
-                                        </object>
-                                        @Html.HiddenFor(model => model.DOCUMENTO)
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label" for="PDF">Seleccionar archivo PDF</label>
-                                        <input type="file" name="DOCUMENTO" id="pdfFile" accept=".pdf" />
-                                    </div>
-                                </div>*@
-
-
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.DOCUMENTO, htmlAttributes: new { @class = "control-label col-md-2" })
                                     <div class="col-md-10">
-                                        <object data="data:application/pdf;base64,@Convert.ToBase64String(Model.DOCUMENTO)" type="application/pdf" width="100%" height="400px">
-                                            <p>Tu navegador no soporta PDFs. <a href="data:application/pdf;base64,@Convert.ToBase64String(Model.DOCUMENTO)" download>Descargar PDF</a></p>
-                                        </object>
-                                        @Html.HiddenFor(model => model.DOCUMENTO)
+                                        @if (Model.DOCUMENTO != null)
+                                        {
+                                            <object data="data:application/pdf;base64,@Convert.ToBase64String(Model.DOCUMENTO)" type="application/pdf" width="100%" height="400px">
+                                                <p>Tu navegador no soporta PDFs. <a href="data:application/pdf;base64,@Convert.ToBase64String(Model.DOCUMENTO)" download>Descargar PDF</a></p>
+                                            </object>
+                                            @Html.HiddenFor(model => model.DOCUMENTO)
+                                        }
+                                        else
+                                        {
+                                            <p>No hay ningún documento disponible.</p>
+                                        }
                                     </div>
-
                                 </div>
-
-
                                 <div>
                                     <label for="pdf-file" class="form-label">Selecciona un archivo PDF:</label>
                                     <input type="file" id="pdf-file" name="nuevo" class="form-control" required />

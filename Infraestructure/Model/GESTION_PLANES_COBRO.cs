@@ -22,7 +22,7 @@ namespace Infraestructure.Model
         }
     
         public int ID_PLAN_COBRO { get; set; }
-        public Nullable<int> ID_USUARIO { get; set; }
+        public int ID_USUARIO { get; set; }
         public Nullable<int> ID_ESTADO_DEUDA { get; set; }
         public string NOMBRE_PLAN { get; set; }
         public string DESCRIPCION { get; set; }
