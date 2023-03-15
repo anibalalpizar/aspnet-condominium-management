@@ -39,19 +39,25 @@
                     <div id="collapseTwo2" class="accordion-collapse collapse" aria-labelledby="headingTwo2" data-bs-parent="#accordionExample2">
                         <div class="accordion-body">
                             <dl class="dl-horizontal">
-                                <p style="margin-bottom: 5px;"><i class="fas fa-calendar-alt"></i> Fecha de inicio: <span style="font-weight: bold;">@Html.DisplayFor(model => model.FECHA_INICIO)</span></p>
-                                <p style="margin-bottom: 5px;"><i class="fas fa-calendar-alt"></i> Fecha de fin: <span style="font-weight: bold;">@Html.DisplayFor(model => model.FECHA_FIN)</span></p>
+                                @*<p style="margin-bottom: 5px;"><i class="fas fa-calendar-alt"></i> Fecha de inicio: <span style="font-weight: bold;">@Html.DisplayFor(model => model.FECHA_INICIO)</span></p>
+        <p style="margin-bottom: 5px;"><i class="fas fa-calendar-alt"></i> Fecha de fin: <span style="font-weight: bold;">@Html.DisplayFor(model => model.FECHA_FIN)</span></p>*@
                                 <p style="margin-bottom: 0;">
                                     <i class="fas fa-dollar-sign"></i>
                                     <span style="font-weight: bold;">Total a pagar por:</span>
                                     <span style="font-weight: normal;"> @Html.DisplayNameFor(model => model.RUBRO_COBRO)</span>
                                 </p>
+
                                 <ul style="list-style: none; margin: 0; padding: 0;">
                                     @{
                                         decimal suma = 0;
+                                        int estado = 1;
                                         foreach (var r in Model.RUBRO_COBRO)
                                         {
                                             suma += r.MONTO ?? 0m;
+                                            if (Model.ID_ESTADO_DEUDA != 1)
+                                            { 
+                                                estado = 2;
+                                            }
                                             <li style="margin-bottom: 5px;">
                                                 <i class="fas fa-check-circle" style="color: #4CAF50;"></i>
                                                 <span style="margin-left: 5px;">@r.NOMBRE_RUBRO</span>
@@ -59,10 +65,35 @@
                                         }
                                     }
                                 </ul>
-                                <p style="margin-top: 10px;">
-                                    <span style="font-weight: bold;">Total a pagar:</span>
-                                    <span style="font-weight: normal;"> $@suma</span>
-                                </p>
+
+                                @if (estado == 1)
+                                { 
+                                    <p style="margin-top: 10px;">
+                                        <span style="font-weight: bold;">Total a pagar:</span>
+                                        <span style="font-weight: normal;"> $@suma</span>
+                                    </p>
+                                }
+
+                                @*<ul style="list-style: none; margin: 0; padding: 0;">
+            @{
+                decimal suma = 0;
+                int estado = 1;
+                foreach (var r in Model.RUBRO_COBRO)
+                {
+                    suma += r.MONTO ?? 0m;
+                    <li style="margin-bottom: 5px;">
+                        <i class="fas fa-check-circle" style="color: #4CAF50;"></i>
+                        <span style="margin-left: 5px;">@r.NOMBRE_RUBRO</span>
+                    </li>
+                }
+            }
+        </ul>
+
+
+        <p style="margin-top: 10px;">
+            <span style="font-weight: bold;">Total a pagar:</span>
+            <span style="font-weight: normal;"> $@suma</span>
+        </p>*@
 
                             </dl>
                         </div>
