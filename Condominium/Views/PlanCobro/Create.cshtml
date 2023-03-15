@@ -11,7 +11,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12 col-lg-9">
             <h2 class="text-center mb-4">Crear Plan de cobro</h2>
-            @using (Html.BeginForm("Save", "PlanCobro", FormMethod.Post, new { onsubmit = "return validarFormulario()" }))
+            @using (Html.BeginForm("Save", "PlanCobro", FormMethod.Post, new { enctype = "multipart/form-data", @class = "row g-3" }))
             {
                 @Html.AntiForgeryToken()
                 <div class="row justify-content-center">
@@ -24,13 +24,13 @@
 
 
                                         @*<div class="form-group">
-                                                <label for="ID_USUARIO">
-                                                    <i class="fas fa-user" style="color: rgb(39, 58, 93);"></i>
-                                                    Seleccione el usuario
-                                                </label>
-                                                @Html.DropDownListFor(model => model.ID_USUARIO, (SelectList)ViewBag.idResidente, "Seleccione Usuario", new { @class = "form-control" })
+                                        <label for="ID_USUARIO">
+                                            <i class="fas fa-user" style="color: rgb(39, 58, 93);"></i>
+                                            Seleccione el usuario
+                                        </label>
+                                        @Html.DropDownListFor(model => model.ID_USUARIO, (SelectList)ViewBag.idResidente, "Seleccione Usuario", new { @class = "form-control" })
 
-                                            </div>*@
+                                    </div>*@
 
 
                                         <div class="col">
@@ -101,7 +101,7 @@
     </div>
 </div>
 
-@section Scripts {
+@*@section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 
     <script>
@@ -142,4 +142,4 @@
 
     </script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-}
+}*@
