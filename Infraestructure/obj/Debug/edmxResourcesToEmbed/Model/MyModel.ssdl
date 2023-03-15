@@ -243,6 +243,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__NOTICIA__ID_TIPO__6754599E">
+    <End Role="TIPO_NOTICIA" Type="Self.TIPO_NOTICIA" Multiplicity="1" />
+    <End Role="NOTICIA" Type="Self.NOTICIA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TIPO_NOTICIA">
+        <PropertyRef Name="ID_TIPO_NOTICIA" />
+      </Principal>
+      <Dependent Role="NOTICIA">
+        <PropertyRef Name="ID_TIPO_NOTICIA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__PLAN_COBR__ID_PL__68487DD7">
     <End Role="GESTION_PLANES_COBRO" Type="Self.GESTION_PLANES_COBRO" Multiplicity="1" />
     <End Role="PLAN_COBRO_RUBRO_COBRO" Type="Self.PLAN_COBRO_RUBRO_COBRO" Multiplicity="*" />
@@ -423,18 +435,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_NOTICIA_TIPO_NOTICIA">
-    <End Role="TIPO_NOTICIA" Type="Self.TIPO_NOTICIA" Multiplicity="1" />
-    <End Role="NOTICIA" Type="Self.NOTICIA" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TIPO_NOTICIA">
-        <PropertyRef Name="ID_TIPO_NOTICIA" />
-      </Principal>
-      <Dependent Role="NOTICIA">
-        <PropertyRef Name="ID_TIPO_NOTICIA" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_PLAN_COBRO_ESTADO_DEUDA">
     <End Role="ESTADO_DEUDA" Type="Self.ESTADO_DEUDA" Multiplicity="0..1" />
     <End Role="GESTION_PLANES_COBRO" Type="Self.GESTION_PLANES_COBRO" Multiplicity="*" />
@@ -492,6 +492,10 @@
     <AssociationSet Name="FK__INCIDENCI__ID_US__66603565" Association="Self.FK__INCIDENCI__ID_US__66603565">
       <End Role="USUARIO" EntitySet="USUARIO" />
       <End Role="INCIDENCIA" EntitySet="INCIDENCIA" />
+    </AssociationSet>
+    <AssociationSet Name="FK__NOTICIA__ID_TIPO__6754599E" Association="Self.FK__NOTICIA__ID_TIPO__6754599E">
+      <End Role="TIPO_NOTICIA" EntitySet="TIPO_NOTICIA" />
+      <End Role="NOTICIA" EntitySet="NOTICIA" />
     </AssociationSet>
     <AssociationSet Name="FK__PLAN_COBR__ID_PL__68487DD7" Association="Self.FK__PLAN_COBR__ID_PL__68487DD7">
       <End Role="GESTION_PLANES_COBRO" EntitySet="GESTION_PLANES_COBRO" />
@@ -552,10 +556,6 @@
     <AssociationSet Name="FK_GESTION_DEUDA_GESTION_PLANES_COBRO" Association="Self.FK_GESTION_DEUDA_GESTION_PLANES_COBRO">
       <End Role="GESTION_PLANES_COBRO" EntitySet="GESTION_PLANES_COBRO" />
       <End Role="GESTION_DEUDA" EntitySet="GESTION_DEUDA" />
-    </AssociationSet>
-    <AssociationSet Name="FK_NOTICIA_TIPO_NOTICIA" Association="Self.FK_NOTICIA_TIPO_NOTICIA">
-      <End Role="TIPO_NOTICIA" EntitySet="TIPO_NOTICIA" />
-      <End Role="NOTICIA" EntitySet="NOTICIA" />
     </AssociationSet>
     <AssociationSet Name="FK_PLAN_COBRO_ESTADO_DEUDA" Association="Self.FK_PLAN_COBRO_ESTADO_DEUDA">
       <End Role="ESTADO_DEUDA" EntitySet="ESTADO_DEUDA" />
