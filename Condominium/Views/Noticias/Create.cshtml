@@ -46,10 +46,10 @@
         border: none;
     }
 
-    .input-group-addon i {
+        .input-group-addon i {
             font-size: 1.25rem;
             color: #333;
-     }
+        }
 
     .ui-datepicker {
         font-size: 0.9rem;
@@ -73,9 +73,9 @@
         color: #333333;
     }
 
-    .ui-datepicker-calendar tbody td a:hover {
+        .ui-datepicker-calendar tbody td a:hover {
             background-color: #F5F5F5;
-    }
+        }
 
     .ui-datepicker-calendar tbody td.ui-datepicker-today a {
         background-color: #CCCCCC;
@@ -92,7 +92,7 @@
     }
 </style>
 
-@using (Html.BeginForm("Save", "Noticias", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("Save", "Noticias", FormMethod.Post, new { enctype = "multipart/form-data", @class = "col-md-8 offset-md-2" }))
 {
     @Html.AntiForgeryToken()
 
@@ -139,7 +139,7 @@
 
                         <div>
                             <label for="pdf-file" class="form-label">Selecciona un archivo PDF:</label>
-                            <input type="file" id="pdf-file" name="PdfFile" class="form-control" required />
+                            <input type="file" id="pdf-file" name="PdfFile" class="form-control" />
                             <div class="form-text">Formatos permitidos: PDF.</div>
                         </div>
 
@@ -175,7 +175,7 @@
                     active: "#CCCCCC"
                 }
             });
-        }); 
+        });
 
         toggleCalendar = () => {
             var calendar = document.getElementById("calendar");
@@ -192,7 +192,12 @@
                 container.hide();
             }
         });
+
+
     </script>
+
+
+
 }
 
 

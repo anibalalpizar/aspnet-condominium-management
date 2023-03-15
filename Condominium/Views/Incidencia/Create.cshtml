@@ -93,17 +93,16 @@
     }
 </style>
 
-
-@using (Html.BeginForm("Save", "Incidencia", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("Save", "Incidencia", FormMethod.Post, new { enctype = "multipart/form-data", @class = "col-md-8 offset-md-2" }))
 {
     @Html.AntiForgeryToken()
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 offset-md-2">
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title text-center mb-4"><i class="fas fa-newspaper"></i> Crear Incidencia</h4>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title text-center mb-4"><i class="fas fa-newspaper"></i> Crear Incidencia</h4>
                         <div class="form-group">
                             <label for="ID_USUARIO" class="form-label"><i class="fas fa-newspaper"></i> Usuario </label>
                             <div>
@@ -193,5 +192,11 @@
                 container.hide();
             }
         });
+
+
     </script>
+
+
+
+
 }

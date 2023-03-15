@@ -8,16 +8,16 @@
     <div class="row justify-content-center">
         <div class="col-md-8 col-lg-6">
             <h2 class="text-center mb-4">Crear Rubro</h2>
-            @using (Html.BeginForm("Save", "RubrosCobros", FormMethod.Post, new { enctype = "multipart/form-data", @class = "needs-validation", novalidate = "" }))
+            @using (Html.BeginForm("Save", "RubrosCobros", FormMethod.Post, new { enctype = "multipart/form-data" }))
             {
                 @Html.AntiForgeryToken()
                 @*<div class="form-floating mb-3">
-                    @Html.EditorFor(model => model.ID_RUBRO_COBRO, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
-                    <label for="ID_RUBRO_COBRO">ID Rubro</label>
-                    <div class="invalid-feedback">
-                        Por favor, ingrese un ID de rubro.
-                    </div>
-                </div>*@
+                @Html.EditorFor(model => model.ID_RUBRO_COBRO, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                <label for="ID_RUBRO_COBRO">ID Rubro</label>
+                <div class="invalid-feedback">
+                    Por favor, ingrese un ID de rubro.
+                </div>
+            </div>*@
                 <div class="form-floating mb-3">
                     @Html.EditorFor(model => model.NOMBRE_RUBRO, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
                     <label for="NOMBRE_RUBRO">Nombre Rubro</label>
@@ -59,6 +59,45 @@
     </div>
 </div>
 
-@section Scripts {
+@*@section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
-}
+
+    <script>
+        function validarFormulario() {
+            // Obtener los valores de los campos
+            var nombrePlan = document.getElementById("NOMBRE_RUBRO").value;
+            var descripcion = document.getElementById("DESCRIPCION").value;
+            var idPlanCobro = document.getElementById("MONTO").value;
+
+            if (nombrePlan == "" || descripcion == "" || idPlanCobro == "") {
+                var modalContent = "<div class='modal-dialog'>" +
+                    "<div class='modal-content'>" +
+                    "<div class='modal-header'>" +
+                    "<h5 class='modal-title'>Error de validación</h5>" +
+                    "<button type='button' class='close' data-dismiss='modal'>&times;</button>" +
+                    "</div>" +
+                    "<div class='modal-body'>" +
+                    "<p>Todos los campos son requeridos</p>" +
+                    "</div>" +
+                    "<div class='modal-footer'>" +
+                "</div>" +
+                    "</div>" +
+                    "</div>";
+
+                document.getElementById("myModal").innerHTML = modalContent;
+                $('#myModal').modal('show');
+
+                return false;
+            }
+
+            return true;
+        }
+
+        $('#boton-cerrar').on('click', function () {
+            console.log("Botón de cerrar presionado");
+            $('#myModal').modal('hide');
+        });
+
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+}*@
