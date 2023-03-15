@@ -26,6 +26,10 @@
                         <div class="card-header">
                             <h5 class="text-center">Editar Plan de cobro</h5>
                         </div>
+
+
+
+
                         <div class="mb-3">
                             <label for="ID_USUARIO" class="form-label">
                                 <i class="fas fa-user" style="color: rgb(39, 58, 93)"></i>
@@ -53,7 +57,7 @@
                         </div>
 
                         <div class="mb-3">
-                          
+
                             @Html.HiddenFor(model => model.ID_PLAN_COBRO, new { htmlAttributes = new { @class = "form-control" } })
                             @Html.ValidationMessageFor(model => model.ID_PLAN_COBRO, "", new { @class = "text-danger" })
                         </div>

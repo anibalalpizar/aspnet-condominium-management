@@ -157,44 +157,45 @@
         </div>
     </div>
 }
-@section scripts {
-    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/smoothness/jquery-ui.css" />
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
-    <script>
-        $(() => {
-            $(".datepicker").datepicker({
-                dateFormat: "yy-mm-dd",
-                showAnim: "slideDown",
-                theme: "base",
-                themeRoller: {
-                    primary: "#333333",
-                    secondary: "#F5F5F5",
-                    text: "#333333",
-                    hover: "#F5F5F5",
-                    active: "#CCCCCC"
-                }
-            });
-        });
+@section scripts {    @Scripts.Render("~/bundles/jqueryval")
 
-        toggleCalendar = () => {
-            var calendar = document.getElementById("calendar");
-            if (calendar.style.display === "none") {
-                calendar.style.display = "block";
-            } else {
-                calendar.style.display = "none";
+<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/smoothness/jquery-ui.css" />
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+<script>
+    $(() => {
+        $(".datepicker").datepicker({
+            dateFormat: "yy-mm-dd",
+            showAnim: "slideDown",
+            theme: "base",
+            themeRoller: {
+                primary: "#333333",
+                secondary: "#F5F5F5",
+                text: "#333333",
+                hover: "#F5F5F5",
+                active: "#CCCCCC"
             }
+        });
+    });
+
+    toggleCalendar = () => {
+        var calendar = document.getElementById("calendar");
+        if (calendar.style.display === "none") {
+            calendar.style.display = "block";
+        } else {
+            calendar.style.display = "none";
         }
+    }
 
-        $(document).mouseup((e) => {
-            var container = $("#calendar");
-            if (!container.is(e.target) && container.has(e.target).length === 0) {
-                container.hide();
-            }
-        });
+    $(document).mouseup((e) => {
+        var container = $("#calendar");
+        if (!container.is(e.target) && container.has(e.target).length === 0) {
+            container.hide();
+        }
+    });
 
 
-    </script>
+</script>
 
 
 

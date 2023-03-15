@@ -19,7 +19,7 @@
                 </div>
             </div>*@
                 <div class="form-floating mb-3">
-                    @Html.EditorFor(model => model.NOMBRE_RUBRO, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                    @Html.EditorFor(model => model.NOMBRE_RUBRO, new { htmlAttributes = new { @class = "form-control" } })
                     <label for="NOMBRE_RUBRO">Nombre Rubro</label>
                     <div class="invalid-feedback">
                         Por favor, ingrese un nombre de rubro.
@@ -27,19 +27,18 @@
                 </div>
 
                 <div class="form-floating mb-3">
-                    @Html.EditorFor(model => model.MONTO, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                    @Html.EditorFor(model => model.MONTO, new { htmlAttributes = new { @class = "form-control" } })
                     <label for="MONTO">Monto</label>
-                    <div class="invalid-feedback">
-                        Por favor, ingrese un monto.
-                    </div>
+                    @Html.ValidationMessageFor(model => model.MONTO, "", new { @class = "text-danger" })
+
+
                 </div>
 
                 <div class="form-floating mb-3">
-                    @Html.EditorFor(model => model.DESCRIPCION, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                    @Html.EditorFor(model => model.DESCRIPCION, new { htmlAttributes = new { @class = "form-control" } })
                     <label for="DESCRIPCION">Descripción</label>
-                    <div class="invalid-feedback">
-                        Por favor, ingrese una descripción.
-                    </div>
+                    @Html.ValidationMessageFor(model => model.DESCRIPCION, "", new { @class = "text-danger" })
+
                 </div>
                 <div>
                     <label for="image-file" class="form-label">Selecciona una imagen:</label>
@@ -62,42 +61,5 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 
-    <script>
-        function validarFormulario() {
-            // Obtener los valores de los campos
-            var nombrePlan = document.getElementById("NOMBRE_RUBRO").value;
-            var descripcion = document.getElementById("DESCRIPCION").value;
-            var idPlanCobro = document.getElementById("MONTO").value;
 
-            if (nombrePlan == "" || descripcion == "" || idPlanCobro == "") {
-                var modalContent = "<div class='modal-dialog'>" +
-                    "<div class='modal-content'>" +
-                    "<div class='modal-header'>" +
-                    "<h5 class='modal-title'>Error de validación</h5>" +
-                    "<button type='button' class='close' data-dismiss='modal'>&times;</button>" +
-                    "</div>" +
-                    "<div class='modal-body'>" +
-                    "<p>Todos los campos son requeridos</p>" +
-                    "</div>" +
-                    "<div class='modal-footer'>" +
-                "</div>" +
-                    "</div>" +
-                    "</div>";
-
-                document.getElementById("myModal").innerHTML = modalContent;
-                $('#myModal').modal('show');
-
-                return false;
-            }
-
-            return true;
-        }
-
-        $('#boton-cerrar').on('click', function () {
-            console.log("Botón de cerrar presionado");
-            $('#myModal').modal('hide');
-        });
-
-    </script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 }

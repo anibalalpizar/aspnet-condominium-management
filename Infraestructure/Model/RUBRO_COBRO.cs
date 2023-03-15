@@ -11,7 +11,10 @@ namespace Infraestructure.Model
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
+    [MetadataType(typeof(RUBRO_COBROMetadata))]
+
     public partial class RUBRO_COBRO
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
