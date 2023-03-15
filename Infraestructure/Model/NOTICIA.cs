@@ -11,10 +11,7 @@ namespace Infraestructure.Model
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
-    [MetadataType(typeof(NOTICIAMetadata))]
-
+    
     public partial class NOTICIA
     {
         public int ID_NOTICIA { get; set; }

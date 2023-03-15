@@ -10,10 +10,21 @@ namespace Infraestructure.Model
     internal partial class GESTION_PLANES_COBROMetadata
     {
 
-
+        public int ID_PLAN_COBRO { get; set; }
+        public int ID_USUARIO { get; set; }
+        public Nullable<int> ID_ESTADO_DEUDA { get; set; }
+        public string NOMBRE_PLAN { get; set; }
         [Display(Name = "La descripciíon")]
         [Required(ErrorMessage = "{0} es un dato requerido")]
         public string DESCRIPCION { get; set; }
+        public Nullable<System.DateTime> FECHA_INICIO { get; set; }
+        public Nullable<System.DateTime> FECHA_FIN { get; set; }
+        public Nullable<decimal> TOTAL { get; set; }
+
+        public virtual ESTADO_DEUDA ESTADO_DEUDA { get; set; }
+        public virtual ICollection<GESTION_DEUDA> GESTION_DEUDA { get; set; }
+        public virtual USUARIO USUARIO { get; set; }
+        public virtual ICollection<RUBRO_COBRO> RUBRO_COBRO { get; set; }
 
     }
 

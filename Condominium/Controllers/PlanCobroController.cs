@@ -125,7 +125,7 @@ namespace Condominium.Controllers
         {
             IServiceEstadoDeuda service = new ServiceEstadoDeuda();
             IEnumerable<ESTADO_DEUDA> estado = service.getEstadoDeuda();
-            return new SelectList(estado, "ID_ESTADO_DEUDA", "NOMBRE_ESTADO_DEUDA");
+            return new SelectList(estado, "ID_ESTADO_DEUDA", "NOMBRE_ESTADO_DEUDA",idEstado);
         }
 
         private MultiSelectList listRubros(ICollection<RUBRO_COBRO> rubrosCobros = null)
