@@ -61,7 +61,7 @@ namespace Condominium.Controllers
 
         //Guardar rubro de cobro
         [HttpPost]
-        public ActionResult Save(RUBRO_COBRO cobro, HttpPostedFileBase ImageFile)
+        public ActionResult Save(RUBRO_COBRO cobro, HttpPostedFileBase ImageFile, HttpPostedFileBase nuevo)
         {
             MemoryStream target = new MemoryStream();
             IServiceRubrosCobros serviceRubrosCobros = new ServiceRubrosCobros();
@@ -77,6 +77,17 @@ namespace Condominium.Controllers
                         cobro.IMAGEN = target.ToArray();
                         ModelState.Remove("IMAGEN");
                     }
+                }
+                else
+                {
+                  
+                        if (nuevo != null)
+                        {
+                            nuevo.InputStream.CopyTo(target);
+                            cobro.IMAGEN = target.ToArray();
+                            ModelState.Remove("IMAGEN");
+                        }
+                    
                 }
 
 

@@ -49,7 +49,7 @@ namespace Condominium.Controllers
         }
 
         [HttpPost]
-        public ActionResult Save(NOTICIA noticia, HttpPostedFileBase pdfFile)
+        public ActionResult Save(NOTICIA noticia, HttpPostedFileBase pdfFile, HttpPostedFileBase nuevo)
         {
             IServiceNoticias _serviceNoticia = new ServiceNoticias();
             try
@@ -73,6 +73,22 @@ namespace Condominium.Controllers
                     noticia.DOCUMENTO = pdfBytes;
                     ModelState.Remove("DOCUMENTO");
 
+                }
+                else
+                {
+                    if (nuevo != null)
+                    {
+                        using (var pdfStream = nuevo.InputStream)
+                        {
+                            using (var pdfMemoryStream = new MemoryStream())
+                            {
+                                pdfStream.CopyTo(pdfMemoryStream);
+                                noticia.DOCUMENTO = pdfMemoryStream.ToArray();
+                            }
+                        }
+                    }
+
+                    ModelState.Remove("DOCUMENTO");
                 }
 
 
@@ -107,8 +123,9 @@ namespace Condominium.Controllers
             }
         }
 
-    //Editar las noticias
-    public ActionResult Edit(int? id, HttpPostedFileBase nuevoPdfFile)
+       
+        //Editar las noticias
+        public ActionResult Edit(int? id, HttpPostedFileBase nuevoPdfFile)
         {
             ServiceNoticias _ServiceNoticia = new ServiceNoticias();
             NOTICIA noticia = null;
@@ -122,26 +139,7 @@ namespace Condominium.Controllers
 
                     noticia = _ServiceNoticia.GetNoticiasById(Convert.ToInt32(id));
 
-                //if (noticia.DOCUMENTO != null)
-                //{
-                //    byte[] hola = null;
-                //    if (nuevoPdfFile != null)
-                //    {
-                //        using (var pdfStream = nuevoPdfFile.InputStream)
-                //        {
-                //            using (var pdfMemoryStream = new MemoryStream())
-                //            {
-                //                pdfStream.CopyTo(pdfMemoryStream);
-                //                noticia.DOCUMENTO = pdfMemoryStream.ToArray();
-                              
-                //            }
-                //        }
-                //    }
-                    
-
-                //}
-
-
+               
 
                 if (noticia == null)
                 {

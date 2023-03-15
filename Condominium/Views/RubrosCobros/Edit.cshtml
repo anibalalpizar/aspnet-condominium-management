@@ -134,6 +134,11 @@
                                     <img src="data:image/jpeg;charset=utf-8;base64,@Convert.ToBase64String(Model.IMAGEN)" id="ImagenProducto" style="height:75px;width:75px; object-fit: cover;" />
                                 </div>
                             </div>
+                            <div>
+                                <label for="image-file" class="form-label">Selecciona una imagen:</label>
+                                <input type="file" id="image-file" name="nuevo" class="form-control" required />
+                                <div class="form-text">Formatos permitidos: JPG, PNG, GIF.</div>
+                            </div>
                             <div class="form-group">
                                 <input type="submit" value="Create" class="btn btn-primary" />
                                 @Html.ActionLink("Regresar al listado", "IndexAdmin", null, new { @class = "btn btn-secondary" })
