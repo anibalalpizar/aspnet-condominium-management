@@ -362,8 +362,6 @@
     <Content Include="Views\Shared\Components\Lists\DeudasVigentesComponent.cshtml" />
     <Content Include="Views\EstadosCuenta\HistorialPagos.cshtml" />
     <Content Include="Views\Shared\Components\Lists\HistorialPagosComponent.cshtml" />
-    <Content Include="Views\PlanCobro\Details.cshtml" />
-    <Content Include="Views\PlanCobro\IndexAdmin.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\RubrosCobros\IndexAdmin.cshtml" />
     <Content Include="Views\RubrosCobros\Create.cshtml" />
@@ -374,10 +372,12 @@
     <Content Include="Views\RubrosCobros\Deleted.cshtml" />
     <Content Include="Views\Incidencia\IndexAdmin.cshtml" />
     <Content Include="Views\Incidencia\Index.cshtml" />
-    <Content Include="Views\PlanCobro\Create.cshtml" />
     <Content Include="Views\Incidencia\Create.cshtml" />
     <Content Include="Views\Incidencia\Edit.cshtml" />
+    <Content Include="Views\PlanCobro\Create.cshtml" />
+    <Content Include="Views\PlanCobro\IndexAdmin.cshtml" />
     <Content Include="Views\PlanCobro\Edit.cshtml" />
+    <Content Include="Views\PlanCobro\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

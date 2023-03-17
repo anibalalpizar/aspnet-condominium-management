@@ -9,9 +9,9 @@ namespace ApplicationCore.Services
 {
     public interface IServicePlanCobro
     {
-        IEnumerable<GESTION_PLANES_COBRO> GetPlanCobro();
-        GESTION_PLANES_COBRO GetPlanCobroById(int id);
-        GESTION_PLANES_COBRO Save(GESTION_PLANES_COBRO plan,  string[] selectRubrosCobros);
+        IEnumerable<PLAN_COBRO> GetPlanCobro();
+        PLAN_COBRO GetPlanCobroById(int id);
+        PLAN_COBRO Save(PLAN_COBRO plan, string[] selectRubrosCobros);
         void Delete(int id);
     }
 }

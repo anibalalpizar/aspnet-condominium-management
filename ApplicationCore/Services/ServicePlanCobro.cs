@@ -16,19 +16,19 @@ namespace ApplicationCore.Services
             repositoryPlanCobro.Delete(id);
         }
 
-        public IEnumerable<GESTION_PLANES_COBRO> GetPlanCobro()
+        public IEnumerable<PLAN_COBRO> GetPlanCobro()
         {
             IRepositoryPlanCobro repository = new RepositoryPlanCobro();
             return repository.GetPlanCobro();
         }
 
-        public GESTION_PLANES_COBRO GetPlanCobroById(int id)
+        public PLAN_COBRO GetPlanCobroById(int id)
         {
             IRepositoryPlanCobro repository = new RepositoryPlanCobro();
             return repository.GetPlanCobroById(id);
         }
 
-        public GESTION_PLANES_COBRO Save(GESTION_PLANES_COBRO plan, string[] selectRubrosCobros)
+        public PLAN_COBRO Save(PLAN_COBRO plan, string[] selectRubrosCobros)
         {
             IRepositoryPlanCobro repositoryPlanCobro = new RepositoryPlanCobro();
             return repositoryPlanCobro.Save(plan, selectRubrosCobros);

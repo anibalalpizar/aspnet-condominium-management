@@ -61,11 +61,12 @@
   </EntityType>
   <EntityType Name="GESTION_PLANES_COBRO">
     <Key>
-      <PropertyRef Name="ID_PLAN_COBRO" />
+      <PropertyRef Name="ID_GESTION_PLANES_COBRO" />
     </Key>
-    <Property Name="ID_PLAN_COBRO" Type="int" Nullable="false" />
+    <Property Name="ID_GESTION_PLANES_COBRO" Type="int" Nullable="false" />
     <Property Name="ID_USUARIO" Type="int" Nullable="false" />
-    <Property Name="ID_ESTADO_DEUDA" Type="int" />
+    <Property Name="ID_PLAN_COBRO" Type="int" />
+    <Property Name="ID_ESTADO_DEUDA" Type="int" Nullable="false" />
     <Property Name="NOMBRE_PLAN" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="DESCRIPCION" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="FECHA_INICIO" Type="date" />
@@ -92,6 +93,15 @@
     <Property Name="CONTENIDO" Type="varchar" MaxLength="500" Nullable="false" />
     <Property Name="FECHA_PUBLICACION" Type="datetime" Nullable="false" />
     <Property Name="DOCUMENTO" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="PLAN_COBRO">
+    <Key>
+      <PropertyRef Name="ID_COBRO_PLAN" />
+    </Key>
+    <Property Name="ID_COBRO_PLAN" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NOMBRE" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TOTAL" Type="decimal" Precision="18" Scale="2" Nullable="false" />
   </EntityType>
   <EntityType Name="PLAN_COBRO_RUBRO_COBRO">
     <Key>
@@ -252,18 +262,6 @@
       </Principal>
       <Dependent Role="NOTICIA">
         <PropertyRef Name="ID_TIPO_NOTICIA" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__PLAN_COBR__ID_PL__68487DD7">
-    <End Role="GESTION_PLANES_COBRO" Type="Self.GESTION_PLANES_COBRO" Multiplicity="1" />
-    <End Role="PLAN_COBRO_RUBRO_COBRO" Type="Self.PLAN_COBRO_RUBRO_COBRO" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="GESTION_PLANES_COBRO">
-        <PropertyRef Name="ID_PLAN_COBRO" />
-      </Principal>
-      <Dependent Role="PLAN_COBRO_RUBRO_COBRO">
-        <PropertyRef Name="ID_PLAN_COBRO" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -428,15 +426,27 @@
     <End Role="GESTION_DEUDA" Type="Self.GESTION_DEUDA" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="GESTION_PLANES_COBRO">
-        <PropertyRef Name="ID_PLAN_COBRO" />
+        <PropertyRef Name="ID_GESTION_PLANES_COBRO" />
       </Principal>
       <Dependent Role="GESTION_DEUDA">
         <PropertyRef Name="ID_PLAN_COBRO" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_GESTION_PLANES_COBRO_PLAN_COBRO">
+    <End Role="PLAN_COBRO" Type="Self.PLAN_COBRO" Multiplicity="0..1" />
+    <End Role="GESTION_PLANES_COBRO" Type="Self.GESTION_PLANES_COBRO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PLAN_COBRO">
+        <PropertyRef Name="ID_COBRO_PLAN" />
+      </Principal>
+      <Dependent Role="GESTION_PLANES_COBRO">
+        <PropertyRef Name="ID_PLAN_COBRO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_PLAN_COBRO_ESTADO_DEUDA">
-    <End Role="ESTADO_DEUDA" Type="Self.ESTADO_DEUDA" Multiplicity="0..1" />
+    <End Role="ESTADO_DEUDA" Type="Self.ESTADO_DEUDA" Multiplicity="1" />
     <End Role="GESTION_PLANES_COBRO" Type="Self.GESTION_PLANES_COBRO" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="ESTADO_DEUDA">
@@ -444,6 +454,18 @@
       </Principal>
       <Dependent Role="GESTION_PLANES_COBRO">
         <PropertyRef Name="ID_ESTADO_DEUDA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PLAN_COBRO_RUBRO_COBRO_PLAN_COBRO">
+    <End Role="PLAN_COBRO" Type="Self.PLAN_COBRO" Multiplicity="1" />
+    <End Role="PLAN_COBRO_RUBRO_COBRO" Type="Self.PLAN_COBRO_RUBRO_COBRO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PLAN_COBRO">
+        <PropertyRef Name="ID_COBRO_PLAN" />
+      </Principal>
+      <Dependent Role="PLAN_COBRO_RUBRO_COBRO">
+        <PropertyRef Name="ID_PLAN_COBRO" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -470,6 +492,7 @@
     <EntitySet Name="GESTION_PLANES_COBRO" EntityType="Self.GESTION_PLANES_COBRO" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="INCIDENCIA" EntityType="Self.INCIDENCIA" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NOTICIA" EntityType="Self.NOTICIA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PLAN_COBRO" EntityType="Self.PLAN_COBRO" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PLAN_COBRO_RUBRO_COBRO" EntityType="Self.PLAN_COBRO_RUBRO_COBRO" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="REPORTES" EntityType="Self.REPORTES" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RESERVA_AREA_COMUN" EntityType="Self.RESERVA_AREA_COMUN" Schema="dbo" store:Type="Tables" />
@@ -496,10 +519,6 @@
     <AssociationSet Name="FK__NOTICIA__ID_TIPO__6754599E" Association="Self.FK__NOTICIA__ID_TIPO__6754599E">
       <End Role="TIPO_NOTICIA" EntitySet="TIPO_NOTICIA" />
       <End Role="NOTICIA" EntitySet="NOTICIA" />
-    </AssociationSet>
-    <AssociationSet Name="FK__PLAN_COBR__ID_PL__68487DD7" Association="Self.FK__PLAN_COBR__ID_PL__68487DD7">
-      <End Role="GESTION_PLANES_COBRO" EntitySet="GESTION_PLANES_COBRO" />
-      <End Role="PLAN_COBRO_RUBRO_COBRO" EntitySet="PLAN_COBRO_RUBRO_COBRO" />
     </AssociationSet>
     <AssociationSet Name="FK__PLAN_COBR__ID_RU__693CA210" Association="Self.FK__PLAN_COBR__ID_RU__693CA210">
       <End Role="RUBRO_COBRO" EntitySet="RUBRO_COBRO" />
@@ -557,9 +576,17 @@
       <End Role="GESTION_PLANES_COBRO" EntitySet="GESTION_PLANES_COBRO" />
       <End Role="GESTION_DEUDA" EntitySet="GESTION_DEUDA" />
     </AssociationSet>
+    <AssociationSet Name="FK_GESTION_PLANES_COBRO_PLAN_COBRO" Association="Self.FK_GESTION_PLANES_COBRO_PLAN_COBRO">
+      <End Role="PLAN_COBRO" EntitySet="PLAN_COBRO" />
+      <End Role="GESTION_PLANES_COBRO" EntitySet="GESTION_PLANES_COBRO" />
+    </AssociationSet>
     <AssociationSet Name="FK_PLAN_COBRO_ESTADO_DEUDA" Association="Self.FK_PLAN_COBRO_ESTADO_DEUDA">
       <End Role="ESTADO_DEUDA" EntitySet="ESTADO_DEUDA" />
       <End Role="GESTION_PLANES_COBRO" EntitySet="GESTION_PLANES_COBRO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PLAN_COBRO_RUBRO_COBRO_PLAN_COBRO" Association="Self.FK_PLAN_COBRO_RUBRO_COBRO_PLAN_COBRO">
+      <End Role="PLAN_COBRO" EntitySet="PLAN_COBRO" />
+      <End Role="PLAN_COBRO_RUBRO_COBRO" EntitySet="PLAN_COBRO_RUBRO_COBRO" />
     </AssociationSet>
     <AssociationSet Name="FK_PLAN_COBRO_USUARIO" Association="Self.FK_PLAN_COBRO_USUARIO">
       <End Role="USUARIO" EntitySet="USUARIO" />

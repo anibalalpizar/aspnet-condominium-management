@@ -15,44 +15,18 @@ namespace Infraestructure.Repository
     {
         public void Delete(int id)
         {
-            try
-            {
-                GESTION_PLANES_COBRO gestion = null;
-                using(MyContext ctx = new MyContext())
-                {
-                    ctx.Configuration.LazyLoadingEnabled = false;
-                    gestion = GetPlanCobroById(id);
-
-                    if (gestion != null )
-                    {
-                        ctx.GESTION_PLANES_COBRO.Remove(gestion);
-                        ctx.SaveChanges();
-                    }
-                }
-            }
-            catch (DbUpdateException dbEx)
-            {
-                string mensaje = "";
-                Log.Error(dbEx, System.Reflection.MethodBase.GetCurrentMethod(), ref mensaje);
-                throw new Exception(mensaje);
-            }
-            catch (Exception ex)
-            {
-                string mensaje = "";
-                Log.Error(ex, System.Reflection.MethodBase.GetCurrentMethod(), ref mensaje);
-                throw;
-            }
+          
         }
 
-        public IEnumerable<GESTION_PLANES_COBRO> GetPlanCobro()
+        public IEnumerable<PLAN_COBRO> GetPlanCobro()
         {
-            List<GESTION_PLANES_COBRO> listaPlanesCobro = new List<GESTION_PLANES_COBRO>();
+            List<PLAN_COBRO> listaPlanesCobro = new List<PLAN_COBRO>();
             try
             {
                 using (MyContext ctx = new MyContext())
                 {
-                   // listaPlanesCobro = ctx.GESTION_PLANES_COBRO.Include(x => x.USUARIO).ToList();
-                   listaPlanesCobro = ctx.GESTION_PLANES_COBRO.Include(u => u.USUARIO).Include(u => u.ESTADO_DEUDA).ToList();
+                  ctx.Configuration.LazyLoadingEnabled = false;
+                   listaPlanesCobro = ctx.PLAN_COBRO.ToList();
                 }
             }
             catch (DbUpdateException dbEx)
@@ -70,17 +44,16 @@ namespace Infraestructure.Repository
             return listaPlanesCobro;
         }
 
-        public GESTION_PLANES_COBRO GetPlanCobroById(int id)
+        public PLAN_COBRO GetPlanCobroById(int id)
         {
-            GESTION_PLANES_COBRO planCobro = null;
+            PLAN_COBRO planCobro = null;
             try
             {
                 using (MyContext ctx = new MyContext())
                 {
                     ctx.Configuration.LazyLoadingEnabled = false;
-                   planCobro = ctx.GESTION_PLANES_COBRO.Where(x => x.ID_PLAN_COBRO == id)
-                     .Include("USUARIO").Include("ESTADO_DEUDA").Include("RUBRO_COBRO").FirstOrDefault();
-                  
+                   planCobro = ctx.PLAN_COBRO.Where(x => x.ID_COBRO_PLAN == id)
+                     .Include("RUBRO_COBRO").FirstOrDefault();
                 }
                 return planCobro;
             }
@@ -99,20 +72,20 @@ namespace Infraestructure.Repository
             
         }
 
-        public GESTION_PLANES_COBRO Save(GESTION_PLANES_COBRO plan, string[] selectRubrosCobros)
+        public PLAN_COBRO Save(PLAN_COBRO plan, string[] selectRubrosCobros)
         {
            
 
             try
             {
                 int retorno = 0;
-                GESTION_PLANES_COBRO gestion = null;
+                PLAN_COBRO gestion = null;
               
 
                 using (MyContext ctx = new MyContext())
                 {
                     ctx.Configuration.LazyLoadingEnabled = false;
-                    gestion = GetPlanCobroById((int)plan.ID_PLAN_COBRO);
+                    gestion = GetPlanCobroById((int)plan.ID_COBRO_PLAN);
                     IRepositoryRubrosCobros repositoryRubrosCobros = new RepositoryRubrosCobros();
 
                     if (gestion == null)
@@ -133,7 +106,7 @@ namespace Infraestructure.Repository
                         }
                       
                         //Insertar Plan Cobro
-                        ctx.GESTION_PLANES_COBRO.Add(plan);
+                        ctx.PLAN_COBRO.Add(plan);
                         retorno = ctx.SaveChanges();
                     
                     }
@@ -141,7 +114,7 @@ namespace Infraestructure.Repository
                     {
                         //Actualizar Plan Cobro / Modificar
                                          
-                        ctx.GESTION_PLANES_COBRO.Add(plan);
+                        ctx.PLAN_COBRO.Add(plan);
                         ctx.Entry(plan).State = EntityState.Modified;
                         retorno = ctx.SaveChanges();
 
@@ -161,7 +134,7 @@ namespace Infraestructure.Repository
                    
                 }
                 if (retorno > 0)
-                    plan = GetPlanCobroById((int)plan.ID_PLAN_COBRO);
+                    plan = GetPlanCobroById((int)plan.ID_COBRO_PLAN);
                 return gestion;
             }
             catch (DbUpdateException dbEx)

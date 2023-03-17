@@ -1,8 +1,9 @@
-﻿@model Infraestructure.Model.GESTION_PLANES_COBRO
+﻿@model Infraestructure.Model.PLAN_COBRO
 
 @{
-    ViewBag.Title = "Crear Plan de cobro";
+    ViewBag.Title = "Create";
 }
+
 
 <div id="myModal" class="modal"></div>
 
@@ -19,72 +20,41 @@
                         <div class="card">
                             <div class="card-body col-md-12">
                                 <div class="row">
-                                    <div class="col-md-6">
-
-
-
-                                        @*<div class="form-group">
-                                        <label for="ID_USUARIO">
-                                            <i class="fas fa-user" style="color: rgb(39, 58, 93);"></i>
-                                            Seleccione el usuario
+                                    @*<div class="form-group">
+                                        <label for="@Html.IdFor(model => model.ID_COBRO_PLAN)">
+                                            <i class="fas fa-info-circle" style="color: rgb(39, 58, 93);"></i> Plan de cobro:
                                         </label>
-                                        @Html.DropDownListFor(model => model.ID_USUARIO, (SelectList)ViewBag.idResidente, "Seleccione Usuario", new { @class = "form-control" })
-
+                                        @Html.EditorFor(model => model.ID_COBRO_PLAN, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.ID_COBRO_PLAN, "", new { @class = "text-danger" })
                                     </div>*@
 
-
-                                        <div class="col">
-                                            <div class="form-group">
-                                                @Html.LabelFor(model => model.ID_USUARIO, htmlAttributes: new { @class = "control-label col-md-2" })
-                                                <div class="col-md-10">
-                                                    @Html.DropDownListFor(model => model.ID_USUARIO,
-                                                   (SelectList)ViewBag.idResidente,
-                                                   "Seleccione un autor",
-                                                   htmlAttributes: new { @class = "form-control" })
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="@Html.IdFor(model => model.ID_ESTADO_DEUDA)">
-                                                <i class="fas fa-info-circle" style="color: rgb(39, 58, 93);"></i> Estado de deuda:
-                                            </label>
-                                            @Html.DropDownListFor(model => model.ID_ESTADO_DEUDA, (SelectList)ViewBag.idEstadoDeuda, "Seleccione Estado", new { @class = "form-control" })
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label style="color: rgb(39, 58, 93); font-size: 16px;"><i class="fas fa-tags" style="color: rgb(39, 58, 93);"></i> Rubros de Cobro</label>
-                                            @Html.DropDownList("selectRubrosCobros", (MultiSelectList)ViewBag.idRubroCobro, new { @class = "form-control", multiple = "multiple" })
-                                        </div>
+                                    <div class="form-group">
+                                        <label style="color: rgb(39, 58, 93); font-size: 16px;"><i class="fas fa-tags" style="color: rgb(39, 58, 93);"></i> Rubros de Cobro</label>
+                                        @Html.DropDownList("selectRubrosCobros", (MultiSelectList)ViewBag.idRubroCobro, new { @class = "form-control", multiple = "multiple" })
                                     </div>
-                                    <div class="col-md-6">
-
-                                        <div class="form-group">
-                                            <label for="@Html.IdFor(model => model.NOMBRE_PLAN)">
-                                                <i class="fas fa-file-alt" style="color: rgb(39, 58, 93);"></i> Nombre del plan:
-                                            </label>
-                                            @Html.EditorFor(model => model.NOMBRE_PLAN, new { htmlAttributes = new { @class = "form-control" } })
-                                            @Html.ValidationMessageFor(model => model.NOMBRE_PLAN, "", new { @class = "text-danger" })
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="@Html.IdFor(model => model.DESCRIPCION)">
-                                                <i class="fas fa-info-circle" style="color: rgb(39, 58, 93);"></i> Descripción:
-                                            </label>
-                                            @Html.EditorFor(model => model.DESCRIPCION, new { htmlAttributes = new { @class = "form-control" } })
-                                            @Html.ValidationMessageFor(model => model.DESCRIPCION, "", new { @class = "text-danger" })
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="@Html.IdFor(model => model.ID_PLAN_COBRO)">
-                                                <i class="fas fa-info-circle" style="color: rgb(39, 58, 93);"></i> Plan de cobro:
-                                            </label>
-                                            @Html.EditorFor(model => model.ID_PLAN_COBRO, new { htmlAttributes = new { @class = "form-control" } })
-                                            @Html.ValidationMessageFor(model => model.ID_PLAN_COBRO, "", new { @class = "text-danger" })
-                                        </div>
+                                </div>
 
 
-                                    </div>
+                                <div class="form-group">
+                                    <label for="@Html.IdFor(model => model.NOMBRE)">
+                                        <i class="fas fa-info-circle" style="color: rgb(39, 58, 93);"></i> Descripción:
+                                    </label>
+                                    @Html.EditorFor(model => model.NOMBRE, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.NOMBRE, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="@Html.IdFor(model => model.DESCRIPCION)">
+                                        <i class="fas fa-info-circle" style="color: rgb(39, 58, 93);"></i> Descripción:
+                                    </label>
+                                    @Html.EditorFor(model => model.DESCRIPCION, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.DESCRIPCION, "", new { @class = "text-danger" })
+                                </div>
+
+                               
+
+
+                            </div>
                                     <div class="form-group text-center mt-3">
                                         <div class="btn-group" role="group">
                                             <button type="submit" class="btn btn-primary"><i class="fas fa-plus"></i> Crear</button>
@@ -94,52 +64,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
+                 
             }
         </div>
     </div>
 </div>
-
-@*@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-
-    <script>
-        function validarFormulario() {
-            // Obtener los valores de los campos
-            var nombrePlan = document.getElementById("NOMBRE_PLAN").value;
-            var descripcion = document.getElementById("DESCRIPCION").value;
-            var idPlanCobro = document.getElementById("ID_PLAN_COBRO").value;
-
-            if (nombrePlan == "" || descripcion == "" || idPlanCobro == "") {
-                var modalContent = "<div class='modal-dialog'>" +
-                    "<div class='modal-content'>" +
-                    "<div class='modal-header'>" +
-                    "<h5 class='modal-title'>Error de validación</h5>" +
-                    "<button type='button' class='close' data-dismiss='modal'>&times;</button>" +
-                    "</div>" +
-                    "<div class='modal-body'>" +
-                    "<p>Todos los campos son requeridos</p>" +
-                    "</div>" +
-                    "<div class='modal-footer'>" +
-                "</div>" +
-                    "</div>" +
-                    "</div>";
-
-                document.getElementById("myModal").innerHTML = modalContent;
-                $('#myModal').modal('show');
-
-                return false;
-            }
-
-            return true;
-        }
-
-        $('#boton-cerrar').on('click', function () {
-            console.log("Botón de cerrar presionado");
-            $('#myModal').modal('hide');
-        });
-
-    </script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-}*@
