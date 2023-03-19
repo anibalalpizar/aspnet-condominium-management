@@ -1,6 +1,7 @@
 ﻿using Infraestructure.Model;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
@@ -18,7 +19,7 @@ namespace Infraestructure.Repository
 
                 using (MyContext ctx = new MyContext())
                 {
-                    usu = ctx.USUARIO.Find(id);
+                    usu = ctx.USUARIO.Where(u => u.ID_USUARIO == id).Include("TIPO_USUARIO").Include("ESTADO_USUARIO").FirstOrDefault();
                 }
                 return usu;
             }
@@ -40,13 +41,57 @@ namespace Infraestructure.Repository
         {
             try
             {
-                IEnumerable<USUARIO> list = null;
+                List<USUARIO> list = null;
                 using (MyContext ctx = new MyContext())
                 {
                     ctx.Configuration.LazyLoadingEnabled = false;
-                    list = ctx.USUARIO.ToList<USUARIO>();
+                    list = ctx.USUARIO.Include(x => x.ESTADO_USUARIO).Include(x => x.TIPO_USUARIO). ToList<USUARIO>();
                 }
                 return list;
+            }
+            catch (DbUpdateException dbEx)
+            {
+                string mensaje = "";
+                Log.Error(dbEx, System.Reflection.MethodBase.GetCurrentMethod(), ref mensaje);
+                throw new Exception(mensaje);
+            }
+            catch (Exception ex)
+            {
+                string mensaje = "";
+                Log.Error(ex, System.Reflection.MethodBase.GetCurrentMethod(), ref mensaje);
+                throw;
+            }
+        }
+
+        public USUARIO Save(USUARIO usuario)
+        {
+            try
+            {
+                USUARIO oUsu = null;
+                int retorno = 0;
+
+                using(MyContext ctx = new MyContext())
+                {
+                    ctx.Configuration.LazyLoadingEnabled = false;
+                    oUsu = GetUsuarioById(usuario.ID_USUARIO);
+                    if (oUsu == null)
+                    {
+                        //Insertar un nuevo Usuario
+                        ctx.USUARIO.Add(usuario);
+                        retorno = ctx.SaveChanges();
+                    }
+                    else
+                    {
+                        //Actualizar Usuario
+                        ctx.USUARIO.Add(usuario);
+                        ctx.Entry(usuario).State = EntityState.Modified; 
+                        retorno = ctx.SaveChanges();
+                    }
+                }
+
+                if (retorno > 0)
+                    oUsu = GetUsuarioById((int)usuario.ID_USUARIO);
+                return oUsu;
             }
             catch (DbUpdateException dbEx)
             {

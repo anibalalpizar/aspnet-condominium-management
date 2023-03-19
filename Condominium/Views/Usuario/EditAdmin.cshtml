@@ -1,0 +1,108 @@
+﻿@model Infraestructure.Model.USUARIO
+
+@{
+    ViewBag.Title = "EditAdmin";
+}
+<style>
+    a {
+        text-decoration: none;
+    }
+</style>
+
+<div class="container my-5">
+    <h1 class="text-center mb-4">@ViewBag.Title</h1>
+    @using (Html.BeginForm("Save", "Usuario", FormMethod.Post, new { enctype = "multipart/form-data", @class = "col-md-8 offset-md-2" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="container mt-5">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="text-center">Editar Estado Usuario</h5>
+                        </div>
+                        <div class="card-body">
+                            @using (Html.BeginForm())
+                            {
+                                @Html.AntiForgeryToken()
+                                <div class="form-group">
+                                    @Html.HiddenFor(model => model.ID_USUARIO)
+                                </div>
+
+
+                                <div class="form-group mb-4">
+                                    <label for="NOMBRE" class="control-label">
+
+
+                                    </label>
+                                    @Html.HiddenFor(model => model.NOMBRE, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.NOMBRE, "", new { @class = "text-danger" })
+                                </div>
+
+
+                                <div class="form-group mb-4">
+                                    <label for="APELLIDO" class="control-label">
+
+
+                                    </label>
+                                    @Html.HiddenFor(model => model.APELLIDO, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.APELLIDO, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="form-group mb-4 position-relative d-flex align-items-center" style="padding-right: 30px;">
+                                    <label for="ID_ESTADO" style="color: rgb(39, 58, 93)">
+                                        <i class="fas fa-plus-square" style="margin-right: 5px"></i> Tipo de Estado
+                                    </label>
+                                    @Html.DropDownListFor(model => model.ID_ESTADO, null, htmlAttributes: new { @class = "form-control" })
+                                    <a href="#" class="d-flex align-items-center justify-content-center position-absolute end-0 top-50 translate-middle-y text-success" style="right: -20px; margin-bottom: 3px; width: 30px; height: 30px; border-radius: 50%;" data-toggle="modal" data-target="#exampleModal" onclick="mostrarAdvertencia()">
+                                        <span style="font-size: 1.2rem;"><strong>+</strong></span>
+                                    </a>
+                                </div>
+
+
+                                <div class="form-group mb-4">
+                                    <label for="CORREO" class="control-label">
+
+
+                                    </label>
+                                    @Html.HiddenFor(model => model.CORREO, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.CORREO, "", new { @class = "text-danger" })
+                                </div>
+
+
+                                <div class="form-group mb-4">
+                                    <label for="CONTRASENA" class="control-label">
+
+
+                                    </label>
+                                    @Html.HiddenFor(model => model.CONTRASENA, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.CONTRASENA, "", new { @class = "text-danger" })
+                                </div>
+
+
+                                <div class="form-group mb-4 position-relative d-flex align-items-center" style="padding-right: 30px;">
+                                    <label for="ID_TIPO_USUARIO" style="color: rgb(39, 58, 93)">
+
+                                    </label>
+                                    @Html.HiddenFor(model => model.ID_TIPO_USUARIO, null)
+                                    <a href="#" class="d-flex align-items-center justify-content-center position-absolute end-0 top-50 translate-middle-y text-success" style="right: -20px; margin-bottom: 3px; width: 30px; height: 30px; border-radius: 50%;" data-toggle="modal" data-target="#exampleModal" onclick="mostrarAdvertencia()">
+
+                                    </a>
+                                </div>
+
+
+
+
+
+                                <div class="form-group text-center">
+                                    <button type="submit" class="btn btn-primary mr-2">Guardar</button>
+                                    <a href="@Url.Action("IndexAdmin", "Usuario")" class="btn btn-danger">Cancelar</a>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

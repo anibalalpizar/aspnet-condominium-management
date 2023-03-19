@@ -1,0 +1,177 @@
+﻿@model Infraestructure.Model.USUARIO
+
+@{
+    ViewBag.Title = "Create";
+}
+<style>
+    .form-label {
+        font-weight: bold;
+        font-size: 1rem;
+    }
+
+    .card {
+        border: none;
+        background-color: #fff;
+    }
+
+    h5.card-title {
+        font-size: 1.25rem;
+    }
+
+    h4.card-title {
+        font-size: 1.5rem;
+    }
+
+    .btn-secondary {
+        border: none;
+        background-color: transparent;
+    }
+
+    .container {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .form-group {
+        margin-bottom: 1rem;
+    }
+
+    .btn-group {
+        margin-top: 1rem;
+    }
+
+    .input-group-addon {
+        background-color: transparent;
+        border: none;
+    }
+
+        .input-group-addon i {
+            font-size: 1.25rem;
+            color: #333;
+        }
+
+    .ui-datepicker {
+        font-size: 0.9rem;
+    }
+
+    .ui-datepicker-header {
+        background-color: #333333;
+        color: #FFFFFF;
+    }
+
+    .ui-datepicker-prev span, .ui-datepicker-next span {
+        border-color: #FFFFFF;
+    }
+
+    .ui-datepicker-prev:hover span, .ui-datepicker-next:hover span {
+        background-color: #FFFFFF;
+        color: #333333;
+    }
+
+    .ui-datepicker-calendar tbody td a {
+        color: #333333;
+    }
+
+        .ui-datepicker-calendar tbody td a:hover {
+            background-color: #F5F5F5;
+        }
+
+    .ui-datepicker-calendar tbody td.ui-datepicker-today a {
+        background-color: #CCCCCC;
+        color: #333333;
+    }
+
+    .ui-datepicker-calendar .ui-datepicker-unselectable.ui-state-disabled a {
+        color: #CCCCCC;
+    }
+
+    .ui-datepicker-inline {
+        border: none;
+        background-color: #FFFFFF;
+    }
+</style>
+
+@using (Html.BeginForm("Save", "Usuario", FormMethod.Post, new { enctype = "multipart/form-data", @class = "col-md-8 offset-md-2" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title text-center mb-4"><i class="fas fa-newspaper"></i> Crear Usuario</h4>
+                        <hr>
+           
+
+                        <div class="form-group">
+                            <label class="form-label" for="NOMBRE">
+                                <i class="fas fa-pencil-alt"></i> Nombre
+                            </label>
+                            <div>
+                                @Html.EditorFor(model => model.NOMBRE, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.NOMBRE, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="form-label" for="APELLIDO">
+                                <i class="fas fa-file-alt"></i> Apellido
+                            </label>
+                            <div>
+                                @Html.EditorFor(model => model.APELLIDO, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.APELLIDO, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="CORREO">
+                                <i class="fas fa-pencil-alt"></i> Email
+                            </label>
+                            <div>
+                                @Html.EditorFor(model => model.CORREO, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.CORREO, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="CONTRASENA">
+                                <i class="fas fa-file-alt"></i> Password
+                            </label>
+                            <div>
+                                @Html.EditorFor(model => model.CONTRASENA, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.CONTRASENA, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="ID_TIPO_USUARIO" class="form-label"><i class="fas fa-newspaper"></i> Tipo Usuario</label>
+                            <div>
+                                @Html.DropDownListFor(model => model.ID_TIPO_USUARIO,
+                                    (SelectList)ViewBag.idTipoUsuario,
+                                    "Seleccione el tipo de Usuario",
+                                    htmlAttributes: new { @class = "form-control" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ID_ESTADO" class="form-label"><i class="fas fa-newspaper"></i>Estado Usuario</label>
+                            <div>
+                                @Html.DropDownListFor(model => model.ID_ESTADO,
+                                    (SelectList)ViewBag.idEstadoUsuario,
+                                    "Seleccione el tipo de Estado",
+                                    htmlAttributes: new { @class = "form-control" })
+                            </div>
+                        </div>
+
+                        <div class="form-group text-center">
+                            <div class="btn-group" role="group">
+                                <button type="submit" class="btn btn-primary"><i class="fas fa-plus"></i> Crear</button>
+                                <a href="@Url.Action("IndexAdmin", "Usuario")" class="btn btn-danger"><i class="fas fa-times"></i> Cancelar</a>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+}

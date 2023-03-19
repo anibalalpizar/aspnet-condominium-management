@@ -139,6 +139,7 @@
     <Compile Include="Controllers\PlanCobroController.cs" />
     <Compile Include="Controllers\ResidenciaController.cs" />
     <Compile Include="Controllers\RubrosCobrosController.cs" />
+    <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -378,6 +379,10 @@
     <Content Include="Views\PlanCobro\IndexAdmin.cshtml" />
     <Content Include="Views\PlanCobro\Edit.cshtml" />
     <Content Include="Views\PlanCobro\Details.cshtml" />
+    <Content Include="Views\Usuario\IndexAdmin.cshtml" />
+    <Content Include="Views\Usuario\Create.cshtml" />
+    <Content Include="Views\Usuario\Edit.cshtml" />
+    <Content Include="Views\Usuario\EditAdmin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
