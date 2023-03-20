@@ -5,9 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - GreenConnect</title>
-
     @Styles.Render("~/Content/css")
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     @RenderSection("styles", required: false)
 </head>
@@ -16,14 +14,10 @@
         <div class="container-fluid">
             <a class="navbar-brand" href="#">GreenConnect</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
-
                 <span class="navbar-toggler-icon"></span>
             </button>
-
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
                     @* Información usuario *@
                     @{
                         string nombre = "";
@@ -43,8 +37,15 @@
                     }
                     <li class="nav-item dropdown ">
                         <a class=" btn btn-primary nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Email</a>
+                        <div class="dropdown-menu">
+                            <div class="dropdown-item">
+                                @* Nombre Usuario *@
+                                Usuario:
+                            </div>
+                            <div class="dropdown-divider"></div>
                             @Html.ActionLink("Login", "Index", "Login", null, new { @class = "dropdown-item" })
                             @Html.ActionLink("Logout", "Logout", "Login", null, new { @class = "dropdown-item " })
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -74,7 +75,6 @@
                     @Html.Raw(ViewBag.NotificationMessage)
         </script>
     }
-
 </body>
 </html>
 
