@@ -72,5 +72,16 @@ namespace Condominium.Controllers
                 return RedirectToAction("Default", "Error");
             }
         }
+
+        public ActionResult UnAuthorized()
+        {
+            ViewBag.Message = "No autorizado";
+            if (Session["User"] != null)
+            {
+                USUARIO usuario = Session["User"] as USUARIO;
+                Log.Warn($"No autorizado {usuario.CORREO}");
+            }
+            return View();
+        }
     }
 }
