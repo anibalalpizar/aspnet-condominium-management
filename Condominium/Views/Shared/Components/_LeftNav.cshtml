@@ -17,17 +17,17 @@
         border-bottom: 1px solid #ddd;
     }
 
-    .nav-item:not(:last-child) {
+        .nav-item:not(:last-child) {
             border-bottom: none;
-    }
+        }
 
     .nav-link {
         padding: 10px 20px;
     }
 
-    .nav-link:hover {
-        background-color: #808080 !important;
-    }
+        .nav-link:hover {
+            background-color: #808080 !important;
+        }
 
     .sb-sidenav-menu-heading {
         padding: 10px 20px;
@@ -78,10 +78,10 @@
         transition: all 0.3s ease;
     }
 
-     .sb-footer-icon:hover {
-        background-color: rgba(33, 37, 41, 0.8);
-        transform: scale(1.1);
-     }
+        .sb-footer-icon:hover {
+            background-color: rgba(33, 37, 41, 0.8);
+            transform: scale(1.1);
+        }
 
     .dropdown-menu {
         background-color: #ff0000;
@@ -162,40 +162,33 @@
             </div>
         </div>
     </div>
-
-
-    <div class="sb-sidenav-footer" style="background-color: rgb(25,37,60)">
-        <span class="small">Logged in as:</span>
-        <span class="sb-footer-username">Projecto Condominios</span>
-        <div class="sb-footer-icons">
-            <a href="#" class="sb-footer-icon"><i class="fab fa-facebook"></i></a>
-            <a href="#" class="sb-footer-icon"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="sb-footer-icon"><i class="fab fa-instagram"></i></a>
+    <div>
+        @if (Session["User"] == null)
+        {
+            <dvi>
+                <a class="nav-link" href="@Url.Action("Index","Login")">
+                    <i class="fas fa-user"></i>
+                    <span style="margin-left: 10px;"> Logout </span>
+                </a>
+            </dvi>
+        }
+        else
+        {
+            <dvi>
+                <a class="nav-link" href="@Url.Action("Logout","Login")">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span style="margin-left: 10px;"> Logout </span>
+                </a>
+            </dvi>
+        }
+        <div class="sb-sidenav-footer" style="background-color: rgb(25,37,60)">
+            <span class="small">Logged in as:</span>
+            <span class="sb-footer-username">Projecto Condominios</span>
+            <div class="sb-footer-icons">
+                <a href="#" class="sb-footer-icon"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="sb-footer-icon"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="sb-footer-icon"><i class="fab fa-instagram"></i></a>
+            </div>
         </div>
     </div>
-
-
-
-
-
-        <div>
-            @if (Session["User"] == null)
-            {
-                <a class="dropdown-item"
-                   @*Accion, Controlador*@
-                   href="@Url.Action("Index", "Login")">
-                    <i class="fa-solid fa-user-plus"></i>
-                    Login
-                </a>
-            }
-            else
-            {
-                <a class="dropdown-item"
-                   href="@Url.Action("Logout","Login")">
-                    <i class="fa-solid fa-right-from-bracket"></i>
-                    Logout (despues lo hago)
-                </a>
-            }
-        </div>
-
 </nav>

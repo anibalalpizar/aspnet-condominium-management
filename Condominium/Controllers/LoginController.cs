@@ -52,12 +52,25 @@ namespace Condominium.Controllers
             {
                 Log.Error(ex, MethodBase.GetCurrentMethod());
                 TempData["Message"] = "Error al procesar los datos! " + ex.Message;
-
-                // Redireccion a la captura del Error
                 return RedirectToAction("Default", "Error");
             }
             return View("Index");
+        }
 
+        public ActionResult Logout()
+        {
+            try
+            {
+                Session["User"] = null;
+                Session.Remove("User");
+                return RedirectToAction("Index", "Login");
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, MethodBase.GetCurrentMethod());
+                TempData["Message"] = "Error al procesar los datos! " + ex.Message;
+                return RedirectToAction("Default", "Error");
+            }
         }
     }
 }

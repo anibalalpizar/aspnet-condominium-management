@@ -41,42 +41,10 @@
                             }
                         }
                     }
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
-                           href="#" role="button" aria-haspopup="true"
-                           aria-expanded="false"><i class="fa-solid fa-user"></i> Perfil</a>
-                        <div class="dropdown-menu">
-                            <span class="dropdown-item">@nombre</span>
-                            @if (Session["User"] == null)
-                            {
-                                <a class="dropdown-item"
-                                   @*Accion, Controlador*@
-                                   href="@Url.Action("Index", "Login")">
-                                    <i class="fa-solid fa-user-plus"></i>
-                                    Login
-                                </a>
-                            }
-                            else
-                            {
-                                <a class="dropdown-item"
-                                   href="@Url.Action("Logout","Login")">
-                                    <i class="fa-solid fa-right-from-bracket"></i>
-                                    Logout
-                                </a>
-                            }
-                        </div>
-                    </li>
-
                     <li class="nav-item dropdown ">
                         <a class=" btn btn-primary nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Email</a>
-
-
-
                             @Html.ActionLink("Login", "Index", "Login", null, new { @class = "dropdown-item" })
                             @Html.ActionLink("Logout", "Logout", "Login", null, new { @class = "dropdown-item " })
-
-
                     </li>
                 </ul>
             </div>
