@@ -26,8 +26,12 @@ namespace Condominium
             bundles.Add(new Bundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.bundle.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/sweetalert").Include("~/Scripts/sweetalert.min.js"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/Site.css"));
+                      "~/Content/Site.css",
+                      "~/Content/sweetalert.css"
+));
         }
     }
 }

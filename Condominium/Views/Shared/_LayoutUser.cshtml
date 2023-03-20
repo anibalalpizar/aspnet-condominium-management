@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Librería</title>
+    <title>@ViewBag.Title - GreenConnect</title>
 
     @Styles.Render("~/Content/css")
 
@@ -14,7 +14,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Librería</a>
+            <a class="navbar-brand" href="#">GreenConnect</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
 
                 <span class="navbar-toggler-icon"></span>
@@ -71,20 +71,12 @@
                     <li class="nav-item dropdown ">
                         <a class=" btn btn-primary nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Email</a>
 
-                        <div class="dropdown-menu">
-
-                            <div class="dropdown-item">
-                                @* Nombre Usuario *@
-                                Usuario:
-                            </div>
 
 
-                            <div class="dropdown-divider"></div>
                             @Html.ActionLink("Login", "Index", "Login", null, new { @class = "dropdown-item" })
                             @Html.ActionLink("Logout", "Logout", "Login", null, new { @class = "dropdown-item " })
 
 
-                        </div>
                     </li>
                 </ul>
             </div>

@@ -37,8 +37,8 @@ namespace Condominium.Controllers
                     {
                         Session["User"] = oUsuario;
                         Log.Info($"Accede {oUsuario.CORREO}");
-                        TempData["mensaje"] = Util.SweetAlertHelper.Mensaje("Login", "Usuario autenticado",
-                            Util.SweetAlertMessageType.success);
+                        TempData["mensaje"] = Util.SweetAlertHelper.Mensaje("Login", "Usuario autenticado", Util.SweetAlertMessageType.success);
+                        ViewBag.NotificationMessage = Util.SweetAlertHelper.Mensaje("Login", "Usuario autenticado", Util.SweetAlertMessageType.success);
                         return RedirectToAction("Index", "Home");
                     }
                     else
