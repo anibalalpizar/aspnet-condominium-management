@@ -147,19 +147,22 @@
                     <span>Incidencias</span>
                 </a>
             </div>
-            <div class="sb-sidenav-menu-heading mt-3"><i class="fas fa-key"></i> Mantenimientos</div>
-            <div class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="ml-2"><i class="fas fa-cogs"></i> Mantenimientos</span>
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: #f5a442; border: none;">
-                    <a class="dropdown-item" href="@Url.Action("IndexAdmin","PlanCobro")" style="color: white;  "><i class="fas fa-file-invoice-dollar me-2"></i> Plan de Cobro</a>
-                    <a class="dropdown-item" href="@Url.Action("IndexAdmin","RubrosCobros")" style="color: white;"><i class="fas fa-coins me-2"></i> Rubros de cobros</a>
-                    <a class="dropdown-item" href="@Url.Action("IndexAdmin","Noticias")" style="color: white;"><i class="fas fa-newspaper me-2"></i> Noticias | Información</a>
-                    <a class="dropdown-item" href="@Url.Action("IndexAdmin","Incidencia")" style="color: white;"><i class="fas fa-exclamation-triangle me-2"></i> Incidencias </a>
-                    <a class="dropdown-item" href="@Url.Action("IndexAdmin","Usuario")" style="color: white;"><i class="fas fa-exclamation-triangle me-2"></i> Residentes </a>
+            @if (Condominium.Security.AutorizeView.IsUserInRole(new string[] { "Administrador" }))
+            {
+                <div class="sb-sidenav-menu-heading mt-3"><i class="fas fa-key"></i> Mantenimientos</div>
+                <div class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="ml-2"><i class="fas fa-cogs"></i> Mantenimientos</span>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: #f5a442; border: none;">
+                        <a class="dropdown-item" href="@Url.Action("IndexAdmin", "PlanCobro")" style="color: white;  "><i class="fas fa-file-invoice-dollar me-2"></i> Plan de Cobro</a>
+                        <a class="dropdown-item" href="@Url.Action("IndexAdmin", "RubrosCobros")" style="color: white;"><i class="fas fa-coins me-2"></i> Rubros de cobros</a>
+                        <a class="dropdown-item" href="@Url.Action("IndexAdmin", "Noticias")" style="color: white;"><i class="fas fa-newspaper me-2"></i> Noticias | Información</a>
+                        <a class="dropdown-item" href="@Url.Action("IndexAdmin", "Incidencia")" style="color: white;"><i class="fas fa-exclamation-triangle me-2"></i> Incidencias </a>
+                        <a class="dropdown-item" href="@Url.Action("IndexAdmin", "Usuario")" style="color: white;"><i class="fas fa-exclamation-triangle me-2"></i> Residentes </a>
+                    </div>
                 </div>
-            </div>
+            }
         </div>
     </div>
     <div>
@@ -168,7 +171,7 @@
             <dvi>
                 <a class="nav-link" href="@Url.Action("Index","Login")">
                     <i class="fas fa-user"></i>
-                    <span style="margin-left: 10px;"> Logout </span>
+                    <span style="margin-left: 10px;"> Login </span>
                 </a>
             </dvi>
         }

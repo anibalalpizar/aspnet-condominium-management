@@ -27,7 +27,7 @@ namespace Condominium.Security
             {
                 foreach (var rol in allowedroles)
                 {
-                    if (rol == oUsuario.IdRol)
+                    if (rol == oUsuario.ID_TIPO_USUARIO)
                         return true;
                 }
             }

@@ -18,7 +18,6 @@ namespace Condominium.Controllers
             return View();
         }
 
-
         [HttpPost]
         public ActionResult Login(USUARIO usuario)
         {
