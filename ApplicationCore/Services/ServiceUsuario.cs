@@ -36,6 +36,8 @@ namespace ApplicationCore.Services
         public USUARIO Save(USUARIO usuario)
         {
             IRepositoryUsuario repositoryUsuario = new RepositoryUsuario();
+            // Encriptar el password antes de guardar
+            usuario.CONTRASENA = Cryptography.EncrypthAES(usuario.CONTRASENA);
             return repositoryUsuario.Save(usuario);
         }
     }

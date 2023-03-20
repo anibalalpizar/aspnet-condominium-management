@@ -19,7 +19,7 @@ namespace Infraestructure.Repository
                 using (MyContext ctx = new MyContext())
                 {
                     ctx.Configuration.LazyLoadingEnabled = false;
-                    oUsuario = ctx.USUARIO.Where(p => p.CORREO.Equals(email) && p.CONTRASENA == password).
+                    oUsuario = ctx.USUARIO.Where(p => p.CORREO.Equals(email)).
                         FirstOrDefault<USUARIO>();
                 }
                 if (oUsuario != null)
