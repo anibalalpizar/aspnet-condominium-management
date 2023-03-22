@@ -187,6 +187,10 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="img\68678231_ml.jpg" />
+    <Content Include="img\condominio-sustentavel.jpg" />
+    <Content Include="img\Logo.png" />
+    <Content Include="img\PCBackG-Street.png" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
