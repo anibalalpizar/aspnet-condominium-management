@@ -140,6 +140,7 @@
     <Compile Include="Repository\IRepositoryEstadoDeuda.cs" />
     <Compile Include="Repository\IRepositoryEstadoIncidencia.cs" />
     <Compile Include="Repository\IRepositoryEstadoUsuario.cs" />
+    <Compile Include="Repository\IRepositoryGestionPlanesCobro.cs" />
     <Compile Include="Repository\IRepositoryNoticias.cs" />
     <Compile Include="Repository\IRepositoryTipoNoticia.cs" />
     <Compile Include="Repository\IRepositoryTipoUsuario.cs" />
@@ -153,6 +154,7 @@
     <Compile Include="Repository\IRepositoryResidencia.cs" />
     <Compile Include="Repository\IRepositoryRubrosCobros.cs" />
     <Compile Include="Repository\RepositoryEstadoUsuario.cs" />
+    <Compile Include="Repository\RepositoryGestionPlanesCobro.cs" />
     <Compile Include="Repository\RepositoryIncidencia.cs" />
     <Compile Include="Repository\RepositoryNoticias.cs" />
     <Compile Include="Repository\RepositoryPlanCobro.cs" />

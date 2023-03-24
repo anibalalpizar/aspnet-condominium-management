@@ -133,6 +133,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\EstadosCuentaController.cs" />
+    <Compile Include="Controllers\GestionPlanesCobroController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IncidenciaController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -400,6 +401,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\GestionPlanesCobro\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

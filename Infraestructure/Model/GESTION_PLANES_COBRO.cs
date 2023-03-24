@@ -21,7 +21,7 @@ namespace Infraestructure.Model
         }
     
         public int ID_GESTION_PLANES_COBRO { get; set; }
-        public int ID_USUARIO { get; set; }
+        public int ID_RESIDENCIA { get; set; }
         public Nullable<int> ID_PLAN_COBRO { get; set; }
         public int ID_ESTADO_DEUDA { get; set; }
         public string NOMBRE_PLAN { get; set; }
@@ -34,6 +34,6 @@ namespace Infraestructure.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GESTION_DEUDA> GESTION_DEUDA { get; set; }
         public virtual PLAN_COBRO PLAN_COBRO { get; set; }
-        public virtual USUARIO USUARIO { get; set; }
+        public virtual RESIDENCIA RESIDENCIA { get; set; }
     }
 }

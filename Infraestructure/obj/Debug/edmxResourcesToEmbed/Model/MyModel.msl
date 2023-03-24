@@ -71,7 +71,7 @@
       <EntityTypeMapping TypeName="CONDOMINIOSModel.GESTION_PLANES_COBRO">
         <MappingFragment StoreEntitySet="GESTION_PLANES_COBRO">
           <ScalarProperty Name="ID_GESTION_PLANES_COBRO" ColumnName="ID_GESTION_PLANES_COBRO" />
-          <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
+          <ScalarProperty Name="ID_RESIDENCIA" ColumnName="ID_RESIDENCIA" />
           <ScalarProperty Name="ID_PLAN_COBRO" ColumnName="ID_PLAN_COBRO" />
           <ScalarProperty Name="ID_ESTADO_DEUDA" ColumnName="ID_ESTADO_DEUDA" />
           <ScalarProperty Name="NOMBRE_PLAN" ColumnName="NOMBRE_PLAN" />

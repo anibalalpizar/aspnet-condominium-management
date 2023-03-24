@@ -49,6 +49,7 @@
     <Compile Include="Services\IServiceEstadoIncidencia.cs" />
     <Compile Include="Services\IServiceEstadosCuenta.cs" />
     <Compile Include="Services\IServiceEstadoUsuario.cs" />
+    <Compile Include="Services\IServiceGestionPlanesCobro.cs" />
     <Compile Include="Services\IServiceIncidencia.cs" />
     <Compile Include="Services\IServiceNoticias.cs" />
     <Compile Include="Services\IServicePlanCobro.cs" />
@@ -61,6 +62,7 @@
     <Compile Include="Services\ServiceEstadoIncidencia.cs" />
     <Compile Include="Services\ServiceEstadosCuenta.cs" />
     <Compile Include="Services\ServiceEstadoUsuario.cs" />
+    <Compile Include="Services\ServiceGestionPlanesCobro.cs" />
     <Compile Include="Services\ServiceIncidencia.cs" />
     <Compile Include="Services\ServiceNoticias.cs" />
     <Compile Include="Services\ServicePlanCobro.cs" />
