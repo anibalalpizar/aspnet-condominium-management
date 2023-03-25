@@ -73,7 +73,7 @@
     <Key>
       <PropertyRef Name="ID_GESTION_PLANES_COBRO" />
     </Key>
-    <Property Name="ID_GESTION_PLANES_COBRO" Type="Int32" Nullable="false" />
+    <Property Name="ID_GESTION_PLANES_COBRO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="ID_RESIDENCIA" Type="Int32" Nullable="false" />
     <Property Name="ID_PLAN_COBRO" Type="Int32" />
     <Property Name="ID_ESTADO_DEUDA" Type="Int32" Nullable="false" />

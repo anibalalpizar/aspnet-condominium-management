@@ -1,0 +1,233 @@
+﻿@model Infraestructure.Model.GESTION_PLANES_COBRO
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<style>
+    .form-label {
+        font-weight: bold;
+        font-size: 1rem;
+    }
+
+    .card {
+        border: none;
+        background-color: #fff;
+    }
+
+    h5.card-title {
+        font-size: 1.25rem;
+    }
+
+    h4.card-title {
+        font-size: 1.5rem;
+    }
+
+    .btn-secondary {
+        border: none;
+        background-color: transparent;
+    }
+
+    .container {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .form-group {
+        margin-bottom: 1rem;
+    }
+
+    .btn-group {
+        margin-top: 1rem;
+    }
+
+    .input-group-addon {
+        background-color: transparent;
+        border: none;
+    }
+
+        .input-group-addon i {
+            font-size: 1.25rem;
+            color: #333;
+        }
+
+    .ui-datepicker {
+        font-size: 0.9rem;
+    }
+
+    .ui-datepicker-header {
+        background-color: #333333;
+        color: #FFFFFF;
+    }
+
+    .ui-datepicker-prev span, .ui-datepicker-next span {
+        border-color: #FFFFFF;
+    }
+
+    .ui-datepicker-prev:hover span, .ui-datepicker-next:hover span {
+        background-color: #FFFFFF;
+        color: #333333;
+    }
+
+    .ui-datepicker-calendar tbody td a {
+        color: #333333;
+    }
+
+        .ui-datepicker-calendar tbody td a:hover {
+            background-color: #F5F5F5;
+        }
+
+    .ui-datepicker-calendar tbody td.ui-datepicker-today a {
+        background-color: #CCCCCC;
+        color: #333333;
+    }
+
+    .ui-datepicker-calendar .ui-datepicker-unselectable.ui-state-disabled a {
+        color: #CCCCCC;
+    }
+
+    .ui-datepicker-inline {
+        border: none;
+        background-color: #FFFFFF;
+    }
+</style>
+
+@using (Html.BeginForm("Save", "GestionPlanesCobro", FormMethod.Post, new { enctype = "multipart/form-data", @class = "col-md-8 offset-md-2" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title text-center mb-4"><i class="fas fa-newspaper"></i> Asignar Plan Cobro</h4>
+                        <div class="form-group">
+                            <label for="ID_RESIDENCIA" class="form-label"><i class="fas fa-newspaper"></i> N° Residencia </label>
+                            <div>
+                                @Html.DropDownListFor(model => model.ID_RESIDENCIA,
+                                    (SelectList)ViewBag.idResidencia,
+                                    "Seleccione el Número de residencia",
+                                    htmlAttributes: new { @class = "form-control" })
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ID_PLAN_COBRO" class="form-label"><i class="fas fa-newspaper"></i> Plan Cobro </label>
+                            <div>
+                                @Html.DropDownListFor(model => model.ID_PLAN_COBRO,
+                                    (SelectList)ViewBag.idPlanCobro,
+                                    "Seleccione el Plan de Cobro",
+                                    htmlAttributes: new { @class = "form-control" })
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ID_ESTADO_DEUDA" class="form-label"><i class="fas fa-newspaper"></i> Estado</label>
+                            <div>
+                                @Html.DropDownListFor(model => model.ID_ESTADO_DEUDA,
+                                    (SelectList)ViewBag.idEstadoDeuda,
+                                    "Seleccione el Estado de la Deuda",
+                                    htmlAttributes: new { @class = "form-control" })
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="NOMBRE_PLAN">
+                                <i class="fas fa-pencil-alt"></i> Nombre del Plan
+                            </label>
+                            <div>
+                                @Html.EditorFor(model => model.NOMBRE_PLAN, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.NOMBRE_PLAN, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="DESCRIPCION">
+                                <i class="fas fa-pencil-alt"></i> Descripción
+                            </label>
+                            <div>
+                                @Html.EditorFor(model => model.DESCRIPCION, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.DESCRIPCION, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <h5><i class="fas fa-calendar"></i> @Html.LabelFor(model => model.FECHA_INICIO, "Fecha de publicación", htmlAttributes: new { @class = "form-label" })</h5>
+                            <div class="position-relative">
+                                @Html.EditorFor(model => model.FECHA_INICIO, new { htmlAttributes = new { @class = "form-control datepicker" } })
+                                <span class="position-absolute top-50 translate-middle-y end-0 me-2" onclick="$(this).prev().focus();"><i class="fas fa-calendar text-muted"></i></span>
+                            </div>
+                            @Html.ValidationMessageFor(model => model.FECHA_INICIO, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            <h5><i class="fas fa-calendar"></i> @Html.LabelFor(model => model.FECHA_FIN, "Fecha de Vencimiento", htmlAttributes: new { @class = "form-label" })</h5>
+                            <div class="position-relative">
+                                @Html.EditorFor(model => model.FECHA_FIN, new { htmlAttributes = new { @class = "form-control datepicker" } })
+                                <span class="position-absolute top-50 translate-middle-y end-0 me-2" onclick="$(this).prev().focus();"><i class="fas fa-calendar text-muted"></i></span>
+                            </div>
+                            @Html.ValidationMessageFor(model => model.FECHA_FIN, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group text-center">
+                            <div class="btn-group" role="group">
+                                <button type="submit" class="btn btn-primary"><i class="fas fa-plus"></i> Crear</button>
+                                <a href="@Url.Action("IndexAdmin", "GestionPlanesCobro")" class="btn btn-danger"><i class="fas fa-times"></i> Cancelar</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@section scripts {    @Scripts.Render("~/bundles/jqueryval")
+
+<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/smoothness/jquery-ui.css" />
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+<script>
+    $(() => {
+        $(".datepicker").datepicker({
+            dateFormat: "yy-mm-dd",
+            showAnim: "slideDown",
+            theme: "base",
+            themeRoller: {
+                primary: "#333333",
+                secondary: "#F5F5F5",
+                text: "#333333",
+                hover: "#F5F5F5",
+                active: "#CCCCCC"
+            }
+        });
+    });
+
+    toggleCalendar = () => {
+        var calendar = document.getElementById("calendar");
+        if (calendar.style.display === "none") {
+            calendar.style.display = "block";
+        } else {
+            calendar.style.display = "none";
+        }
+    }
+
+    $(document).mouseup((e) => {
+        var container = $("#calendar");
+        if (!container.is(e.target) && container.has(e.target).length === 0) {
+            container.hide();
+        }
+    });
+
+
+</script>
+
+
+
+
+}
