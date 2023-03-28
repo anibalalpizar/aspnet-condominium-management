@@ -109,9 +109,6 @@
     <Compile Include="Model\REPORTES.cs">
       <DependentUpon>MyModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\RESERVACION.cs">
-      <DependentUpon>MyModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Model\RESERVA_AREA_COMUN.cs">
       <DependentUpon>MyModel.tt</DependentUpon>
     </Compile>

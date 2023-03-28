@@ -78,7 +78,7 @@ namespace Condominium.Controllers
                 }
                 else
                 {
-                    ViewBag.idResidencia = listaResidencias(gestion.ID_RESIDENCIA);
+                  //  ViewBag.idResidencia = listaResidencias(gestion.ID_RESIDENCIA);
                     ViewBag.idEstadoDeuda = listaEstadoDeuda(gestion.ID_ESTADO_DEUDA);
                     ViewBag.idPlanCobro = listaPlanCobro((int)gestion.ID_PLAN_COBRO);
 
@@ -129,7 +129,7 @@ namespace Condominium.Controllers
                 }
 
 
-                ViewBag.ID_RESIDENCIA = listaResidencias(oGestion.ID_RESIDENCIA);
+               // ViewBag.ID_RESIDENCIA = listaResidencias(oGestion.ID_RESIDENCIA);
                 ViewBag.ID_ESTADO_DEUDA = listaEstadoDeuda(oGestion.ID_ESTADO_DEUDA);
                 ViewBag.ID_PLAN_COBRO = listaPlanCobro((int)oGestion.ID_PLAN_COBRO);
                 return View(oGestion);

@@ -22,10 +22,6 @@ namespace Infraestructure.Model
         public System.DateTime HORA_FIN { get; set; }
         public int ID_ESTADO_RESERVACION { get; set; }
         public string COMENTARIOS { get; set; }
-        public System.DateTime FECHA_CREACION { get; set; }
-        public System.DateTime FECHA_ACTUALIZACION { get; set; }
-        public int CREADO_POR { get; set; }
-        public int ACTUALIZADO_POR { get; set; }
     
         public virtual AREA_COMUN AREA_COMUN { get; set; }
         public virtual ESTADO_RESERVACION ESTADO_RESERVACION { get; set; }
