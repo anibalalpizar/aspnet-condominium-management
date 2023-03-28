@@ -1,0 +1,93 @@
+﻿@model IEnumerable<Infraestructure.Model.RESERVA_AREA_COMUN>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FECHA_RESERVA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HORA_INICIO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HORA_FIN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.COMENTARIOS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FECHA_CREACION)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FECHA_ACTUALIZACION)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CREADO_POR)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ACTUALIZADO_POR)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AREA_COMUN.AREA_COMUN1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ESTADO_RESERVACION.ESTADO_RESERVACION1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.USUARIO.NOMBRE)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FECHA_RESERVA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HORA_INICIO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HORA_FIN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.COMENTARIOS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FECHA_CREACION)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FECHA_ACTUALIZACION)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CREADO_POR)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ACTUALIZADO_POR)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AREA_COMUN.AREA_COMUN1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ESTADO_RESERVACION.ESTADO_RESERVACION1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.USUARIO.NOMBRE)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID_RESERVA_AREA_COMUN }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID_RESERVA_AREA_COMUN }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID_RESERVA_AREA_COMUN })
+        </td>
+    </tr>
+}
+
+</table>
