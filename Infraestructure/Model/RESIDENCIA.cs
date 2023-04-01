@@ -18,6 +18,7 @@ namespace Infraestructure.Model
         public RESIDENCIA()
         {
             this.GESTION_DEUDA = new HashSet<GESTION_DEUDA>();
+            this.GESTION_PLANES_COBRO = new HashSet<GESTION_PLANES_COBRO>();
         }
     
         public int ID_RESIDENCIA { get; set; }
@@ -31,6 +32,8 @@ namespace Infraestructure.Model
         public virtual ESTADO_RESIDENCIA ESTADO_RESIDENCIA { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GESTION_DEUDA> GESTION_DEUDA { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<GESTION_PLANES_COBRO> GESTION_PLANES_COBRO { get; set; }
         public virtual USUARIO USUARIO { get; set; }
     }
 }

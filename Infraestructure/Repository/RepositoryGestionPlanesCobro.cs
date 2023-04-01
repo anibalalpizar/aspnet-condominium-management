@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -92,8 +93,8 @@ namespace Infraestructure.Repository
                         retorno = ctx.SaveChanges();
                     }
                 }
-                if (retorno > 0)
-                    oGestion = getGestionPlanesCobroById((int)gestion.ID_GESTION_PLANES_COBRO);
+                //if (retorno > 0)
+                //    oGestion = getGestionPlanesCobroById((int)gestion.ID_GESTION_PLANES_COBRO);
                 return oGestion;
             }
             catch (DbUpdateException dbEx)
@@ -102,7 +103,7 @@ namespace Infraestructure.Repository
                 Log.Error(dbEx, System.Reflection.MethodBase.GetCurrentMethod(), ref mensaje);
                 throw new Exception(mensaje);
             }
-            catch (Exception ex)
+            catch (DbEntityValidationException ex)
             {
                 string mensaje = "";
                 Log.Error(ex, System.Reflection.MethodBase.GetCurrentMethod(), ref mensaje);

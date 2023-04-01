@@ -101,35 +101,37 @@
             <div class="col-md-8 offset-md-2">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title text-center mb-4"><i class="fas fa-newspaper"></i> Asignar Plan Cobro</h4>
+                        <h4 class="card-title text-center mb-4"><i class="fas fa-newspaper"></i> Crear Incidencia</h4>
                         <div class="form-group">
-                            <label for="ID_RESIDENCIA" class="form-label"><i class="fas fa-newspaper"></i> N° Residencia </label>
+                            <label for="ID_RESIDENCIA" class="form-label"><i class="fas fa-newspaper"></i> Usuario </label>
                             <div>
                                 @Html.DropDownListFor(model => model.ID_RESIDENCIA,
                                     (SelectList)ViewBag.idResidencia,
-                                    "Seleccione el Número de residencia",
+                                    "Seleccione el N° de Recidencia",
                                     htmlAttributes: new { @class = "form-control" })
                             </div>
 
                         </div>
 
                         <div class="form-group">
-                            <label for="ID_PLAN_COBRO" class="form-label"><i class="fas fa-newspaper"></i> Plan Cobro </label>
+                            <label for="ID_PLAN_COBRO" class="form-label"><i class="fas fa-newspaper"></i> Estado </label>
                             <div>
                                 @Html.DropDownListFor(model => model.ID_PLAN_COBRO,
                                     (SelectList)ViewBag.idPlanCobro,
-                                    "Seleccione el Plan de Cobro",
+                                    "Seleccione el Plan a cobrar",
                                     htmlAttributes: new { @class = "form-control" })
                             </div>
 
                         </div>
 
+
+
                         <div class="form-group">
-                            <label for="ID_ESTADO_DEUDA" class="form-label"><i class="fas fa-newspaper"></i> Estado</label>
+                            <label for="ID_ESTADO_INCIDENCIA" class="form-label"><i class="fas fa-newspaper"></i> Estado </label>
                             <div>
                                 @Html.DropDownListFor(model => model.ID_ESTADO_DEUDA,
                                     (SelectList)ViewBag.idEstadoDeuda,
-                                    "Seleccione el Estado de la Deuda",
+                                    "Seleccione el Estado",
                                     htmlAttributes: new { @class = "form-control" })
                             </div>
 
@@ -137,7 +139,7 @@
 
                         <div class="form-group">
                             <label class="form-label" for="NOMBRE_PLAN">
-                                <i class="fas fa-pencil-alt"></i> Nombre del Plan
+                                <i class="fas fa-pencil-alt"></i> Título
                             </label>
                             <div>
                                 @Html.EditorFor(model => model.NOMBRE_PLAN, new { htmlAttributes = new { @class = "form-control" } })
@@ -147,7 +149,7 @@
 
                         <div class="form-group">
                             <label class="form-label" for="DESCRIPCION">
-                                <i class="fas fa-pencil-alt"></i> Descripción
+                                <i class="fas fa-pencil-alt"></i> Título
                             </label>
                             <div>
                                 @Html.EditorFor(model => model.DESCRIPCION, new { htmlAttributes = new { @class = "form-control" } })
@@ -186,7 +188,6 @@
         </div>
     </div>
 }
-
 @section scripts {    @Scripts.Render("~/bundles/jqueryval")
 
 <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
@@ -231,3 +232,5 @@
 
 
 }
+
+

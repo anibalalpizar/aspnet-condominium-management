@@ -3,6 +3,13 @@
 @{
     ViewBag.Title = "Edit";
 }
+
+<style>
+    a {
+        text-decoration: none;
+    }
+</style>
+
 <div class="container">
     <h1 class="text-center mb-4">@ViewBag.Title</h1>
     @using (Html.BeginForm("Save", "GestionPlanesCobro", FormMethod.Post, new { enctype = "multipart/form-data", @class = "col-md-8 offset-md-2" }))
@@ -52,22 +59,25 @@
                                     </a>
                                 </div>
 
+
                                 <div class="form-group mb-4">
                                     <label for="NOMBRE_PLAN" class="control-label">
-
-
+                                        <i class="fas fa-heading" style="color: rgb(39, 58, 93);"></i>
+                                        Nombre del Plan:
                                     </label>
-                                    @Html.HiddenFor(model => model.NOMBRE_PLAN, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.EditorFor(model => model.NOMBRE_PLAN, new { htmlAttributes = new { @class = "form-control" } })
                                     @Html.ValidationMessageFor(model => model.NOMBRE_PLAN, "", new { @class = "text-danger" })
                                 </div>
 
                                 <div class="form-group mb-4">
-                                    <label for="DESCRIPCION" style="color: rgb(39, 58, 93)">
-
+                                    <label for="DESCRIPCION" class="control-label">
+                                        <i class="fas fa-heading" style="color: rgb(39, 58, 93);"></i>
+                                        Descripción:
                                     </label>
-                                    @Html.HiddenFor(model => model.DESCRIPCION, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.EditorFor(model => model.DESCRIPCION, new { htmlAttributes = new { @class = "form-control" } })
                                     @Html.ValidationMessageFor(model => model.DESCRIPCION, "", new { @class = "text-danger" })
                                 </div>
+
 
                                 <div class="form-group mb-4">
                                     <label for="FECHA_INICIO" style="color: rgb(39, 58, 93)">
@@ -87,7 +97,7 @@
 
                                 <div class="form-group text-center">
                                     <button type="submit" class="btn btn-primary mr-2">Guardar</button>
-                                    <a href="@Url.Action("IndexAdmin", "Incidencia")" class="btn btn-danger">Cancelar</a>
+                                    <a href="@Url.Action("IndexAdmin", "GestionPlanesCobro")" class="btn btn-danger">Cancelar</a>
                                 </div>
 
                             }
@@ -98,6 +108,52 @@
         </div>
     }
 </div>
+
+@section scripts {    @Scripts.Render("~/bundles/jqueryval")
+
+<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/smoothness/jquery-ui.css" />
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+<script>
+    $(() => {
+        $(".datepicker").datepicker({
+            dateFormat: "yy-mm-dd",
+            showAnim: "slideDown",
+            theme: "base",
+            themeRoller: {
+                primary: "#333333",
+                secondary: "#F5F5F5",
+                text: "#333333",
+                hover: "#F5F5F5",
+                active: "#CCCCCC"
+            }
+        });
+    });
+
+    toggleCalendar = () => {
+        var calendar = document.getElementById("calendar");
+        if (calendar.style.display === "none") {
+            calendar.style.display = "block";
+        } else {
+            calendar.style.display = "none";
+        }
+    }
+
+    $(document).mouseup((e) => {
+        var container = $("#calendar");
+        if (!container.is(e.target) && container.has(e.target).length === 0) {
+            container.hide();
+        }
+    });
+
+
+</script>
+
+
+
+
+}
+
 
 @*<div class="form-horizontal">
             <h4>GESTION_PLANES_COBRO</h4>

@@ -1,0 +1,187 @@
+﻿@model IEnumerable<Infraestructure.Model.GESTION_PLANES_COBRO>
+
+@{
+    ViewBag.Title = "Listado Gestion de Planes";
+}
+
+<style>
+    .titulo-pagina {
+        text-align: center;
+        font-size: 2rem;
+        color: #336699;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+</style>
+
+<h1 class="titulo-pagina">@ViewBag.Title</h1>
+
+<style>
+    .card {
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+        margin-right: 10px;
+    }
+
+    .card-body {
+        padding: 1rem;
+    }
+
+    .btn-detalle {
+        margin: 1rem;
+    }
+
+    .container-tarjetas {
+        margin-top: 20px;
+    }
+    /* Estilos para el modal */
+    .custom-modal {
+        max-width: 600px; /* define el ancho máximo */
+    }
+
+    .modal-backdrop {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-content {
+        background-color: #f2f2f2;
+        border-radius: 10px;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    .modal-header {
+        background-color: #336699;
+        color: white;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    .modal-title {
+        font-size: 1.5rem;
+    }
+
+    .modal-body {
+        padding: 1rem;
+    }
+
+    .modal-footer {
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+</style>
+
+<div class="container-tarjetas d-flex justify-content-center flex-wrap">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">@item.NOMBRE_PLAN</h5>
+                    <p class="card-text"><i class="fas fa-home"></i> Número de residencia: @item.RESIDENCIA.NUMERO_RESIDENCIA</p>
+                    <p class="card-text"><i class="fas fa-users"></i> Estado: @item.ESTADO_DEUDA.NOMBRE_ESTADO_DEUDA</p>
+                    <button type="button" class="btn btn-primary btn-detalle" data-toggle="modal" data-target="#modalDetalle_@item.ID_GESTION_PLANES_COBRO">
+                        <i class="fas fa-info-circle"></i> Vista Previa
+                    </button>
+                    <a href="@Url.Action("Details", "GestionPlanesCobro", new { id = item.ID_GESTION_PLANES_COBRO })" class="btn btn-success">
+                        <i class="fas fa-info-circle"></i> Detalles
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="modalDetalle_@item.ID_GESTION_PLANES_COBRO" tabindex="-1" role="dialog" aria-labelledby="modalDetalleLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header bg-primary text-white">
+                        <h5 class="modal-title" id="modalDetalleLabel"><i class="fas fa-info-circle"></i> </h5>
+
+                        <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close" style="position:absolute; top: 10px; right: 10px;">
+                            <span aria-hidden="true"><i class="fas fa-times"></i></span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p class="card-text"><i class="fas fa-home"></i> Número de residencia: @item.RESIDENCIA.NUMERO_RESIDENCIA</p>
+                        <p class="card-text"><i class="fas fa-users"></i> Estado: @item.ESTADO_DEUDA.NOMBRE_ESTADO_DEUDA</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="position:absolute; top: 10px; right: 10px;">
+                            <span aria-hidden="true"><i class="fas fa-times text-black"></i></span>
+                        </button>
+                        <a href="@Url.Action("Details", new { id = item.ID_GESTION_PLANES_COBRO })" class="btn btn-primary">
+                            <i class="fa fa-info-circle"></i> Ver detalles completos
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@*<table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NOMBRE_PLAN)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DESCRIPCION)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FECHA_INICIO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FECHA_FIN)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TOTAL)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ESTADO_DEUDA.NOMBRE_ESTADO_DEUDA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PLAN_COBRO.NOMBRE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RESIDENCIA.ID_RESIDENCIA)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NOMBRE_PLAN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DESCRIPCION)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FECHA_INICIO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FECHA_FIN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TOTAL)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ESTADO_DEUDA.NOMBRE_ESTADO_DEUDA)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PLAN_COBRO.NOMBRE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RESIDENCIA.ID_RESIDENCIA)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.ID_GESTION_PLANES_COBRO }) |
+                @Html.ActionLink("Details", "Details", new { id=item.ID_GESTION_PLANES_COBRO }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.ID_GESTION_PLANES_COBRO })
+            </td>
+        </tr>
+    }
+
+    </table>*@

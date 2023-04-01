@@ -19,9 +19,8 @@
                 <th>Descripcion</th>
                 <th>N° Residencia</th>
                 <th>Estado</th>
-                <th>Fecha Inicio</th>
+                <th>Fecha Publicación</th>
                 <th>Fecha Vencimiento</th>
-
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -35,11 +34,13 @@
                     <td>@Html.DisplayFor(modelItem => item.ESTADO_DEUDA.NOMBRE_ESTADO_DEUDA)</td>
                     <td>@Html.DisplayFor(modelItem => item.FECHA_INICIO)</td>
                     <td>@Html.DisplayFor(modelItem => item.FECHA_FIN)</td>
+
                     <td>
                         <div class="d-flex justify-content-center mb-3">
-                            <a href="@Url.Action("Edit", "Incidencia", new { id = item.ID_GESTION_PLANES_COBRO })" class="btn @(item.ID_ESTADO_DEUDA == 1 ? "btn-success" : "btn-warning") btn-sm">
+                            <a href="@Url.Action("Edit", "", new { id = item.ID_GESTION_PLANES_COBRO })" class="btn @(item.ID_ESTADO_DEUDA == 1 ? "btn-success" : "btn-warning") btn-sm">
                                 <i class="fas @(item.ID_ESTADO_DEUDA == 1 ? "fa-check-circle" : "fa-undo-alt") me-2"></i>@(item.ID_ESTADO_DEUDA == 1 ? "Cerrar incidencia" : "Reabrir incidencia")
                             </a>
+                            <a href="@Url.Action("Edit", "GestionPlanesCobro", new { id = item.ID_GESTION_PLANES_COBRO })" class="btn btn-primary btn-sm mx-1"><i class="fas fa-pencil-alt"></i> </a>
                         </div>
                     </td>
                 </tr>

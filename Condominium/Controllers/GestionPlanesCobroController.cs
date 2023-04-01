@@ -14,7 +14,19 @@ namespace Condominium.Controllers
         // GET: GestionPlanesCobro
         public ActionResult Index()
         {
-            return View();
+            IEnumerable<GESTION_PLANES_COBRO> list = null;
+            try
+            {
+                IServiceGestionPlanesCobro serviceGestionPlanesCobro =  new ServiceGestionPlanesCobro();
+                list = serviceGestionPlanesCobro.getGestionPlanesCobro();
+                return View(list);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, MethodBase.GetCurrentMethod());
+                TempData["Message"] = "Error al procesar los datos!" + ex.Message;
+                return RedirectToAction("Default", "Error");
+            }
         }
 
         public ActionResult IndexAdmin()
@@ -78,7 +90,7 @@ namespace Condominium.Controllers
                 }
                 else
                 {
-                  //  ViewBag.idResidencia = listaResidencias(gestion.ID_RESIDENCIA);
+                    ViewBag.idResidencia = listaResidencias(gestion.ID_RESIDENCIA);
                     ViewBag.idEstadoDeuda = listaEstadoDeuda(gestion.ID_ESTADO_DEUDA);
                     ViewBag.idPlanCobro = listaPlanCobro((int)gestion.ID_PLAN_COBRO);
 
@@ -139,6 +151,33 @@ namespace Condominium.Controllers
                 Log.Error(ex, MethodBase.GetCurrentMethod());
                 TempData["Message"] = "Error al procesar los datos!" + ex.Message;
                 return RedirectToAction("Default", "Error");
+            }
+        }
+
+        public ActionResult Details(int? id)
+        {
+            IServiceGestionPlanesCobro serviceGestionPlanes = new ServiceGestionPlanesCobro();
+            GESTION_PLANES_COBRO residencia = null;
+            try
+            {
+                // si va null
+                if (id == null)
+                {
+                    return RedirectToAction("Index");
+                }
+                residencia = serviceGestionPlanes.getGestionPlanesCobroById(Convert.ToInt32(id));
+                if (residencia == null)
+                {
+                    TempData["Message"] = "No se encontro el registro";
+                    TempData["Redirect"] = "Residencia";
+                    TempData["Redirect-Action"] = "Index";
+                    return RedirectToAction("Default", "Error");
+                }
+                return View(residencia);
+            }
+            catch
+            {
+                throw;
             }
         }
     }

@@ -63,12 +63,12 @@
     <Key>
       <PropertyRef Name="ID_GESTION_PLANES_COBRO" />
     </Key>
-    <Property Name="ID_GESTION_PLANES_COBRO" Type="int" Nullable="false" />
-    <Property Name="ID_USUARIO" Type="int" Nullable="false" />
-    <Property Name="ID_PLAN_COBRO" Type="int" />
+    <Property Name="ID_GESTION_PLANES_COBRO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_RESIDENCIA" Type="int" Nullable="false" />
+    <Property Name="ID_PLAN_COBRO" Type="int" Nullable="false" />
     <Property Name="ID_ESTADO_DEUDA" Type="int" Nullable="false" />
-    <Property Name="NOMBRE_PLAN" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="DESCRIPCION" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="NOMBRE_PLAN" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="varchar" MaxLength="500" Nullable="false" />
     <Property Name="FECHA_INICIO" Type="date" />
     <Property Name="FECHA_FIN" Type="date" />
     <Property Name="TOTAL" Type="decimal" Precision="18" Scale="0" />
@@ -382,7 +382,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_GESTION_PLANES_COBRO_PLAN_COBRO">
-    <End Role="PLAN_COBRO" Type="Self.PLAN_COBRO" Multiplicity="0..1" />
+    <End Role="PLAN_COBRO" Type="Self.PLAN_COBRO" Multiplicity="1" />
     <End Role="GESTION_PLANES_COBRO" Type="Self.GESTION_PLANES_COBRO" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="PLAN_COBRO">
@@ -390,6 +390,18 @@
       </Principal>
       <Dependent Role="GESTION_PLANES_COBRO">
         <PropertyRef Name="ID_PLAN_COBRO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GESTION_PLANES_COBRO_RESIDENCIA">
+    <End Role="RESIDENCIA" Type="Self.RESIDENCIA" Multiplicity="1" />
+    <End Role="GESTION_PLANES_COBRO" Type="Self.GESTION_PLANES_COBRO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RESIDENCIA">
+        <PropertyRef Name="ID_RESIDENCIA" />
+      </Principal>
+      <Dependent Role="GESTION_PLANES_COBRO">
+        <PropertyRef Name="ID_RESIDENCIA" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -414,18 +426,6 @@
       </Principal>
       <Dependent Role="PLAN_COBRO_RUBRO_COBRO">
         <PropertyRef Name="ID_PLAN_COBRO" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_PLAN_COBRO_USUARIO">
-    <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
-    <End Role="GESTION_PLANES_COBRO" Type="Self.GESTION_PLANES_COBRO" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="USUARIO">
-        <PropertyRef Name="ID_USUARIO" />
-      </Principal>
-      <Dependent Role="GESTION_PLANES_COBRO">
-        <PropertyRef Name="ID_USUARIO" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -515,6 +515,10 @@
       <End Role="PLAN_COBRO" EntitySet="PLAN_COBRO" />
       <End Role="GESTION_PLANES_COBRO" EntitySet="GESTION_PLANES_COBRO" />
     </AssociationSet>
+    <AssociationSet Name="FK_GESTION_PLANES_COBRO_RESIDENCIA" Association="Self.FK_GESTION_PLANES_COBRO_RESIDENCIA">
+      <End Role="RESIDENCIA" EntitySet="RESIDENCIA" />
+      <End Role="GESTION_PLANES_COBRO" EntitySet="GESTION_PLANES_COBRO" />
+    </AssociationSet>
     <AssociationSet Name="FK_PLAN_COBRO_ESTADO_DEUDA" Association="Self.FK_PLAN_COBRO_ESTADO_DEUDA">
       <End Role="ESTADO_DEUDA" EntitySet="ESTADO_DEUDA" />
       <End Role="GESTION_PLANES_COBRO" EntitySet="GESTION_PLANES_COBRO" />
@@ -522,10 +526,6 @@
     <AssociationSet Name="FK_PLAN_COBRO_RUBRO_COBRO_PLAN_COBRO" Association="Self.FK_PLAN_COBRO_RUBRO_COBRO_PLAN_COBRO">
       <End Role="PLAN_COBRO" EntitySet="PLAN_COBRO" />
       <End Role="PLAN_COBRO_RUBRO_COBRO" EntitySet="PLAN_COBRO_RUBRO_COBRO" />
-    </AssociationSet>
-    <AssociationSet Name="FK_PLAN_COBRO_USUARIO" Association="Self.FK_PLAN_COBRO_USUARIO">
-      <End Role="USUARIO" EntitySet="USUARIO" />
-      <End Role="GESTION_PLANES_COBRO" EntitySet="GESTION_PLANES_COBRO" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

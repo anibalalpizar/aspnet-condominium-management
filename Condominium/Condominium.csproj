@@ -399,9 +399,11 @@
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Login\UnAuthorized.cshtml" />
     <Content Include="Views\GestionPlanesCobro\IndexAdmin.cshtml" />
-    <Content Include="Views\GestionPlanesCobro\Create.cshtml" />
     <Content Include="Views\GestionPlanesCobro\Edit.cshtml" />
     <Content Include="Views\AreasComunes\Index.cshtml" />
+    <Content Include="Views\GestionPlanesCobro\Create.cshtml" />
+    <Content Include="Views\GestionPlanesCobro\Index.cshtml" />
+    <Content Include="Views\GestionPlanesCobro\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

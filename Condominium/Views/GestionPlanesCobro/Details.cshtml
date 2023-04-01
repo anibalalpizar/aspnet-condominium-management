@@ -1,0 +1,99 @@
+﻿@model Infraestructure.Model.GESTION_PLANES_COBRO
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-6">
+                <h4 class="card-title">Gestion Planes Cobro</h4>
+                <hr />
+                <dl class="row">
+                    <dt class="col-sm-4">
+                        <i class="fas fa-building"></i> @Html.DisplayName("ID de la residencia")
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.ID_GESTION_PLANES_COBRO)
+                    </dd>
+                    <dt class="col-sm-4">
+                        <i class="fas fa-home"></i> @Html.DisplayName("Número de la residencia")
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.RESIDENCIA.NUMERO_RESIDENCIA)
+                    </dd>
+
+                    <dt class="col-sm-4">
+                        <i class="fas fa-users"></i> @Html.DisplayName("Plan Cobro")
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.NOMBRE_PLAN)
+                    </dd>
+
+                    <dt class="col-sm-4">
+                        <i class="fas fa-car"></i> @Html.DisplayName("Descripción del Plan")
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.DESCRIPCION)
+                    </dd>
+
+                    <dt class="col-sm-4">
+                        <i class="fas fa-calendar"></i> @Html.DisplayName("Estado Deuda")
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.ESTADO_DEUDA.NOMBRE_ESTADO_DEUDA)
+                    </dd>
+
+                    <dt class="col-sm-4">
+                        <i class="fas fa-car"></i> @Html.DisplayName("Fecha Inicio")
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.FECHA_INICIO)
+                    </dd>
+
+                    <dt class="col-sm-4">
+                        <i class="fas fa-car"></i> @Html.DisplayName("Fecha Vencimiento")
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.FECHA_FIN)
+                    </dd>
+                </dl>
+            </div>
+            @*<div class="col-md-6">
+                <h4 class="card-title">Usuario</h4>
+                <hr />
+                <dl class="row">
+                    <dt class="col-sm-4">
+                        <i class="fas fa-id-card"></i> Nombre Usuario:
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.RESIDENCIA.USUARIO.NOMBRE)
+                    </dd>
+
+                    <dt class="col-sm-4">
+                        <i class="fas fa-user"></i> Apellido del Usuario:
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.RESIDENCIA.USUARIO.APELLIDO)
+                    </dd>
+
+                    <dt class="col-sm-4">
+                        <i class="fas fa-envelope"></i> Correo del Usuario:
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.RESIDENCIA.USUARIO.CORREO)
+                    </dd>
+                </dl>
+            </div>*@
+        </div>
+    </div>
+</div>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_GESTION_PLANES_COBRO }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
