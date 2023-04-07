@@ -16,10 +16,10 @@ namespace Infraestructure.Repository
             IEnumerable<RESERVA_AREA_COMUN> lista = null;
             try
             {
-                using(MyContext ctx = new MyContext())
+                using (MyContext ctx = new MyContext())
                 {
                     ctx.Configuration.LazyLoadingEnabled = false;
-                    lista = ctx.RESERVA_AREA_COMUN.Include(x => x.ESTADO_RESERVACION).Include(x => x.AREA_COMUN).ToList();
+                    lista = ctx.RESERVA_AREA_COMUN.ToList();
                 }
                 return lista;
             }
@@ -36,5 +36,6 @@ namespace Infraestructure.Repository
                 throw;
             }
         }
+
     }
 }
