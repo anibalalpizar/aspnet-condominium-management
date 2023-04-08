@@ -134,8 +134,10 @@
       <DependentUpon>MyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\IRepositoryAreasComunes.cs" />
     <Compile Include="Repository\IRepositoryEstadoDeuda.cs" />
     <Compile Include="Repository\IRepositoryEstadoIncidencia.cs" />
+    <Compile Include="Repository\IRepositoryEstadoReservacion.cs" />
     <Compile Include="Repository\IRepositoryEstadoUsuario.cs" />
     <Compile Include="Repository\IRepositoryGestionPlanesCobro.cs" />
     <Compile Include="Repository\IRepositoryNoticias.cs" />
@@ -144,8 +146,10 @@
     <Compile Include="Repository\IRepositoryTipoUsuario.cs" />
     <Compile Include="Repository\IRepositoryUsuario.cs" />
     <Compile Include="Repository\IRepositotyIncidencia.cs" />
+    <Compile Include="Repository\RepositoryAreasComunes.cs" />
     <Compile Include="Repository\RepositoryEstadoDeuda.cs" />
     <Compile Include="Repository\RepositoryEstadoIncidencia.cs" />
+    <Compile Include="Repository\RepositoryEstadoReservacion.cs" />
     <Compile Include="Repository\RepositoryEstadosCuenta.cs" />
     <Compile Include="Repository\IRepositoryEstadosCuenta.cs" />
     <Compile Include="Repository\IRepositoryPlanCobro.cs" />

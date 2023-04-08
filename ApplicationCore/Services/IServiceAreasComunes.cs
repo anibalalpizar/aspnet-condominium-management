@@ -9,6 +9,6 @@ namespace ApplicationCore.Services
 {
     public interface IServiceAreasComunes
     {
-        IEnumerable<RESERVA_AREA_COMUN> GetAreasComunes();
+        IEnumerable<AREA_COMUN> GetAreaComun();
     }
 }

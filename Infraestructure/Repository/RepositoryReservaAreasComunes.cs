@@ -37,5 +37,73 @@ namespace Infraestructure.Repository
             }
         }
 
+        public RESERVA_AREA_COMUN GetReservaById(int id)
+        {
+            try
+            {
+                RESERVA_AREA_COMUN reserva = null;
+                using(MyContext ctx = new MyContext())
+                {
+                    ctx.Configuration.LazyLoadingEnabled = false;
+                    reserva = ctx.RESERVA_AREA_COMUN.Where(x => x.ID_RESERVA_AREA_COMUN == id).Include("USUARIO").Include("AREA_COMUN").Include("ESTADO_RESERVACION").FirstOrDefault();
+                }
+                return reserva;
+            }
+            catch (DbUpdateException dbEx)
+            {
+                string mensaje = "";
+                Log.Error(dbEx, System.Reflection.MethodBase.GetCurrentMethod(), ref mensaje);
+                throw new Exception(mensaje);
+            }
+            catch (Exception ex)
+            {
+                string mensaje = "";
+                Log.Error(ex, System.Reflection.MethodBase.GetCurrentMethod(), ref mensaje);
+                throw;
+            }
+        }
+
+        public RESERVA_AREA_COMUN Save(RESERVA_AREA_COMUN area)
+        {
+            try
+            {
+                int retorno = 0;
+                RESERVA_AREA_COMUN reserva = null;
+                using( MyContext ctx = new MyContext())
+                {
+                    ctx.Configuration.LazyLoadingEnabled = false;
+                    reserva = GetReservaById(area.ID_RESERVA_AREA_COMUN);
+
+                    if (reserva == null)
+                    {
+                        ctx.RESERVA_AREA_COMUN.Add(area);
+                        retorno= ctx.SaveChanges();
+                    }
+                    else
+                    {
+                        ctx.RESERVA_AREA_COMUN.Add(area);
+                        ctx.Entry(area).State = EntityState.Modified;
+                        retorno = ctx.SaveChanges();
+                    }
+                }
+
+                if (retorno > 0)
+                    area = GetReservaById((int)area.ID_RESERVA_AREA_COMUN);
+
+                return reserva;
+            }
+            catch (DbUpdateException dbEx)
+            {
+                string mensaje = "";
+                Log.Error(dbEx, System.Reflection.MethodBase.GetCurrentMethod(), ref mensaje);
+                throw new Exception(mensaje);
+            }
+            catch (Exception ex)
+            {
+                string mensaje = "";
+                Log.Error(ex, System.Reflection.MethodBase.GetCurrentMethod(), ref mensaje);
+                throw;
+            }
+        }
     }
 }

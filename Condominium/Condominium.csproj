@@ -131,7 +131,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\AreasComunesController.cs" />
+    <Compile Include="Controllers\ReservacionAreasComunesController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\EstadosCuentaController.cs" />
     <Compile Include="Controllers\GestionPlanesCobroController.cs" />
@@ -404,6 +404,7 @@
     <Content Include="Views\GestionPlanesCobro\Create.cshtml" />
     <Content Include="Views\GestionPlanesCobro\Index.cshtml" />
     <Content Include="Views\GestionPlanesCobro\Details.cshtml" />
+    <Content Include="Views\ReservacionAreasComunes\IndexAdmin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

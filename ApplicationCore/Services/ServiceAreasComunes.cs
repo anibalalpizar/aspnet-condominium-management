@@ -10,10 +10,10 @@ namespace ApplicationCore.Services
 {
     public class ServiceAreasComunes : IServiceAreasComunes
     {
-        public IEnumerable<RESERVA_AREA_COMUN> GetAreasComunes()
+        public IEnumerable<AREA_COMUN> GetAreaComun()
         {
-            IRepositoryReservaAreasComunes repository = new RepositoryReservaAreasComunes();
-            return repository.GetAreasComunes();
+            IRepositoryAreasComunes repositoryAreasComunes = new RepositoryAreasComunes();
+            return repositoryAreasComunes.GetAreaComun();
         }
     }
 }
