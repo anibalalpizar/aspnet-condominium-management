@@ -404,11 +404,11 @@
     <Content Include="Views\GestionPlanesCobro\Create.cshtml" />
     <Content Include="Views\GestionPlanesCobro\Index.cshtml" />
     <Content Include="Views\GestionPlanesCobro\Details.cshtml" />
-    <Content Include="Views\ReservacionAreasComunes\IndexAdmin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\ReservacionAreasComunes\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
