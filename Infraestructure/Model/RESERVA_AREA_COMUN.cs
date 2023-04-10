@@ -18,8 +18,8 @@ namespace Infraestructure.Model
         public int ID_USUARIO { get; set; }
         public int ID_AREA_COMUN { get; set; }
         public System.DateTime FECHA_RESERVA { get; set; }
-        public System.DateTime HORA_INICIO { get; set; }
-        public System.DateTime HORA_FIN { get; set; }
+        public Nullable<System.DateTime> HORA_INICIO { get; set; }
+        public Nullable<System.DateTime> HORA_FIN { get; set; }
         public int ID_ESTADO_RESERVACION { get; set; }
         public string COMENTARIOS { get; set; }
     

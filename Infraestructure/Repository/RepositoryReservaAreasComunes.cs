@@ -19,7 +19,7 @@ namespace Infraestructure.Repository
                 using (MyContext ctx = new MyContext())
                 {
                     ctx.Configuration.LazyLoadingEnabled = false;
-                    lista = ctx.RESERVA_AREA_COMUN.ToList();
+                    lista = ctx.RESERVA_AREA_COMUN.Include(x => x.USUARIO).Include(x => x.AREA_COMUN).Include(x => x.ESTADO_RESERVACION).ToList();
                 }
                 return lista;
             }

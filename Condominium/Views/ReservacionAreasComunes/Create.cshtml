@@ -1,0 +1,220 @@
+﻿@model Infraestructure.Model.RESERVA_AREA_COMUN
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm("Save", "ReservacionAreasComunes", FormMethod.Post, new { enctype = "multipart/form-data", @class = "col-md-8 offset-md-2" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title text-center mb-4"><i class="fas fa-newspaper"></i> Crear Una Reserva</h4>
+
+                        <div class="form-group">
+                            <label for="ID_USUARIO" class="form-label"><i class="fas fa-newspaper"></i> Usuario </label>
+                            <div>
+                                @Html.DropDownListFor(model => model.ID_USUARIO,
+                                    (SelectList)ViewBag.idResidente,
+                                    "Seleccione el Residente",
+                                    htmlAttributes: new { @class = "form-control" })
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ID_AREA_COMUN" class="form-label"><i class="fas fa-newspaper"></i> Área Común </label>
+                            <div>
+                                @Html.DropDownListFor(model => model.ID_AREA_COMUN,
+                                    (SelectList)ViewBag.idAreaComun,
+                                    "Seleccione el Área Común a Reservar",
+                                    htmlAttributes: new { @class = "form-control" })
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ID_ESTADO_RESERVACION" class="form-label"><i class="fas fa-newspaper"></i> Estado </label>
+                            <div>
+                                @Html.DropDownListFor(model => model.ID_ESTADO_RESERVACION,
+                                    (SelectList)ViewBag.idEstadoReservacion,
+                                    "Seleccione el Estado de la Reservación",
+                                    htmlAttributes: new { @class = "form-control" })
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="COMENTARIOS">
+                                <i class="fas fa-pencil-alt"></i> Comentarios
+                            </label>
+                            <div>
+                                @Html.EditorFor(model => model.COMENTARIOS, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.COMENTARIOS, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        @*<div class="form-group">
+                            <label class="form-label" for="HORA_INICIO">
+                                <i class="fas fa-pencil-alt"></i> HORA INICIO
+                            </label>
+                            <div>
+                                @Html.EditorFor(model => model.HORA_INICIO, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.HORA_INICIO, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="HORA_FIN">
+                                <i class="fas fa-pencil-alt"></i> HORA FIN
+                            </label>
+                            <div>
+                                @Html.EditorFor(model => model.HORA_FIN, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.HORA_FIN, "", new { @class = "text-danger" })
+                            </div>
+                        </div>*@
+
+                        <div class="form-group">
+                            <h5><i class="fas fa-calendar"></i> @Html.LabelFor(model => model.FECHA_RESERVA, "Fecha Reserva", htmlAttributes: new { @class = "form-label" })</h5>
+                            <div class="position-relative">
+                                @Html.EditorFor(model => model.FECHA_RESERVA, new { htmlAttributes = new { @class = "form-control datepicker" } })
+                                <span class="position-absolute top-50 translate-middle-y end-0 me-2" onclick="$(this).prev().focus();"><i class="fas fa-calendar text-muted"></i></span>
+                            </div>
+                            @Html.ValidationMessageFor(model => model.FECHA_RESERVA, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group text-center">
+                            <div class="btn-group" role="group">
+                                <button type="submit" class="btn btn-primary"><i class="fas fa-plus"></i> Crear</button>
+                                <a href="@Url.Action("IndexAdmin", "ReservacionAreasComunes")" class="btn btn-danger"><i class="fas fa-times"></i> Cancelar</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+@section scripts {    @Scripts.Render("~/bundles/jqueryval")
+
+<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/smoothness/jquery-ui.css" />
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+<script>
+    $(() => {
+        $(".datepicker").datepicker({
+            dateFormat: "yy-mm-dd",
+            showAnim: "slideDown",
+            theme: "base",
+            themeRoller: {
+                primary: "#333333",
+                secondary: "#F5F5F5",
+                text: "#333333",
+                hover: "#F5F5F5",
+                active: "#CCCCCC"
+            }
+        });
+    });
+
+    toggleCalendar = () => {
+        var calendar = document.getElementById("calendar");
+        if (calendar.style.display === "none") {
+            calendar.style.display = "block";
+        } else {
+            calendar.style.display = "none";
+        }
+    }
+
+    $(document).mouseup((e) => {
+        var container = $("#calendar");
+        if (!container.is(e.target) && container.has(e.target).length === 0) {
+            container.hide();
+        }
+    });
+
+
+</script>
+
+
+
+
+}
+
+@*<div class="form-horizontal">
+            <h4>RESERVA_AREA_COMUN</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.ID_USUARIO, "ID_USUARIO", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("ID_USUARIO", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ID_USUARIO, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ID_AREA_COMUN, "ID_AREA_COMUN", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("ID_AREA_COMUN", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ID_AREA_COMUN, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.FECHA_RESERVA, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.FECHA_RESERVA, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.FECHA_RESERVA, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.HORA_INICIO, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.HORA_INICIO, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.HORA_INICIO, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.HORA_FIN, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.HORA_FIN, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.HORA_FIN, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ID_ESTADO_RESERVACION, "ID_ESTADO_RESERVACION", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("ID_ESTADO_RESERVACION", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ID_ESTADO_RESERVACION, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.COMENTARIOS, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.COMENTARIOS, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.COMENTARIOS, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>*@

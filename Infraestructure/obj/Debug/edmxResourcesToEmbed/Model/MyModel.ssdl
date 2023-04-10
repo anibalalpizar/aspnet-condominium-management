@@ -129,8 +129,8 @@
     <Property Name="ID_USUARIO" Type="int" Nullable="false" />
     <Property Name="ID_AREA_COMUN" Type="int" Nullable="false" />
     <Property Name="FECHA_RESERVA" Type="datetime" Nullable="false" />
-    <Property Name="HORA_INICIO" Type="datetime" Nullable="false" />
-    <Property Name="HORA_FIN" Type="datetime" Nullable="false" />
+    <Property Name="HORA_INICIO" Type="datetime" />
+    <Property Name="HORA_FIN" Type="datetime" />
     <Property Name="ID_ESTADO_RESERVACION" Type="int" Nullable="false" />
     <Property Name="COMENTARIOS" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>

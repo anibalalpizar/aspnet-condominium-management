@@ -140,8 +140,8 @@
     <Property Name="ID_USUARIO" Type="Int32" Nullable="false" />
     <Property Name="ID_AREA_COMUN" Type="Int32" Nullable="false" />
     <Property Name="FECHA_RESERVA" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="HORA_INICIO" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="HORA_FIN" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="HORA_INICIO" Type="DateTime" Precision="3" />
+    <Property Name="HORA_FIN" Type="DateTime" Precision="3" />
     <Property Name="ID_ESTADO_RESERVACION" Type="Int32" Nullable="false" />
     <Property Name="COMENTARIOS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="AREA_COMUN" Relationship="Self.FK__RESERVA_A__ID_AR__6C190EBB" FromRole="RESERVA_AREA_COMUN" ToRole="AREA_COMUN" />

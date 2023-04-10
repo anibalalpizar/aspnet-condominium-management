@@ -70,7 +70,7 @@ namespace Condominium.Controllers
         {
             IServiceAreasComunes services = new ServiceAreasComunes();
             IEnumerable<AREA_COMUN> listaArea = services.GetAreaComun();
-            return new SelectList(listaArea, "ID_AREA_COMUN", "AREA_COMUN", area);
+            return new SelectList(listaArea, "ID_AREA_COMUN", "AREA_COMUN1", area);
         }
 
         //Lista para traer los estados de las reservacion
