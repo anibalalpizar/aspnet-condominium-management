@@ -10,6 +10,20 @@
 {
     @Html.AntiForgeryToken()
 
+<div class="card-deck">
+    @foreach (var areaComun in ViewBag.idAreaComun)
+    {
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">@areaComun.Text</h5>
+                <p class="card-text">@areaComun.Value</p>
+                <a href="#" class="btn btn-primary reservar" data-id="@areaComun.Value">Reservar</a>
+            </div>
+        </div>
+    }
+</div>
+
+
     <div class="container">
         <div class="row">
             <div class="col-md-8 offset-md-2">
@@ -34,10 +48,10 @@
                                 @Html.DropDownListFor(model => model.ID_AREA_COMUN,
                                     (SelectList)ViewBag.idAreaComun,
                                     "Seleccione el Área Común a Reservar",
-                                    htmlAttributes: new { @class = "form-control" })
+                                    htmlAttributes: new { @class = "form-control", @id = "area-comun-dropdown" })
                             </div>
-
                         </div>
+
 
                         <div class="form-group">
                             <label for="ID_ESTADO_RESERVACION" class="form-label"><i class="fas fa-newspaper"></i> Estado </label>
@@ -59,26 +73,6 @@
                                 @Html.ValidationMessageFor(model => model.COMENTARIOS, "", new { @class = "text-danger" })
                             </div>
                         </div>
-
-                        @*<div class="form-group">
-                            <label class="form-label" for="HORA_INICIO">
-                                <i class="fas fa-pencil-alt"></i> HORA INICIO
-                            </label>
-                            <div>
-                                @Html.EditorFor(model => model.HORA_INICIO, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.HORA_INICIO, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="form-label" for="HORA_FIN">
-                                <i class="fas fa-pencil-alt"></i> HORA FIN
-                            </label>
-                            <div>
-                                @Html.EditorFor(model => model.HORA_FIN, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.HORA_FIN, "", new { @class = "text-danger" })
-                            </div>
-                        </div>*@
 
                         <div class="form-group">
                             <h5><i class="fas fa-calendar"></i> @Html.LabelFor(model => model.FECHA_RESERVA, "Fecha Reserva", htmlAttributes: new { @class = "form-label" })</h5>
@@ -139,82 +133,36 @@
         }
     });
 
+    document.addEventListener("DOMContentLoaded", function () {
+        console.log("Botón Reservar fue clickeado");
+        var botonesReserva = document.querySelectorAll(".reservar");
+        botonesReserva.forEach(function (botonReserva) {
+            botonReserva.addEventListener("click", function () {
+                var idAreaComun = botonReserva.getAttribute("data-id");
+                var dropDownList = document.getElementById("area-comun-dropdown");
+                if (dropDownList !== null) {
+                    var opciones = dropDownList.options;
+                    for (var i = 0; i < opciones.length; i++) {
+                        if (opciones[i].value === idAreaComun) {
+                            opciones[i].selected = true;
+                            break;
+                        }
+                    }
+                }
+            });
+        });
+    });
+
+
+
+
+
+
+
+
 
 </script>
 
-
-
-
 }
 
-@*<div class="form-horizontal">
-            <h4>RESERVA_AREA_COMUN</h4>
-            <hr />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div class="form-group">
-                @Html.LabelFor(model => model.ID_USUARIO, "ID_USUARIO", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.DropDownList("ID_USUARIO", null, htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.ID_USUARIO, "", new { @class = "text-danger" })
-                </div>
-            </div>
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.ID_AREA_COMUN, "ID_AREA_COMUN", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.DropDownList("ID_AREA_COMUN", null, htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.ID_AREA_COMUN, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.FECHA_RESERVA, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.FECHA_RESERVA, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.FECHA_RESERVA, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.HORA_INICIO, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.HORA_INICIO, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.HORA_INICIO, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.HORA_FIN, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.HORA_FIN, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.HORA_FIN, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.ID_ESTADO_RESERVACION, "ID_ESTADO_RESERVACION", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.DropDownList("ID_ESTADO_RESERVACION", null, htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.ID_ESTADO_RESERVACION, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.COMENTARIOS, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.COMENTARIOS, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.COMENTARIOS, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Create" class="btn btn-default" />
-                </div>
-            </div>
-        </div>
-    }
-
-    <div>
-        @Html.ActionLink("Back to List", "Index")
-    </div>*@
