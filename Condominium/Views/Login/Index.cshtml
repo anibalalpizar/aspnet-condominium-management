@@ -34,9 +34,6 @@
 @using (Html.BeginForm("Login", "Login"))
 {
     @Html.AntiForgeryToken()
-    @*@Html.ValidationSummary(true, "", new { @class = "text-danger" })*@
-
-
     <section class="vh-100" style="background-color: #9A616D;">
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
@@ -49,21 +46,15 @@
                             </div>
                             <div class="col-md-6 col-lg-7 d-flex align-items-center">
                                 <div class="card-body p-4 p-lg-5 text-black">
-
                                     <form>
-
                                         <div class="d-flex align-items-center mb-3 pb-1" style="margin-top: 5px;">
                                             <a class="navbar-brand ps-3" href="/" style="color: #f5a442; font-size: 1.3rem;">
                                                 <i class="fas fa-leaf me-2"></i>
                                                 GreenConnect
                                             </a>
-
                                         </div>
                                         <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Bienvenidos a Condominios Rio Sur. Inicie Seción con su cuenta</h5>
-
-                                        <div class="form-outline mb-4">
-                                            @*@Html.LabelFor(model => model.CORREO, htmlAttributes: new { @class = "control-label col-md-2" })*@
-                                           
+                                        <div class="form-outline mb-4">                                         
                                             <label class="form-label" for="CORREO">
                                                 <i class="fa-solid fa-envelope"></i>
                                                 Correo
@@ -73,9 +64,7 @@
                                                 @Html.ValidationMessageFor(model => model.CORREO, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
-
                                         <div class="form-outline mb-4">
-                                            @*@Html.LabelFor(model => model.CONTRASENA, htmlAttributes: new { @class = "control-label col-md-2" })*@
                                             <label class="form-label" for="CONTRASENA">
                                                 <i class="fa-solid fa-lock"></i>
                                                     Contraseña
@@ -85,21 +74,11 @@
                                                 @Html.ValidationMessageFor(model => model.CONTRASENA, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
-
                                         <div class="pt-1 mb-4">
                                             @*<button class="btn btn-dark btn-lg btn-block" type="button">Login</button>*@
                                             <button type="submit" class="btn btn-dark btn-lg btn-block"> Login</button>
                                         </div>
-
-                                        @*<a class="small text-muted" href="#!">Forgot password?</a>
-                                        <p class="mb-5 pb-lg-2" style="color: #393f81;">
-                                            Don't have an account? <a href="#!"
-                                                                      style="color: #393f81;">Register here</a>
-                                        </p>
-                                        <a href="#!" class="small text-muted">Terms of use.</a>
-                                        <a href="#!" class="small text-muted">Privacy policy</a>*@
                                     </form>
-
                                 </div>
                             </div>
                         </div>
@@ -108,10 +87,6 @@
             </div>
         </div>
     </section>
-
-   
-
-
 }
 
 @section Scripts {
