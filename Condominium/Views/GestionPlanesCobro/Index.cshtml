@@ -87,6 +87,9 @@
                     <a href="@Url.Action("Details", "GestionPlanesCobro", new { id = item.ID_GESTION_PLANES_COBRO })" class="btn btn-success">
                         <i class="fas fa-info-circle"></i> Detalles
                     </a>
+                    <a href="@Url.Action("Edit", "GestionPlanesCobro", new { id = item.ID_GESTION_PLANES_COBRO })" class="btn @(item.ID_ESTADO_DEUDA == 1 ? "btn-success" : "btn-warning") btn-sm">
+                        <i class="fas @(item.ID_ESTADO_DEUDA == 1 ? "fa-check-circle" : "fa-undo-alt") me-2"></i>@(item.ID_ESTADO_DEUDA == 1 ? "Cerrar incidencia" : "Reabrir incidencia")
+                    </a>
                 </div>
             </div>
         </div>
@@ -120,68 +123,3 @@
         </div>
     }
 </div>
-
-@*<table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.NOMBRE_PLAN)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DESCRIPCION)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FECHA_INICIO)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FECHA_FIN)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TOTAL)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ESTADO_DEUDA.NOMBRE_ESTADO_DEUDA)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PLAN_COBRO.NOMBRE)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.RESIDENCIA.ID_RESIDENCIA)
-            </th>
-            <th></th>
-        </tr>
-
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.NOMBRE_PLAN)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DESCRIPCION)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FECHA_INICIO)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FECHA_FIN)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TOTAL)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ESTADO_DEUDA.NOMBRE_ESTADO_DEUDA)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PLAN_COBRO.NOMBRE)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RESIDENCIA.ID_RESIDENCIA)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.ID_GESTION_PLANES_COBRO }) |
-                @Html.ActionLink("Details", "Details", new { id=item.ID_GESTION_PLANES_COBRO }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.ID_GESTION_PLANES_COBRO })
-            </td>
-        </tr>
-    }
-
-    </table>*@
