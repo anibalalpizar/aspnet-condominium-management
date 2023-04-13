@@ -360,7 +360,6 @@
     <Content Include="Views\Error\Index.cshtml" />
     <Content Include="Views\Error\NotFound.cshtml" />
     <Content Include="Views\Residencia\Index.cshtml" />
-    <Content Include="Views\PlanCobro\Index.cshtml" />
     <Content Include="Views\EstadosCuenta\Index.cshtml" />
     <Content Include="Views\EstadosCuenta\Details.cshtml" />
     <Content Include="Views\Shared\Components\_TopNav.cshtml" />
@@ -406,6 +405,9 @@
     <Content Include="Views\GestionPlanesCobro\Details.cshtml" />
     <Content Include="Views\ReservacionAreasComunes\IndexAdmin.cshtml" />
     <Content Include="Views\ReservacionAreasComunes\Create.cshtml" />
+    <Content Include="Views\PlanCobro\IndexPlanCobro.cshtml" />
+    <Content Include="Views\PlanCobro\DetailsPlanCobro.cshtml" />
+    <Content Include="Views\GestionPlanesCobro\IndexHistorialPagos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

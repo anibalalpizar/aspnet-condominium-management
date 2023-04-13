@@ -1,0 +1,75 @@
+﻿@model Infraestructure.Model.PLAN_COBRO
+
+@{
+    ViewBag.Title = "DetailsPlanCobro";
+}
+
+
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-6">
+                <h4 class="card-title">Gestion Planes Cobro</h4>
+                <hr />
+                <dl class="row">
+
+
+                    <dt class="col-sm-4">
+                        <i class="fas fa-home"></i> @Html.DisplayName("Descripción sobre el Plan de Cobro")
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.DESCRIPCION)
+                    </dd>
+
+                    <dt class="col-sm-4">
+                        <i class="fas fa-users"></i> @Html.DisplayName("Plan Cobro")
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.NOMBRE)
+                    </dd>
+
+                   
+                    <dd class="col-sm-8">
+                        <p style="margin-bottom: 0;">
+
+
+                            <span style="font-weight: normal;"> @Html.DisplayNameFor(model => model.RUBRO_COBRO)</span>
+                        </p>
+                        <ul style="list-style: none; margin: 0; padding: 0;">
+                            @{
+                                decimal suma = 0;
+
+                                foreach (var r in Model.RUBRO_COBRO)
+                                {
+                                    suma += r.MONTO ?? 0m;
+
+                                    <li style="margin-bottom: 5px;">
+                                        <i class="fas fa-check-circle" style="color: #4CAF50;"></i>
+                                        <span style="margin-left: 5px;">@r.NOMBRE_RUBRO =  @r.MONTO</span>
+
+                                    </li>
+                                }
+                            }
+                        </ul>
+
+
+                        <p style="margin-top: 10px;">
+                            <span style="font-weight: bold;">Total a pagar:</span>
+
+                            <span style="font-weight: normal;"> $@suma</span>
+                        </p>
+                    </dd>
+
+                  
+                </dl>
+            </div>
+           
+        </div>
+    </div>
+</div>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_COBRO_PLAN }) |
+    @Html.ActionLink("Back to List", "IndexPlanCobro")
+</p>
+

@@ -10,51 +10,51 @@
     <div class="row">
        
         <div class="col-md-6">
-           
-               
-                    <h2 class="accordion-header" id="headingTwo2">
-                 
-                            <i class="fas fa-calendar-alt"></i> Información del plan de cobro 
-                       
-                    </h2>
-               
-                       
-                               
-                                <p style="margin-bottom: 0;">
-                                  
-                                   
-                                    <span style="font-weight: normal;"> @Html.DisplayNameFor(model => model.RUBRO_COBRO)</span>
-                                </p>
 
-                                <ul style="list-style: none; margin: 0; padding: 0;">
-                                    @{
-                                        decimal suma = 0;
-                                       
-                                        foreach (var r in Model.RUBRO_COBRO)
-                                        {
-                                            suma += r.MONTO ?? 0m;
-                                           
-                                         <li style="margin-bottom: 5px;">
-                                         <i class="fas fa-check-circle" style="color: #4CAF50;"></i>
-                                         <span style="margin-left: 5px;">@r.NOMBRE_RUBRO =  @r.MONTO</span>
-                                        
-                                         </li>
-                                        }
-                                    }
-                                </ul>
 
-                              
-                                <p style="margin-top: 10px;">
-                                    <span style="font-weight: bold;">Total a pagar:</span>
-                                   
-                                    <span style="font-weight: normal;"> $@suma</span>
-                                </p>
-                                
+            <h2 class="accordion-header" id="headingTwo2">
 
-                              
+                <i class="fas fa-calendar-alt"></i> Información del plan de cobro
 
-              
-                
+            </h2>
+
+
+
+            <p style="margin-bottom: 0;">
+
+
+                <span style="font-weight: normal;"> @Html.DisplayNameFor(model => model.RUBRO_COBRO)</span>
+            </p>
+
+            <ul style="list-style: none; margin: 0; padding: 0;">
+                @{
+                    decimal suma = 0;
+
+                    foreach (var r in Model.RUBRO_COBRO)
+                    {
+                        suma += r.MONTO ?? 0m;
+
+                        <li style="margin-bottom: 5px;">
+                            <i class="fas fa-check-circle" style="color: #4CAF50;"></i>
+                            <span style="margin-left: 5px;">@r.NOMBRE_RUBRO =  @r.MONTO</span>
+
+                        </li>
+                    }
+                }
+            </ul>
+
+
+            <p style="margin-top: 10px;">
+                <span style="font-weight: bold;">Total a pagar:</span>
+
+                <span style="font-weight: normal;"> $@suma</span>
+            </p>
+
+
+
+
+
+        </div>
            
         </div>
     </div>

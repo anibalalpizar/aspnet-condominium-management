@@ -29,6 +29,26 @@ namespace Condominium.Controllers
             }
         }
 
+        public ActionResult IndexHistorialPagos()
+        {
+            IEnumerable<GESTION_PLANES_COBRO> list = null;
+            try
+            {
+                IServiceGestionPlanesCobro serviceGestionPlanesCobro = new ServiceGestionPlanesCobro();
+                list = serviceGestionPlanesCobro.getGestionPlanesCobro();
+                return View(list);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, MethodBase.GetCurrentMethod());
+                TempData["Message"] = "Error al procesar los datos!" + ex.Message;
+                return RedirectToAction("Default", "Error");
+            }
+        }
+
+
+
+
         public ActionResult IndexAdmin()
         {
             try
@@ -180,5 +200,7 @@ namespace Condominium.Controllers
                 throw;
             }
         }
+
+      
     }
 }

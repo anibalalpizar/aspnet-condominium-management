@@ -19,7 +19,7 @@ namespace Infraestructure.Repository
                 List<GESTION_PLANES_COBRO> lista = null;
                 using(MyContext ctx = new MyContext())
                 {
-                   lista = ctx.GESTION_PLANES_COBRO.Include("RESIDENCIA").Include("PLAN_COBRO").Include("ESTADO_DEUDA").ToList();
+                   lista = ctx.GESTION_PLANES_COBRO.Include("RESIDENCIA").Include("PLAN_COBRO").Include("ESTADO_DEUDA"). ToList();
                 }
 
                 return lista;
@@ -37,6 +37,36 @@ namespace Infraestructure.Repository
                 throw;
             }
         }
+
+        //public IEnumerable<GESTION_PLANES_COBRO> getGestionPlanesCobroVigentes()
+        //{
+        //    try
+        //    {
+        //        List<GESTION_PLANES_COBRO> lista = null;
+        //        using (MyContext ctx = new MyContext())
+        //        {
+        //            if ()
+        //            {
+
+        //            }
+        //            lista = ctx.GESTION_PLANES_COBRO.Include("RESIDENCIA").Include("PLAN_COBRO").Include("ESTADO_DEUDA").ToList();
+        //        }
+
+        //        return lista;
+        //    }
+        //    catch (DbUpdateException dbEx)
+        //    {
+        //        string mensaje = "";
+        //        Log.Error(dbEx, System.Reflection.MethodBase.GetCurrentMethod(), ref mensaje);
+        //        throw new Exception(mensaje);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        string mensaje = "";
+        //        Log.Error(ex, System.Reflection.MethodBase.GetCurrentMethod(), ref mensaje);
+        //        throw;
+        //    }
+        //}
 
         public GESTION_PLANES_COBRO getGestionPlanesCobroById(int id)
         {
@@ -69,6 +99,8 @@ namespace Infraestructure.Repository
                 throw;
             }
         }
+
+       
 
         public GESTION_PLANES_COBRO Save(GESTION_PLANES_COBRO gestion)
         {

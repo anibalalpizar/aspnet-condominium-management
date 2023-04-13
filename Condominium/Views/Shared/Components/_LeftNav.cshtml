@@ -112,31 +112,31 @@
                     <span style="margin-left: 10px;">Residencias</span>
                 </a>
             </div>
-            <div class="nav-item">
+            @*<div class="nav-item">
                 <a class="nav-link" href="@Url.Action("Index", "EstadosCuenta")">
                     <span class="ml-2"><i class="fas fa-money-check-alt"></i>&nbsp;&nbsp;Estados de cuenta</span>
                 </a>
-            </div>
+            </div>*@
             <div class="nav-item">
-                <a class="nav-link" href="@Url.Action("Index", "GestionPlanesCobro")">
+                <a class="nav-link" href="@Url.Action("IndexPlanCobro", "PlanCobro")">
                     <i class="fas fa-money-bill-wave mr-2"></i>
                     <span style="margin-left: 10px;">Plan de cobro</span>
                 </a>
             </div>
-            <div class="nav-item">
+            @*<div class="nav-item">
                 <a class="nav-link" href="@Url.Action("Index", "RubrosCobros")">
                     <i class="fas fa-credit-card mr-2"></i>
                     <span style="margin-left: 10px;">Rubros de cobros</span>
                 </a>
-            </div>
+            </div>*@
             <div class="nav-item">
-                <a class="nav-link" href="@Url.Action("DeudasVigentes", "EstadosCuenta")">
+                <a class="nav-link" href="@Url.Action("Index", "GestionPlanesCobro")">
                     <i class="fas fa-hand-holding-usd me-1"></i>
                     <span class="ms-1">Deudas vigentes</span>
                 </a>
             </div>
             <div class="nav-item">
-                <a class="nav-link" href="@Url.Action("HistorialPagos", "EstadosCuenta")">
+                <a class="nav-link" href="@Url.Action("IndexHistorialPagos", "GestionPlanesCobro")">
                     <i class="far fa-calendar-check me-2"></i>
                     <span>Historial de pagos</span>
                 </a>
