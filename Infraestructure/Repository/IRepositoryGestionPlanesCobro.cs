@@ -10,7 +10,7 @@ namespace Infraestructure.Repository
     public interface IRepositoryGestionPlanesCobro
     {
         IEnumerable<GESTION_PLANES_COBRO> getGestionPlanesCobro();
-        //IEnumerable<GESTION_PLANES_COBRO> getGestionPlanesCobroVigentes();
+        IEnumerable<GESTION_PLANES_COBRO> getGestionPlanesCobroVigentes();
         GESTION_PLANES_COBRO getGestionPlanesCobroById(int id);
         GESTION_PLANES_COBRO Save(GESTION_PLANES_COBRO gestion);
     }

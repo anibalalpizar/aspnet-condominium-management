@@ -38,35 +38,36 @@ namespace Infraestructure.Repository
             }
         }
 
-        //public IEnumerable<GESTION_PLANES_COBRO> getGestionPlanesCobroVigentes()
-        //{
-        //    try
-        //    {
-        //        List<GESTION_PLANES_COBRO> lista = null;
-        //        using (MyContext ctx = new MyContext())
-        //        {
-        //            if ()
-        //            {
+        public IEnumerable<GESTION_PLANES_COBRO> getGestionPlanesCobroVigentes()
+        {
+            try
+            {
+                List<GESTION_PLANES_COBRO> lista = null;
+                using (MyContext ctx = new MyContext())
+                {
+                    lista = ctx.GESTION_PLANES_COBRO
+                .Include("RESIDENCIA")
+                .Include("PLAN_COBRO")
+                .Include("ESTADO_DEUDA")
+                .Where(g => g.ESTADO_DEUDA.ID_ESTADO_DEUDA == 1)
+                .ToList();
+                }
 
-        //            }
-        //            lista = ctx.GESTION_PLANES_COBRO.Include("RESIDENCIA").Include("PLAN_COBRO").Include("ESTADO_DEUDA").ToList();
-        //        }
-
-        //        return lista;
-        //    }
-        //    catch (DbUpdateException dbEx)
-        //    {
-        //        string mensaje = "";
-        //        Log.Error(dbEx, System.Reflection.MethodBase.GetCurrentMethod(), ref mensaje);
-        //        throw new Exception(mensaje);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        string mensaje = "";
-        //        Log.Error(ex, System.Reflection.MethodBase.GetCurrentMethod(), ref mensaje);
-        //        throw;
-        //    }
-        //}
+                return lista;
+            }
+            catch (DbUpdateException dbEx)
+            {
+                string mensaje = "";
+                Log.Error(dbEx, System.Reflection.MethodBase.GetCurrentMethod(), ref mensaje);
+                throw new Exception(mensaje);
+            }
+            catch (Exception ex)
+            {
+                string mensaje = "";
+                Log.Error(ex, System.Reflection.MethodBase.GetCurrentMethod(), ref mensaje);
+                throw;
+            }
+        }
 
         public GESTION_PLANES_COBRO getGestionPlanesCobroById(int id)
         {

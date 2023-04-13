@@ -22,6 +22,12 @@ namespace ApplicationCore.Services
             return repositoryGestionPlanesCobro.getGestionPlanesCobroById(id);
         }
 
+        public IEnumerable<GESTION_PLANES_COBRO> getGestionPlanesCobroVigentes()
+        {
+            IRepositoryGestionPlanesCobro repositoryGestionPlanesCobro = new RepositoryGestionPlanesCobro();
+            return repositoryGestionPlanesCobro.getGestionPlanesCobroVigentes();
+        }
+
         public GESTION_PLANES_COBRO Save(GESTION_PLANES_COBRO gestion)
         {
             IRepositoryGestionPlanesCobro repositoryGestionPlanesCobro = new RepositoryGestionPlanesCobro();

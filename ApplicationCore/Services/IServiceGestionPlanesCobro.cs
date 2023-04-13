@@ -10,6 +10,7 @@ namespace ApplicationCore.Services
     public interface IServiceGestionPlanesCobro
     {
         IEnumerable<GESTION_PLANES_COBRO> getGestionPlanesCobro();
+        IEnumerable<GESTION_PLANES_COBRO> getGestionPlanesCobroVigentes();
         GESTION_PLANES_COBRO getGestionPlanesCobroById(int id);
         GESTION_PLANES_COBRO Save(GESTION_PLANES_COBRO gestion);
     }

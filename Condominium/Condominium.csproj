@@ -408,6 +408,7 @@
     <Content Include="Views\PlanCobro\IndexPlanCobro.cshtml" />
     <Content Include="Views\PlanCobro\DetailsPlanCobro.cshtml" />
     <Content Include="Views\GestionPlanesCobro\IndexHistorialPagos.cshtml" />
+    <Content Include="Views\GestionPlanesCobro\IndexDeudasVigentes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
