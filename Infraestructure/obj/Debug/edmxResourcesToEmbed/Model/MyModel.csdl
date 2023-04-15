@@ -53,18 +53,15 @@
       <PropertyRef Name="ID_GESTION_DEUDA" />
     </Key>
     <Property Name="ID_GESTION_DEUDA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="ID_RESIDENCIA" Type="Int32" Nullable="false" />
-    <Property Name="ID_PLAN_COBRO" Type="Int32" />
+    <Property Name="ID_PLAN_COBRO" Type="Int32" Nullable="false" />
     <Property Name="MES" Type="Int32" Nullable="false" />
     <Property Name="ANIO" Type="Int32" Nullable="false" />
     <Property Name="MONTO" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
     <Property Name="FECHA_VENCIMIENTO" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="ID_ESTADO_DEUDA" Type="Int32" Nullable="false" />
     <Property Name="DETALLES_RUBROS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="FECHA_REGISTRO" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="FECHA_PAGO" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="TOTALPAGAR" Type="Decimal" Precision="18" Scale="0" />
-    <NavigationProperty Name="RESIDENCIA" Relationship="Self.FK__GESTION_D__ID_RE__6383C8BA" FromRole="GESTION_DEUDA" ToRole="RESIDENCIA" />
     <NavigationProperty Name="GESTION_PLANES_COBRO" Relationship="Self.FK_GESTION_DEUDA_GESTION_PLANES_COBRO" FromRole="GESTION_DEUDA" ToRole="GESTION_PLANES_COBRO" />
   </EntityType>
   <EntityType Name="GESTION_PLANES_COBRO">
@@ -140,8 +137,6 @@
     <Property Name="ID_USUARIO" Type="Int32" Nullable="false" />
     <Property Name="ID_AREA_COMUN" Type="Int32" Nullable="false" />
     <Property Name="FECHA_RESERVA" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="HORA_INICIO" Type="DateTime" Precision="3" />
-    <Property Name="HORA_FIN" Type="DateTime" Precision="3" />
     <Property Name="ID_ESTADO_RESERVACION" Type="Int32" Nullable="false" />
     <Property Name="COMENTARIOS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="AREA_COMUN" Relationship="Self.FK__RESERVA_A__ID_AR__6C190EBB" FromRole="RESERVA_AREA_COMUN" ToRole="AREA_COMUN" />
@@ -160,7 +155,6 @@
     <Property Name="CANTIDAD_CARROS" Type="Int32" Nullable="false" />
     <Property Name="ID_USUARIO" Type="Int32" />
     <NavigationProperty Name="ESTADO_RESIDENCIA" Relationship="Self.FK__RESIDENCI__ID_ES__71D1E811" FromRole="RESIDENCIA" ToRole="ESTADO_RESIDENCIA" />
-    <NavigationProperty Name="GESTION_DEUDA" Relationship="Self.FK__GESTION_D__ID_RE__6383C8BA" FromRole="RESIDENCIA" ToRole="GESTION_DEUDA" />
     <NavigationProperty Name="GESTION_PLANES_COBRO" Relationship="Self.FK_GESTION_PLANES_COBRO_RESIDENCIA" FromRole="RESIDENCIA" ToRole="GESTION_PLANES_COBRO" />
     <NavigationProperty Name="USUARIO" Relationship="Self.FK__RESIDENCI__ID_US__73BA3083" FromRole="RESIDENCIA" ToRole="USUARIO" />
   </EntityType>
@@ -301,20 +295,8 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__GESTION_D__ID_RE__6383C8BA">
-    <End Role="RESIDENCIA" Type="Self.RESIDENCIA" Multiplicity="1" />
-    <End Role="GESTION_DEUDA" Type="Self.GESTION_DEUDA" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="RESIDENCIA">
-        <PropertyRef Name="ID_RESIDENCIA" />
-      </Principal>
-      <Dependent Role="GESTION_DEUDA">
-        <PropertyRef Name="ID_RESIDENCIA" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_GESTION_DEUDA_GESTION_PLANES_COBRO">
-    <End Role="GESTION_PLANES_COBRO" Type="Self.GESTION_PLANES_COBRO" Multiplicity="0..1" />
+    <End Role="GESTION_PLANES_COBRO" Type="Self.GESTION_PLANES_COBRO" Multiplicity="1" />
     <End Role="GESTION_DEUDA" Type="Self.GESTION_DEUDA" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="GESTION_PLANES_COBRO">
@@ -481,10 +463,6 @@
     <AssociationSet Name="FK__USUARIO__ID_ESTA__74AE54BC" Association="Self.FK__USUARIO__ID_ESTA__74AE54BC">
       <End Role="ESTADO_USUARIO" EntitySet="ESTADO_USUARIO" />
       <End Role="USUARIO" EntitySet="USUARIO" />
-    </AssociationSet>
-    <AssociationSet Name="FK__GESTION_D__ID_RE__6383C8BA" Association="Self.FK__GESTION_D__ID_RE__6383C8BA">
-      <End Role="RESIDENCIA" EntitySet="RESIDENCIA" />
-      <End Role="GESTION_DEUDA" EntitySet="GESTION_DEUDA" />
     </AssociationSet>
     <AssociationSet Name="FK_GESTION_DEUDA_GESTION_PLANES_COBRO" Association="Self.FK_GESTION_DEUDA_GESTION_PLANES_COBRO">
       <End Role="GESTION_PLANES_COBRO" EntitySet="GESTION_PLANES_COBRO" />

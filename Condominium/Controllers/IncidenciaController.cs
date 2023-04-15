@@ -53,7 +53,7 @@ namespace Condominium.Controllers
         public ActionResult Create()
         {
             ViewBag.idResidente = listResidente();
-            ViewBag.idEstadoIncidencia = listEstadoIncidencia();
+           // ViewBag.idEstadoIncidencia = listEstadoIncidencia();
             return View();
         }
 
@@ -85,7 +85,7 @@ namespace Condominium.Controllers
                 else
                 {
                     ViewBag.idResidente = listResidente(incidencia.ID_USUARIO);
-                    ViewBag.idEstadoIncidencia = listEstadoIncidencia(incidencia.ID_ESTADO_INCIDENCIA);
+                 //   ViewBag.idEstadoIncidencia = listEstadoIncidencia(incidencia.ID_ESTADO_INCIDENCIA);
                     
                     if(incidencia.ID_INCIDENCIA > 0)
                     {

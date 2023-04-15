@@ -83,6 +83,7 @@ namespace Infraestructure.Repository
                     if (Oincidencia == null)
                     {
                         //Insertar 
+                        incidencia.ID_ESTADO_INCIDENCIA = 1;
                         ctx.INCIDENCIA.Add(incidencia);
                         retorno = ctx.SaveChanges();
                     }

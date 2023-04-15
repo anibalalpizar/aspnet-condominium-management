@@ -15,19 +15,16 @@ namespace Infraestructure.Model
     public partial class GESTION_DEUDA
     {
         public int ID_GESTION_DEUDA { get; set; }
-        public int ID_RESIDENCIA { get; set; }
-        public Nullable<int> ID_PLAN_COBRO { get; set; }
+        public int ID_PLAN_COBRO { get; set; }
         public int MES { get; set; }
         public int ANIO { get; set; }
         public decimal MONTO { get; set; }
         public System.DateTime FECHA_VENCIMIENTO { get; set; }
-        public int ID_ESTADO_DEUDA { get; set; }
         public string DETALLES_RUBROS { get; set; }
         public System.DateTime FECHA_REGISTRO { get; set; }
         public System.DateTime FECHA_PAGO { get; set; }
         public Nullable<decimal> TOTALPAGAR { get; set; }
     
-        public virtual RESIDENCIA RESIDENCIA { get; set; }
         public virtual GESTION_PLANES_COBRO GESTION_PLANES_COBRO { get; set; }
     }
 }

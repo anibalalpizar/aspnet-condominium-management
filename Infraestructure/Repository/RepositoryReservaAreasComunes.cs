@@ -76,6 +76,7 @@ namespace Infraestructure.Repository
 
                     if (reserva == null)
                     {
+                        area.ID_ESTADO_RESERVACION = 1;
                         ctx.RESERVA_AREA_COMUN.Add(area);
                         retorno= ctx.SaveChanges();
                     }

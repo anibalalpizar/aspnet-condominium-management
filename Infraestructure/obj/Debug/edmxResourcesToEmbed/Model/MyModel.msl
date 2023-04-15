@@ -53,13 +53,11 @@
       <EntityTypeMapping TypeName="CONDOMINIOSModel.GESTION_DEUDA">
         <MappingFragment StoreEntitySet="GESTION_DEUDA">
           <ScalarProperty Name="ID_GESTION_DEUDA" ColumnName="ID_GESTION_DEUDA" />
-          <ScalarProperty Name="ID_RESIDENCIA" ColumnName="ID_RESIDENCIA" />
           <ScalarProperty Name="ID_PLAN_COBRO" ColumnName="ID_PLAN_COBRO" />
           <ScalarProperty Name="MES" ColumnName="MES" />
           <ScalarProperty Name="ANIO" ColumnName="ANIO" />
           <ScalarProperty Name="MONTO" ColumnName="MONTO" />
           <ScalarProperty Name="FECHA_VENCIMIENTO" ColumnName="FECHA_VENCIMIENTO" />
-          <ScalarProperty Name="ID_ESTADO_DEUDA" ColumnName="ID_ESTADO_DEUDA" />
           <ScalarProperty Name="DETALLES_RUBROS" ColumnName="DETALLES_RUBROS" />
           <ScalarProperty Name="FECHA_REGISTRO" ColumnName="FECHA_REGISTRO" />
           <ScalarProperty Name="FECHA_PAGO" ColumnName="FECHA_PAGO" />
@@ -133,8 +131,6 @@
           <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
           <ScalarProperty Name="ID_AREA_COMUN" ColumnName="ID_AREA_COMUN" />
           <ScalarProperty Name="FECHA_RESERVA" ColumnName="FECHA_RESERVA" />
-          <ScalarProperty Name="HORA_INICIO" ColumnName="HORA_INICIO" />
-          <ScalarProperty Name="HORA_FIN" ColumnName="HORA_FIN" />
           <ScalarProperty Name="ID_ESTADO_RESERVACION" ColumnName="ID_ESTADO_RESERVACION" />
           <ScalarProperty Name="COMENTARIOS" ColumnName="COMENTARIOS" />
         </MappingFragment>

@@ -87,7 +87,7 @@ namespace Condominium.Controllers
         public ActionResult Create()
         {
             ViewBag.idResidencia = listaResidencias();
-            ViewBag.idEstadoDeuda = listaEstadoDeuda();
+         //   ViewBag.idEstadoDeuda = listaEstadoDeuda();
             ViewBag.idPlanCobro= listaPlanCobro();
             return View();
         }
@@ -128,7 +128,7 @@ namespace Condominium.Controllers
                 else
                 {
                     ViewBag.idResidencia = listaResidencias(gestion.ID_RESIDENCIA);
-                    ViewBag.idEstadoDeuda = listaEstadoDeuda(gestion.ID_ESTADO_DEUDA);
+                  //  ViewBag.idEstadoDeuda = listaEstadoDeuda(gestion.ID_ESTADO_DEUDA);
                     ViewBag.idPlanCobro = listaPlanCobro((int)gestion.ID_PLAN_COBRO);
 
                     if (gestion.ID_GESTION_PLANES_COBRO > 0)

@@ -106,6 +106,7 @@ namespace Infraestructure.Repository
                     if (oUsu == null)
                     {
                         //Insertar un nuevo Usuario
+                        usuario.ID_ESTADO = 1;
                         ctx.USUARIO.Add(usuario);
                         retorno = ctx.SaveChanges();
                     }

@@ -52,7 +52,7 @@ namespace Condominium.Controllers
         {
             ViewBag.idResidente = listResidente();
             ViewBag.idAreaComun = ListAreasComunes();
-            ViewBag.idEstadoReservacion = ListEstadoReservacion();
+          //  ViewBag.idEstadoReservacion = ListEstadoReservacion();
 
             return View();
         }
@@ -98,7 +98,7 @@ namespace Condominium.Controllers
                 {
                     ViewBag.idResidente = listResidente(area.ID_USUARIO);
                     ViewBag.idAreaComun = ListAreasComunes(area.ID_AREA_COMUN);
-                    ViewBag.idEstadoReservacion = ListEstadoReservacion(area.ID_ESTADO_RESERVACION);
+                   // ViewBag.idEstadoReservacion = ListEstadoReservacion(area.ID_ESTADO_RESERVACION);
 
                     if (area.ID_RESERVA_AREA_COMUN > 0)
                     {

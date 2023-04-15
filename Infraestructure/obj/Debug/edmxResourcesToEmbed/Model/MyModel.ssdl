@@ -47,13 +47,11 @@
       <PropertyRef Name="ID_GESTION_DEUDA" />
     </Key>
     <Property Name="ID_GESTION_DEUDA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="ID_RESIDENCIA" Type="int" Nullable="false" />
-    <Property Name="ID_PLAN_COBRO" Type="int" />
+    <Property Name="ID_PLAN_COBRO" Type="int" Nullable="false" />
     <Property Name="MES" Type="int" Nullable="false" />
     <Property Name="ANIO" Type="int" Nullable="false" />
     <Property Name="MONTO" Type="decimal" Precision="18" Scale="2" Nullable="false" />
     <Property Name="FECHA_VENCIMIENTO" Type="datetime" Nullable="false" />
-    <Property Name="ID_ESTADO_DEUDA" Type="int" Nullable="false" />
     <Property Name="DETALLES_RUBROS" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="FECHA_REGISTRO" Type="datetime" Nullable="false" />
     <Property Name="FECHA_PAGO" Type="datetime" Nullable="false" />
@@ -129,8 +127,6 @@
     <Property Name="ID_USUARIO" Type="int" Nullable="false" />
     <Property Name="ID_AREA_COMUN" Type="int" Nullable="false" />
     <Property Name="FECHA_RESERVA" Type="datetime" Nullable="false" />
-    <Property Name="HORA_INICIO" Type="datetime" />
-    <Property Name="HORA_FIN" Type="datetime" />
     <Property Name="ID_ESTADO_RESERVACION" Type="int" Nullable="false" />
     <Property Name="COMENTARIOS" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
@@ -201,18 +197,6 @@
     <Property Name="CORREO" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="CONTRASENA" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
-  <Association Name="FK__GESTION_D__ID_RE__6383C8BA">
-    <End Role="RESIDENCIA" Type="Self.RESIDENCIA" Multiplicity="1" />
-    <End Role="GESTION_DEUDA" Type="Self.GESTION_DEUDA" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="RESIDENCIA">
-        <PropertyRef Name="ID_RESIDENCIA" />
-      </Principal>
-      <Dependent Role="GESTION_DEUDA">
-        <PropertyRef Name="ID_RESIDENCIA" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK__INCIDENCI__ID_ES__656C112C">
     <End Role="ESTADO_INCIDENCIA" Type="Self.ESTADO_INCIDENCIA" Multiplicity="1" />
     <End Role="INCIDENCIA" Type="Self.INCIDENCIA" Multiplicity="*" />
@@ -370,7 +354,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_GESTION_DEUDA_GESTION_PLANES_COBRO">
-    <End Role="GESTION_PLANES_COBRO" Type="Self.GESTION_PLANES_COBRO" Multiplicity="0..1" />
+    <End Role="GESTION_PLANES_COBRO" Type="Self.GESTION_PLANES_COBRO" Multiplicity="1" />
     <End Role="GESTION_DEUDA" Type="Self.GESTION_DEUDA" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="GESTION_PLANES_COBRO">
@@ -451,10 +435,6 @@
     <EntitySet Name="TIPO_REPORTE" EntityType="Self.TIPO_REPORTE" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TIPO_USUARIO" EntityType="Self.TIPO_USUARIO" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="USUARIO" EntityType="Self.USUARIO" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__GESTION_D__ID_RE__6383C8BA" Association="Self.FK__GESTION_D__ID_RE__6383C8BA">
-      <End Role="RESIDENCIA" EntitySet="RESIDENCIA" />
-      <End Role="GESTION_DEUDA" EntitySet="GESTION_DEUDA" />
-    </AssociationSet>
     <AssociationSet Name="FK__INCIDENCI__ID_ES__656C112C" Association="Self.FK__INCIDENCI__ID_ES__656C112C">
       <End Role="ESTADO_INCIDENCIA" EntitySet="ESTADO_INCIDENCIA" />
       <End Role="INCIDENCIA" EntitySet="INCIDENCIA" />

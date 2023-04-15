@@ -22,7 +22,7 @@ namespace Infraestructure.Repository
 
                     list = ctx.GESTION_DEUDA
                       
-                        .Include(g => g.RESIDENCIA.USUARIO)
+                       // .Include(g => g.RESIDENCIA.USUARIO)
                         .Include(g => g.GESTION_PLANES_COBRO)
                      //   .Where(g => g.ESTADO_DEUDA.NOMBRE_ESTADO_DEUDA == "PENDIENTE")
                         .ToList();
@@ -54,7 +54,7 @@ namespace Infraestructure.Repository
 
                     list = ctx.GESTION_DEUDA
                      //   .Include(g => g.ESTADO_DEUDA)
-                        .Include(g => g.RESIDENCIA.USUARIO)
+                      //  .Include(g => g.RESIDENCIA.USUARIO)
                         .Include(f => f.GESTION_PLANES_COBRO)
                      //   .Where(g => g.ESTADO_DEUDA.NOMBRE_ESTADO_DEUDA == "PAGADO")
                         .ToList();
@@ -94,7 +94,7 @@ namespace Infraestructure.Repository
 
                     list = ctx.GESTION_DEUDA
                      //  .Include(g => g.ESTADO_DEUDA)
-                       .Include(g => g.RESIDENCIA.USUARIO)
+                    //   .Include(g => g.RESIDENCIA.USUARIO)
                        .ToList();
                 }
             }
@@ -121,11 +121,8 @@ namespace Infraestructure.Repository
                 using (MyContext ctx = new MyContext())
                 {
                     ctx.Configuration.LazyLoadingEnabled = false;
-                    oGestionDeuda = ctx.GESTION_DEUDA.
-                        Where(l => l.ID_GESTION_DEUDA == id).
-                        Include(x => x.RESIDENCIA).
-                        Include(y => y.RESIDENCIA.USUARIO).
-                        Include(z => z.RESIDENCIA.ESTADO_RESIDENCIA).
+                    oGestionDeuda = ctx.GESTION_DEUDA.Where(l => l.ID_GESTION_DEUDA == id).
+                      //  Include(z => z.RESIDENCIA.ESTADO_RESIDENCIA).
                         FirstOrDefault();
                 }
             }

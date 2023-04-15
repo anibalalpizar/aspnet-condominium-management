@@ -116,6 +116,7 @@ namespace Infraestructure.Repository
 
                     if (oGestion == null)
                     {
+                        gestion.ID_ESTADO_DEUDA = 1;
                         ctx.GESTION_PLANES_COBRO.Add(gestion);
                         retorno = ctx.SaveChanges();
                     }

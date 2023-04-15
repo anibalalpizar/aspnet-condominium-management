@@ -35,7 +35,7 @@ namespace Condominium.Controllers
         public ActionResult Create()
         {
             ViewBag.idTipoUsuario= listTipoUsuario();
-            ViewBag.idEstadoUsuario= listEstadoUsuario();
+          //  ViewBag.idEstadoUsuario= listEstadoUsuario();
             return View();
         }
 
@@ -68,7 +68,7 @@ namespace Condominium.Controllers
                 else
                 {
                     ViewBag.idTipoUsuario = listTipoUsuario(usuario.ID_TIPO_USUARIO);
-                    ViewBag.idEstadoUsuario = listEstadoUsuario(usuario.ID_ESTADO);
+                  //  ViewBag.idEstadoUsuario = listEstadoUsuario(usuario.ID_ESTADO);
 
                     if (usuario.ID_USUARIO > 0)
                     {
