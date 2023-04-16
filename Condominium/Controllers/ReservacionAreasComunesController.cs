@@ -6,6 +6,8 @@ using System.Linq;
 using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.Entity;
+using System.Data.Entity.Core.Objects;
 
 namespace Condominium.Controllers
 {
@@ -156,6 +158,17 @@ namespace Condominium.Controllers
                 Log.Error(ex, MethodBase.GetCurrentMethod());
                 TempData["Message"] = "Error al procesar los datos!" + ex.Message;
                 return RedirectToAction("Default", "Error");
+            }
+        }
+        public JsonResult GetFechasReservadas()
+        {
+            using (MyContext ctx = new MyContext())
+            {
+                var fechasReservadas = ctx.RESERVA_AREA_COMUN
+                    .Select(r => EntityFunctions.TruncateTime(r.FECHA_RESERVA))
+                    .ToList();
+
+                return Json(fechasReservadas, JsonRequestBehavior.AllowGet);
             }
         }
 

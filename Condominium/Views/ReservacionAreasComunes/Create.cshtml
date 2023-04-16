@@ -4,24 +4,71 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<div id="welcome-message"></div>
+
+<style>
+    .card {
+        border: none;
+        box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        background-color: #f5f5f5;
+        border-radius: 8px;
+        overflow: hidden;
+        margin-bottom: 20px;
+    }
+
+        .card .card-body {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .card .card-title {
+            margin-bottom: 10px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .card .card-text {
+            margin-bottom: 0;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .card .reservar {
+            margin-top: 20px;
+            background-color: #007bff;
+            border-color: #007bff;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+            .card .reservar:hover {
+                background-color: #0069d9;
+                border-color: #0062cc;
+            }
+
+            .card .reservar:focus {
+                box-shadow: none;
+            }
+
+        .card .reservado {
+            margin-top: 20px;
+            background-color: #28a745;
+            border-color: #28a745;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+            .card .reservado i {
+                margin-right: 8px;
+            }
+</style>
+
 
 @using (Html.BeginForm("Save", "ReservacionAreasComunes", FormMethod.Post, new { enctype = "multipart/form-data", @class = "col-md-8 offset-md-2" }))
 {
     @Html.AntiForgeryToken()
 
-<div class="card-deck">
-    @foreach (var areaComun in ViewBag.idAreaComun)
-    {
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">@areaComun.Text</h5>
-                <p class="card-text">@areaComun.Value</p>
-                <a href="#" class="btn btn-primary reservar" data-id="@areaComun.Value">Reservar</a>
-            </div>
-        </div>
-    }
-</div>
     <div class="container">
         <div class="row">
             <div class="col-md-8 offset-md-2">
@@ -33,23 +80,17 @@
                             <input type="text" class="form-control" id="nombreUsuario" readonly>
                         </div>
                         <div class="form-group">
-                            <label for="ID_AREA_COMUN" class="form-label"><i class="fas fa-newspaper"></i> Área Común </label>
-                            <div>
+                            <label for="ID_AREA_COMUN" class="form-label"><i class="fas fa-newspaper"></i> Área Común</label>
+                            <div class="d-flex align-items-center">
+                                <button type="button" class="btn btn-primary mr-3" data-toggle="modal" data-target="#modal-area-comun">
+                                    +
+                                </button>
                                 @Html.DropDownListFor(model => model.ID_AREA_COMUN,
                                     (SelectList)ViewBag.idAreaComun,
                                     "Seleccione el Área Común a Reservar",
-                                    htmlAttributes: new { @class = "form-control", @id = "area-comun-dropdown" })
+                                    htmlAttributes: new { @class = "form-control", @id = "area-comun-dropdown", @readonly = "readonly", @disabled = "disabled" })
                             </div>
                         </div>
-                        @*<div class="form-group" style="display:none;">
-                            <label for="ID_ESTADO_RESERVACION" class="form-label"><i class="fas fa-newspaper"></i> Estado </label>
-                            <div>
-                                @Html.DropDownListFor(model => model.ID_ESTADO_RESERVACION,
-                                    (SelectList)ViewBag.idEstadoReservacion,
-                                    "Pendiente",
-                                    htmlAttributes: new { @class = "form-control" })
-                            </div>
-                        </div>*@
 
                         <div class="form-group">
                             <label class="form-label" for="COMENTARIOS">
@@ -80,42 +121,75 @@
         </div>
     </div>
 }
+
+<div class="modal fade" id="modal-area-comun" tabindex="-1" role="dialog" aria-labelledby="modal-area-comun-label" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modal-area-comun-label"><i class="fas fa-newspaper"></i> Área Común</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="card-deck">
+                    @foreach (var areaComun in ViewBag.idAreaComun)
+                    {
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">@areaComun.Text</h5>
+                                <a href="#" class="btn btn-primary reservar" data-id="@areaComun.Value">Reservar</a>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 @section scripts {    @Scripts.Render("~/bundles/jqueryval")
 
 <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/smoothness/jquery-ui.css" />
 <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
 <script>
-    $(() => {
+    $(document).ready(function () {
         $(".datepicker").datepicker({
             dateFormat: "yy-mm-dd",
             showAnim: "slideDown",
             theme: "base",
-            themeRoller: {
-                primary: "#333333",
-                secondary: "#F5F5F5",
-                text: "#333333",
-                hover: "#F5F5F5",
-                active: "#CCCCCC"
+            beforeShowDay: function (date) {
+                var dateString = jQuery.datepicker.formatDate("yy-mm-dd", date);
+                var fechasReservadas = [];
+
+                // Llamada a la acción que devuelve las fechas reservadas
+                $.ajax({
+                    url: "/ReservacionAreasComunes/GetFechasReservadas",
+                    type: "GET",
+                    dataType: "json",
+                    async: false,
+                    success: function (data) {
+                        fechasReservadas = data.map(function (d) {
+                            return new Date(parseInt(d.substr(6)));
+                        });
+                    }
+                });
+
+                if (fechasReservadas.some(d => d.getTime() === date.getTime())) {
+                    // Si la fecha está reservada, se marca en rojo
+                    return [true, "ui-state-highlight", "Esta fecha ya está reservada"];
+                } else {
+                    return [true, "", ""];
+                }
             }
+
         });
     });
 
-    toggleCalendar = () => {
-        var calendar = document.getElementById("calendar");
-        if (calendar.style.display === "none") {
-            calendar.style.display = "block";
-        } else {
-            calendar.style.display = "none";
-        }
-    }
 
-    $(document).mouseup((e) => {
-        var container = $("#calendar");
-        if (!container.is(e.target) && container.has(e.target).length === 0) {
-            container.hide();
-        }
-    });
 
     document.addEventListener("DOMContentLoaded", function () {
         console.log("Botón Reservar fue clickeado");
@@ -143,6 +217,61 @@
             .split('=')[1];
         document.getElementById('nombreUsuario').value = cookieValue;
     }
+
+    $(function () {
+        $('.reservar').click(function () {
+            $('.reservar').prop('disabled', true).text('Reservar').removeClass('btn-success').addClass('btn-primary');
+            var button = $(this);
+            var icon = $('<i class="fas fa-check-circle me-2"></i>');
+            button.text('Reservado').removeClass('btn-primary').addClass('btn-success').append(icon);
+            button.prop('disabled', false);
+            var idSeleccionado = button.data('id');
+            $('.reservar').not(button).prop('disabled', true);
+        });
+        $('.cancelar').click(function () {
+            $('.reservar').prop('disabled', false).text('Reservar').removeClass('btn-success').addClass('btn-primary');
+            var idSeleccionado = null;
+        });
+    });
+
+    $(document).ready(function () {
+        $('#area-comun-dropdown').click(function () {
+            $('#myModal').modal('show');
+        });
+    });
+
+    $(function () {
+
+    });
+
+    $(document).ready(function () {
+        $('#modal-area-comun .reservar').click(function () {
+            var nombreAreaComun = $(this).siblings('.card-title').text();
+            $('#modal-area-comun').modal('hide');
+            swal({
+                title: "Confirmar Reserva",
+                text: "¿Desea reservar el área común \"" + nombreAreaComun + "\"?",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonClass: "btn-danger",
+                confirmButtonText: "Aceptar",
+                cancelButtonText: "Cancelar",
+                closeOnConfirm: true,
+                closeOnCancel: true
+            },
+                function (isConfirm) {
+                    if (isConfirm) {
+                        swal({
+                            title: "¡Reserva Exitosa!",
+                            text: "Ha reservado el área común \"" + nombreAreaComun + "\".",
+                            type: "success"
+                        });
+                    }
+                });
+        });
+    });
+
+   
 
 </script>
 

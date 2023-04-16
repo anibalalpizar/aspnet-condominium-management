@@ -91,13 +91,13 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
     <script>
-            $('form').submit(function (e) {
-                e.preventDefault();
+        $('form').submit(function (e) {
+            e.preventDefault();
             var correo = $('input[name="CORREO"]').val();
             var contrasena = $('input[name="CONTRASENA"]').val();
             var usuario = {
                 correo: correo,
-            contrasena: contrasena
+                contrasena: contrasena
             };
             document.cookie = "usuario=" + correo + "; path=/;";
             this.submit();
