@@ -148,6 +148,23 @@
     </div>
 </div>
 
+<div class="modal fade" id="modalFechaReservada" tabindex="-1" aria-labelledby="modalFechaReservadaLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalFechaReservadaLabel">Fecha ocupada</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <p>La fecha seleccionada ya está reservada. Por favor seleccione otra fecha.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 
 @section scripts {    @Scripts.Render("~/bundles/jqueryval")
@@ -184,10 +201,34 @@
                 } else {
                     return [true, "", ""];
                 }
-            }
+            },
+            onSelect: function (dateText, inst) {
+                var fechasReservadas = [];
 
+                // Llamada a la acción que devuelve las fechas reservadas
+                $.ajax({
+                    url: "/ReservacionAreasComunes/GetFechasReservadas",
+                    type: "GET",
+                    dataType: "json",
+                    async: false,
+                    success: function (data) {
+                        fechasReservadas = data.map(function (d) {
+                            return new Date(parseInt(d.substr(6)));
+                        });
+                    }
+                });
+
+                var selectedDate = new Date(inst.selectedYear, inst.selectedMonth, inst.selectedDay);
+                if (fechasReservadas.some(d => d.getTime() === selectedDate.getTime())) {
+                    // Si la fecha está reservada, se muestra un modal
+                    $("#modalFechaReservada").modal("show");
+                }
+            }
         });
     });
+
+
+
 
 
 
@@ -271,7 +312,7 @@
         });
     });
 
-   
+
 
 </script>
 
