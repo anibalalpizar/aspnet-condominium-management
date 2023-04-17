@@ -90,29 +90,34 @@
                             </div>
 
                         </div>
+
+
                         <div class="form-group">
-                            <label for="ID_AREA_COMUN" class="form-label"><i class="fas fa-newspaper"></i> Usuario </label>
-                            <div>
+                            <label for="ID_AREA_COMUN" class="form-label"><i class="fas fa-newspaper"></i> Áreas Comunes </label>
+                            <div class="d-flex align-items-center">
+                                <button type="button" class="btn btn-primary mr-3" data-toggle="modal" data-target="#modal-area-comun">
+                                    +
+                                </button>
                                 @Html.DropDownListFor(model => model.ID_AREA_COMUN,
                                     (SelectList)ViewBag.idAreaComun,
                                     "Seleccione el Área Comun",
-                                    htmlAttributes: new { @class = "form-control" })
+                                    htmlAttributes: new { @class = "form-control" , @id = "area-comun-dropdown" })
                             </div>
 
                         </div>
-                      
+
                         @*<div class="form-group">
-            <label for="ID_AREA_COMUN" class="form-label"><i class="fas fa-newspaper"></i> Área Común</label>
-            <div class="d-flex align-items-center">
-                <button type="button" class="btn btn-primary mr-3" data-toggle="modal" data-target="#modal-area-comun">
-                    +
-                </button>
-                @Html.DropDownListFor(model => model.ID_AREA_COMUN,
-                    (SelectList)ViewBag.idAreaComun,
-                    "Seleccione el Área Común a Reservar",
-                    htmlAttributes: new { @class = "form-control", @id = "area-comun-dropdown", @readonly = "readonly", @disabled = "disabled" })
-            </div>
-        </div>*@
+                            <label for="ID_AREA_COMUN" class="form-label"><i class="fas fa-newspaper"></i> Área Común</label>
+                            <div class="d-flex align-items-center">
+                                <button type="button" class="btn btn-primary mr-3" data-toggle="modal" data-target="#modal-area-comun">
+                                    +
+                                </button>
+                                @Html.DropDownListFor(model => model.ID_AREA_COMUN,
+                                    (SelectList)ViewBag.idAreaComun,
+                                    "Seleccione el Área Común a Reservar",
+                                    htmlAttributes: new { @class = "form-control", @id = "area-comun-dropdown", @readonly = "readonly", @disabled = "disabled" })
+                            </div>
+                        </div>*@
 
                         <div class="form-group">
                             <label class="form-label" for="COMENTARIOS">
