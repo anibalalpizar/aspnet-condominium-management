@@ -36,8 +36,8 @@
                     <td>@Html.DisplayFor(modelItem => item.USUARIO.NOMBRE)</td>
                     <td>
                         <div class="d-flex justify-content-center mb-3">
-                            <a href="@Url.Action("Edit", "ReservacionAreasComunes", new { id = item.ID_RESERVA_AREA_COMUN })" class="btn @(item.ID_ESTADO_RESERVACION == 1 ? "btn-success" : "btn-warning") btn-sm">
-                                <i class="fas @(item.ID_ESTADO_RESERVACION == 1 ? "fa-check-circle" : "fa-undo-alt") me-2"></i>@(item.ID_ESTADO_RESERVACION == 1 ? "Cerrar incidencia" : "Reabrir incidencia")
+                            <a href="@Url.Action("AceptarReserva", "ReservacionAreasComunes", new { id = item.ID_RESERVA_AREA_COMUN })" class="btn @(item.ID_ESTADO_RESERVACION == 1 ? "btn-success" : "btn-warning") btn-sm">
+                                <i class="fas @(item.ID_ESTADO_RESERVACION == 1 ? "fa-check-circle" : "fa-undo-alt") me-2"></i>@(item.ID_ESTADO_RESERVACION == 1 ? "Aceptar" : "Cancelar")
                             </a>
                         </div>
                     </td>

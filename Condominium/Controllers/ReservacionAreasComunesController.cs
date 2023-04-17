@@ -38,7 +38,7 @@ namespace Condominium.Controllers
             {
                 IEnumerable<RESERVA_AREA_COMUN> lista = null;
                 IServiceReservacionAreasComunes serviceAreasComunes = new ServiceReservacionAreasComunes();
-                lista= serviceAreasComunes.GetAreasComunes();
+                lista = serviceAreasComunes.GetAreasComunes();
                 return View(lista);
             }
             catch (Exception ex)
@@ -50,11 +50,11 @@ namespace Condominium.Controllers
         }
         //Vista para crear Reservas
         [HttpGet]
-        public ActionResult Create() 
+        public ActionResult Create()
         {
             ViewBag.idResidente = listResidente();
             ViewBag.idAreaComun = ListAreasComunes();
-          //  ViewBag.idEstadoReservacion = ListEstadoReservacion();
+            //  ViewBag.idEstadoReservacion = ListEstadoReservacion();
 
             return View();
         }
@@ -93,14 +93,14 @@ namespace Condominium.Controllers
 
                 if (ModelState.IsValid)
                 {
-                    RESERVA_AREA_COMUN gArea= serviceReservacionAreasComunes.Save(area);
+                    RESERVA_AREA_COMUN gArea = serviceReservacionAreasComunes.Save(area);
 
                 }
                 else
                 {
                     ViewBag.idResidente = listResidente(area.ID_USUARIO);
                     ViewBag.idAreaComun = ListAreasComunes(area.ID_AREA_COMUN);
-                   // ViewBag.idEstadoReservacion = ListEstadoReservacion(area.ID_ESTADO_RESERVACION);
+                    // ViewBag.idEstadoReservacion = ListEstadoReservacion(area.ID_ESTADO_RESERVACION);
 
                     if (area.ID_RESERVA_AREA_COMUN > 0)
                     {
@@ -147,7 +147,7 @@ namespace Condominium.Controllers
                 }
 
                 ViewBag.ID_USUARIO = listResidente(gArea.ID_USUARIO);
-                ViewBag.ID_AREA_COMUN= ListAreasComunes(gArea.ID_AREA_COMUN);
+                ViewBag.ID_AREA_COMUN = ListAreasComunes(gArea.ID_AREA_COMUN);
                 ViewBag.ID_ESTADO_RESERVCACION = ListEstadoReservacion(gArea.ID_ESTADO_RESERVACION);
 
                 return View(gArea);
@@ -171,7 +171,28 @@ namespace Condominium.Controllers
                 return Json(fechasReservadas, JsonRequestBehavior.AllowGet);
             }
         }
+        public ActionResult AceptarReserva(int id)
+        {
+            using (MyContext ctx = new MyContext())
+            {
+                var reserva = ctx.RESERVA_AREA_COMUN.FirstOrDefault(r => r.ID_RESERVA_AREA_COMUN == id);
 
+                if (reserva != null)
+                {
+                    if (reserva.ID_ESTADO_RESERVACION == 1)
+                    {
+                        reserva.ID_ESTADO_RESERVACION = 2;
+                    }
+                    else
+                    {
+                        reserva.ID_ESTADO_RESERVACION = 1;
+                    }
 
+                    ctx.SaveChanges();
+                }
+            }
+
+            return RedirectToAction("IndexAdmin");
+        }
     }
 }
