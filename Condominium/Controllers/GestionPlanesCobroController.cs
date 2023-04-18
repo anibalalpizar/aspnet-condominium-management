@@ -6,6 +6,8 @@ using System.Linq;
 using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.Entity;
+using System.Threading.Tasks;
 
 namespace Condominium.Controllers
 {
@@ -17,7 +19,7 @@ namespace Condominium.Controllers
             IEnumerable<GESTION_PLANES_COBRO> list = null;
             try
             {
-                IServiceGestionPlanesCobro serviceGestionPlanesCobro =  new ServiceGestionPlanesCobro();
+                IServiceGestionPlanesCobro serviceGestionPlanesCobro = new ServiceGestionPlanesCobro();
                 list = serviceGestionPlanesCobro.getGestionPlanesCobro();
                 return View(list);
             }
@@ -63,15 +65,27 @@ namespace Condominium.Controllers
             }
         }
 
+        public async Task<ActionResult> RealizarPago(int id)
+        {
+            using (MyContext ctx = new MyContext())
+            {
+                var factura = await ctx.GESTION_PLANES_COBRO.FirstOrDefaultAsync(f => f.ID_GESTION_PLANES_COBRO == id);
 
-
+                if (factura != null)
+                {
+                    factura.ID_ESTADO_DEUDA = 2;
+                    ctx.SaveChanges();
+                }
+            }
+            return RedirectToAction("IndexDeudasVigentes");
+        }
 
         public ActionResult IndexAdmin()
         {
             try
             {
                 IEnumerable<GESTION_PLANES_COBRO> lista = null;
-                IServiceGestionPlanesCobro serviceGestionPlanesCobro =  new ServiceGestionPlanesCobro();
+                IServiceGestionPlanesCobro serviceGestionPlanesCobro = new ServiceGestionPlanesCobro();
                 lista = serviceGestionPlanesCobro.getGestionPlanesCobro();
                 return View(lista);
             }
@@ -87,8 +101,8 @@ namespace Condominium.Controllers
         public ActionResult Create()
         {
             ViewBag.idResidencia = listaResidencias();
-         //   ViewBag.idEstadoDeuda = listaEstadoDeuda();
-            ViewBag.idPlanCobro= listaPlanCobro();
+            //   ViewBag.idEstadoDeuda = listaEstadoDeuda();
+            ViewBag.idPlanCobro = listaPlanCobro();
             return View();
         }
 
@@ -99,7 +113,7 @@ namespace Condominium.Controllers
             return new SelectList(lista, "ID_RESIDENCIA", "NUMERO_RESIDENCIA", id);
         }
 
-        private SelectList listaEstadoDeuda(int id =0)
+        private SelectList listaEstadoDeuda(int id = 0)
         {
             IServiceEstadoDeuda service = new ServiceEstadoDeuda();
             IEnumerable<ESTADO_DEUDA> lista = service.getEstadoDeuda();
@@ -115,20 +129,20 @@ namespace Condominium.Controllers
 
 
         [HttpPost]
-        public ActionResult Save( GESTION_PLANES_COBRO gestion)
+        public ActionResult Save(GESTION_PLANES_COBRO gestion)
         {
             try
             {
                 IServiceGestionPlanesCobro serviceGestionPlanes = new ServiceGestionPlanesCobro();
 
-                if (ModelState.IsValid) 
+                if (ModelState.IsValid)
                 {
                     GESTION_PLANES_COBRO oGestion = serviceGestionPlanes.Save(gestion);
                 }
                 else
                 {
                     ViewBag.idResidencia = listaResidencias(gestion.ID_RESIDENCIA);
-                  //  ViewBag.idEstadoDeuda = listaEstadoDeuda(gestion.ID_ESTADO_DEUDA);
+                    //  ViewBag.idEstadoDeuda = listaEstadoDeuda(gestion.ID_ESTADO_DEUDA);
                     ViewBag.idPlanCobro = listaPlanCobro((int)gestion.ID_PLAN_COBRO);
 
                     if (gestion.ID_GESTION_PLANES_COBRO > 0)
@@ -178,7 +192,7 @@ namespace Condominium.Controllers
                 }
 
 
-               // ViewBag.ID_RESIDENCIA = listaResidencias(oGestion.ID_RESIDENCIA);
+                // ViewBag.ID_RESIDENCIA = listaResidencias(oGestion.ID_RESIDENCIA);
                 ViewBag.ID_ESTADO_DEUDA = listaEstadoDeuda(oGestion.ID_ESTADO_DEUDA);
                 ViewBag.ID_PLAN_COBRO = listaPlanCobro((int)oGestion.ID_PLAN_COBRO);
                 return View(oGestion);
@@ -218,6 +232,6 @@ namespace Condominium.Controllers
             }
         }
 
-      
+
     }
 }

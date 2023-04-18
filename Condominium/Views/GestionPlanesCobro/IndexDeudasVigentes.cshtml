@@ -87,9 +87,10 @@
                     <a href="@Url.Action("Details", "GestionPlanesCobro", new { id = item.ID_GESTION_PLANES_COBRO })" class="btn btn-success">
                         <i class="fas fa-info-circle"></i> Detalles
                     </a>
-                    <a href="@Url.Action("Details", "GestionPlanesCobro", new { id = item.ID_GESTION_PLANES_COBRO })" class="btn btn-success">
-                        <i class="fas fa-info-circle"></i> Pagar
+                    <a href="@Url.Action("RealizarPago", "GestionPlanesCobro", new { id = item.ID_GESTION_PLANES_COBRO })" class="btn btn-primary btn-sm">
+                        <i class="fas fa-dollar-sign me-2"></i>Realizar Pago
                     </a>
+
 
                 </div>
             </div>
@@ -124,4 +125,3 @@
         </div>
     }
 </div>
-
