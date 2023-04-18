@@ -127,18 +127,3 @@
         </div>
     }
 </div>
-
-@section scripts {
-    <script>
-        window.onload = function () {
-            var cookieValue = document.cookie
-                .split('; ')
-                .find(row => row.startsWith('id'))
-                .split('=')[1];
-            document.getElementById('nombreUsuario').value = cookieValue;
-        }
-
-        var idUsuario = document.getElementById("nombreUsuario").value;
-        idUsuario = parseInt(idUsuario);
-    </script>
-}
