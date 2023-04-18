@@ -59,8 +59,8 @@
                                                 Correo
                                             </label>
                                             <div class="col-md-10">
-                                                @Html.EditorFor(model => model.CORREO, new { htmlAttributes = new { @class = "form-control" } })
-                                                @Html.ValidationMessageFor(model => model.CORREO, "", new { @class = "text-danger" })
+                                                @Html.EditorFor(model => model.ID_USUARIO, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.ID_USUARIO, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
                                         <div class="form-outline mb-4">
@@ -93,16 +93,14 @@
     <script>
         $('form').submit(function (e) {
             e.preventDefault();
-            var correo = $('input[name="CORREO"]').val();
+            var id = $('input[name="ID_USUARIO"]').val();
             var contrasena = $('input[name="CONTRASENA"]').val();
             var usuario = {
-                correo: correo,
+                id: id,
                 contrasena: contrasena
             };
-            document.cookie = "usuario=" + correo + "; path=/;";
+            document.cookie = "id usuario=" + id + "; path=/;";
             this.submit();
         });
     </script>
-
-
 }

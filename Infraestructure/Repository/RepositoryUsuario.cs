@@ -11,7 +11,7 @@ namespace Infraestructure.Repository
 {
     public class RepositoryUsuario : IRepositoryUsuario
     {
-        public USUARIO GetUsuario(string email, string password)
+        public USUARIO GetUsuario(int id, string password)
         {
             USUARIO oUsuario = null;
             try
@@ -19,7 +19,7 @@ namespace Infraestructure.Repository
                 using (MyContext ctx = new MyContext())
                 {
                     ctx.Configuration.LazyLoadingEnabled = false;
-                    oUsuario = ctx.USUARIO.Where(p => p.CORREO.Equals(email) && p.CONTRASENA == password && p.ESTADO_USUARIO.ID_ESTADO == 1).
+                    oUsuario = ctx.USUARIO.Where(p => p.ID_USUARIO.Equals(id) && p.CONTRASENA == password && p.ESTADO_USUARIO.ID_ESTADO == 1).
                         FirstOrDefault<USUARIO>();
                 }
                 if (oUsuario != null)

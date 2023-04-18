@@ -25,12 +25,13 @@ namespace Condominium.Controllers
             USUARIO oUsuario = null;
             try
             {
+
                 ModelState.Remove("NOMBRE");
                 ModelState.Remove("APELLIDOS");
                 ModelState.Remove("ID_TIPO_USUARIO");
                 if (ModelState.IsValid)
                 {
-                    oUsuario = _serviceUsuario.GetUsuario(usuario.CORREO, usuario.CONTRASENA);
+                    oUsuario = _serviceUsuario.GetUsuario(usuario.ID_USUARIO, usuario.CONTRASENA);
 
                     if(oUsuario != null)
                     {

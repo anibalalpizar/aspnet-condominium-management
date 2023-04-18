@@ -12,7 +12,7 @@ namespace ApplicationCore.Services
         IEnumerable<USUARIO> GetUSUARIOs();
         USUARIO GetUsuarioById(int id);
         USUARIO Save(USUARIO usuario);
-        USUARIO GetUsuario(string email, string password);
+        USUARIO GetUsuario(int email, string password);
 
     }
 }
