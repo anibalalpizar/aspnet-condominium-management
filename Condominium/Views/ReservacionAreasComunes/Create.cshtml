@@ -42,14 +42,14 @@
             transition: all 0.3s ease;
         }
 
-            .card .reservar:hover {
-                background-color: #0069d9;
-                border-color: #0062cc;
-            }
+        .card .reservar:hover {
+            background-color: #0069d9;
+            border-color: #0062cc;
+        }
 
-            .card .reservar:focus {
-                box-shadow: none;
-            }
+        .card .reservar:focus {
+            box-shadow: none;
+        }
 
         .card .reservado {
             margin-top: 20px;
@@ -59,9 +59,9 @@
             font-weight: bold;
         }
 
-            .card .reservado i {
-                margin-right: 8px;
-            }
+        .card .reservado i {
+            margin-right: 8px;
+        }
 </style>
 
 
@@ -75,75 +75,47 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title text-center mb-4"><i class="fas fa-newspaper"></i> Crear Una Reserva</h4>
-                        @*<div class="form-group">
-                                <label for="ID_USUARIO" class="form-label"><i class="fas fa-newspaper"></i> Usuario </label>
-                                <input type="text" class="form-control" id="nombreUsuario" readonly>
-                                 @Html.EditorFor(model => model.ID_USUARIO, new { htmlAttributes = new { @class = "form-control" } })
-                            </div>*@
-                        <div class="form-group">
-                            <label for="ID_USUARIO" class="form-label"><i class="fas fa-newspaper"></i> Usuario </label>
-                            <div>
-                                <input type="text" class="form-control" id="nombreUsuario" readonly style="display:none;">
-                                @*@Html.DropDownListFor(model => model.ID_USUARIO,
-        (SelectList)ViewBag.idResidente,
-        "Seleccione el Residente",
-        htmlAttributes: new { @class = "form-control" })*@
-                                @Html.EditorFor(model => model.ID_USUARIO, new { htmlAttributes = new { type = "text", @class = "form-control" } })
-
-                            </div>
-
+                    </div>
+                    <div class="form-group">
+                        <label for="ID_USUARIO" class="form-label"><i class="fas fa-newspaper"></i> Usuario </label>
+                        <div>
+                            <input type="text" class="form-control" id="nombreUsuario" readonly style="display:none;">
+                            @Html.EditorFor(model => model.ID_USUARIO, new { htmlAttributes = new { type = "text", @class = "form-control" } })
                         </div>
-
-
-                        <div class="form-group">
-                            <label for="ID_AREA_COMUN" class="form-label"><i class="fas fa-newspaper"></i> Áreas Comunes </label>
-                            <div class="d-flex align-items-center">
-                                <button type="button" class="btn btn-primary mr-3" data-toggle="modal" data-target="#modal-area-comun">
-                                    +
-                                </button>
-                                @Html.DropDownListFor(model => model.ID_AREA_COMUN,
-                                    (SelectList)ViewBag.idAreaComun,
-                                    "Seleccione el Área Comun",
-                                    htmlAttributes: new { @class = "form-control", @id = "area-comun-dropdown" })
-                            </div>
-
+                    </div>
+                    <div class="form-group">
+                        <label for="ID_AREA_COMUN" class="form-label"><i class="fas fa-newspaper"></i> Áreas Comunes </label>
+                        <div class="d-flex align-items-center">
+                            <button type="button" class="btn btn-primary mr-3" data-toggle="modal" data-target="#modal-area-comun">
+                                +
+                            </button>
+                            @Html.DropDownListFor(model => model.ID_AREA_COMUN,
+                                (SelectList)ViewBag.idAreaComun,
+                                "Seleccione el Área Comun",
+                                htmlAttributes: new { @class = "form-control", @id = "area-comun-dropdown" })
                         </div>
-
-                        @*<div class="form-group">
-                                <label for="ID_AREA_COMUN" class="form-label"><i class="fas fa-newspaper"></i> Área Común</label>
-                                <div class="d-flex align-items-center">
-                                    <button type="button" class="btn btn-primary mr-3" data-toggle="modal" data-target="#modal-area-comun">
-                                        +
-                                    </button>
-                                    @Html.DropDownListFor(model => model.ID_AREA_COMUN,
-                                        (SelectList)ViewBag.idAreaComun,
-                                        "Seleccione el Área Común a Reservar",
-                                        htmlAttributes: new { @class = "form-control", @id = "area-comun-dropdown", @readonly = "readonly", @disabled = "disabled" })
-                                </div>
-                            </div>*@
-
-                        <div class="form-group">
-                            <label class="form-label" for="COMENTARIOS">
-                                <i class="fas fa-pencil-alt"></i> Comentarios
-                            </label>
-                            <div>
-                                @Html.EditorFor(model => model.COMENTARIOS, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.COMENTARIOS, "", new { @class = "text-danger" })
-                            </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="COMENTARIOS">
+                            <i class="fas fa-pencil-alt"></i> Comentarios
+                        </label>
+                        <div>
+                            @Html.EditorFor(model => model.COMENTARIOS, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.COMENTARIOS, "", new { @class = "text-danger" })
                         </div>
-                        <div class="form-group">
-                            <h5><i class="fas fa-calendar"></i> @Html.LabelFor(model => model.FECHA_RESERVA, "Fecha Reserva", htmlAttributes: new { @class = "form-label" })</h5>
-                            <div class="position-relative">
-                                @Html.EditorFor(model => model.FECHA_RESERVA, new { htmlAttributes = new { @class = "form-control datepicker" } })
-                                <span class="position-absolute top-50 translate-middle-y end-0 me-2" onclick="$(this).prev().focus();"><i class="fas fa-calendar text-muted"></i></span>
-                            </div>
-                            @Html.ValidationMessageFor(model => model.FECHA_RESERVA, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        <h5><i class="fas fa-calendar"></i> @Html.LabelFor(model => model.FECHA_RESERVA, "Fecha Reserva", htmlAttributes: new { @class = "form-label" })</h5>
+                        <div class="position-relative">
+                            @Html.EditorFor(model => model.FECHA_RESERVA, new { htmlAttributes = new { @class = "form-control datepicker" } })
+                            <span class="position-absolute top-50 translate-middle-y end-0 me-2" onclick="$(this).prev().focus();"><i class="fas fa-calendar text-muted"></i></span>
                         </div>
-                        <div class="form-group text-center">
-                            <div class="btn-group" role="group">
-                                <button type="submit" class="btn btn-primary"><i class="fas fa-plus"></i> Crear</button>
-                                <a href="@Url.Action("IndexAdmin", "ReservacionAreasComunes")" class="btn btn-danger"><i class="fas fa-times"></i> Cancelar</a>
-                            </div>
+                        @Html.ValidationMessageFor(model => model.FECHA_RESERVA, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group text-center">
+                        <div class="btn-group" role="group">
+                            <button type="submit" class="btn btn-primary"><i class="fas fa-plus"></i> Crear</button>
+                            <a href="@Url.Action("IndexAdmin", "ReservacionAreasComunes")" class="btn btn-danger"><i class="fas fa-times"></i> Cancelar</a>
                         </div>
                     </div>
                 </div>
@@ -184,12 +156,10 @@
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/smoothness/jquery-ui.css" />
 <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
 <script>
-
     $(document).ready(function () {
         var nombreUsuarioValue = $('#nombreUsuario').val();
         $('#ID_USUARIO').val(nombreUsuarioValue);
     });
-
 
     $(document).ready(function () {
         $(".datepicker").datepicker({
@@ -295,7 +265,6 @@
 
     });
 
-
     $(document).ready(function () {
         $('#modal-area-comun .reservar').click(function () {
             var nombreAreaComun = $(this).siblings('.card-title').text();
@@ -322,8 +291,6 @@
                 });
         });
     });
-
-
 
 </script>
 
