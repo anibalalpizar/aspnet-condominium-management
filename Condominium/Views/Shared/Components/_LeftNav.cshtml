@@ -113,10 +113,10 @@
                 </a>
             </div>
             @*<div class="nav-item">
-                <a class="nav-link" href="@Url.Action("Index", "EstadosCuenta")">
-                    <span class="ml-2"><i class="fas fa-money-check-alt"></i>&nbsp;&nbsp;Estados de cuenta</span>
-                </a>
-            </div>*@
+            <a class="nav-link" href="@Url.Action("Index", "EstadosCuenta")">
+                <span class="ml-2"><i class="fas fa-money-check-alt"></i>&nbsp;&nbsp;Estados de cuenta</span>
+            </a>
+        </div>*@
             <div class="nav-item">
                 <a class="nav-link" href="@Url.Action("IndexPlanCobro", "PlanCobro")">
                     <i class="fas fa-money-bill-wave mr-2"></i>
@@ -124,11 +124,11 @@
                 </a>
             </div>
             @*<div class="nav-item">
-                <a class="nav-link" href="@Url.Action("Index", "RubrosCobros")">
-                    <i class="fas fa-credit-card mr-2"></i>
-                    <span style="margin-left: 10px;">Rubros de cobros</span>
-                </a>
-            </div>*@
+            <a class="nav-link" href="@Url.Action("Index", "RubrosCobros")">
+                <i class="fas fa-credit-card mr-2"></i>
+                <span style="margin-left: 10px;">Rubros de cobros</span>
+            </a>
+        </div>*@
             <div class="nav-item">
                 <a class="nav-link" href="@Url.Action("IndexDeudasVigentes", "GestionPlanesCobro")">
                     <i class="fas fa-hand-holding-usd me-1"></i>
@@ -142,9 +142,23 @@
                 </a>
             </div>
             <div class="nav-item">
-                <a class="nav-link" href="@Url.Action("Index", "Incidencia")">
+                <a class="nav-link" href="@Url.Action("IndexCrear", "Incidencia")">
                     <i class="fas fa-exclamation-triangle me-2"></i>
-                    <span>Incidencias</span>
+                    <span>Incidencias Creadas</span>
+                </a>
+            </div>
+
+            <div class="nav-item">
+                <a class="nav-link" href="@Url.Action("Create", "Incidencia")">
+                    <i class="fas fa-exclamation-triangle me-2"></i>
+                    <span>Crear Incidencias</span>
+                </a>
+            </div>
+
+            <div class="nav-item">
+                <a class="nav-link" href="@Url.Action("IndexReservar", "ReservacionAreasComunes")">
+                    <i class="fa-solid fa-building me-2"></i>
+                    <span>Reservas Áreas Comunes</span>
                 </a>
             </div>
             @if (Condominium.Security.AutorizeView.IsUserInRole(new string[] { "Administrador" }))
@@ -159,9 +173,10 @@
                         <a class="dropdown-item" href="@Url.Action("IndexAdmin", "RubrosCobros")" style="color: white;"><i class="fas fa-coins me-2"></i> Rubros de cobros</a>
                         <a class="dropdown-item" href="@Url.Action("IndexAdmin", "Noticias")" style="color: white;"><i class="fas fa-newspaper me-2"></i> Noticias | Información</a>
                         <a class="dropdown-item" href="@Url.Action("IndexAdmin", "Incidencia")" style="color: white;"><i class="fas fa-exclamation-triangle me-2"></i> Incidencias </a>
-                        <a class="dropdown-item" href="@Url.Action("IndexAdmin", "Usuario")" style="color: white;"><i class="fas fa-exclamation-triangle me-2"></i> Residentes </a>
-                        <a class="dropdown-item" href="@Url.Action("IndexAdmin", "GestionPlanesCobro")" style="color: white;"><i class="fas fa-exclamation-triangle me-2"></i> Asignar Planes </a>
-                        <a class="dropdown-item" href="@Url.Action("IndexAdmin", "ReservacionAreasComunes")" style="color: white;"><i class="fas fa-exclamation-triangle me-2"></i> Reservas Áreas Comunes </a>
+                        <a class="dropdown-item" href="@Url.Action("IndexAdmin", "Usuario")" style="color: white;"><i class="fa-solid fa-person-shelter me-2"></i> Residentes </a>
+                        <a class="dropdown-item" href="@Url.Action("IndexAdmin", "GestionPlanesCobro")" style="color: white;"><i class="fa-sharp fa-solid fa-chart-line me-2"></i> Asignar Planes </a>
+                        <a class="dropdown-item" href="@Url.Action("IndexAdmin", "ReservacionAreasComunes")" style="color: white;"><i class="fa-sharp fa-solid fa-chart-line me-2"></i> Áreas Comunes </a>
+
                     </div>
                 </div>
             }

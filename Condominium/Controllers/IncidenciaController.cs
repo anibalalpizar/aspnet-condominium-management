@@ -48,6 +48,23 @@ namespace Condominium.Controllers
             }
         }
 
+        public ActionResult IndexCrear()
+        {
+            IEnumerable<INCIDENCIA> list = null;
+            try
+            {
+                IServiceIncidencia serviceIncidencia = new ServiceIncidencia();
+                list = serviceIncidencia.GetIncidencias();
+                return View(list);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, MethodBase.GetCurrentMethod());
+                TempData["Message"] = "Error al procesar los datos!" + ex.Message;
+                return RedirectToAction("Default", "Error");
+            }
+        }
+
         //Vista Crear una nueva incidencia
         [HttpGet]
         public ActionResult Create()

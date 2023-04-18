@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Infraestructure.Model.INCIDENCIA>
+
+@{
+    ViewBag.Title = "IndexCrear";
+}
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Incidencias</h2>
+    <div class="d-flex justify-content-end mb-3">
+        <a href="@Url.Action("Create")" class="btn btn-primary">
+            <i class="fas fa-plus-circle me-2"></i>Crear incidencia
+        </a>
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Descripción</th>
+                <th>Fecha Creación</th>
+                <th>Estado</th>
+                <th>Usuario</th>
+
+                
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                if (Request.Cookies["id"].Value == item.ID_USUARIO.ToString())
+                {
+
+               
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.DESCRIPCION)</td>
+                    <td>@Html.DisplayFor(modelItem => item.FECHA_CREACION)</td>
+                    <td>@Html.DisplayFor(modelItem => item.ESTADO_INCIDENCIA.DESCRIPCION_ESTADO_INCIDENCIA)</td>
+                    <td>@Html.DisplayFor(modelItem => item.USUARIO.NOMBRE)</td>
+                  
+                </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>

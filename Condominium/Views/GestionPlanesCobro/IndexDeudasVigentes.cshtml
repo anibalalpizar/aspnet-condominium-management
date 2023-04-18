@@ -75,6 +75,11 @@
 <div class="container-tarjetas d-flex justify-content-center flex-wrap">
     @foreach (var item in Model)
     {
+
+        if (Request.Cookies["id"].Value == item.RESIDENCIA.ID_USUARIO.ToString())
+        {
+
+        
         <div class="col-md-4 mb-4">
             <div class="card">
                 <div class="card-body">
@@ -95,7 +100,7 @@
                 </div>
             </div>
         </div>
-
+        }
 
         <!-- Modal -->
         <div class="modal fade" id="modalDetalle_@item.ID_GESTION_PLANES_COBRO" tabindex="-1" role="dialog" aria-labelledby="modalDetalleLabel" aria-hidden="true">

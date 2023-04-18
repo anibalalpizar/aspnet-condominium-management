@@ -10,10 +10,22 @@ namespace ApplicationCore.Services
 {
     public class ServiceReservacionAreasComunes : IServiceReservacionAreasComunes
     {
+        public void AceptarReserva(int id)
+        {
+            IRepositoryReservaAreasComunes repository = new RepositoryReservaAreasComunes();
+            repository.AceptarReserva(id);
+        }
+
         public IEnumerable<RESERVA_AREA_COMUN> GetAreasComunes()
         {
             IRepositoryReservaAreasComunes repository = new RepositoryReservaAreasComunes();
             return repository.GetAreasComunes();
+        }
+
+        public List<DateTime> GetFechasReservadas()
+        {
+            IRepositoryReservaAreasComunes repository = new RepositoryReservaAreasComunes();
+            return repository.GetFechasReservadas();
         }
 
         public RESERVA_AREA_COMUN GetReservaById(int id)

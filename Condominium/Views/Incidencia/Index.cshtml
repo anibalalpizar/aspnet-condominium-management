@@ -8,6 +8,10 @@
 <div class="row row-cols-1 row-cols-md-3 g-4">
     @foreach (var item in Model)
     {
+        if (Request.Cookies["id"].Value == item.ID_USUARIO.ToString())
+        {
+
+       
         <div class="col">
             <div class="card h-100">
                 <div class="card-body">
@@ -28,6 +32,7 @@
                 </div>
             </div>
         </div>
+        }
     }
 </div>
 <style>

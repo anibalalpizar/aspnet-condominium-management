@@ -13,5 +13,6 @@ namespace Infraestructure.Repository
         IEnumerable<GESTION_PLANES_COBRO> getGestionPlanesCobroVigentes();
         GESTION_PLANES_COBRO getGestionPlanesCobroById(int id);
         GESTION_PLANES_COBRO Save(GESTION_PLANES_COBRO gestion);
+        Task<GESTION_PLANES_COBRO> RealizarPago(int id);
     }
 }

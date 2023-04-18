@@ -67,17 +67,18 @@ namespace Condominium.Controllers
 
         public async Task<ActionResult> RealizarPago(int id)
         {
-            using (MyContext ctx = new MyContext())
+            try
             {
-                var factura = await ctx.GESTION_PLANES_COBRO.FirstOrDefaultAsync(f => f.ID_GESTION_PLANES_COBRO == id);
-
-                if (factura != null)
-                {
-                    factura.ID_ESTADO_DEUDA = 2;
-                    ctx.SaveChanges();
-                }
+                IServiceGestionPlanesCobro serviceGestionPlanesCobro = new ServiceGestionPlanesCobro();
+                await serviceGestionPlanesCobro.RealizarPago(id);
+                return RedirectToAction("IndexDeudasVigentes");
             }
-            return RedirectToAction("IndexDeudasVigentes");
+            catch (Exception ex)
+            {
+                Log.Error(ex, MethodBase.GetCurrentMethod());
+                TempData["Message"] = "Error al procesar los datos!" + ex.Message;
+                return RedirectToAction("Default", "Error");
+            }
         }
 
         public ActionResult IndexAdmin()

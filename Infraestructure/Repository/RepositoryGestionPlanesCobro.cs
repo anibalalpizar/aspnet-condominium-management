@@ -144,5 +144,36 @@ namespace Infraestructure.Repository
                 throw;
             }
         }
+
+        public async Task<GESTION_PLANES_COBRO> RealizarPago(int id)
+        {
+            try
+            {
+                using (MyContext ctx = new MyContext())
+                {
+                    var factura = await ctx.GESTION_PLANES_COBRO.FirstOrDefaultAsync(f => f.ID_GESTION_PLANES_COBRO == id);
+
+                    if (factura != null)
+                    {
+                        factura.ID_ESTADO_DEUDA = 2;
+                        await ctx.SaveChangesAsync();
+                    }
+
+                    return factura;
+                }
+            }
+            catch (DbUpdateException dbEx)
+            {
+                string mensaje = "";
+                Log.Error(dbEx, System.Reflection.MethodBase.GetCurrentMethod(), ref mensaje);
+                throw new Exception(mensaje);
+            }
+            catch (DbEntityValidationException ex)
+            {
+                string mensaje = "";
+                Log.Error(ex, System.Reflection.MethodBase.GetCurrentMethod(), ref mensaje);
+                throw;
+            }
+        }
     }
 }

@@ -11,6 +11,8 @@ namespace ApplicationCore.Services
     {
         IEnumerable<RESERVA_AREA_COMUN> GetAreasComunes();
         RESERVA_AREA_COMUN GetReservaById(int id);
+        void AceptarReserva(int id);
+        List<DateTime> GetFechasReservadas();
         RESERVA_AREA_COMUN Save(RESERVA_AREA_COMUN area);
     }
 }

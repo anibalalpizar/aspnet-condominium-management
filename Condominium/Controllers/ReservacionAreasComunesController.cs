@@ -48,6 +48,23 @@ namespace Condominium.Controllers
                 return RedirectToAction("Default", "Error");
             }
         }
+
+        public ActionResult IndexReservar()
+        {
+            try
+            {
+                IEnumerable<RESERVA_AREA_COMUN> lista = null;
+                IServiceReservacionAreasComunes serviceAreasComunes = new ServiceReservacionAreasComunes();
+                lista = serviceAreasComunes.GetAreasComunes();
+                return View(lista);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, MethodBase.GetCurrentMethod());
+                TempData["Message"] = "Error al procesar los datos! " + ex.Message;
+                return RedirectToAction("Default", "Error");
+            }
+        }
         //Vista para crear Reservas
         [HttpGet]
         public ActionResult Create()
@@ -162,37 +179,33 @@ namespace Condominium.Controllers
         }
         public JsonResult GetFechasReservadas()
         {
-            using (MyContext ctx = new MyContext())
+            try
             {
-                var fechasReservadas = ctx.RESERVA_AREA_COMUN
-                    .Select(r => EntityFunctions.TruncateTime(r.FECHA_RESERVA))
-                    .ToList();
-
+                IServiceReservacionAreasComunes serviceReservacionAreasComunes = new ServiceReservacionAreasComunes();
+                var fechasReservadas= serviceReservacionAreasComunes.GetFechasReservadas();
                 return Json(fechasReservadas, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, MethodBase.GetCurrentMethod());
+                TempData["Message"] = "Error al procesar los datos!" + ex.Message;
+                return Json(new { success = false, message = ex.Message }, JsonRequestBehavior.AllowGet);
             }
         }
         public ActionResult AceptarReserva(int id)
         {
-            using (MyContext ctx = new MyContext())
+            try
             {
-                var reserva = ctx.RESERVA_AREA_COMUN.FirstOrDefault(r => r.ID_RESERVA_AREA_COMUN == id);
-
-                if (reserva != null)
-                {
-                    if (reserva.ID_ESTADO_RESERVACION == 1)
-                    {
-                        reserva.ID_ESTADO_RESERVACION = 2;
-                    }
-                    else
-                    {
-                        reserva.ID_ESTADO_RESERVACION = 1;
-                    }
-
-                    ctx.SaveChanges();
-                }
+                IServiceReservacionAreasComunes serviceReservacionAreasComunes = new ServiceReservacionAreasComunes();
+                serviceReservacionAreasComunes.AceptarReserva(id);
+                return RedirectToAction("IndexAdmin");
             }
-
-            return RedirectToAction("IndexAdmin");
+            catch (Exception ex)
+            {
+                Log.Error(ex, MethodBase.GetCurrentMethod());
+                TempData["Message"] = "Error al procesar los datos!" + ex.Message;
+                return RedirectToAction("Default", "Error");
+            }
         }
     }
 }

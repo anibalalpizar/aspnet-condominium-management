@@ -28,6 +28,12 @@ namespace ApplicationCore.Services
             return repositoryGestionPlanesCobro.getGestionPlanesCobroVigentes();
         }
 
+        public Task<GESTION_PLANES_COBRO> RealizarPago(int id)
+        {
+            IRepositoryGestionPlanesCobro repositoryGestionPlanesCobro = new RepositoryGestionPlanesCobro();
+            return repositoryGestionPlanesCobro.RealizarPago(id);
+        }
+
         public GESTION_PLANES_COBRO Save(GESTION_PLANES_COBRO gestion)
         {
             IRepositoryGestionPlanesCobro repositoryGestionPlanesCobro = new RepositoryGestionPlanesCobro();
