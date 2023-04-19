@@ -82,3 +82,17 @@ C:\Users\Estudiante\AspNet-Sistema-Condominios\Infraestructure\obj\Debug\Infraes
 C:\Users\Estudiante\AspNet-Sistema-Condominios\Infraestructure\obj\Debug\Infraestructure.csproj.CopyComplete
 C:\Users\Estudiante\AspNet-Sistema-Condominios\Infraestructure\obj\Debug\Infraestructure.dll
 C:\Users\Estudiante\AspNet-Sistema-Condominios\Infraestructure\obj\Debug\Infraestructure.pdb
+C:\Users\anibal\Documents\aspNet-Sistema-Condominios\Infraestructure\bin\Debug\Infraestructure.dll.config
+C:\Users\anibal\Documents\aspNet-Sistema-Condominios\Infraestructure\bin\Debug\Infraestructure.dll
+C:\Users\anibal\Documents\aspNet-Sistema-Condominios\Infraestructure\bin\Debug\Infraestructure.pdb
+C:\Users\anibal\Documents\aspNet-Sistema-Condominios\Infraestructure\bin\Debug\EntityFramework.dll
+C:\Users\anibal\Documents\aspNet-Sistema-Condominios\Infraestructure\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\anibal\Documents\aspNet-Sistema-Condominios\Infraestructure\bin\Debug\log4net.dll
+C:\Users\anibal\Documents\aspNet-Sistema-Condominios\Infraestructure\bin\Debug\EntityFramework.xml
+C:\Users\anibal\Documents\aspNet-Sistema-Condominios\Infraestructure\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\anibal\Documents\aspNet-Sistema-Condominios\Infraestructure\bin\Debug\log4net.xml
+C:\Users\anibal\Documents\aspNet-Sistema-Condominios\Infraestructure\obj\Debug\Infraestructure.csproj.AssemblyReference.cache
+C:\Users\anibal\Documents\aspNet-Sistema-Condominios\Infraestructure\obj\Debug\Infraestructure.csproj.CoreCompileInputs.cache
+C:\Users\anibal\Documents\aspNet-Sistema-Condominios\Infraestructure\obj\Debug\Infraestructure.csproj.CopyComplete
+C:\Users\anibal\Documents\aspNet-Sistema-Condominios\Infraestructure\obj\Debug\Infraestructure.dll
+C:\Users\anibal\Documents\aspNet-Sistema-Condominios\Infraestructure\obj\Debug\Infraestructure.pdb

@@ -11,7 +11,8 @@ namespace Infraestructure.Model
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class NOTICIA
     {
         public int ID_NOTICIA { get; set; }
@@ -19,8 +20,8 @@ namespace Infraestructure.Model
         public string TITULO { get; set; }
         public string CONTENIDO { get; set; }
         public System.DateTime FECHA_PUBLICACION { get; set; }
+        [UIHint("Document")]
         public byte[] DOCUMENTO { get; set; }
-    
         public virtual TIPO_NOTICIA TIPO_NOTICIA { get; set; }
     }
 }
