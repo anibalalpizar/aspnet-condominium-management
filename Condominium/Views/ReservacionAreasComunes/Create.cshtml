@@ -79,8 +79,8 @@
                     <div class="form-group">
                         <label for="ID_USUARIO" class="form-label"><i class="fas fa-newspaper"></i> Identificación </label>
                         <div>
-                            <input type="text" class="form-control" id="nombreUsuario" readonly style="display:none;">
-                            @Html.EditorFor(model => model.ID_USUARIO, new { htmlAttributes = new { type = "text", @class = "form-control" } })
+                            @*<input type="text" class="form-control" id="nombreUsuario">*@
+                            @Html.EditorFor(model => model.ID_USUARIO, new { htmlAttributes = new { type = "text", @class = "form-control", id = "nombreUsuario" } })
                         </div>
                     </div>
                     <div class="form-group">
@@ -114,8 +114,8 @@
                     </div>
                     <div class="form-group text-center">
                         <div class="btn-group" role="group">
-                            <button type="submit" class="btn btn-primary"><i class="fas fa-plus"></i> Crear</button>
-                            <a href="@Url.Action("IndexAdmin", "ReservacionAreasComunes")" class="btn btn-danger"><i class="fas fa-times"></i> Cancelar</a>
+                            <button type="submit" class="btn btn-primary"><a href="@Url.Action("IndexReservar", "ReservacionAreasComunes")"></a>Crear</button>
+                            <a href="@Url.Action("IndexReservar", "ReservacionAreasComunes")" class="btn btn-danger"><i class="fas fa-times"></i> Cancelar</a>
                         </div>
                     </div>
                 </div>

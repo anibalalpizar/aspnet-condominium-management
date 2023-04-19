@@ -194,7 +194,7 @@ namespace Condominium.Controllers
                 }
 
 
-                // ViewBag.ID_RESIDENCIA = listaResidencias(oGestion.ID_RESIDENCIA);
+                ViewBag.ID_RESIDENCIA = listaResidencias(oGestion.ID_RESIDENCIA);
                 ViewBag.ID_ESTADO_DEUDA = listaEstadoDeuda(oGestion.ID_ESTADO_DEUDA);
                 ViewBag.ID_PLAN_COBRO = listaPlanCobro((int)oGestion.ID_PLAN_COBRO);
                 return View(oGestion);
