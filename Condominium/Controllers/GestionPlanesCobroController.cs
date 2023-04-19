@@ -71,6 +71,7 @@ namespace Condominium.Controllers
             {
                 IServiceGestionPlanesCobro serviceGestionPlanesCobro = new ServiceGestionPlanesCobro();
                 await serviceGestionPlanesCobro.RealizarPago(id);
+                ViewBag.NotificationMessage = Util.SweetAlertHelper.Mensaje("Login", "Usuario no válido", Util.SweetAlertMessageType.warning);
                 return RedirectToAction("IndexDeudasVigentes");
             }
             catch (Exception ex)
@@ -143,7 +144,7 @@ namespace Condominium.Controllers
                 else
                 {
                     ViewBag.idResidencia = listaResidencias(gestion.ID_RESIDENCIA);
-                    //  ViewBag.idEstadoDeuda = listaEstadoDeuda(gestion.ID_ESTADO_DEUDA);
+                      ViewBag.idEstadoDeuda = listaEstadoDeuda(gestion.ID_ESTADO_DEUDA);
                     ViewBag.idPlanCobro = listaPlanCobro((int)gestion.ID_PLAN_COBRO);
 
                     if (gestion.ID_GESTION_PLANES_COBRO > 0)
@@ -171,6 +172,42 @@ namespace Condominium.Controllers
         }
 
         public ActionResult Edit(int? id)
+        {
+            try
+            {
+                IServiceGestionPlanesCobro serviceGestionPlanes = new ServiceGestionPlanesCobro();
+                GESTION_PLANES_COBRO oGestion = null;
+
+                if (id == null)
+                {
+                    return RedirectToAction("IndexAdmin");
+                }
+
+                oGestion = serviceGestionPlanes.getGestionPlanesCobroById(Convert.ToInt32(id));
+
+                if (oGestion == null)
+                {
+                    TempData["Message"] = "No existe la noticia solicitado";
+                    TempData["Redirect"] = "RubrosCobros";
+                    TempData["Redirect-Action"] = "IndexAdmin";
+                    return RedirectToAction("Default", "Error");
+                }
+
+
+                // ViewBag.ID_RESIDENCIA = listaResidencias(oGestion.ID_RESIDENCIA);
+                ViewBag.ID_ESTADO_DEUDA = listaEstadoDeuda(oGestion.ID_ESTADO_DEUDA);
+                ViewBag.ID_PLAN_COBRO = listaPlanCobro((int)oGestion.ID_PLAN_COBRO);
+                return View(oGestion);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, MethodBase.GetCurrentMethod());
+                TempData["Message"] = "Error al procesar los datos!" + ex.Message;
+                return RedirectToAction("Default", "Error");
+            }
+        }
+
+        public ActionResult EditDeuda(int? id)
         {
             try
             {

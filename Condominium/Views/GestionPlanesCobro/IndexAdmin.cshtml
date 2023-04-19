@@ -37,8 +37,8 @@
 
                     <td>
                         <div class="d-flex justify-content-center mb-3">
-                            <a href="@Url.Action("Edit", "", new { id = item.ID_GESTION_PLANES_COBRO })" class="btn @(item.ID_ESTADO_DEUDA == 1 ? "btn-success" : "btn-warning") btn-sm">
-                                <i class="fas @(item.ID_ESTADO_DEUDA == 1 ? "fa-check-circle" : "fa-undo-alt") me-2"></i>@(item.ID_ESTADO_DEUDA == 1 ? "Cerrar incidencia" : "Reabrir incidencia")
+                            <a href="@Url.Action("EditDeuda", "GestionPlanesCobro", new { id = item.ID_GESTION_PLANES_COBRO })" class="btn @(item.ID_ESTADO_DEUDA == 1 ? "btn-success" : "btn-warning") btn-sm">
+                                <i class="fas @(item.ID_ESTADO_DEUDA == 1 ? "fa-check-circle" : "fa-undo-alt") me-2"></i>@(item.ID_ESTADO_DEUDA == 1 ? "Cerrar Deuda" : "Reabrir Deuda")
                             </a>
                             <a href="@Url.Action("Edit", "GestionPlanesCobro", new { id = item.ID_GESTION_PLANES_COBRO })" class="btn btn-primary btn-sm mx-1"><i class="fas fa-pencil-alt"></i> </a>
                         </div>
