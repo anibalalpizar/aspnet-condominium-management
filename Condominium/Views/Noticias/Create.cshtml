@@ -139,7 +139,7 @@
                         <div class="form-group">
                             @Html.LabelFor(model => model.DOCUMENTO, htmlAttributes: new { @class = "control-label col-md-2" })
                             <div class="col-md-10">
-                                <input type="file" id="pdf-file" name="PdfFile" class="form-control" />
+                                @Html.EditorFor(model => model.DOCUMENTO)
                                 @Html.ValidationMessageFor(model => model.DOCUMENTO, "", new { @class = "text-danger" })
                             </div>
                         </div>
@@ -186,56 +186,13 @@
                 calendar.style.display = "none";
             }
         }
-
         $(document).mouseup((e) => {
             var container = $("#calendar");
             if (!container.is(e.target) && container.has(e.target).length === 0) {
                 container.hide();
             }
-        });
-
-
-            //function validarFormulario() {
-            //    // Obtener los valores de los campos
-            //    var nombrePlan = document.getElementById("TITULO").value;
-            //    var descripcion = document.getElementById("CONTENIDO").value;
-            //  //  var idPlanCobro = document.getElementById("ID_PLAN_COBRO").value;
-
-            //    if (nombrePlan == "" || descripcion == "" ) {
-            //        var modalContent = "<div class='modal-dialog'>" +
-            //            "<div class='modal-content'>" +
-            //            "<div class='modal-header'>" +
-            //            "<h5 class='modal-title'>Error de validación</h5>" +
-            //            "<button type='button' class='close' data-dismiss='modal'>&times;</button>" +
-            //            "</div>" +
-            //            "<div class='modal-body'>" +
-            //            "<p>Todos los campos son requeridos</p>" +
-            //            "</div>" +
-            //            "<div class='modal-footer'>" +
-            //            "</div>" +
-            //            "</div>" +
-            //            "</div>";
-
-            //        document.getElementById("myModal").innerHTML = modalContent;
-            //        $('#myModal').modal('show');
-
-            //        return false;
-            //    }
-
-            //    return true;
-            //}
-
-            //$('#boton-cerrar').on('click', function () {
-            //    console.log("Botón de cerrar presionado");
-            //    $('#myModal').modal('hide');
-            //});
-
+        });        
     </script>
-
-    @*<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>*@
-
-
-
 }
 
 

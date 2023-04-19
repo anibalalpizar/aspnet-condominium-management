@@ -1,3 +1,8 @@
 ﻿@model byte[]
+<input type="file" id="pdf-file" name="PdfFile" class="form-control" onchange="mostrarAlerta()" />
 
-<input type="file" name="@ViewData.TemplateInfo.HtmlFieldPrefix" />
+<script>
+    function mostrarAlerta() {
+        alert('Archivo seleccionado usando EditorTemplates y UIHint');
+    }
+</script>
