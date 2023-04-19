@@ -79,54 +79,52 @@
         if (Request.Cookies["id"].Value == item.RESIDENCIA.ID_USUARIO.ToString())
         {
 
-        
-        <div class="col-md-4 mb-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">@item.NOMBRE_PLAN</h5>
-                    <p class="card-text"><i class="fas fa-home"></i> Número de residencia: @item.RESIDENCIA.NUMERO_RESIDENCIA</p>
-                    <p class="card-text"><i class="fas fa-users"></i> Estado: @item.ESTADO_DEUDA.NOMBRE_ESTADO_DEUDA</p>
-                    <button type="button" class="btn btn-primary btn-detalle" data-toggle="modal" data-target="#modalDetalle_@item.ID_GESTION_PLANES_COBRO">
-                        <i class="fas fa-info-circle"></i> Vista Previa
-                    </button>
-                    <a href="@Url.Action("Details", "GestionPlanesCobro", new { id = item.ID_GESTION_PLANES_COBRO })" class="btn btn-success">
-                        <i class="fas fa-info-circle"></i> Detalles
-                    </a>
-                    <a href="@Url.Action("RealizarPago", "GestionPlanesCobro", new { id = item.ID_GESTION_PLANES_COBRO })" class="btn btn-primary btn-sm">
-                        <i class="fas fa-dollar-sign me-2"></i>Realizar Pago
-                    </a>
+
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">@item.NOMBRE_PLAN</h5>
+                        <p class="card-text"><i class="fas fa-home"></i> Número de residencia: @item.RESIDENCIA.NUMERO_RESIDENCIA</p>
+                        <p class="card-text"><i class="fas fa-users"></i> Estado: @item.ESTADO_DEUDA.NOMBRE_ESTADO_DEUDA</p>
+                        <button type="button" class="btn btn-primary btn-detalle" data-toggle="modal" data-target="#modalDetalle_@item.ID_GESTION_PLANES_COBRO">
+                            <i class="fas fa-info-circle"></i> Realizar el Pago
+                        </button>
+                        <a href="@Url.Action("Details", "GestionPlanesCobro", new { id = item.ID_GESTION_PLANES_COBRO })" class="btn btn-success">
+                            <i class="fas fa-info-circle"></i> Detalles
+                        </a>
 
 
+                    </div>
                 </div>
             </div>
-        </div>
         }
 
-        <!-- Modal -->
+        <!-- Confirmar Pago Modal -->
         <div class="modal fade" id="modalDetalle_@item.ID_GESTION_PLANES_COBRO" tabindex="-1" role="dialog" aria-labelledby="modalDetalleLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header bg-primary text-white">
-                        <h5 class="modal-title" id="modalDetalleLabel"><i class="fas fa-info-circle"></i> </h5>
+                        <h5 class="modal-title" id="modalDetalleLabel"><i class="fas fa-check-circle"></i> Confirmar Pago</h5>
 
                         <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close" style="position:absolute; top: 10px; right: 10px;">
                             <span aria-hidden="true"><i class="fas fa-times"></i></span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p class="card-text"><i class="fas fa-home"></i> Número de residencia: @item.RESIDENCIA.NUMERO_RESIDENCIA</p>
-                        <p class="card-text"><i class="fas fa-users"></i> Estado: @item.ESTADO_DEUDA.NOMBRE_ESTADO_DEUDA</p>
+                        <p class="card-text"><i class="fas fa-home"></i> Número de residencia: @item.RESIDENCIA.NUMERO_RESIDENCIA</p>                  
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="position:absolute; top: 10px; right: 10px;">
                             <span aria-hidden="true"><i class="fas fa-times text-black"></i></span>
                         </button>
-                        <a href="@Url.Action("Details", new { id = item.ID_GESTION_PLANES_COBRO })" class="btn btn-primary">
-                            <i class="fa fa-info-circle"></i> Ver detalles completos
+                        <a href="@Url.Action("RealizarPago", "GestionPlanesCobro", new { id = item.ID_GESTION_PLANES_COBRO })" class="btn btn-primary btn-sm">
+                            <i class="fas fa-dollar-sign me-2"></i>Confirmar Pago
                         </a>
                     </div>
                 </div>
             </div>
         </div>
+
     }
 </div>
+
