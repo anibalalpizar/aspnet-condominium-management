@@ -11,10 +11,12 @@ namespace ApplicationCore.Services
     {
         IEnumerable<RESIDENCIA> GetResidencia();
         IEnumerable<string> GetResidenciaNombres();
+
         IEnumerable<RESIDENCIA> GetResidenciaByNombre(string nombre);
         IEnumerable<RESIDENCIA> GetResidenciaByAutor(int idAutor);
         IEnumerable<RESIDENCIA> GetResidenciaByCategoria(int idCategoria);
         RESIDENCIA GetResidenciaById(int id);
+        RESIDENCIA Save(RESIDENCIA residencia);
         void DeleteResidecia(int id);
         RESIDENCIA Save(RESIDENCIA residencia, string[] selectedCategorias);
     }

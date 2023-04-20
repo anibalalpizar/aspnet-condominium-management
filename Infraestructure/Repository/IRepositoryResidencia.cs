@@ -11,5 +11,6 @@ namespace Infraestructure.Repository
     {
         IEnumerable<RESIDENCIA> GetResidencia();
         RESIDENCIA GetResidenciaById(int id);
+        RESIDENCIA Save(RESIDENCIA residencia);
     }
 }

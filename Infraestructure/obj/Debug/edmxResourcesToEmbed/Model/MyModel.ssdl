@@ -138,9 +138,9 @@
     <Property Name="ID_ESTADO_RESIDENCIA" Type="int" Nullable="false" />
     <Property Name="NUMERO_RESIDENCIA" Type="int" Nullable="false" />
     <Property Name="CANTIDAD_PERSONAS" Type="int" Nullable="false" />
-    <Property Name="ANIO_INICIO" Type="int" Nullable="false" />
+    <Property Name="ANIO_INICIO" Type="datetime" Nullable="false" />
     <Property Name="CANTIDAD_CARROS" Type="int" Nullable="false" />
-    <Property Name="ID_USUARIO" Type="int" />
+    <Property Name="ID_USUARIO" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="RUBRO_COBRO">
     <Key>
@@ -318,7 +318,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK__RESIDENCI__ID_US__73BA3083">
-    <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="0..1" />
+    <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
     <End Role="RESIDENCIA" Type="Self.RESIDENCIA" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="USUARIO">

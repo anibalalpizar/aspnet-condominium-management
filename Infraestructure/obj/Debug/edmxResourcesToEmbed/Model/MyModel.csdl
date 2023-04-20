@@ -151,9 +151,9 @@
     <Property Name="ID_ESTADO_RESIDENCIA" Type="Int32" Nullable="false" />
     <Property Name="NUMERO_RESIDENCIA" Type="Int32" Nullable="false" />
     <Property Name="CANTIDAD_PERSONAS" Type="Int32" Nullable="false" />
-    <Property Name="ANIO_INICIO" Type="Int32" Nullable="false" />
+    <Property Name="ANIO_INICIO" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="CANTIDAD_CARROS" Type="Int32" Nullable="false" />
-    <Property Name="ID_USUARIO" Type="Int32" />
+    <Property Name="ID_USUARIO" Type="Int32" Nullable="false" />
     <NavigationProperty Name="ESTADO_RESIDENCIA" Relationship="Self.FK__RESIDENCI__ID_ES__71D1E811" FromRole="RESIDENCIA" ToRole="ESTADO_RESIDENCIA" />
     <NavigationProperty Name="GESTION_PLANES_COBRO" Relationship="Self.FK_GESTION_PLANES_COBRO_RESIDENCIA" FromRole="RESIDENCIA" ToRole="GESTION_PLANES_COBRO" />
     <NavigationProperty Name="USUARIO" Relationship="Self.FK__RESIDENCI__ID_US__73BA3083" FromRole="RESIDENCIA" ToRole="USUARIO" />
@@ -392,7 +392,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK__RESIDENCI__ID_US__73BA3083">
-    <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="0..1" />
+    <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
     <End Role="RESIDENCIA" Type="Self.RESIDENCIA" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="USUARIO">

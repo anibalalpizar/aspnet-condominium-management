@@ -51,5 +51,11 @@ namespace ApplicationCore.Services
         {
             throw new NotImplementedException();
         }
+
+        public RESIDENCIA Save(RESIDENCIA residencia)
+        {
+            IRepositoryResidencia repository = new RepositoryResidencia();
+            return repository.Save(residencia);
+        }
     }
 }

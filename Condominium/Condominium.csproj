@@ -413,6 +413,10 @@
     <Content Include="Views\ReservacionAreasComunes\IndexReservar.cshtml" />
     <Content Include="Views\GestionPlanesCobro\EditDeuda.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Document.cshtml" />
+    <Content Include="Views\Residencia\IndexAdmin.cshtml" />
+    <Content Include="Views\Residencia\Create.cshtml" />
+    <Content Include="Views\Residencia\Edit.cshtml" />
+    <Content Include="Views\Residencia\EditEstado.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

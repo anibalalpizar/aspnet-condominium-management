@@ -24,9 +24,9 @@ namespace Infraestructure.Model
         public int ID_ESTADO_RESIDENCIA { get; set; }
         public int NUMERO_RESIDENCIA { get; set; }
         public int CANTIDAD_PERSONAS { get; set; }
-        public int ANIO_INICIO { get; set; }
+        public System.DateTime ANIO_INICIO { get; set; }
         public int CANTIDAD_CARROS { get; set; }
-        public Nullable<int> ID_USUARIO { get; set; }
+        public int ID_USUARIO { get; set; }
     
         public virtual ESTADO_RESIDENCIA ESTADO_RESIDENCIA { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
