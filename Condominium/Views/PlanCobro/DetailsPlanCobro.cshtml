@@ -58,6 +58,12 @@
 
                             <span style="font-weight: normal;"> $@suma</span>
                         </p>
+
+                        <form method="post" action="@Url.Action("InsertTotal", "PlanCobro")">
+                            <input type="hidden" name="idCobroPlan" value="@Model.ID_COBRO_PLAN" />
+                            <input type="hidden" name="totalAPagar" value="@suma" />
+                            <button type="submit" class="btn btn-primary">Insertar Total</button>
+                        </form>
                     </dd>
 
                   

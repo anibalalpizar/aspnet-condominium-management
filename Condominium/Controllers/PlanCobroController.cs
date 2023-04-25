@@ -3,6 +3,7 @@ using Infraestructure.Model;
 using Microsoft.VisualBasic.CompilerServices;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -147,14 +148,14 @@ namespace Condominium.Controllers
 
         public ActionResult Create()
         {
-            
+
             ViewBag.idRubroCobro = listRubros();
-       
+
             return View();
         }
 
-        
-       
+
+
 
         private MultiSelectList listRubros(ICollection<RUBRO_COBRO> rubrosCobros = null)
         {
@@ -172,35 +173,35 @@ namespace Condominium.Controllers
 
         //Guardar / SAVE 
         [HttpPost]
-        public ActionResult Save(PLAN_COBRO gestion, string[] selectRubrosCobros) 
+        public ActionResult Save(PLAN_COBRO gestion, string[] selectRubrosCobros)
         {
-           
+
             IServicePlanCobro servicePlanCobro = new ServicePlanCobro();
 
             try
             {
 
-                if(ModelState.IsValid)
+                if (ModelState.IsValid)
                 {
                     PLAN_COBRO oGestion = servicePlanCobro.Save(gestion, selectRubrosCobros);
 
                 }
                 else
                 {
-                    
+
                     ViewBag.idRubroCobro = listRubros(gestion.RUBRO_COBRO);
-                   
+
 
                     if (gestion.ID_COBRO_PLAN > 0)
                     {
-                        return (ActionResult)View("Edit",gestion);
+                        return (ActionResult)View("Edit", gestion);
                     }
                     else
                     {
                         return View("Create", gestion);
                     }
                 }
-                return RedirectToAction("IndexAdmin");  
+                return RedirectToAction("IndexAdmin");
             }
             catch (Exception ex)
             {
@@ -239,7 +240,7 @@ namespace Condominium.Controllers
                     TempData["Redirect-Action"] = "IndexAdmin";
                     return RedirectToAction("Default", "Error");
                 }
-                
+
                 ViewBag.ID_RUBRO_COBRO = listRubros(gestion.RUBRO_COBRO);
                 return View(gestion);
             }
@@ -251,8 +252,19 @@ namespace Condominium.Controllers
             }
         }
 
-       
 
-
+        public ActionResult InsertTotal(int idCobroPlan, decimal totalAPagar)
+        {
+            using (MyContext ctx = new MyContext())
+            {
+                var planCobro = ctx.PLAN_COBRO.Find(idCobroPlan);
+                if (planCobro != null)
+                {
+                    planCobro.TOTAL = totalAPagar;
+                    ctx.SaveChanges();
+                }
+            }
+            return RedirectToAction("IndexAdmin");
+        }
     }
 }
