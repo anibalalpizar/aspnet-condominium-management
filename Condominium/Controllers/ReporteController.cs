@@ -33,7 +33,6 @@ namespace Condominium.Controllers
                     Ingresos = group.Sum(gpc => gpc.PLAN_COBRO.TOTAL)
                 })
                 .ToList();
-
                 chartData = new
                 {
                     labels = ingresosPorMes.Select(ipm => CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(ipm.Mes)),
