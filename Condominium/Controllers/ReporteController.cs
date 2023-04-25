@@ -19,27 +19,20 @@ namespace Condominium.Controllers
 
         public ActionResult ReporteIngresos()
         {
-            // Obtener el año actual
             int year = DateTime.Now.Year;
-
-            // Crear el objeto de datos para el gráfico
             dynamic chartData = null;
-
-            // Crear el objeto de opciones para el gráfico
             dynamic chartOptions = null;
-
-            // Consultar los pagos de planes cobro para el año actual, agrupados por mes
             using (var db = new MyContext())
             {
                 var ingresosPorMes = db.GESTION_PLANES_COBRO
                 .Where(gpc => gpc.FECHA_INICIO != null && gpc.FECHA_INICIO.Value.Year == year)
                 .GroupBy(gpc => gpc.FECHA_INICIO.Value.Month)
-                .Select(group => new {
+                .Select(group => new
+                {
                     Mes = group.Key,
                     Ingresos = group.Sum(gpc => gpc.PLAN_COBRO.TOTAL)
                 })
                 .ToList();
-
 
                 chartData = new
                 {
@@ -75,9 +68,5 @@ namespace Condominium.Controllers
 
             return View();
         }
-
-
-
-
     }
 }
