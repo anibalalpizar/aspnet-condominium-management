@@ -1,4 +1,5 @@
 ﻿using Infraestructure.Model;
+using Infraestructure.Repository;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,7 @@ namespace Condominium.Controllers
 
         public ActionResult ReporteIngresos()
         {
+
             int year = DateTime.Now.Year;
             dynamic chartData = null;
             dynamic chartOptions = null;
