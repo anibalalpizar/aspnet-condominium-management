@@ -1,6 +1,6 @@
 
 <h1> Condominium Management </h1>
-<p> This project is a web application for condominium management. It allows you to keep track of residents, common area reservations, financial management and much more. It is developed with ASP.NET MVC and uses SQL Server as a persistent storage system. </p> 
+<p> This project is a web application for condominium management. It allows you to keep track of residents, common area reservations, financial management and much more. It is developed with ASP.NET MVC and uses SQL Server as a persistent storage system. </p>   
 
 <h1> Characteristics </h1>
 · User registration and authentication (administrator and resident) </br>
